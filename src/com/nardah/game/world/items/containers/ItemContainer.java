@@ -522,17 +522,6 @@ public class ItemContainer implements Iterable<Item> {
 	 * @return The first index found, {@code -1} if no {@link Item} with {@code
 	 * id}  is in this container.
 	 */
-	
-	/**
-	 * FOR ADAM - Incase the items capactity exceeds the length this is the original
-	 * code, if anything occurs, or errors. changed it from capacity to items.length
-	 * (in the for loop)
-	 **/
-	/*
-	 * public final int computeIndexForId(int id) { for (int index = 0; index <
-	 * capacity; index++) { if (items[index] != null && items[index].getId() == id)
-	 * { return index; } } return -1; }
-	 */
 	public final int computeIndexForId(int id) {
 		for(int index = 0; index < items.length; index++) {
 			if(items[index] != null && items[index].getId() == id) {

@@ -26,12 +26,12 @@ public final class Config {
 	/**
 	 * The latest announcement thread link.
 	 */
-	public static final String LATEST_ANNOUNCEMENT_THREAD = "http://runity.io/forums/index.php?/topic/5-rebirth-of-near-reality/&tab=comments#comment-11";
+	public static final String LATEST_ANNOUNCEMENT_THREAD = "http://nardah.com/community/index.php?/forum/9-news-announcements/";
 	
 	/**
 	 * The latest update thread link.
 	 */
-	public static final String LATEST_UPDATE_THREAD = "http://runity.io/forums/index.php?/topic/3-updates-of-04012018/&tab=comments#comment-7";
+	public static final String LATEST_UPDATE_THREAD = "http://nardah.com/community/index.php?/forum/3-updates/";
 	
 	/**
 	 * The welcome marquee.
@@ -410,13 +410,17 @@ public final class Config {
 	/**
 	 * Messages that are sent periodically to all players.
 	 */
-	public static final String[] MESSAGES = {"The owner & founder of Runity is Jordan & Adam.", "Runity game developers are Adam & Harry", "Our website is located at: http://runity.io", "Add more security to your account by setting a bank pin.", "Tired of constantly re-gearing? Set a preset!", "Have any ideas on how we could improve our gameplay? Post on forums!.", "Voting daily can be very beneficial & it supports the server!", "Found a bug? Let a moderator know or post it on the forums!", "Did you know you can change your combat level by clicking on the skill?", "You can do ::commands for a list of commands!", "Royalty rewards are given every 30 minutes! ::royaltyprogram", "Saying you don't need privacy because you have nothing to hide is like saying you don't need free speech because you have nothing to say."};
+	public static final String[] MESSAGES = {"Our website is located at: http://nardah.com", "Add more security to your account by setting a bank pin.", "Tired of constantly re-gearing? Set a preset!", "Have any ideas on how we could improve our gameplay? Post on forums!.", "Voting daily can be very beneficial & it supports the server!", "Found a bug? Let a moderator know or post it on the forums!", "Did you know you can change your combat level by clicking on the skill?", "You can do ::commands for a list of commands!", "Royalty rewards are given every 30 minutes! ::royaltyprogram", "Saying you don't need privacy because you have nothing to hide is like saying you don't need free speech because you have nothing to say."};
 	
 	/**
 	 * Holds the array of all the side-bar identification and their corresponding
 	 * itemcontainer identification.
 	 */
 	public static final int[][] SIDEBAR_INTERFACE = {{Config.ATTACK_TAB, 5855}, {Config.SKILL_TAB, 3917}, {Config.INVENTORY_TAB, 3213}, {Config.QUEST_TAB, 29400}, {Config.EQUIPMENT_TAB, 1644}, {Config.PRAYER_TAB, 5608}, {Config.CLAN_TAB, 33500}, {Config.FRIENDS_TAB, 5065}, {Config.IGNORE_TAB, 5715}, {Config.WRENCH_TAB, 50020}, {Config.EMOTE_TAB, 41000}, {Config.MUSIC_TAB, -1}, {Config.ACTIVITY_TAB, -1}, {Config.LOGOUT_TAB, 2449}};
+	
+	/**
+	 * Website url.
+	 */
 	public static final String WEBSITE_URL;
 	
 	/**

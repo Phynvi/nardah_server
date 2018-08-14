@@ -1,4 +1,4 @@
-package com.nardah.fs.cache.decoder;
+package com.nardah.filesystem.decoder;
 
 import com.nardah.content.activity.impl.battlerealm.BattleRealmObjects;
 import com.nardah.game.world.World;
@@ -7,9 +7,9 @@ import com.nardah.game.world.pathfinding.TraversalMap;
 import com.nardah.game.world.position.Area;
 import com.nardah.game.world.position.Position;
 import com.nardah.game.world.region.RegionDefinition;
-import com.nardah.fs.cache.FileSystem;
-import com.nardah.fs.util.ByteBufferUtil;
-import com.nardah.fs.util.CompressionUtil;
+import com.nardah.filesystem.FileSystem;
+import com.nardah.filesystem.util.ByteBufferUtil;
+import com.nardah.filesystem.util.CompressionUtil;
 import com.nardah.game.world.region.Region;
 import com.nardah.util.log.LogManager;
 import com.nardah.util.log.Logger;

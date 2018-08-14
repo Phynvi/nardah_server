@@ -1,6 +1,6 @@
 package com.nardah.util;
 
-import com.nardah.fs.cache.FileSystem;
+import com.nardah.filesystem.FileSystem;
 
 import java.text.NumberFormat;
 import java.util.stream.IntStream;

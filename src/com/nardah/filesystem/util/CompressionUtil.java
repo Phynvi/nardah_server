@@ -1,6 +1,6 @@
-package com.nardah.fs.util;
+package com.nardah.filesystem.util;
 
-import com.nardah.fs.cache.FileSystem;
+import com.nardah.filesystem.FileSystem;
 import org.apache.tools.bzip2.CBZip2InputStream;
 
 import java.io.ByteArrayInputStream;

@@ -1,6 +1,6 @@
-package com.nardah.fs.cache.archive;
+package com.nardah.filesystem.archive;
 
-import com.nardah.fs.cache.FileSystem;
+import com.nardah.filesystem.FileSystem;
 
 import java.nio.ByteBuffer;
 

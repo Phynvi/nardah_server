@@ -59,8 +59,9 @@ public class PresetButtonPlugin extends PluginContext {
 			player.presetManager.delete();
 			return true;
 		case -8498:
-			player.send(new SendMessage("Please wait as the preset gear guide loads..."));
-			player.send(new SendURL("http://www.runity.io/index.php?/topic/8-preloading-gear-guide/"));
+			player.send(new SendMessage("There is currently no gear guide up, please contact a staff for assistance."));
+			//player.send(new SendMessage("Please wait as the preset gear guide loads..."));
+			//player.send(new SendURL("http://www.nardah.com/index.php?/topic/8-preloading-gear-guide/"));
 			return true;
 		}
 		return false;

@@ -1,7 +1,7 @@
 package com.nardah.game.world.object;
 
 import com.nardah.util.Buffer;
-import com.nardah.fs.cache.archive.Archive;
+import com.nardah.filesystem.archive.Archive;
 import com.nardah.util.log.LogManager;
 import com.nardah.util.log.Logger;
 import com.nardah.util.log.LoggerType;

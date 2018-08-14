@@ -34,7 +34,7 @@ public class RoyalKingDialogue extends Dialogue {
 		}
 		Player player = factory.getPlayer();
 		factory.sendNpcChat(5523, Expression.HAPPY, "Hello adventurer, how may I help you?");
-		factory.sendOption("Claim Purchase", () -> claim(factory), "Donator Information", () -> player.send(new SendURL("www.runity.io/store")), "Open Store", () -> store(factory), "Nevermind", factory::clear);
+		factory.sendOption("Claim Purchase", () -> claim(factory), "Donator Information", () -> player.send(new SendURL("www.nardah.com/store")), "Open Store", () -> store(factory), "Nevermind", factory::clear);
 		factory.execute();
 	}
 

@@ -94,33 +94,18 @@ public class AccountSecurity {
 	 * Holds all the account security data for the management team.
 	 */
 	public enum AccountData {
-		/* Owner */
-		
-		ADAM(PlayerRight.DEVELOPER, "Adam", "", "127.0.0.1"), HARRYL(PlayerRight.DEVELOPER, "Harryl", "", "127.0.0.1"), MERADJ(PlayerRight.DEVELOPER, "Meradj", "", "213.127.118.249", "195.169.28.13"), RED(PlayerRight.DEVELOPER, "Red", "127.0.0.1", ""),
-		
 		/* Developer */
-		ASHPIRE(PlayerRight.DEVELOPER, "Ashpire", "", "", ""), ETHAN(PlayerRight.DEVELOPER, "Ethan", "", "", ""), JORDAN(PlayerRight.DEVELOPER, "JordanRSPS", "", "", ""),
-		// NSHUSA(PlayerRight.DEVELOPER, "Nshusa", "320 406 7557", "97.88.20.251"),
+		
+		ETHAN(PlayerRight.DEVELOPER, "Ethan", "", "127.0.0.1"),
+		ARTEM(PlayerRight.DEVELOPER, "Rogue", "", "127.0.0.1"),
 		
 		/* Administrator */
-		// SICK(PlayerRight.ADMINISTRATOR, "Sick", "532268532268", "24.185.138.252",
-		// "70.44.114.95"),
-		// SAM(PlayerRight.ADMINISTRATOR, "Osrssam", "462446244624", "162.104.166.126"),
-		// PROJECT123(PlayerRight.ADMINISTRATOR, "Project123", "667199815671",
-		// "72.223.36.170"),
-		// GOAT(PlayerRight.ADMINISTRATOR, "Goat", "193618193618", "24.19.102.254"),
 		
 		/* Moderator */
-		// YAN(PlayerRight.MODERATOR, "Yan", "484090327761", "207.134.50.158"),
-		// SANTA(PlayerRight.MODERATOR, "Santa", "5283416073", "84.192.208.37"),
-		// MEERSTER(PlayerRight.MODERATOR, "Meerster", "137137137137",
-		// "75.184.113.154"),
 		
 		/* Helper */
-		ADAM1(PlayerRight.HELPER, "Adam1", "", "104.197.52.162"), // TRANQUILLO(PlayerRight.HELPER, "Tranquillo", "", "87.214.74.143"),
-		// PVM_BEN(PlayerRight.HELPER, "Pvm Ben", "", "31.205.22.206"),
-		// SYZYGY(PlayerRight.HELPER, "Syzygy", "", "70.66.42.221"),
-		MULTAK(PlayerRight.PLAYER, "Multak", "", "24.98.63.27");
+		
+		;
 		
 		private final String name;
 		private final String key;

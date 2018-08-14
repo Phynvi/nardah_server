@@ -95,9 +95,7 @@ public class StarterKitButtonPlugin extends PluginContext {
 		player.playerAssistant.setSidebar(false);
 		player.runEnergy = 100;
 
-		player.dialogueFactory
-				.sendNpcChat(306, Expression.HAPPY, "As a new player, you can sign up for Brutal Mode.",
-						"This mode enables open-world PvP and sets you at 3x less exp.", "Are you interested?")
+		player.dialogueFactory.sendNpcChat(306, Expression.HAPPY, "As a new player, you can sign up for Brutal Mode.", "This mode enables open-world PvP and sets you at 3x less exp.", "Are you interested?")
 				.sendOption("That sounds like me!", () -> {
 					player.brutalMode = true;
 					player.expRate = 0.34;
@@ -106,11 +104,9 @@ public class StarterKitButtonPlugin extends PluginContext {
 					// Do nothing!
 				}).execute();
 
-		World.sendMessage("Welcome to Runity @blu@" + player.getName() + "");
-		player.send(new SendMessage(
-				"You will now be playing as " + Utility.getAOrAn(name) + " @blu@" + name + "@bla@ player."));
-		player.send(new SendMessage(
-				"@red@Tutorial Tip@bla@ You can train your combat ::train, or make money thieving or ::barrows"));
+		World.sendMessage("Welcome to Nardah, @blu@" + player.getName() + "!");
+		player.send(new SendMessage("You will now be playing as " + Utility.getAOrAn(name) + " @blu@" + name + "@bla@ player."));
+		player.send(new SendMessage("@red@Tutorial Tip@bla@ You can train your combat ::train, or make money thieving or ::barrows"));
 		player.send(new SendMessage("@red@Tutorial Tip@bla@ Pking is also a very good method to make money."));
 		player.runEnergy = +100;
 		player.buttonDelay.reset();

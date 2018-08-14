@@ -119,7 +119,7 @@ public final class MobDropManager {
 			if(killer.settings.dropNotification && item.getValue() > 1_000_000) {
 				String name = item.getName();
 				killer.send(new SendMessage("<col=BA383E>Rare Drop Notification: </col>" + name + " (" + Utility.formatDigits(item.getValue()) + " coins)"));
-				World.sendMessage("<col=BA383E>Runity: <col=" + killer.right.getColor() + ">" + killer.getName() + " </col>has just received " + Utility.getAOrAn(name) + " <col=BA383E>" + name + " </col>from <col=BA383E>" + mob.getName() + "</col>!");
+				World.sendMessage("<col=BA383E>Nardah: <col=" + killer.right.getColor() + ">" + killer.getName() + " </col>has just received " + Utility.getAOrAn(name) + " <col=BA383E>" + name + " </col>from <col=BA383E>" + mob.getName() + "</col>!");
 			} else if(killer.settings.untradeableNotification && !item.isTradeable()) {
 				killer.send(new SendMessage("<col=F5424B>Untradeable Drop Notification: </col>" + item.getName()));
 			}

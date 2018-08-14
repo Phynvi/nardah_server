@@ -223,7 +223,7 @@ public class ObjectFirstClickPlugin extends PluginContext {
 
 		case 24064:
 			player.move(new Position(3046, 3372, 0));
-			player.message("Welcome to Runity's Gambling zone!");
+			player.message("Welcome to Nardah's Gambling zone!");
 			break;
 
 		case 3399:
