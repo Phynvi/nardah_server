@@ -12,7 +12,7 @@ import io.battlerune.game.action.Action;
 import io.battlerune.game.action.policy.WalkablePolicy;
 import io.battlerune.game.task.impl.ObjectReplacementEvent;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.ItemDefinition;

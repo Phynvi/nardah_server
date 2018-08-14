@@ -8,7 +8,7 @@ import io.battlerune.content.quest.Quest;
 import io.battlerune.content.quest.QuestManager;
 import io.battlerune.content.quest.QuestState;
 import io.battlerune.content.store.Store;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.net.packet.out.SendString;
 

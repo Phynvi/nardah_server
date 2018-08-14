@@ -1,7 +1,7 @@
 package io.battlerune.game.event.listener;
 
 import io.battlerune.game.event.Event;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * The type of event listener that will listen for player-related events

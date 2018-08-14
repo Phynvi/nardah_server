@@ -7,8 +7,8 @@ import io.battlerune.game.world.entity.combat.attack.FightType;
 import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.player.PlayerMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class GraniteMaul extends PlayerMeleeStrategy {
 	private static final Animation ANIMATION = new Animation(1667, UpdatePriority.HIGH);
@@ -19,7 +19,7 @@ public class GraniteMaul extends PlayerMeleeStrategy {
 	}
 
 	@Override
-	public void start(Player attacker, Mob defender, Hit[] hits) {
+	public void start(Player attacker, Actor defender, Hit[] hits) {
 		super.start(attacker, defender, hits);
 
 		if(attacker.attributes.is("granite-maul-spec")) {
@@ -34,17 +34,17 @@ public class GraniteMaul extends PlayerMeleeStrategy {
 	}
 
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		return new CombatHit[]{nextMeleeHit(attacker, defender)};
 	}
 
 	@Override
-	public Animation getAttackAnimation(Player attacker, Mob defender) {
+	public Animation getAttackAnimation(Player attacker, Actor defender) {
 		return ANIMATION;
 	}
 
 	@Override
-	public int getAttackDelay(Player attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Player attacker, Actor defender, FightType fightType) {
 		return 3;
 	}
 

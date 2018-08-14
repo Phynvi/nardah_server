@@ -1,7 +1,7 @@
 package io.battlerune.content.event.impl;
 
 import io.battlerune.content.event.InteractionEvent;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
 /**
  * @author <a href="http://www.rune-server.org/members/stand+up/">Stand Up</a>
@@ -9,14 +9,14 @@ import io.battlerune.game.world.entity.mob.Mob;
  */
 public final class OnKillEvent extends InteractionEvent {
 
-	private final Mob victim;
+	private final Actor victim;
 
-	public OnKillEvent(Mob victim) {
+	public OnKillEvent(Actor victim) {
 		super(InteractionType.ON_KILL);
 		this.victim = victim;
 	}
 
-	public Mob getVictim() {
+	public Actor getVictim() {
 		return victim;
 	}
 }

@@ -2,8 +2,8 @@ package io.battlerune.game.world.entity.combat.attack.listener.item;
 
 import io.battlerune.game.world.entity.combat.attack.listener.ItemCombatListenerSignature;
 import io.battlerune.game.world.entity.combat.attack.listener.SimplifiedListener;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * Handles the slayer helmet / black mask effects ofr slayer tasks.
@@ -18,14 +18,14 @@ import io.battlerune.game.world.entity.mob.player.Player;
 public class SlayerHelmListener extends SimplifiedListener<Player> {
 
 	@Override
-	public int modifyAttackLevel(Player attacker, Mob defender, int level) {
+	public int modifyAttackLevel(Player attacker, Actor defender, int level) {
 		if(attacker.slayer.getTask() != null && attacker.slayer.getTask().valid(defender.id))
 			return level * 7 / 6;
 		return level;
 	}
 
 	@Override
-	public int modifyStrengthLevel(Player attacker, Mob defender, int level) {
+	public int modifyStrengthLevel(Player attacker, Actor defender, int level) {
 		if(attacker.slayer.getTask() != null && attacker.slayer.getTask().valid(defender.id))
 			return level * 7 / 6;
 		return level;

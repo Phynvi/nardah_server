@@ -1,7 +1,7 @@
 package io.battlerune.game.event.impl;
 
 import io.battlerune.game.event.Event;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 
 public class ItemOnPlayerEvent implements Event {

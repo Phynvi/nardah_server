@@ -4,7 +4,7 @@ import io.battlerune.content.skill.SkillRepository;
 import io.battlerune.content.skill.impl.hunter.Hunter;
 import io.battlerune.game.action.Action;
 import io.battlerune.game.action.policy.WalkablePolicy;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.util.Utility;
 
 /**

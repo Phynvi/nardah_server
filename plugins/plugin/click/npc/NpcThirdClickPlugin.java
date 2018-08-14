@@ -4,7 +4,7 @@ import io.battlerune.content.dialogue.impl.RoyalKingDialogue;
 import io.battlerune.content.skill.impl.slayer.SlayerOfferings;
 import io.battlerune.game.event.impl.NpcClickEvent;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class NpcThirdClickPlugin extends PluginContext {
 

@@ -5,7 +5,7 @@ import io.battlerune.content.event.InteractionEvent;
 import io.battlerune.content.event.InteractionEvent.InteractionType;
 import io.battlerune.content.event.InteractionEventListener;
 import io.battlerune.content.event.impl.*;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.util.Stopwatch;
 
 import java.util.function.Function;

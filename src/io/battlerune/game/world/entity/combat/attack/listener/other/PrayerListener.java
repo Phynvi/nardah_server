@@ -7,12 +7,12 @@ import io.battlerune.game.world.entity.combat.CombatUtil;
 import io.battlerune.game.world.entity.combat.attack.listener.SimplifiedListener;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.hit.HitIcon;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.prayer.Prayer;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.prayer.Prayer;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.util.RandomUtils;
 
-public class PrayerListener extends SimplifiedListener<Mob> {
+public class PrayerListener extends SimplifiedListener<Actor> {
 
 	private static final PrayerListener INSTANCE = new PrayerListener();
 
@@ -20,7 +20,7 @@ public class PrayerListener extends SimplifiedListener<Mob> {
 	}
 
 	@Override
-	public void hit(Mob attacker, Mob defender, Hit hit) {
+	public void hit(Actor attacker, Actor defender, Hit hit) {
 		if(attacker.prayer.isActive(Prayer.SMITE)) {
 			defender.skills.get(Skill.PRAYER).removeLevel(hit.getDamage() / 4);
 			defender.skills.refresh(Skill.PRAYER);
@@ -28,7 +28,7 @@ public class PrayerListener extends SimplifiedListener<Mob> {
 	}
 
 	@Override
-	public void block(Mob attacker, Mob defender, Hit hit, CombatType combatType) {
+	public void block(Actor attacker, Actor defender, Hit hit, CombatType combatType) {
 		int health = defender.getCurrentHealth() - hit.getDamage();
 		if(defender.prayer.isActive(Prayer.REDEMPTION) && health < defender.getMaximumHealth() / 10) {
 			Skill skill = defender.skills.get(Skill.PRAYER);
@@ -41,7 +41,7 @@ public class PrayerListener extends SimplifiedListener<Mob> {
 	}
 
 	@Override
-	public void preDeath(Mob attacker, Mob defender, Hit hit) {
+	public void preDeath(Actor attacker, Actor defender, Hit hit) {
 		System.out.println("Here");
 		if(defender.prayer.isActive(Prayer.RETRIBUTION)) {
 			System.out.println("Retribution here!");

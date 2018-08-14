@@ -2,8 +2,8 @@ package io.battlerune.content.itemaction.impl;
 
 import io.battlerune.content.itemaction.ItemAction;
 import io.battlerune.game.world.entity.combat.strategy.player.custom.DragonfireShieldStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 
 public class DragonfireShield extends ItemAction {
@@ -50,7 +50,7 @@ public class DragonfireShield extends ItemAction {
 				player.message("You have no charges to do this!");
 				return true;
 			}
-			Mob defender = player.getCombat().getDefender();
+			Actor defender = player.getCombat().getDefender();
 			if(defender == null && player.getCombat().isAttacking()) {
 				defender = player.getCombat().getLastVictim();
 			}

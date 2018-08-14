@@ -1,8 +1,8 @@
 package io.battlerune.game.world.entity.combat;
 
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.pathfinding.path.SimplePathChecker;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.game.world.position.Position;
@@ -17,17 +17,17 @@ public class CombatTarget {
 	 * The aggression timeout in minutes.
 	 */
 	private static final int AGGRESSION_TIMEOUT = 20;
-	private final Mob mob;
-	private Mob target;
+	private final Actor actor;
+	private Actor target;
 	private int distance;
 	
-	CombatTarget(Mob mob) {
-		this.mob = mob;
+	CombatTarget(Actor actor) {
+		this.actor = actor;
 		this.distance = Integer.MAX_VALUE;
 	}
 	
 	/**
-	 * Checks the aggression for this mob if a target is set.
+	 * Checks the aggression for this actor if a target is set.
 	 */
 	void checkAggression(int level, Position spawn) {
 		/* No target */
@@ -38,59 +38,59 @@ public class CombatTarget {
 		if(distance == Integer.MAX_VALUE)
 			return;
 		
-		/* The mob is too far from spawn */
-		if(!Area.inGodwars(mob) && Utility.getDistance(mob, spawn) > Region.VIEW_DISTANCE) {
-			Mob trgt = target;
+		/* The actor is too far from spawn */
+		if(!Area.inGodwars(actor) && Utility.getDistance(actor, spawn) > Region.VIEW_DISTANCE) {
+			Actor trgt = target;
 			distance = Integer.MAX_VALUE;
-			mob.getCombat().reset();
-			if(mob.isNpc() && mob.getNpc().boundaries.length > 0) {
-				Position pos = Utility.randomElement(mob.getNpc().boundaries);
-				mob.interact(trgt);
-				mob.walkExactlyTo(pos, () -> {
-					mob.resetFace();
+			actor.getCombat().reset();
+			if(actor.isNpc() && actor.getNpc().boundaries.length > 0) {
+				Position pos = Utility.randomElement(actor.getNpc().boundaries);
+				actor.interact(trgt);
+				actor.walkExactlyTo(pos, () -> {
+					actor.resetFace();
 					resetTarget();
 				});
 			}
 			return;
 		}
 		
-		if(target.skills.getCombatLevel() > level * 2 && !Area.inWilderness(mob))
+		if(target.skills.getCombatLevel() > level * 2 && !Area.inWilderness(actor))
 			return;
 		
-		int dist = Utility.getDistance(target, mob);
-		int aggressionRadius = mob.width() + 5;
+		int dist = Utility.getDistance(target, actor);
+		int aggressionRadius = actor.width() + 5;
 		
-		if(Area.inGodwars(mob)) {
+		if(Area.inGodwars(actor)) {
 			aggressionRadius = Region.SIZE;
 		}
 		
-		/* The mob is too far from target */
+		/* The actor is too far from target */
 		if(dist > aggressionRadius)
 			return;
 		
-		/* The mob is already in combat with the target */
-		if(mob.getCombat().isAttacking(target))
+		/* The actor is already in combat with the target */
+		if(actor.getCombat().isAttacking(target))
 			return;
 		
-		if(!mob.getCombat().attack(target)) {
-			mob.getCombat().reset();
+		if(!actor.getCombat().attack(target)) {
+			actor.getCombat().reset();
 		}
 	}
 	
 	/**
-	 * Compares the given mob with the current target. If the give mob is closer
-	 * than the current target, the target will be set to the given mob.
-	 * @param other the mob to compare to the target
+	 * Compares the given actor with the current target. If the give actor is closer
+	 * than the current target, the target will be set to the given actor.
+	 * @param other the actor to compare to the target
 	 */
-	void compare(Mob other) {
-		int dist = Utility.getDistance(mob, other);
+	void compare(Actor other) {
+		int dist = Utility.getDistance(actor, other);
 		
 		/* The npc is too far from target */
 		if(dist > Region.VIEW_DISTANCE || dist >= distance)
 			return;
 		
 		/* Found a closer target */
-		if(!isTarget(other) && SimplePathChecker.checkProjectile(mob, other)) {
+		if(!isTarget(other) && SimplePathChecker.checkProjectile(actor, other)) {
 			target = other;
 			distance = dist;
 		}
@@ -130,27 +130,27 @@ public class CombatTarget {
 	}
 	
 	public void resetTarget() {
-		if(mob.isPlayer()) {
-			mob.getPlayer().playerAssistant.sendOpponentStatsInterface(false, null);
+		if(actor.isPlayer()) {
+			actor.getPlayer().playerAssistant.sendOpponentStatsInterface(false, null);
 		}
 		target = null;
 		distance = Integer.MAX_VALUE;
 	}
 	
-	public boolean isTarget(Mob mob) {
-		return mob.equals(target);
+	public boolean isTarget(Actor actor) {
+		return actor.equals(target);
 	}
 	
-	public Mob getTarget() {
+	public Actor getTarget() {
 		return target;
 	}
 	
-	public void setTarget(Mob target) {
-		if(mob.isPlayer() && target.isPlayer()) {
-			mob.getPlayer().playerAssistant.sendOpponentStatsInterface(true, target.getPlayer());
+	public void setTarget(Actor target) {
+		if(actor.isPlayer() && target.isPlayer()) {
+			actor.getPlayer().playerAssistant.sendOpponentStatsInterface(true, target.getPlayer());
 		}
 		this.target = target;
-		distance = Utility.getDistance(mob, target);
+		distance = Utility.getDistance(actor, target);
 	}
 	
 }

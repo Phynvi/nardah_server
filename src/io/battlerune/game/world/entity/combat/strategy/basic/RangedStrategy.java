@@ -5,9 +5,9 @@ import io.battlerune.content.activity.impl.kraken.KrakenActivity;
 import io.battlerune.game.world.entity.combat.attack.FightType;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.prayer.Prayer;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.prayer.Prayer;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.pathfinding.path.SimplePathChecker;
 import io.battlerune.util.Utility;
@@ -15,10 +15,10 @@ import io.battlerune.util.Utility;
 /**
  * @author Michael | Chex
  */
-public abstract class RangedStrategy<T extends Mob> extends CombatStrategy<T> {
+public abstract class RangedStrategy<T extends Actor> extends CombatStrategy<T> {
 	
 	@Override
-	public boolean withinDistance(T attacker, Mob defender) {
+	public boolean withinDistance(T attacker, Actor defender) {
 		FightType fightType = attacker.getCombat().getFightType();
 		int distance = getAttackDistance(attacker, fightType);
 		if(attacker.isPlayer() && Activity.evaluate(attacker.getPlayer(), it -> it instanceof KrakenActivity)) {
@@ -28,7 +28,7 @@ public abstract class RangedStrategy<T extends Mob> extends CombatStrategy<T> {
 	}
 	
 	@Override
-	public int modifyDamage(T attacker, Mob defender, int damage) {
+	public int modifyDamage(T attacker, Actor defender, int damage) {
 		if(defender.prayer.isActive(Prayer.PROTECT_FROM_RANGE)) {
 			damage *= !attacker.isPlayer() || defender.isNpc() ? 0.0 : 0.6;
 		}

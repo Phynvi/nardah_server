@@ -5,7 +5,7 @@ import io.battlerune.content.clanchannel.ClanRank;
 import io.battlerune.content.clanchannel.channel.ClanChannel;
 import io.battlerune.content.dialogue.Dialogue;
 import io.battlerune.content.dialogue.DialogueFactory;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendMessage;
 
 public class ClanRankDialogue extends Dialogue {

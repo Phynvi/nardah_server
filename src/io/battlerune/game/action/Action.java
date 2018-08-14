@@ -2,16 +2,16 @@ package io.battlerune.game.action;
 
 import io.battlerune.game.action.policy.WalkablePolicy;
 import io.battlerune.game.task.Task;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
 /**
  * Represents an action an entity can execute.
  * @author <a href="http://www.rune-server.org/members/stand+up/">Stand Up</a>
  */
-public abstract class Action<T extends Mob> extends Task {
+public abstract class Action<T extends Actor> extends Task {
 	
 	/**
-	 * The {@link Mob} associated with this ActionEvent.
+	 * The {@link Actor} associated with this ActionEvent.
 	 */
 	private final T mob;
 	

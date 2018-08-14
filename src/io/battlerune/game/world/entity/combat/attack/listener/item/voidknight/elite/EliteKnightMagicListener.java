@@ -3,8 +3,8 @@ package io.battlerune.game.world.entity.combat.attack.listener.item.voidknight.e
 import io.battlerune.game.world.entity.combat.CombatType;
 import io.battlerune.game.world.entity.combat.attack.listener.ItemCombatListenerSignature;
 import io.battlerune.game.world.entity.combat.attack.listener.SimplifiedListener;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * Handles the slayer helmet / black mask effects ofr slayer tasks.
@@ -14,12 +14,12 @@ import io.battlerune.game.world.entity.mob.player.Player;
 public class EliteKnightMagicListener extends SimplifiedListener<Player> {
 
 	@Override
-	public int modifyMagicLevel(Player attacker, Mob defender, int level) {
+	public int modifyMagicLevel(Player attacker, Actor defender, int level) {
 		return level * 29 / 20;
 	}
 
 	@Override
-	public int modifyDamage(Player attacker, Mob defender, int damage) {
+	public int modifyDamage(Player attacker, Actor defender, int damage) {
 		if(attacker.getStrategy().getCombatType() != CombatType.MAGIC)
 			return damage;
 		return damage * 41 / 40;

@@ -3,8 +3,8 @@ package io.battlerune.game.task.impl;
 import io.battlerune.content.clanchannel.ClanRepository;
 import io.battlerune.game.task.Task;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.persist.PlayerSerializer;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.persist.PlayerSerializer;
 
 public class PlayerSaveEvent extends Task {
 

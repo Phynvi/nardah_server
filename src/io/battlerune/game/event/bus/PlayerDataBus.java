@@ -2,7 +2,7 @@ package io.battlerune.game.event.bus;
 
 import io.battlerune.game.event.Event;
 import io.battlerune.game.event.listener.PlayerEventListener;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 import java.util.HashSet;
 import java.util.Set;

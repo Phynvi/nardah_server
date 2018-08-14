@@ -2,7 +2,7 @@ package io.battlerune.content.mysterybox;
 
 import io.battlerune.game.task.TickableTask;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.net.packet.out.SendColor;
 import io.battlerune.net.packet.out.SendItemOnInterfaceSlot;

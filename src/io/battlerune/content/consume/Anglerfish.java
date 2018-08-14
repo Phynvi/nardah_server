@@ -3,7 +3,7 @@ package io.battlerune.content.consume;
 import io.battlerune.game.Animation;
 import io.battlerune.game.UpdatePriority;
 import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.net.packet.out.SendMessage;
 

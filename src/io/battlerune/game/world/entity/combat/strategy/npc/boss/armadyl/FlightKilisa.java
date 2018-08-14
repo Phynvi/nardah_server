@@ -5,8 +5,8 @@ import io.battlerune.game.world.entity.combat.attack.FightType;
 import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.strategy.npc.MultiStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 
 public class FlightKilisa extends MultiStrategy {
 	
@@ -15,7 +15,7 @@ public class FlightKilisa extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean canOtherAttack(Mob attacker, Npc defender) {
+	public boolean canOtherAttack(Actor attacker, Npc defender) {
 		if(attacker.isPlayer() && attacker.getStrategy().getCombatType().equals(CombatType.MELEE)) {
 			attacker.getPlayer().message("You can't attack Armadyl with melee!");
 			return false;
@@ -24,13 +24,13 @@ public class FlightKilisa extends MultiStrategy {
 	}
 	
 	@Override
-	public int getAttackDelay(Npc attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Npc attacker, Actor defender, FightType fightType) {
 		return attacker.definition.getAttackDelay();
 	}
 	
 	private static class Melee extends NpcMeleeStrategy {
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextMeleeHit(attacker, defender, 18)};
 		}
 	}

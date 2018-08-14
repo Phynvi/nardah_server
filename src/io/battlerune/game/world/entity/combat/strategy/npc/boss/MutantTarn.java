@@ -17,8 +17,8 @@ import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcRangedStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.impl.DragonfireStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.util.RandomUtils;
 import io.battlerune.util.Utility;
@@ -56,7 +56,7 @@ public class MutantTarn extends MultiStrategy {
 	}
 	
 	@Override
-	public void init(Npc attacker, Mob defender) {
+	public void init(Npc attacker, Actor defender) {
 		if(strategyQueue.isEmpty()) {
 			for(int index = 0; index < 6; index++) {
 				strategyQueue.add(RandomUtils.random(FULL_STRATEGIES));
@@ -67,7 +67,7 @@ public class MutantTarn extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		if(currentStrategy == MELEE && !MELEE.canAttack(attacker, defender)) {
 			currentStrategy = RandomUtils.random(NON_MELEE);
 		}
@@ -75,7 +75,7 @@ public class MutantTarn extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean withinDistance(Npc attacker, Mob defender) {
+	public boolean withinDistance(Npc attacker, Actor defender) {
 		if(currentStrategy == MELEE && !MELEE.withinDistance(attacker, defender)) {
 			currentStrategy = RandomUtils.random(NON_MELEE);
 		}
@@ -89,12 +89,12 @@ public class MutantTarn extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(5617, UpdatePriority.HIGH);
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextRangedHit(attacker, defender, 32)};
 		}
 	}
@@ -106,12 +106,12 @@ public class MutantTarn extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(5617, UpdatePriority.HIGH);
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextRangedHit(attacker, defender, 32)};
 		}
 		
@@ -125,12 +125,12 @@ public class MutantTarn extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(5617, UpdatePriority.HIGH);
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 			World.schedule(4, () -> {
 				int randomHit = Utility.random(45, 75);
 				Npc shadow = new Npc(1277, new Position(2524, 4655, 0)) {
@@ -153,12 +153,12 @@ public class MutantTarn extends MultiStrategy {
 		}
 		
 		@Override
-		public int getAttackDelay(Npc attacker, Mob defender, FightType fightType) {
+		public int getAttackDelay(Npc attacker, Actor defender, FightType fightType) {
 			return 15;
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit combatHit = nextMagicHit(attacker, defender, -1);
 			combatHit.setAccurate(false);
 			return new CombatHit[]{combatHit};
@@ -171,7 +171,7 @@ public class MutantTarn extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(5617, UpdatePriority.HIGH);
 		}
 		
@@ -181,7 +181,7 @@ public class MutantTarn extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{CombatUtil.generateDragonfire(attacker, defender, 85, true)};
 		}
 	}
@@ -192,7 +192,7 @@ public class MutantTarn extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(5617, UpdatePriority.HIGH);
 		}
 		
@@ -202,7 +202,7 @@ public class MutantTarn extends MultiStrategy {
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 			super.hit(attacker, defender, hit);
 			if(hit.isAccurate()) {
 				defender.venom();
@@ -210,7 +210,7 @@ public class MutantTarn extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit combatHit = CombatUtil.generateDragonfire(attacker, defender, 75, true);
 			return new CombatHit[]{combatHit};
 		}
@@ -222,12 +222,12 @@ public class MutantTarn extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(5617, UpdatePriority.HIGH);
 		}
 		
 		@Override
-		public void hitsplat(Npc attacker, Mob defender, Hit hit) {
+		public void hitsplat(Npc attacker, Actor defender, Hit hit) {
 			super.hitsplat(attacker, defender, hit);
 			
 			if(defender.isPlayer()) {
@@ -241,7 +241,7 @@ public class MutantTarn extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{CombatUtil.generateDragonfire(attacker, defender, 80, true)};
 		}
 	}
@@ -256,25 +256,25 @@ public class MutantTarn extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(5617, UpdatePriority.HIGH);
 		}
 		
 		@Override
-		public void start(Npc attacker, Mob defender, Hit[] hits) {
+		public void start(Npc attacker, Actor defender, Hit[] hits) {
 			super.start(attacker, defender, hits);
 			position = defender.getPosition();
 			
 		}
 		
 		@Override
-		public void attack(Npc attacker, Mob defender, Hit hit) {
+		public void attack(Npc attacker, Actor defender, Hit hit) {
 			PROJECTILE.send(attacker, position);
 			
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 			super.hitsplat(attacker, defender, hit);
 			World.sendGraphic(GRAPHIC, position);
 			hit.setAccurate(false);
@@ -295,7 +295,7 @@ public class MutantTarn extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextMagicHit(attacker, defender, -1, CombatUtil.getHitDelay(attacker, defender, CombatType.MAGIC) + 1, 1)};
 		}
 	}

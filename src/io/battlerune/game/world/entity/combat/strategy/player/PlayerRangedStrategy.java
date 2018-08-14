@@ -12,9 +12,9 @@ import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.ranged.RangedAmmunition;
 import io.battlerune.game.world.entity.combat.ranged.RangedWeaponType;
 import io.battlerune.game.world.entity.combat.strategy.basic.RangedStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.equipment.Equipment;
 import io.battlerune.game.world.items.ground.GroundItem;
@@ -38,7 +38,7 @@ public class PlayerRangedStrategy extends RangedStrategy<Player> {
 	}
 	
 	@Override
-	public boolean canAttack(Player attacker, Mob defender) {
+	public boolean canAttack(Player attacker, Actor defender) {
 		Item weapon = attacker.equipment.get(Equipment.WEAPON_SLOT);
 		
 		if(weapon == null) {
@@ -69,7 +69,7 @@ public class PlayerRangedStrategy extends RangedStrategy<Player> {
 		return false;
 	}
 	
-	protected void sendStuff(Player attacker, Mob defender) {
+	protected void sendStuff(Player attacker, Actor defender) {
 		int id = attacker.equipment.get(attacker.rangedDefinition.getSlot()).getId();
 		Animation animation = attacker.rangedAmmo.getAnimation(id).orElse(getAttackAnimation(attacker, defender));
 		attacker.animate(animation);
@@ -78,7 +78,7 @@ public class PlayerRangedStrategy extends RangedStrategy<Player> {
 	}
 	
 	@Override
-	public void start(Player attacker, Mob defender, Hit[] hits) {
+	public void start(Player attacker, Actor defender, Hit[] hits) {
 		if(attacker.isSpecialActivated()) {
 			attacker.getCombatSpecial().drain(attacker);
 		}
@@ -109,7 +109,7 @@ public class PlayerRangedStrategy extends RangedStrategy<Player> {
 	}
 	
 	@Override
-	public void attack(Player attacker, Mob defender, Hit hit) {
+	public void attack(Player attacker, Actor defender, Hit hit) {
 		removeAmmunition(attacker, defender, attacker.rangedDefinition.getType());
 		if(hit.getDamage() > 1 && attacker.rangedDefinition != null) {
 			Item item = attacker.equipment.get(attacker.rangedDefinition.getSlot());
@@ -118,7 +118,7 @@ public class PlayerRangedStrategy extends RangedStrategy<Player> {
 	}
 	
 	@Override
-	public void hit(Player attacker, Mob defender, Hit hit) {
+	public void hit(Player attacker, Actor defender, Hit hit) {
 		if(attacker.rangedAmmo != null && attacker.rangedDefinition != null) {
 			int id = attacker.equipment.retrieve(attacker.rangedDefinition.getSlot()).map(Item::getId).orElse(-1);
 			attacker.rangedAmmo.getEnd(id).ifPresent(defender::graphic);
@@ -126,7 +126,7 @@ public class PlayerRangedStrategy extends RangedStrategy<Player> {
 	}
 	
 	@Override
-	public Animation getAttackAnimation(Player attacker, Mob defender) {
+	public Animation getAttackAnimation(Player attacker, Actor defender) {
 		int animation = attacker.getCombat().getFightType().getAnimation();
 		
 		if(attacker.equipment.hasShield()) {
@@ -145,7 +145,7 @@ public class PlayerRangedStrategy extends RangedStrategy<Player> {
 	}
 	
 	@Override
-	public int getAttackDelay(Player attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Player attacker, Actor defender, FightType fightType) {
 		return attacker.getCombat().getFightType().getDelay();
 	}
 	
@@ -155,7 +155,7 @@ public class PlayerRangedStrategy extends RangedStrategy<Player> {
 	}
 	
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		RangedAmmunition ammo = attacker.rangedAmmo;
 		CombatHit[] hits = new CombatHit[ammo.getRemoval()];
 		for(int index = 0; index < hits.length; index++) {
@@ -169,7 +169,7 @@ public class PlayerRangedStrategy extends RangedStrategy<Player> {
 		return CombatType.RANGED;
 	}
 	
-	private void removeAmmunition(Player attacker, Mob defender, RangedWeaponType type) {
+	private void removeAmmunition(Player attacker, Actor defender, RangedWeaponType type) {
 		Item next = attacker.equipment.get(type.getSlot());
 		if(next == null)
 			return;

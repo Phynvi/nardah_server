@@ -5,8 +5,8 @@ import io.battlerune.game.task.Task;
 import io.battlerune.game.world.World;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.hit.HitIcon;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendMessage;
 
 public final class CannonFireAction extends Task {

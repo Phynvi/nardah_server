@@ -1,6 +1,6 @@
 package io.battlerune.content.activity.impl.duelarena;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 
 public final class DuelUtils {

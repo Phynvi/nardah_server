@@ -2,9 +2,9 @@ package plugin.click.button;
 
 import io.battlerune.content.SkillSet;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.UpdateFlag;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.UpdateFlag;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.net.packet.out.SendMessage;
@@ -16,7 +16,7 @@ public class SkillSetButtonPlugin extends PluginContext {
 	 * 
 	 * @see
 	 * io.battlerune.game.plugin.PluginContext#onClick(io.battlerune.game.world.
-	 * entity.mob.player.Player, int)
+	 * entity.actor.player.Player, int)
 	 */
 	@SuppressWarnings("static-access")
 	@Override

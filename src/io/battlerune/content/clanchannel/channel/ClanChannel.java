@@ -7,9 +7,9 @@ import io.battlerune.content.clanchannel.ClanRank;
 import io.battlerune.content.clanchannel.ClanRepository;
 import io.battlerune.content.clanchannel.ClanType;
 import io.battlerune.content.clanchannel.content.*;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.UpdateFlag;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.UpdateFlag;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.pricechecker.PriceType;
 import io.battlerune.game.world.region.RegionManager;
@@ -429,7 +429,7 @@ public class ClanChannel implements Comparable<ClanChannel> {
 		});
 	}
 	
-	public void splitLoot(Player player, Mob dead, Item item) {
+	public void splitLoot(Player player, Actor dead, Item item) {
 		if(!lootshareEnabled()) {
 			return;
 		}

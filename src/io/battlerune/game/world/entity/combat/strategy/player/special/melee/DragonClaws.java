@@ -9,8 +9,8 @@ import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.hit.HitIcon;
 import io.battlerune.game.world.entity.combat.strategy.player.PlayerMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * @author Michael | Chex
@@ -22,13 +22,13 @@ public class DragonClaws extends PlayerMeleeStrategy {
 	private static final DragonClaws INSTANCE = new DragonClaws();
 
 	@Override
-	public void start(Player attacker, Mob defender, Hit[] hits) {
+	public void start(Player attacker, Actor defender, Hit[] hits) {
 		super.start(attacker, defender, hits);
 		attacker.graphic(GRAPHIC);
 	}
 
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		CombatHit first = nextMeleeHit(attacker, defender);
 
 		if(first.getDamage() < 1) {
@@ -42,11 +42,11 @@ public class DragonClaws extends PlayerMeleeStrategy {
 	}
 
 	@Override
-	public Animation getAttackAnimation(Player attacker, Mob defender) {
+	public Animation getAttackAnimation(Player attacker, Actor defender) {
 		return ANIMATION;
 	}
 
-	private CombatHit[] secondOption(Player attacker, Mob defender, CombatHit inaccurate) {
+	private CombatHit[] secondOption(Player attacker, Actor defender, CombatHit inaccurate) {
 		CombatHit second = nextMeleeHit(attacker, defender);
 
 		if(second.getDamage() < 1) {
@@ -57,7 +57,7 @@ public class DragonClaws extends PlayerMeleeStrategy {
 		return new CombatHit[]{inaccurate, second, third, third};
 	}
 
-	private CombatHit[] thirdOption(Player attacker, Mob defender, CombatHit inaccurate, CombatHit inaccurate2) {
+	private CombatHit[] thirdOption(Player attacker, Actor defender, CombatHit inaccurate, CombatHit inaccurate2) {
 		CombatHit third = nextMeleeHit(attacker, defender);
 
 		if(third.getDamage() < 1) {
@@ -70,7 +70,7 @@ public class DragonClaws extends PlayerMeleeStrategy {
 		return new CombatHit[]{inaccurate, inaccurate2, third, fourth};
 	}
 
-	private CombatHit[] fourthOption(Player attacker, Mob defender, CombatHit inaccurate, CombatHit inaccurate2) {
+	private CombatHit[] fourthOption(Player attacker, Actor defender, CombatHit inaccurate, CombatHit inaccurate2) {
 		CombatHit fourth = nextMeleeHit(attacker, defender);
 
 		if(fourth.getDamage() < 1) {
@@ -84,7 +84,7 @@ public class DragonClaws extends PlayerMeleeStrategy {
 	}
 
 	@Override
-	public int modifyAccuracy(Player attacker, Mob defender, int roll) {
+	public int modifyAccuracy(Player attacker, Actor defender, int roll) {
 		return roll * 7 / 4;
 	}
 

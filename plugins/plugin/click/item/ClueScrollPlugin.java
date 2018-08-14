@@ -4,7 +4,7 @@ import io.battlerune.content.ActivityLog;
 import io.battlerune.game.event.impl.ItemClickEvent;
 import io.battlerune.game.plugin.PluginContext;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.net.packet.out.SendItemOnInterface;
 import io.battlerune.util.Utility;

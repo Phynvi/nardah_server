@@ -1,7 +1,7 @@
 package io.battlerune.content.activity.impl.warriorguild;
 
 import io.battlerune.content.activity.ActivityListener;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
 /**
  * Handles the warrior guild activity combat listener.
@@ -17,7 +17,7 @@ public class WarriorGuildActivityListener extends ActivityListener<WarriorGuild>
 	}
 
 	@Override
-	public boolean canAttack(Mob attacker, Mob defender) {
+	public boolean canAttack(Actor attacker, Actor defender) {
 		boolean cyclop = false;
 
 		for(int id : WarriorGuildUtility.CYCLOPS) {

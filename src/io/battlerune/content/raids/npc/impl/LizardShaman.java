@@ -1,8 +1,8 @@
 package io.battlerune.content.raids.npc.impl;
 
 import io.battlerune.content.raids.npc.RaidsNpc;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Position;
 
 public class LizardShaman implements RaidsNpc {

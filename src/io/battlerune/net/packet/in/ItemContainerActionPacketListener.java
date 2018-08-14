@@ -4,7 +4,7 @@ import io.battlerune.content.event.EventDispatcher;
 import io.battlerune.content.event.impl.ItemContainerInteractionEvent;
 import io.battlerune.game.event.impl.ItemContainerContextMenuEvent;
 import io.battlerune.game.plugin.PluginManager;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.codec.ByteModification;
 import io.battlerune.net.codec.ByteOrder;
 import io.battlerune.net.packet.GamePacket;

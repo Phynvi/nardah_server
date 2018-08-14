@@ -1,7 +1,7 @@
 package io.battlerune.content.event.impl;
 
 import io.battlerune.content.event.InteractionEvent;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 
 public class NpcInteractionEvent extends InteractionEvent {
 

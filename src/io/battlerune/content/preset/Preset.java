@@ -1,7 +1,7 @@
 package io.battlerune.content.preset;
 
 import io.battlerune.content.skill.impl.magic.Spellbook;
-import io.battlerune.game.world.entity.mob.prayer.PrayerBook;
+import io.battlerune.game.world.entity.actor.prayer.PrayerBook;
 import io.battlerune.game.world.items.Item;
 
 /**

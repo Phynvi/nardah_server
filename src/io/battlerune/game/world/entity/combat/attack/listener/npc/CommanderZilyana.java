@@ -10,8 +10,8 @@ import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.util.Utility;
 
 import static io.battlerune.game.world.entity.combat.CombatUtil.createStrategyArray;
@@ -39,7 +39,7 @@ public class CommanderZilyana extends SimplifiedListener<Npc> {
 	}
 
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		if(!NpcMeleeStrategy.get().withinDistance(attacker, defender)) {
 			attacker.setStrategy(MAGIC);
 		}
@@ -47,7 +47,7 @@ public class CommanderZilyana extends SimplifiedListener<Npc> {
 	}
 
 	@Override
-	public void start(Npc attacker, Mob defender, Hit[] hits) {
+	public void start(Npc attacker, Actor defender, Hit[] hits) {
 		if(!NpcMeleeStrategy.get().withinDistance(attacker, defender)) {
 			attacker.setStrategy(MAGIC);
 		} else {
@@ -59,7 +59,7 @@ public class CommanderZilyana extends SimplifiedListener<Npc> {
 	}
 
 	@Override
-	public void block(Mob attacker, Npc defender, Hit hit, CombatType combatType) {
+	public void block(Actor attacker, Npc defender, Hit hit, CombatType combatType) {
 		attacker.getStrategy().block(attacker, defender, hit, combatType);
 		defender.getCombat().attack(attacker);
 	}
@@ -70,16 +70,16 @@ public class CommanderZilyana extends SimplifiedListener<Npc> {
 		}
 
 		@Override
-		public void start(Npc attacker, Mob defender, Hit[] hits) {
+		public void start(Npc attacker, Actor defender, Hit[] hits) {
 			attacker.animate(new Animation(6970, UpdatePriority.VERY_HIGH));
 		}
 
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 		}
 
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit hit = nextMagicHit(attacker, defender, 31);
 			hit.setAccurate(true);
 			return new CombatHit[]{hit};

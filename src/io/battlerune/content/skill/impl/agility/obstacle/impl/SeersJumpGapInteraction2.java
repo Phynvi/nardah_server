@@ -5,9 +5,9 @@ import io.battlerune.game.Animation;
 import io.battlerune.game.task.Task;
 import io.battlerune.game.task.impl.ForceMovementTask;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.player.ForceMovement;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Direction;
+import io.battlerune.game.world.entity.actor.player.ForceMovement;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Position;
 
 public interface SeersJumpGapInteraction2 extends ObstacleInteraction {

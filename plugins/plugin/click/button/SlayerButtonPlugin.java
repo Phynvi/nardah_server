@@ -4,7 +4,7 @@ import io.battlerune.content.dialogue.DialogueFactory;
 import io.battlerune.content.skill.impl.slayer.SlayerTab;
 import io.battlerune.content.skill.impl.slayer.TaskDifficulty;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class SlayerButtonPlugin extends PluginContext {
 

@@ -9,8 +9,8 @@ import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.impl.DragonfireStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.util.Utility;
 
 import static io.battlerune.game.world.entity.combat.CombatUtil.createStrategyArray;
@@ -35,7 +35,7 @@ public class SkeletalWyvern extends SimplifiedListener<Npc> {
 	}
 
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		if(!NpcMeleeStrategy.get().withinDistance(attacker, defender)) {
 			attacker.setStrategy(DRAGONFIRE);
 		}
@@ -43,7 +43,7 @@ public class SkeletalWyvern extends SimplifiedListener<Npc> {
 	}
 
 	@Override
-	public void finishOutgoing(Npc attacker, Mob defender) {
+	public void finishOutgoing(Npc attacker, Actor defender) {
 
 		int standardAttack = 1;
 		int standardAttackRandom = Utility.random(standardAttack, 5);
@@ -68,12 +68,12 @@ public class SkeletalWyvern extends SimplifiedListener<Npc> {
 		}
 
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return ANIMATION;
 		}
 
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextMeleeHit(attacker, defender)};
 		}
 	}

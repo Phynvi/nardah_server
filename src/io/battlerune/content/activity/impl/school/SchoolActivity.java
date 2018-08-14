@@ -4,10 +4,10 @@ import io.battlerune.Config;
 import io.battlerune.content.activity.Activity;
 import io.battlerune.content.activity.ActivityType;
 import io.battlerune.content.event.impl.ObjectInteractionEvent;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.data.LockType;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.data.LockType;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.object.GameObject;
 import io.battlerune.game.world.position.Position;
 
@@ -37,7 +37,7 @@ public class SchoolActivity extends Activity {
 	}
 
 	private SchoolActivity(Player player) {
-		super(30, Mob.DEFAULT_INSTANCE_HEIGHT);
+		super(30, Actor.DEFAULT_INSTANCE_HEIGHT);
 		this.player = player;
 	}
 

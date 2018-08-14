@@ -3,14 +3,14 @@ package io.battlerune.content.activity;
 import io.battlerune.game.world.entity.combat.CombatType;
 import io.battlerune.game.world.entity.combat.attack.listener.CombatListener;
 import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
 /**
  * A combat listener that is applied to all mobs added to (or removed from) the
  * activity.
  * @param <T> the activity type
  */
-public abstract class ActivityListener<T extends Activity> implements CombatListener<Mob> {
+public abstract class ActivityListener<T extends Activity> implements CombatListener<Actor> {
 
 	/**
 	 * The parent activity.
@@ -26,61 +26,61 @@ public abstract class ActivityListener<T extends Activity> implements CombatList
 	}
 
 	@Override
-	public boolean withinDistance(Mob attacker, Mob defender) {
+	public boolean withinDistance(Actor attacker, Actor defender) {
 		return true;
 	}
 
 	@Override
-	public boolean canAttack(Mob attacker, Mob defender) {
+	public boolean canAttack(Actor attacker, Actor defender) {
 		return true;
 	}
 
 	@Override
-	public boolean canOtherAttack(Mob attacker, Mob defender) {
+	public boolean canOtherAttack(Actor attacker, Actor defender) {
 		return true;
 	}
 
 	@Override
-	public void start(Mob attacker, Mob defender, Hit[] hits) {
+	public void start(Actor attacker, Actor defender, Hit[] hits) {
 	}
 
 	@Override
-	public void attack(Mob attacker, Mob defender, Hit hit) {
+	public void attack(Actor attacker, Actor defender, Hit hit) {
 	}
 
 	@Override
-	public void hit(Mob attacker, Mob defender, Hit hit) {
+	public void hit(Actor attacker, Actor defender, Hit hit) {
 	}
 
 	@Override
-	public void block(Mob attacker, Mob defender, Hit hit, CombatType combatType) {
+	public void block(Actor attacker, Actor defender, Hit hit, CombatType combatType) {
 	}
 
 	@Override
-	public void preDeath(Mob attacker, Mob defender, Hit hit) {
+	public void preDeath(Actor attacker, Actor defender, Hit hit) {
 	}
 
 	@Override
-	public void onDeath(Mob attacker, Mob defender, Hit hit) {
+	public void onDeath(Actor attacker, Actor defender, Hit hit) {
 	}
 
 	@Override
-	public void hitsplat(Mob attacker, Mob defender, Hit hit) {
+	public void hitsplat(Actor attacker, Actor defender, Hit hit) {
 	}
 
 	@Override
-	public void finishOutgoing(Mob attacker, Mob defender) {
+	public void finishOutgoing(Actor attacker, Actor defender) {
 	}
 
 	@Override
-	public void finishIncoming(Mob attacker, Mob defender) {
+	public void finishIncoming(Actor attacker, Actor defender) {
 	}
 
 	@Override
-	public void preKill(Mob attacker, Mob defender, Hit hit) {
+	public void preKill(Actor attacker, Actor defender, Hit hit) {
 	}
 
 	@Override
-	public void onKill(Mob attacker, Mob defender, Hit hit) {
+	public void onKill(Actor attacker, Actor defender, Hit hit) {
 	}
 }

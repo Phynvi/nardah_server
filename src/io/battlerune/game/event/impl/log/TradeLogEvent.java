@@ -1,6 +1,6 @@
 package io.battlerune.game.event.impl.log;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 
 public class TradeLogEvent extends LogEvent {

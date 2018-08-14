@@ -14,10 +14,10 @@ import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.MultiStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.data.LockType;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.prayer.Prayer;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.data.LockType;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.prayer.Prayer;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.util.RandomUtils;
 
@@ -39,7 +39,7 @@ public class Venenatis extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean withinDistance(Npc attacker, Mob defender) {
+	public boolean withinDistance(Npc attacker, Actor defender) {
 		if(currentStrategy == NpcMeleeStrategy.get() && !currentStrategy.withinDistance(attacker, defender) && !defender.prayer.isActive(Prayer.PROTECT_FROM_MAGIC)) {
 			currentStrategy = randomStrategy(NON_MELEE);
 		}
@@ -47,7 +47,7 @@ public class Venenatis extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		if(!currentStrategy.canAttack(attacker, defender)) {
 			currentStrategy = randomStrategy(FULL_STRATEGIES);
 		}
@@ -55,7 +55,7 @@ public class Venenatis extends MultiStrategy {
 	}
 	
 	@Override
-	public void block(Mob attacker, Npc defender, Hit hit, CombatType combatType) {
+	public void block(Actor attacker, Npc defender, Hit hit, CombatType combatType) {
 		//        if (hit.isAccurate() && !Area.inMulti(defender)) { TODO: Gotta make the area multi first
 		//            hit.modifyDamage(damage -> RandomUtils.inclusive(1, 6));
 		//        }
@@ -65,7 +65,7 @@ public class Venenatis extends MultiStrategy {
 	}
 	
 	@Override
-	public void finishOutgoing(Npc attacker, Mob defender) {
+	public void finishOutgoing(Npc attacker, Actor defender) {
 		CombatStrategy<Npc> strategy = currentStrategy;
 		currentStrategy.finishOutgoing(attacker, defender);
 		
@@ -87,12 +87,12 @@ public class Venenatis extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return ANIMATION;
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextMagicHit(attacker, defender)};
 		}
 	}
@@ -106,12 +106,12 @@ public class Venenatis extends MultiStrategy {
 		}
 		
 		@Override
-		public boolean canAttack(Npc attacker, Mob defender) {
+		public boolean canAttack(Npc attacker, Actor defender) {
 			return !defender.locking.locked() && super.canAttack(attacker, defender);
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 			super.hit(attacker, defender, hit);
 			if(!hit.isAccurate())
 				return;
@@ -122,23 +122,23 @@ public class Venenatis extends MultiStrategy {
 		}
 		
 		@Override
-		public void finishOutgoing(Npc attacker, Mob defender) {
+		public void finishOutgoing(Npc attacker, Actor defender) {
 			attacker.getCombat().setCooldown(0);
 			((Venenatis) attacker.getStrategy()).currentStrategy = RandomUtils.randomExclude(FULL_STRATEGIES, WEB);
 		}
 		
 		@Override
-		public int getAttackDelay(Npc attacker, Mob defender, FightType fightType) {
+		public int getAttackDelay(Npc attacker, Actor defender, FightType fightType) {
 			return 0;
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return ANIMATION;
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextMagicHit(attacker, defender, 50)};
 		}
 	}
@@ -149,7 +149,7 @@ public class Venenatis extends MultiStrategy {
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 			if(!hit.isAccurate())
 				return;
 			World.schedule(new TickableTask(true, 1) {
@@ -170,7 +170,7 @@ public class Venenatis extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			int hitDelay = getHitDelay(attacker, defender, CombatType.MAGIC);
 			return new CombatHit[]{nextMagicHit(attacker, defender, 50, hitDelay, RandomUtils.inclusive(1, 3))};
 		}

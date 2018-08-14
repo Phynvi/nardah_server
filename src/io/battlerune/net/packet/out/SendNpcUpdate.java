@@ -6,12 +6,12 @@ import io.battlerune.game.Graphic;
 import io.battlerune.game.world.World;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.hit.Hitsplat;
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.UpdateFlag;
-import io.battlerune.game.world.entity.mob.Viewport;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Direction;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.UpdateFlag;
+import io.battlerune.game.world.entity.actor.Viewport;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.net.codec.AccessType;
 import io.battlerune.net.codec.ByteModification;
@@ -203,11 +203,11 @@ public final class SendNpcUpdate extends OutgoingPacket {
 	}
 	
 	private static void appendFaceEntityMask(Npc npc, PacketBuilder maskBuf) {
-		Mob mob = npc.interactingWith;
+		Actor actor = npc.interactingWith;
 		int index = 65535;
-		if(mob != null) {
-			index = mob.getIndex();
-			if(mob.isPlayer()) {
+		if(actor != null) {
+			index = actor.getIndex();
+			if(actor.isPlayer()) {
 				index += 32768;
 			}
 			maskBuf.writeShort(index);

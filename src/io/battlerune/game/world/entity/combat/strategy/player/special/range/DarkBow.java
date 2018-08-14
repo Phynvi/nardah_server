@@ -7,8 +7,8 @@ import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.projectile.CombatProjectile;
 import io.battlerune.game.world.entity.combat.strategy.player.PlayerRangedStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 
 import static io.battlerune.game.world.items.containers.equipment.Equipment.ARROWS_SLOT;
@@ -41,7 +41,7 @@ public class DarkBow extends PlayerRangedStrategy {
 	}
 
 	@Override
-	protected void sendStuff(Player attacker, Mob defender) {
+	protected void sendStuff(Player attacker, Actor defender) {
 		super.sendStuff(attacker, defender);
 
 		if(isDragonArrow(attacker.equipment.get(ARROWS_SLOT))) {
@@ -54,7 +54,7 @@ public class DarkBow extends PlayerRangedStrategy {
 	}
 
 	@Override
-	public void hit(Player attacker, Mob defender, Hit hit) {
+	public void hit(Player attacker, Actor defender, Hit hit) {
 		if(isDragonArrow(attacker.equipment.get(ARROWS_SLOT))) {
 			defender.graphic(new Graphic(1100, true, UpdatePriority.HIGH));
 		} else {
@@ -64,7 +64,7 @@ public class DarkBow extends PlayerRangedStrategy {
 	}
 
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		CombatHit first = nextRangedHit(attacker, defender);
 		CombatHit second = nextRangedHit(attacker, defender);
 		int minimum = isDragonArrow(attacker.equipment.get(ARROWS_SLOT)) ? 8 : 5;
@@ -83,7 +83,7 @@ public class DarkBow extends PlayerRangedStrategy {
 	}
 
 	@Override
-	public int modifyDamage(Player attacker, Mob defender, int roll) {
+	public int modifyDamage(Player attacker, Actor defender, int roll) {
 		if(isDragonArrow(attacker.equipment.get(ARROWS_SLOT)))
 			return roll * 3 / 2;
 		return roll * 13 / 10;

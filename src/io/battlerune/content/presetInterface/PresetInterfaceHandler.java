@@ -1,6 +1,6 @@
 package io.battlerune.content.presetInterface;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendString;
 
 public class PresetInterfaceHandler {

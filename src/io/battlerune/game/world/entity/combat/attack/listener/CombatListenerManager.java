@@ -1,7 +1,7 @@
 package io.battlerune.game.world.entity.combat.attack.listener;
 
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.util.log.LogManager;
 import io.battlerune.util.log.Logger;
 import io.battlerune.util.log.LoggerType;

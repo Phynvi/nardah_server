@@ -1,7 +1,7 @@
 package io.battlerune.game.world.object;
 
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.pathfinding.TraversalMap;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.game.world.region.Region;

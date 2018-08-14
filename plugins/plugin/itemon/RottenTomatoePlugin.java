@@ -2,9 +2,9 @@ package plugin.itemon;
 
 import io.battlerune.game.event.impl.ItemOnNpcEvent;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.game.world.items.Item;
 
 /**

@@ -10,8 +10,8 @@ import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcRangedStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.util.RandomUtils;
 import io.battlerune.util.Utility;
@@ -38,7 +38,7 @@ public class GeneralGraardor extends SimplifiedListener<Npc> {
 	}
 
 	@Override
-	public void start(Npc attacker, Mob defender, Hit[] hits) {
+	public void start(Npc attacker, Actor defender, Hit[] hits) {
 		if(attacker.getStrategy().equals(NpcMeleeStrategy.get())) {
 			attacker.setStrategy(MELEE);
 		}
@@ -50,12 +50,12 @@ public class GeneralGraardor extends SimplifiedListener<Npc> {
 
 	private static class MeleeAttack extends NpcMeleeStrategy {
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(7018, UpdatePriority.HIGH);
 		}
 
 		@Override
-		public void finishOutgoing(Npc attacker, Mob defender) {
+		public void finishOutgoing(Npc attacker, Actor defender) {
 			if(RandomUtils.success(0.40)) {
 				attacker.setStrategy(RANGED);
 			}
@@ -68,17 +68,17 @@ public class GeneralGraardor extends SimplifiedListener<Npc> {
 		}
 
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(7021, UpdatePriority.HIGH);
 		}
 
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextRangedHit(attacker, defender, 35)};
 		}
 
 		@Override
-		public void hitsplat(Npc attacker, Mob defender, Hit hit) {
+		public void hitsplat(Npc attacker, Actor defender, Hit hit) {
 			super.hitsplat(attacker, defender, hit);
 
 			CombatUtil.areaAction(attacker, 64, 18, mob -> {
@@ -89,7 +89,7 @@ public class GeneralGraardor extends SimplifiedListener<Npc> {
 		}
 
 		@Override
-		public void finishOutgoing(Npc attacker, Mob defender) {
+		public void finishOutgoing(Npc attacker, Actor defender) {
 			if(attacker.getStrategy() != MELEE) {
 				attacker.setStrategy(MELEE);
 			}

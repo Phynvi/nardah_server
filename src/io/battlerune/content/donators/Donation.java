@@ -4,9 +4,9 @@ import io.battlerune.Config;
 import io.battlerune.content.writer.InterfaceWriter;
 import io.battlerune.content.writer.impl.InformationWriter;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.UpdateFlag;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.UpdateFlag;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.net.packet.out.SendBanner;
 import io.battlerune.util.Utility;
 

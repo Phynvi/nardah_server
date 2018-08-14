@@ -2,7 +2,7 @@ package io.battlerune.game.task.impl;
 
 import io.battlerune.game.task.Task;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.util.parser.impl.NpcForceChatParser.ForcedMessage;
 
 /**

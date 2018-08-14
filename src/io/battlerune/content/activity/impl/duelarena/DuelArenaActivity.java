@@ -5,11 +5,11 @@ import io.battlerune.content.activity.ActivityType;
 import io.battlerune.content.consume.FoodData;
 import io.battlerune.content.event.impl.ObjectInteractionEvent;
 import io.battlerune.game.world.entity.combat.strategy.player.special.CombatSpecial;
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerOption;
-import io.battlerune.game.world.entity.mob.player.exchange.duel.StakeSession;
+import io.battlerune.game.world.entity.actor.Direction;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerOption;
+import io.battlerune.game.world.entity.actor.player.exchange.duel.StakeSession;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.ItemContainer;
 import io.battlerune.game.world.items.containers.equipment.Equipment;
@@ -45,7 +45,7 @@ public class DuelArenaActivity extends Activity {
 	private final List<Player> players = new ArrayList<>();
 
 	private DuelArenaActivity() {
-		super(2, Mob.DEFAULT_INSTANCE_HEIGHT);
+		super(2, Actor.DEFAULT_INSTANCE_HEIGHT);
 	}
 
 	public static DuelArenaActivity create(StakeSession duelSession) {
@@ -389,9 +389,9 @@ public class DuelArenaActivity extends Activity {
 	}
 
 	@Override
-	public void onDeath(Mob mob) {
+	public void onDeath(Actor actor) {
 		if(winnerId == -1) {
-			Optional<Player> result = players.stream().filter(it -> it.getListIndex() != mob.getListIndex()).findFirst();
+			Optional<Player> result = players.stream().filter(it -> it.getListIndex() != actor.getListIndex()).findFirst();
 			result.ifPresent(it -> winnerId = it.getListIndex());
 		}
 	}

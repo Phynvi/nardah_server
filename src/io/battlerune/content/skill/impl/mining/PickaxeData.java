@@ -1,7 +1,7 @@
 package io.battlerune.content.skill.impl.mining;
 
 import com.google.common.collect.ImmutableSet;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 import java.util.Optional;
 

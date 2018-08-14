@@ -14,8 +14,8 @@ import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.MultiStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.game.world.region.RegionManager;
 import io.battlerune.util.RandomUtils;
@@ -46,7 +46,7 @@ public class Skotizo extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		if(!currentStrategy.withinDistance(attacker, defender)) {
 			currentStrategy = randomStrategy(MAGIC_STRATEGIES);
 		}
@@ -54,7 +54,7 @@ public class Skotizo extends MultiStrategy {
 	}
 	
 	@Override
-	public void block(Mob attacker, Npc defender, Hit hit, CombatType combatType) {
+	public void block(Actor attacker, Npc defender, Hit hit, CombatType combatType) {
 		currentStrategy.block(attacker, defender, hit, combatType);
 		defender.getCombat().attack(attacker);
 		
@@ -78,7 +78,7 @@ public class Skotizo extends MultiStrategy {
 	}
 	
 	@Override
-	public void finishOutgoing(Npc attacker, Mob defender) {
+	public void finishOutgoing(Npc attacker, Actor defender) {
 		currentStrategy.finishOutgoing(attacker, defender);
 		if(NpcMeleeStrategy.get().withinDistance(attacker, defender)) {
 			currentStrategy = randomStrategy(FULL_STRATEGIES);
@@ -88,7 +88,7 @@ public class Skotizo extends MultiStrategy {
 	}
 	
 	@Override
-	public int getAttackDelay(Npc attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Npc attacker, Actor defender, FightType fightType) {
 		return attacker.definition.getAttackDelay();
 	}
 	
@@ -101,15 +101,15 @@ public class Skotizo extends MultiStrategy {
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 		}
 		
 		@Override
-		public void attack(Npc attacker, Mob defender, Hit hit) {
+		public void attack(Npc attacker, Actor defender, Hit hit) {
 		}
 		
 		@Override
-		public void start(Npc attacker, Mob defender, Hit[] hits) {
+		public void start(Npc attacker, Actor defender, Hit[] hits) {
 			Projectile projectile = new Projectile(1242, 50, 80, 85, 25);
 			attacker.animate(new Animation(69, UpdatePriority.VERY_HIGH));
 			RegionManager.forNearbyPlayer(attacker, 16, other -> {
@@ -122,14 +122,14 @@ public class Skotizo extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit hit = nextMagicHit(attacker, defender, 38);
 			hit.setAccurate(false);
 			return new CombatHit[]{hit};
 		}
 		
 		@Override
-		public int modifyAccuracy(Npc attacker, Mob defender, int roll) {
+		public int modifyAccuracy(Npc attacker, Actor defender, int roll) {
 			return roll + 50_000;
 		}
 	}
@@ -140,15 +140,15 @@ public class Skotizo extends MultiStrategy {
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 		}
 		
 		@Override
-		public void attack(Npc attacker, Mob defender, Hit hit) {
+		public void attack(Npc attacker, Actor defender, Hit hit) {
 		}
 		
 		@Override
-		public void start(Npc attacker, Mob defender, Hit[] hits) {
+		public void start(Npc attacker, Actor defender, Hit[] hits) {
 			attacker.animate(new Animation(69, UpdatePriority.VERY_HIGH));
 			attacker.graphic(481);
 			attacker.speak("ARHHHH! TIME TO SWITCH IT UP!!");
@@ -162,7 +162,7 @@ public class Skotizo extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit hit = nextMagicHit(attacker, defender, 38);
 			hit.setAccurate(false);
 			return new CombatHit[]{hit};
@@ -175,15 +175,15 @@ public class Skotizo extends MultiStrategy {
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 		}
 		
 		@Override
-		public void attack(Npc attacker, Mob defender, Hit hit) {
+		public void attack(Npc attacker, Actor defender, Hit hit) {
 		}
 		
 		@Override
-		public void start(Npc attacker, Mob defender, Hit[] hits) {
+		public void start(Npc attacker, Actor defender, Hit[] hits) {
 			attacker.animate(new Animation(69, UpdatePriority.VERY_HIGH));
 			attacker.speak("YOU WILL NOW FEEL THE TRUE WRATH OF SKOTIZO!");
 			
@@ -203,7 +203,7 @@ public class Skotizo extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit hit = nextMagicHit(attacker, defender, 38);
 			hit.setAccurate(false);
 			return new CombatHit[]{hit};

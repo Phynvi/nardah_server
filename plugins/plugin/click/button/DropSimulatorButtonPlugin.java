@@ -4,7 +4,7 @@ import java.util.List;
 
 import io.battlerune.content.DropSimulator;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class DropSimulatorButtonPlugin extends PluginContext {
 

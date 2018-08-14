@@ -6,7 +6,7 @@ import io.battlerune.content.store.Store;
 import io.battlerune.game.event.impl.ItemClickEvent;
 import io.battlerune.game.event.impl.NpcClickEvent;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 
 public class PrestigeButtonPlugin extends PluginContext {

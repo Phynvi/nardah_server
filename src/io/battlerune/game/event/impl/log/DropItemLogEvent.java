@@ -1,6 +1,6 @@
 package io.battlerune.game.event.impl.log;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.ground.GroundItem;
 
 public class DropItemLogEvent extends LogEvent {

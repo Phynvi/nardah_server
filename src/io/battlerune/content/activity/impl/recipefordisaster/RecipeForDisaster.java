@@ -6,10 +6,10 @@ import io.battlerune.content.activity.Activity;
 import io.battlerune.content.activity.ActivityType;
 import io.battlerune.content.activity.panel.ActivityPanel;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.npc.NpcDeath;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.NpcDeath;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.game.world.position.Position;
@@ -157,16 +157,16 @@ public class RecipeForDisaster extends Activity {
 	}
 
 	@Override
-	public void onDeath(Mob mob) {
-		if(mob.isPlayer()) {
+	public void onDeath(Actor actor) {
+		if(actor.isPlayer()) {
 			cleanup();
-			remove(mob);
-			mob.move(new Position(3080, 3498, 0));
+			remove(actor);
+			actor.move(new Position(3080, 3498, 0));
 			return;
 		}
-		if(mob.isNpc()) {
-			player.send(new SendEntityHintArrow(mob, true));
-			World.schedule(new NpcDeath(mob.getNpc()));
+		if(actor.isNpc()) {
+			player.send(new SendEntityHintArrow(actor, true));
+			World.schedule(new NpcDeath(actor.getNpc()));
 			wave = wave.getNext();
 			resetCooldown();
 		}

@@ -2,7 +2,7 @@ package plugin.itemon.player;
 
 import io.battlerune.game.event.impl.ItemOnPlayerEvent;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class ItemOnPlayerPlugin extends PluginContext {
 

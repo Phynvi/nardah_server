@@ -2,8 +2,8 @@ package io.battlerune.content.writer.impl;
 
 import io.battlerune.content.writer.InterfaceWriter;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.net.packet.out.SendScrollbar;
 import io.battlerune.util.Utility;
 

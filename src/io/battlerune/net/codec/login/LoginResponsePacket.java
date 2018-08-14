@@ -1,6 +1,6 @@
 package io.battlerune.net.codec.login;
 
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 
 /**
  * An immutable message that is written through a channel and forwarded to the

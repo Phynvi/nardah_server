@@ -7,7 +7,7 @@ import io.battlerune.content.achievement.AchievementDifficulty;
 import io.battlerune.content.achievement.AchievementHandler;
 import io.battlerune.content.achievement.AchievementList;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendMessage;
 import io.battlerune.util.MessageColor;
 import io.battlerune.util.Utility;

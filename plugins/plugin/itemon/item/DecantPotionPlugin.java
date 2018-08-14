@@ -5,7 +5,7 @@ import io.battlerune.content.clanchannel.content.ClanTaskKey;
 import io.battlerune.content.consume.PotionData;
 import io.battlerune.game.event.impl.ItemOnItemEvent;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.ItemDefinition;

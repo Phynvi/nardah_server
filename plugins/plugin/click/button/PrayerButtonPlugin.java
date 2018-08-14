@@ -2,9 +2,9 @@ package plugin.click.button;
 
 import io.battlerune.content.activity.Activity;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
-import io.battlerune.game.world.entity.mob.prayer.Prayer;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.prayer.Prayer;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.net.packet.out.SendConfig;

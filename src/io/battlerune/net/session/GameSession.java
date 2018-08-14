@@ -2,7 +2,7 @@ package io.battlerune.net.session;
 
 import io.battlerune.Config;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.GamePacket;
 import io.battlerune.net.packet.PacketRepository;
 import io.battlerune.util.log.LogManager;

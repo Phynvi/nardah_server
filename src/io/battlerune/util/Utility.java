@@ -2,9 +2,9 @@ package io.battlerune.util;
 
 import io.battlerune.Nardah;
 import io.battlerune.game.world.Interactable;
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Direction;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.pathfinding.TraversalMap;
 import io.battlerune.game.world.pathfinding.path.Path;
@@ -675,7 +675,7 @@ public class Utility {
 		return source.getPosition().transform(dx, dy);
 	}
 	
-	public static void fixInsidePosition(Mob source, Interactable target) {
+	public static void fixInsidePosition(Actor source, Interactable target) {
 		List<Position> boundaries = new LinkedList<>();
 		Map<Position, LinkedList<Position>> paths = new HashMap<>();
 		Position cur = source.getPosition();

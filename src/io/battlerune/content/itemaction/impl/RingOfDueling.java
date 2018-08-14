@@ -4,7 +4,7 @@ package io.battlerune.content.itemaction.impl;
 //
 //import io.battlerune.net.packet.out.SendMessage;
 //import io.battlerune.net.packet.out.SendMessage.MessageColor;
-//import io.battlerune.game.world.entity.mob.player.Player;
+//import io.battlerune.game.world.entity.actor.player.Player;
 //import io.battlerune.content.itemaction.ItemAction;
 //import io.battlerune.content.itemaction.ItemActionType;
 //import io.battlerune.content.skill.impl.magic.teleport.Teleportation;

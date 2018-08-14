@@ -2,17 +2,13 @@ package plugin.click.button;
 
 import io.battlerune.content.Skillguides.AttackApp;
 import io.battlerune.content.Skillguides.DefenceApp;
-import io.battlerune.content.Skillguides.HerbloreApp;
 import io.battlerune.content.Skillguides.MagicApp;
 import io.battlerune.content.Skillguides.PrayerApp;
 import io.battlerune.content.Skillguides.RangingApp;
-import io.battlerune.content.Skillguides.RunecraftingApp;
 import io.battlerune.content.Skillguides.StrengthApp;
 import io.battlerune.content.skill.impl.firemaking.FiremakingData;
-import io.battlerune.content.skill.impl.magic.teleport.TeleportType;
-import io.battlerune.content.teleport.TeleportHandler;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class SkillsButtonPlugin extends PluginContext {
 

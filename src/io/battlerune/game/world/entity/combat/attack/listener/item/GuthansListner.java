@@ -6,7 +6,7 @@ import io.battlerune.game.world.entity.combat.attack.listener.ItemCombatListener
 import io.battlerune.game.world.entity.combat.attack.listener.NpcCombatListenerSignature;
 import io.battlerune.game.world.entity.combat.attack.listener.SimplifiedListener;
 import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
 /**
  * Handles the guthan item set listener OSRS Wiki:
@@ -15,10 +15,10 @@ import io.battlerune.game.world.entity.mob.Mob;
  */
 @NpcCombatListenerSignature(npcs = {1674})
 @ItemCombatListenerSignature(requireAll = true, items = {4726, 4724, 4728, 4730})
-public class GuthansListner extends SimplifiedListener<Mob> {
+public class GuthansListner extends SimplifiedListener<Actor> {
 
 	@Override
-	public void hit(Mob attacker, Mob defender, Hit hit) {
+	public void hit(Actor attacker, Actor defender, Hit hit) {
 		if(Math.random() > 0.50) {
 			attacker.heal(hit.getDamage());
 			attacker.graphic(new Graphic(398, UpdatePriority.HIGH));

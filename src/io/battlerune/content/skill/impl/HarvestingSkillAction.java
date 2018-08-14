@@ -4,8 +4,8 @@ import com.google.common.base.Preconditions;
 import io.battlerune.content.skill.SkillAction;
 import io.battlerune.game.action.Action;
 import io.battlerune.game.action.policy.WalkablePolicy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.net.packet.out.SendMessage;
@@ -43,23 +43,23 @@ public abstract class HarvestingSkillAction extends SkillAction {
 
 	/**
 	 * Creates a new {@link Action} randomevent.
-	 * @param mob {@link #mob}.
+	 * @param actor {@link #mob}.
 	 * @param position {@link #position}.
 	 * @param instant {@link #instant}.
 	 */
-	public HarvestingSkillAction(Mob mob, Optional<Position> position, boolean instant) {
-		super(mob, position, instant);
+	public HarvestingSkillAction(Actor actor, Optional<Position> position, boolean instant) {
+		super(actor, position, instant);
 	}
 
 	/**
 	 * Creates a new {@link Action} randomevent.
-	 * @param mob {@link #mob}.
+	 * @param actor {@link #mob}.
 	 * @param position {@link #position}.
 	 * @param delay {@link #delay}.
 	 * @param instant {@link #instant}.
 	 */
-	public HarvestingSkillAction(Mob mob, Optional<Position> position, int delay, boolean instant) {
-		super(mob, position, delay, instant);
+	public HarvestingSkillAction(Actor actor, Optional<Position> position, int delay, boolean instant) {
+		super(actor, position, delay, instant);
 	}
 
 	/**
@@ -72,8 +72,8 @@ public abstract class HarvestingSkillAction extends SkillAction {
 	}
 
 	/**
-	 * If mob will get a double onReward.
-	 * @return If mob will get a double onReward.
+	 * If actor will get a double onReward.
+	 * @return If actor will get a double onReward.
 	 */
 	public DoubleReward doubleReward() {
 		return DoubleReward.NONE;

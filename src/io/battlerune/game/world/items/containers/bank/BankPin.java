@@ -1,7 +1,7 @@
 package io.battlerune.game.world.items.containers.bank;
 
 import io.battlerune.content.dialogue.DialogueFactory;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendInputMessage;
 import io.battlerune.net.packet.out.SendMessage;
 import io.battlerune.util.MessageColor;

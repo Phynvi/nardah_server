@@ -2,11 +2,11 @@ package io.battlerune.net.packet.in;
 
 import io.battlerune.game.event.impl.log.ChatLogEvent;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.data.PacketType;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.relations.ChatColor;
-import io.battlerune.game.world.entity.mob.player.relations.ChatEffect;
-import io.battlerune.game.world.entity.mob.player.relations.ChatMessage;
+import io.battlerune.game.world.entity.actor.data.PacketType;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.relations.ChatColor;
+import io.battlerune.game.world.entity.actor.player.relations.ChatEffect;
+import io.battlerune.game.world.entity.actor.player.relations.ChatMessage;
 import io.battlerune.net.codec.ByteModification;
 import io.battlerune.net.packet.ClientPackets;
 import io.battlerune.net.packet.GamePacket;

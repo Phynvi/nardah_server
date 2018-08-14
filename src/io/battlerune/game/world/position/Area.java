@@ -3,7 +3,7 @@ package io.battlerune.game.world.position;
 import com.google.common.collect.ImmutableList;
 import io.battlerune.game.world.Interactable;
 import io.battlerune.game.world.entity.Entity;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 import io.battlerune.game.world.position.impl.SquareArea;
 
 import static io.battlerune.content.activity.impl.battlerealm.BattleRealmCallers.getAreas;
@@ -217,7 +217,7 @@ public abstract class Area {
 	}
 	
 	public static boolean inkolodionArena(Entity entity) {
-		return entity.instance != Mob.DEFAULT_INSTANCE_HEIGHT && inArea(entity, new Position(3092, 3921, entity.getHeight()), new Position(3117, 3947, entity.getHeight()));
+		return entity.instance != Actor.DEFAULT_INSTANCE_HEIGHT && inArea(entity, new Position(3092, 3921, entity.getHeight()), new Position(3117, 3947, entity.getHeight()));
 	}
 	
 	public static boolean inDonatorZone(Interactable entity) {
@@ -306,8 +306,8 @@ public abstract class Area {
 		return false;
 	}
 	
-	public static boolean inGraardor(Mob mob) {
-		return GRAARDOR_ROOM.inArea(mob.getPosition());
+	public static boolean inGraardor(Actor actor) {
+		return GRAARDOR_ROOM.inArea(actor.getPosition());
 	}
 	
 	public static boolean inArea(Interactable interactable, Position bottomLeft, Position topRight) {

@@ -6,7 +6,7 @@ import io.battlerune.game.Projectile;
 import io.battlerune.game.UpdatePriority;
 import io.battlerune.game.world.entity.combat.CombatImpact;
 import io.battlerune.game.world.entity.combat.projectile.CombatProjectile;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 import io.battlerune.game.world.items.Item;
 
 import java.util.Optional;
@@ -432,7 +432,7 @@ public enum RangedAmmunition {
 		return new int[]{11235, 12765, 12766, 12767, 12768};
 	}
 	
-	public void sendProjectile(Mob attacker, Mob defender) {
+	public void sendProjectile(Actor attacker, Actor defender) {
 		getProjectile().sendProjectile(attacker, defender);
 		switch(this) {
 			case DOUBLE_BRONZE_ARROW:

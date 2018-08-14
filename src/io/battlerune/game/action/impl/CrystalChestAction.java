@@ -7,7 +7,7 @@ import io.battlerune.content.achievement.AchievementKey;
 import io.battlerune.game.Animation;
 import io.battlerune.game.action.Action;
 import io.battlerune.game.action.policy.WalkablePolicy;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.object.GameObject;
 import io.battlerune.net.packet.out.SendMessage;
 

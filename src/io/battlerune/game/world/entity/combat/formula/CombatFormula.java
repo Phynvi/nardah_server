@@ -1,12 +1,12 @@
 package io.battlerune.game.world.entity.combat.formula;
 
 import io.battlerune.game.world.entity.combat.FormulaModifier;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
 import java.util.Deque;
 import java.util.LinkedList;
 
-public class CombatFormula<T extends Mob> implements FormulaModifier<T> {
+public class CombatFormula<T extends Actor> implements FormulaModifier<T> {
 	private final Deque<FormulaModifier<? super T>> modifiers = new LinkedList<>();
 	
 	public void addFirst(FormulaModifier<? super T> modifier) {
@@ -26,7 +26,7 @@ public class CombatFormula<T extends Mob> implements FormulaModifier<T> {
 	}
 	
 	@Override
-	public int modifyAttackLevel(T attacker, Mob defender, int level) {
+	public int modifyAttackLevel(T attacker, Actor defender, int level) {
 		for(FormulaModifier<? super T> modifier : modifiers) {
 			level = modifier.modifyAttackLevel(attacker, defender, level);
 		}
@@ -34,7 +34,7 @@ public class CombatFormula<T extends Mob> implements FormulaModifier<T> {
 	}
 	
 	@Override
-	public int modifyStrengthLevel(T attacker, Mob defender, int level) {
+	public int modifyStrengthLevel(T attacker, Actor defender, int level) {
 		for(FormulaModifier<? super T> modifier : modifiers) {
 			level = modifier.modifyStrengthLevel(attacker, defender, level);
 		}
@@ -42,7 +42,7 @@ public class CombatFormula<T extends Mob> implements FormulaModifier<T> {
 	}
 	
 	@Override
-	public int modifyDefenceLevel(Mob attacker, T defender, int level) {
+	public int modifyDefenceLevel(Actor attacker, T defender, int level) {
 		for(FormulaModifier<? super T> modifier : modifiers) {
 			level = modifier.modifyDefenceLevel(attacker, defender, level);
 		}
@@ -50,7 +50,7 @@ public class CombatFormula<T extends Mob> implements FormulaModifier<T> {
 	}
 	
 	@Override
-	public int modifyRangedLevel(T attacker, Mob defender, int level) {
+	public int modifyRangedLevel(T attacker, Actor defender, int level) {
 		for(FormulaModifier<? super T> modifier : modifiers) {
 			level = modifier.modifyRangedLevel(attacker, defender, level);
 		}
@@ -58,7 +58,7 @@ public class CombatFormula<T extends Mob> implements FormulaModifier<T> {
 	}
 	
 	@Override
-	public int modifyMagicLevel(T attacker, Mob defender, int level) {
+	public int modifyMagicLevel(T attacker, Actor defender, int level) {
 		for(FormulaModifier<? super T> modifier : modifiers) {
 			level = modifier.modifyMagicLevel(attacker, defender, level);
 		}
@@ -66,7 +66,7 @@ public class CombatFormula<T extends Mob> implements FormulaModifier<T> {
 	}
 	
 	@Override
-	public int modifyAccuracy(T attacker, Mob defender, int roll) {
+	public int modifyAccuracy(T attacker, Actor defender, int roll) {
 		for(FormulaModifier<? super T> modifier : modifiers) {
 			roll = modifier.modifyAccuracy(attacker, defender, roll);
 		}
@@ -74,7 +74,7 @@ public class CombatFormula<T extends Mob> implements FormulaModifier<T> {
 	}
 	
 	@Override
-	public int modifyAggressive(T attacker, Mob defender, int roll) {
+	public int modifyAggressive(T attacker, Actor defender, int roll) {
 		for(FormulaModifier<? super T> modifier : modifiers) {
 			roll = modifier.modifyAggressive(attacker, defender, roll);
 		}
@@ -82,7 +82,7 @@ public class CombatFormula<T extends Mob> implements FormulaModifier<T> {
 	}
 	
 	@Override
-	public int modifyDefensive(Mob attacker, T defender, int roll) {
+	public int modifyDefensive(Actor attacker, T defender, int roll) {
 		for(FormulaModifier<? super T> modifier : modifiers) {
 			roll = modifier.modifyDefensive(attacker, defender, roll);
 		}
@@ -90,7 +90,7 @@ public class CombatFormula<T extends Mob> implements FormulaModifier<T> {
 	}
 	
 	@Override
-	public int modifyDamage(T attacker, Mob defender, int damage) {
+	public int modifyDamage(T attacker, Actor defender, int damage) {
 		for(FormulaModifier<? super T> modifier : modifiers) {
 			damage = modifier.modifyDamage(attacker, defender, damage);
 		}
@@ -98,7 +98,7 @@ public class CombatFormula<T extends Mob> implements FormulaModifier<T> {
 	}
 	
 	@Override
-	public int modifyOffensiveBonus(T attacker, Mob defender, int bonus) {
+	public int modifyOffensiveBonus(T attacker, Actor defender, int bonus) {
 		for(FormulaModifier<? super T> modifier : modifiers) {
 			bonus = modifier.modifyOffensiveBonus(attacker, defender, bonus);
 		}
@@ -106,7 +106,7 @@ public class CombatFormula<T extends Mob> implements FormulaModifier<T> {
 	}
 	
 	@Override
-	public int modifyAggressiveBonus(T attacker, Mob defender, int bonus) {
+	public int modifyAggressiveBonus(T attacker, Actor defender, int bonus) {
 		for(FormulaModifier<? super T> modifier : modifiers) {
 			bonus = modifier.modifyAggressiveBonus(attacker, defender, bonus);
 		}
@@ -114,7 +114,7 @@ public class CombatFormula<T extends Mob> implements FormulaModifier<T> {
 	}
 	
 	@Override
-	public int modifyDefensiveBonus(Mob attacker, T defender, int bonus) {
+	public int modifyDefensiveBonus(Actor attacker, T defender, int bonus) {
 		for(FormulaModifier<? super T> modifier : modifiers) {
 			bonus = modifier.modifyDefensiveBonus(attacker, defender, bonus);
 		}

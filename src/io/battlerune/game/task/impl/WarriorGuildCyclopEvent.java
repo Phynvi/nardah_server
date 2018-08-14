@@ -1,7 +1,7 @@
 package io.battlerune.game.task.impl;
 
 import io.battlerune.game.task.Task;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.game.world.position.Position;

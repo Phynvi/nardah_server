@@ -1,6 +1,6 @@
 package io.battlerune.util;
 
-import io.battlerune.game.world.entity.mob.player.relations.ChatMessage;
+import io.battlerune.game.world.entity.actor.player.relations.ChatMessage;
 
 import java.nio.ByteBuffer;
 

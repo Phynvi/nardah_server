@@ -13,10 +13,10 @@ import io.battlerune.game.world.entity.combat.strategy.npc.MultiStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcRangedStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.prayer.Prayer;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.prayer.Prayer;
 
 import static io.battlerune.game.world.entity.combat.CombatUtil.createStrategyArray;
 import static io.battlerune.game.world.entity.combat.CombatUtil.randomStrategy;
@@ -36,7 +36,7 @@ public class TzTokJad extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		if(!currentStrategy.withinDistance(attacker, defender)) {
 			currentStrategy = randomStrategy(NON_MELEE);
 		}
@@ -44,13 +44,13 @@ public class TzTokJad extends MultiStrategy {
 	}
 	
 	@Override
-	public void block(Mob attacker, Npc defender, Hit hit, CombatType combatType) {
+	public void block(Actor attacker, Npc defender, Hit hit, CombatType combatType) {
 		currentStrategy.block(attacker, defender, hit, combatType);
 		defender.getCombat().attack(attacker);
 	}
 	
 	@Override
-	public void hit(Npc attacker, Mob defender, Hit hit) {
+	public void hit(Npc attacker, Actor defender, Hit hit) {
 		super.hit(attacker, defender, hit);
 		
 		if(!defender.isPlayer())
@@ -67,7 +67,7 @@ public class TzTokJad extends MultiStrategy {
 	}
 	
 	@Override
-	public void finishOutgoing(Npc attacker, Mob defender) {
+	public void finishOutgoing(Npc attacker, Actor defender) {
 		currentStrategy.finishOutgoing(attacker, defender);
 		if(NpcMeleeStrategy.get().withinDistance(attacker, defender)) {
 			currentStrategy = randomStrategy(FULL_STRATEGIES);
@@ -77,7 +77,7 @@ public class TzTokJad extends MultiStrategy {
 	}
 	
 	@Override
-	public int modifyAccuracy(Npc attacker, Mob defender, int roll) {
+	public int modifyAccuracy(Npc attacker, Actor defender, int roll) {
 		return roll + 150_000;
 	}
 	
@@ -89,26 +89,26 @@ public class TzTokJad extends MultiStrategy {
 		}
 		
 		@Override
-		public void start(Npc attacker, Mob defender, Hit[] hits) {
+		public void start(Npc attacker, Actor defender, Hit[] hits) {
 			attacker.animate(ANIMATION);
 			World.sendGraphic(new Graphic(451, UpdatePriority.HIGH), defender.getPosition());
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 		}
 		
 		@Override
-		public void attack(Npc attacker, Mob defender, Hit hit) {
+		public void attack(Npc attacker, Actor defender, Hit hit) {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextRangedHit(attacker, defender, 97, 2, 2)};
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return ANIMATION;
 		}
 	}
@@ -121,13 +121,13 @@ public class TzTokJad extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit hit = nextMagicHit(attacker, defender, 97, 5, 2);
 			hit.setAccurate(true);
 			return new CombatHit[]{hit};
 		}
 		
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return ANIMATION;
 		}
 	}

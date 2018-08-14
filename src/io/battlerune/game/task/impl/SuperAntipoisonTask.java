@@ -1,7 +1,7 @@
 package io.battlerune.game.task.impl;
 
 import io.battlerune.game.task.Task;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendMessage;
 
 public class SuperAntipoisonTask extends Task {

@@ -1,7 +1,7 @@
 package io.battlerune.game.world.entity.combat.effect;
 
 import io.battlerune.game.task.Task;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
 /**
  * The {@link Task} implementation that provides processing for
@@ -11,9 +11,9 @@ import io.battlerune.game.world.entity.mob.Mob;
 final class CombatEffectTask extends Task {
 	
 	/**
-	 * The mob that this task is for.
+	 * The actor that this task is for.
 	 */
-	private final Mob mob;
+	private final Actor actor;
 	
 	/**
 	 * The combat effect that is being processed.
@@ -22,24 +22,24 @@ final class CombatEffectTask extends Task {
 	
 	/**
 	 * Creates a new {@link CombatEffectTask}.
-	 * @param mob the mob that this task is for.
+	 * @param actor the actor that this task is for.
 	 * @param effect the combat effect that is being processed.
 	 */
-	CombatEffectTask(Mob mob, CombatEffect effect) {
+	CombatEffectTask(Actor actor, CombatEffect effect) {
 		super(false, effect.getDelay());
-		super.attach(mob);
-		this.mob = mob;
+		super.attach(actor);
+		this.actor = actor;
 		this.effect = effect;
 	}
 	
 	@Override
 	public void execute() {
-		if(effect.removeOn(mob) || !mob.isValid()) {
+		if(effect.removeOn(actor) || !actor.isValid()) {
 			cancel();
 			return;
 		}
 		
-		effect.process(mob);
+		effect.process(actor);
 	}
 	
 }

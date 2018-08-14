@@ -1,6 +1,6 @@
 package io.battlerune.content.activity;
 
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 import io.battlerune.net.packet.out.SendMessage;
 
 import java.util.HashMap;
@@ -15,9 +15,9 @@ import java.util.function.BiConsumer;
 public abstract class GroupActivity extends Activity {
 	
 	/**
-	 * A map of activities that handles each mob individually.
+	 * A map of activities that handles each actor individually.
 	 */
-	public final Map<Mob, Activity> activities;
+	public final Map<Actor, Activity> activities;
 	
 	/**
 	 * The next instance level.
@@ -40,7 +40,7 @@ public abstract class GroupActivity extends Activity {
 	
 	@Override
 	public void finish() {
-		for(Map.Entry<Mob, Activity> entry : activities.entrySet()) {
+		for(Map.Entry<Actor, Activity> entry : activities.entrySet()) {
 			entry.getValue().finish();
 			entry.getValue().cleanup();
 		}
@@ -76,32 +76,32 @@ public abstract class GroupActivity extends Activity {
 	 * Loops through all the activities.
 	 * @param activity the consumer
 	 */
-	protected void forEachActivity(BiConsumer<Mob, Activity> activity) {
+	protected void forEachActivity(BiConsumer<Actor, Activity> activity) {
 		activities.forEach(activity);
 	}
 	
 	/**
 	 * Adds an activity to the {@code activities} group.
-	 * @param mob the mob to add
-	 * @param activity the mob's activity
+	 * @param actor the actor to add
+	 * @param activity the actor's activity
 	 */
-	protected final void addActivity(Mob mob, Activity activity) {
-		if(!activities.containsKey(mob)) {
-			activities.put(mob, activity);
-			add(mob);
+	protected final void addActivity(Actor actor, Activity activity) {
+		if(!activities.containsKey(actor)) {
+			activities.put(actor, activity);
+			add(actor);
 		}
 	}
 	
 	/**
 	 * Removes an activity from the {@code activities} group.
-	 * @param mob the mob that owns the activity
+	 * @param actor the actor that owns the activity
 	 */
-	protected final void removeActivity(Mob mob) {
-		if(activities.containsKey(mob)) {
-			activities.get(mob).finish();
-			activities.get(mob).cleanup();
-			activities.remove(mob);
-			remove(mob);
+	protected final void removeActivity(Actor actor) {
+		if(activities.containsKey(actor)) {
+			activities.get(actor).finish();
+			activities.get(actor).cleanup();
+			activities.remove(actor);
+			remove(actor);
 		}
 	}
 	

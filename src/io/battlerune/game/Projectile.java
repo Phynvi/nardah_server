@@ -1,7 +1,7 @@
 package io.battlerune.game;
 
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 import io.battlerune.game.world.position.Position;
 
 public class Projectile {
@@ -36,11 +36,11 @@ public class Projectile {
 		this(id, 52, 68, 43, 31);
 	}
 	
-	public void send(Mob source, Mob target) {
+	public void send(Actor source, Actor target) {
 		World.sendProjectile(source, target, this);
 	}
 	
-	public void send(Mob source, Position target) {
+	public void send(Actor source, Position target) {
 		World.sendProjectile(source, target, this);
 	}
 	

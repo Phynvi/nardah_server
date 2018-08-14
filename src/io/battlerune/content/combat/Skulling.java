@@ -3,8 +3,8 @@ package io.battlerune.content.combat;
 import io.battlerune.Config;
 import io.battlerune.game.task.impl.SkullRemoveTask;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.UpdateFlag;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.UpdateFlag;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Area;
 
 import java.util.LinkedList;

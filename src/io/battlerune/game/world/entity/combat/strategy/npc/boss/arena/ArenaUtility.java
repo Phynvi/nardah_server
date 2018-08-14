@@ -1,9 +1,9 @@
 package io.battlerune.game.world.entity.combat.strategy.npc.boss.arena;
 
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Direction;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.ground.GroundItem;
 import io.battlerune.game.world.position.Position;

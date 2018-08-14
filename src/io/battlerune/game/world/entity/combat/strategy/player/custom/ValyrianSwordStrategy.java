@@ -3,8 +3,8 @@ package io.battlerune.game.world.entity.combat.strategy.player.custom;
 import io.battlerune.game.world.entity.combat.CombatType;
 import io.battlerune.game.world.entity.combat.attack.FightType;
 import io.battlerune.game.world.entity.combat.strategy.player.PlayerMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * @author adameternal123
@@ -28,7 +28,7 @@ public class ValyrianSwordStrategy extends PlayerMeleeStrategy {
 	 **/
 	
 	@Override
-	public int getAttackDelay(Player attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Player attacker, Actor defender, FightType fightType) {
 		return 2;
 	}
 	

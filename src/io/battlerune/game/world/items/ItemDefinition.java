@@ -9,7 +9,7 @@ import io.battlerune.game.world.entity.combat.ranged.RangedAmmunition;
 import io.battlerune.game.world.entity.combat.ranged.RangedWeaponDefinition;
 import io.battlerune.game.world.entity.combat.ranged.RangedWeaponType;
 import io.battlerune.game.world.entity.combat.weapon.WeaponInterface;
-import io.battlerune.game.world.entity.mob.MobAnimation;
+import io.battlerune.game.world.entity.actor.ActorAnimation;
 import io.battlerune.game.world.items.containers.equipment.EquipmentType;
 import io.battlerune.util.parser.GsonParser;
 import io.battlerune.util.parser.JsonSaver;
@@ -72,9 +72,9 @@ public class ItemDefinition {
 		this.highAlch = 0;
 		this.lowAlch = 0;
 		this.weight = 0;
-		this.stand_animation = MobAnimation.PLAYER_STAND;
-		this.walk_animation = MobAnimation.PLAYER_WALK;
-		this.run_animation = MobAnimation.PLAYER_RUN;
+		this.stand_animation = ActorAnimation.PLAYER_STAND;
+		this.walk_animation = ActorAnimation.PLAYER_WALK;
+		this.run_animation = ActorAnimation.PLAYER_RUN;
 		this.attack_animations = EMPTY;
 		this.block_animation = -1;
 		this.equipmentType = EquipmentType.NOT_WIELDABLE;
@@ -479,15 +479,15 @@ public class ItemDefinition {
 				saver.current().addProperty("weight", definition.weight);
 			}
 			
-			if(definition.stand_animation != MobAnimation.PLAYER_STAND) {
+			if(definition.stand_animation != ActorAnimation.PLAYER_STAND) {
 				saver.current().addProperty("stand-animation", definition.stand_animation);
 			}
 			
-			if(definition.walk_animation != MobAnimation.PLAYER_WALK) {
+			if(definition.walk_animation != ActorAnimation.PLAYER_WALK) {
 				saver.current().addProperty("walk-animation", definition.walk_animation);
 			}
 			
-			if(definition.run_animation != MobAnimation.PLAYER_RUN) {
+			if(definition.run_animation != ActorAnimation.PLAYER_RUN) {
 				saver.current().addProperty("run-animation", definition.run_animation);
 			}
 			
@@ -586,15 +586,15 @@ public class ItemDefinition {
 				saver.current().addProperty("weight", definition.weight);
 			}
 			
-			if(definition.stand_animation != MobAnimation.PLAYER_STAND) {
+			if(definition.stand_animation != ActorAnimation.PLAYER_STAND) {
 				saver.current().addProperty("stand-animation", definition.stand_animation);
 			}
 			
-			if(definition.walk_animation != MobAnimation.PLAYER_WALK) {
+			if(definition.walk_animation != ActorAnimation.PLAYER_WALK) {
 				saver.current().addProperty("walk-animation", definition.walk_animation);
 			}
 			
-			if(definition.run_animation != MobAnimation.PLAYER_RUN) {
+			if(definition.run_animation != ActorAnimation.PLAYER_RUN) {
 				saver.current().addProperty("run-animation", definition.run_animation);
 			}
 			

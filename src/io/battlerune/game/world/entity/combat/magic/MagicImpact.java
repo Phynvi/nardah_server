@@ -8,10 +8,10 @@ import io.battlerune.game.world.entity.combat.attack.FormulaFactory;
 import io.battlerune.game.world.entity.combat.effect.CombatEffectType;
 import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.data.LockType;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.data.LockType;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.util.RandomUtils;
 
@@ -64,12 +64,12 @@ public enum MagicImpact {
 	MagicImpact(CombatImpact effect) {
 		this.effect = new CombatImpact() {
 			@Override
-			public boolean canAffect(Mob attacker, Mob defender, Hit hit) {
+			public boolean canAffect(Actor attacker, Actor defender, Hit hit) {
 				return hit.isAccurate() && effect.canAffect(attacker, defender, hit);
 			}
 			
 			@Override
-			public void impact(Mob attacker, Mob defender, Hit hit, List<Hit> hits) {
+			public void impact(Actor attacker, Actor defender, Hit hit, List<Hit> hits) {
 				effect.impact(attacker, defender, hit, hits);
 			}
 		};
@@ -79,7 +79,7 @@ public enum MagicImpact {
 		return effect;
 	}
 	
-	private static void kbdShock(Mob defender) {
+	private static void kbdShock(Actor defender) {
 		if(!defender.isPlayer()) {
 			return;
 		}
@@ -94,7 +94,7 @@ public enum MagicImpact {
 		}
 	}
 	
-	private static void lowerSkill(Mob defender, int id, int percentage) {
+	private static void lowerSkill(Actor defender, int id, int percentage) {
 		if(!defender.isPlayer()) {
 			return;
 		}
@@ -116,7 +116,7 @@ public enum MagicImpact {
 		}
 	}
 	
-	private static void poison(Mob attacker, Mob defender, Hit hit, PoisonType type) {
+	private static void poison(Actor attacker, Actor defender, Hit hit, PoisonType type) {
 		if(!hit.isAccurate() || defender.isPoisoned()) {
 			return;
 		}
@@ -128,7 +128,7 @@ public enum MagicImpact {
 		defender.poison(type);
 	}
 	
-	private static void freeze(Mob defender, int timer) {
+	private static void freeze(Actor defender, int timer) {
 		if(!defender.locking.locked()) {
 			defender.locking.lock(timer, LockType.FREEZE);
 		}
@@ -136,7 +136,7 @@ public enum MagicImpact {
 		defender.movement.reset();
 	}
 	
-	private static void heal(Mob attacker, Hit hit) {
+	private static void heal(Actor attacker, Hit hit) {
 		Skill skill = attacker.skills.get(Skill.HITPOINTS);
 		
 		if(skill.getLevel() < skill.getMaxLevel()) {
@@ -150,7 +150,7 @@ public enum MagicImpact {
 		}
 	}
 	
-	private static void smokeBurst(Mob attacker, Mob defender, Mob other, Hit hit, List<Hit> extra) {
+	private static void smokeBurst(Actor attacker, Actor defender, Actor other, Hit hit, List<Hit> extra) {
 		poison(attacker, defender, hit, PoisonType.DEFAULT_MAGIC);
 		CombatHit next = hitEvent(attacker, defender, other, 18, extra);
 		if(next != null && (attacker.isNpc() || (next.isAccurate() && next.getDamage() > 0))) {
@@ -158,7 +158,7 @@ public enum MagicImpact {
 		}
 	}
 	
-	private static void smokeBarrage(Mob attacker, Mob defender, Mob other, Hit hit, List<Hit> extra) {
+	private static void smokeBarrage(Actor attacker, Actor defender, Actor other, Hit hit, List<Hit> extra) {
 		poison(attacker, defender, hit, PoisonType.SUPER_MAGIC);
 		CombatHit next = hitEvent(attacker, defender, other, 27, extra);
 		if(next != null && (attacker.isNpc() || (next.isAccurate() && next.getDamage() > 0))) {
@@ -166,7 +166,7 @@ public enum MagicImpact {
 		}
 	}
 	
-	private static void shadowBurst(Mob attacker, Mob defender, Mob other, List<Hit> extra) {
+	private static void shadowBurst(Actor attacker, Actor defender, Actor other, List<Hit> extra) {
 		lowerSkill(defender, Skill.ATTACK, 10);
 		CombatHit next = hitEvent(attacker, defender, other, 19, extra);
 		if(next != null && next.isAccurate()) {
@@ -174,7 +174,7 @@ public enum MagicImpact {
 		}
 	}
 	
-	private static void shadowBarrage(Mob attacker, Mob defender, Mob other, List<Hit> extra) {
+	private static void shadowBarrage(Actor attacker, Actor defender, Actor other, List<Hit> extra) {
 		lowerSkill(defender, Skill.ATTACK, 15);
 		CombatHit next = hitEvent(attacker, defender, other, 28, extra);
 		if(next != null && next.isAccurate()) {
@@ -182,7 +182,7 @@ public enum MagicImpact {
 		}
 	}
 	
-	private static void bloodBurst(Mob attacker, Mob defender, Mob other, Hit hit, List<Hit> extra) {
+	private static void bloodBurst(Actor attacker, Actor defender, Actor other, Hit hit, List<Hit> extra) {
 		heal(attacker, hit);
 		CombatHit next = hitEvent(attacker, defender, other, 21, extra);
 		if(next != null && next.isAccurate()) {
@@ -190,7 +190,7 @@ public enum MagicImpact {
 		}
 	}
 	
-	private static void bloodBarrage(Mob attacker, Mob defender, Mob other, Hit hit, List<Hit> extra) {
+	private static void bloodBarrage(Actor attacker, Actor defender, Actor other, Hit hit, List<Hit> extra) {
 		heal(attacker, hit);
 		CombatHit next = hitEvent(attacker, defender, other, 29, extra);
 		if(next != null && next.isAccurate()) {
@@ -198,7 +198,7 @@ public enum MagicImpact {
 		}
 	}
 	
-	private static void iceBurst(Mob attacker, Mob defender, Mob other, List<Hit> extra) {
+	private static void iceBurst(Actor attacker, Actor defender, Actor other, List<Hit> extra) {
 		freeze(defender, 10);
 		CombatHit next = hitEvent(attacker, defender, other, 22, extra);
 		if(next != null && next.isAccurate()) {
@@ -206,7 +206,7 @@ public enum MagicImpact {
 		}
 	}
 	
-	private static void iceBarrage(Mob attacker, Mob defender, Mob other, List<Hit> extra) {
+	private static void iceBarrage(Actor attacker, Actor defender, Actor other, List<Hit> extra) {
 		freeze(defender, 20);
 		CombatHit next = hitEvent(attacker, defender, other, 28, extra);
 		if(next != null && next.isAccurate()) {
@@ -214,13 +214,13 @@ public enum MagicImpact {
 		}
 	}
 	
-	private static void teleblock(Mob defender) {
+	private static void teleblock(Actor defender) {
 		if(defender.isPlayer()) {
 			CombatUtil.effect(defender, CombatEffectType.TELEBLOCK);
 		}
 	}
 	
-	private static CombatHit hitEvent(Mob attacker, Mob defender, Mob other, int max, List<Hit> extra) {
+	private static CombatHit hitEvent(Actor attacker, Actor defender, Actor other, int max, List<Hit> extra) {
 		if(!CombatUtil.canBasicAttack(attacker, other)) {
 			return null;
 		}

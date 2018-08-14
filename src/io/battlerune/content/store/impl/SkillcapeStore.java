@@ -3,7 +3,7 @@ package io.battlerune.content.store.impl;
 import io.battlerune.content.emote.Skillcape;
 import io.battlerune.content.store.*;
 import io.battlerune.content.store.currency.CurrencyType;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.ItemContainer;

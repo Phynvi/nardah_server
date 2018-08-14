@@ -1,8 +1,8 @@
 package io.battlerune.content.skill.impl.agility.obstacle.impl;
 
 import io.battlerune.content.skill.impl.agility.obstacle.ObstacleInteraction;
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Direction;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Position;
 
 public interface ClimbOverInteraction extends ObstacleInteraction {

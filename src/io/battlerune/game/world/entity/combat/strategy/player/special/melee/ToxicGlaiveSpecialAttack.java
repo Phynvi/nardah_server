@@ -6,8 +6,8 @@ import io.battlerune.game.UpdatePriority;
 import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.player.PlayerMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * Handles the Toxic Glaive weapon special attack.
@@ -23,7 +23,7 @@ public class ToxicGlaiveSpecialAttack extends PlayerMeleeStrategy {
 	private static final ToxicGlaiveSpecialAttack INSTANCE = new ToxicGlaiveSpecialAttack();
 
 	@Override
-	public void attack(Player attacker, Mob defender, Hit hit) {
+	public void attack(Player attacker, Actor defender, Hit hit) {
 		super.attack(attacker, defender, hit);
 		attacker.graphic(GRAPHIC);
 		attacker.speak("You just got knocked the F@!# out!");
@@ -31,23 +31,23 @@ public class ToxicGlaiveSpecialAttack extends PlayerMeleeStrategy {
 	}
 
 	@Override
-	public void finishOutgoing(Player attacker, Mob defender) {
+	public void finishOutgoing(Player attacker, Actor defender) {
 		defender.graphic(OTHER_GRAPHIC);
 	}
 
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		CombatHit melee = nextMeleeHit(attacker, defender);
 		return new CombatHit[]{melee, nextMagicHit(attacker, defender, 16, 1, 0)};
 	}
 
 	@Override
-	public Animation getAttackAnimation(Player attacker, Mob defender) {
+	public Animation getAttackAnimation(Player attacker, Actor defender) {
 		return ANIMATION;
 	}
 
 	@Override
-	public int modifyAccuracy(Player attacker, Mob defender, int roll) {
+	public int modifyAccuracy(Player attacker, Actor defender, int roll) {
 		return roll * 4 / 3;
 	}
 

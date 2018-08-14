@@ -3,7 +3,7 @@ package io.battlerune.content.skill.impl.agility.obstacle.impl;
 import io.battlerune.content.skill.impl.agility.obstacle.ObstacleInteraction;
 import io.battlerune.game.task.Task;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.object.GameObject;
 import io.battlerune.game.world.object.ObjectDirection;
@@ -43,7 +43,7 @@ public interface WildernessDoorInteraction extends ObstacleInteraction {
 			@Override
 			public void execute() {
 				if(player.getPosition().equals(destination)) {
-					player.mobAnimation.reset();
+					player.actorAnimation.reset();
 					//                    if (entering) {
 					//                        leavingDoor1.rotate(Direction.EAST);
 					//                        leavingDoor2.rotate(Direction.SOUTH);
@@ -75,8 +75,8 @@ public interface WildernessDoorInteraction extends ObstacleInteraction {
 						player.movement.walk(destination);
 						break;
 					case 1:
-						player.mobAnimation.setWalk(762);
-						player.mobAnimation.setStand(762);
+						player.actorAnimation.setWalk(762);
+						player.actorAnimation.setStand(762);
 						break;
 					case 2:
 						//                        if (entering) {

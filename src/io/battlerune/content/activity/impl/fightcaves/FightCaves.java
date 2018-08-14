@@ -8,9 +8,9 @@ import io.battlerune.content.activity.panel.ActivityPanel;
 import io.battlerune.content.event.impl.ObjectInteractionEvent;
 import io.battlerune.content.pet.PetData;
 import io.battlerune.content.pet.Pets;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.game.world.position.Position;
@@ -88,9 +88,9 @@ public class FightCaves extends Activity {
 	}
 
 	/**
-	 * Handles what happens to a mob when they die in the activity.
+	 * Handles what happens to a actor when they die in the activity.
 	 */
-	void handleDeath(Mob dead) {
+	void handleDeath(Actor dead) {
 		if(dead.isPlayer() && dead.equals(player)) {
 			finish();
 			return;

@@ -1,54 +1,54 @@
 package io.battlerune.game.world.entity.combat;
 
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
-public interface FormulaModifier<T extends Mob> {
+public interface FormulaModifier<T extends Actor> {
 	
-	default int modifyAttackLevel(T attacker, Mob defender, int level) {
+	default int modifyAttackLevel(T attacker, Actor defender, int level) {
 		return level;
 	}
 	
-	default int modifyStrengthLevel(T attacker, Mob defender, int level) {
+	default int modifyStrengthLevel(T attacker, Actor defender, int level) {
 		return level;
 	}
 	
-	default int modifyDefenceLevel(Mob attacker, T defender, int level) {
+	default int modifyDefenceLevel(Actor attacker, T defender, int level) {
 		return level;
 	}
 	
-	default int modifyRangedLevel(T attacker, Mob defender, int level) {
+	default int modifyRangedLevel(T attacker, Actor defender, int level) {
 		return level;
 	}
 	
-	default int modifyMagicLevel(T attacker, Mob defender, int level) {
+	default int modifyMagicLevel(T attacker, Actor defender, int level) {
 		return level;
 	}
 	
-	default int modifyAccuracy(T attacker, Mob defender, int roll) {
+	default int modifyAccuracy(T attacker, Actor defender, int roll) {
 		return roll;
 	}
 	
-	default int modifyAggressive(T attacker, Mob defender, int roll) {
+	default int modifyAggressive(T attacker, Actor defender, int roll) {
 		return roll;
 	}
 	
-	default int modifyDefensive(Mob attacker, T defender, int roll) {
+	default int modifyDefensive(Actor attacker, T defender, int roll) {
 		return roll;
 	}
 	
-	default int modifyDamage(T attacker, Mob defender, int damage) {
+	default int modifyDamage(T attacker, Actor defender, int damage) {
 		return damage;
 	}
 	
-	default int modifyOffensiveBonus(T attacker, Mob defender, int bonus) {
+	default int modifyOffensiveBonus(T attacker, Actor defender, int bonus) {
 		return bonus;
 	}
 	
-	default int modifyAggressiveBonus(T attacker, Mob defender, int bonus) {
+	default int modifyAggressiveBonus(T attacker, Actor defender, int bonus) {
 		return bonus;
 	}
 	
-	default int modifyDefensiveBonus(Mob attacker, T defender, int bonus) {
+	default int modifyDefensiveBonus(Actor attacker, T defender, int bonus) {
 		return bonus;
 	}
 	

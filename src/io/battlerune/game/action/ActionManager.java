@@ -2,7 +2,7 @@ package io.battlerune.game.action;
 
 import io.battlerune.game.action.policy.WalkablePolicy;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
 import java.util.ArrayDeque;
 import java.util.Objects;
@@ -84,7 +84,7 @@ public final class ActionManager {
 	}
 	
 	/**
-	 * Cancels the current {@link Action} for the underlying {@link Mob}.
+	 * Cancels the current {@link Action} for the underlying {@link Actor}.
 	 */
 	public void cancel() {
 		if(currentAction != null && currentAction.isRunning() && currentAction.prioritized()) {
@@ -94,7 +94,7 @@ public final class ActionManager {
 	}
 	
 	/**
-	 * Resets all the actions for the underlying {@link Mob}.
+	 * Resets all the actions for the underlying {@link Actor}.
 	 */
 	public void reset() {
 		cancel();

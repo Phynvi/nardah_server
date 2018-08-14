@@ -5,8 +5,8 @@ import io.battlerune.game.UpdatePriority;
 import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.player.PlayerMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * @author Daniel
@@ -17,17 +17,17 @@ public class ToragHammers extends PlayerMeleeStrategy {
 	private static final ToragHammers INSTANCE = new ToragHammers();
 
 	@Override
-	public void start(Player attacker, Mob defender, Hit[] hits) {
+	public void start(Player attacker, Actor defender, Hit[] hits) {
 		super.start(attacker, defender, hits);
 	}
 
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		return new CombatHit[]{new CombatHit(nextMeleeHit(attacker, defender), 0, 1), new CombatHit(nextMeleeHit(attacker, defender), 0, 0)};
 	}
 
 	@Override
-	public Animation getAttackAnimation(Player attacker, Mob defender) {
+	public Animation getAttackAnimation(Player attacker, Actor defender) {
 		return ANIMATION;
 	}
 

@@ -2,7 +2,7 @@ package io.battlerune.content.store.currency;
 
 import com.google.common.collect.ImmutableSet;
 import io.battlerune.content.store.currency.impl.*;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.util.Utility;
 
 import java.util.Arrays;

@@ -1,17 +1,17 @@
 package io.battlerune.game.world.entity.combat.attack.listener.other.prayer;
 
 import io.battlerune.game.world.entity.combat.attack.listener.SimplifiedListener;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
-public class AuguryListener extends SimplifiedListener<Mob> {
+public class AuguryListener extends SimplifiedListener<Actor> {
 
 	@Override
-	public int modifyMagicLevel(Mob attacker, Mob defender, int level) {
+	public int modifyMagicLevel(Actor attacker, Actor defender, int level) {
 		return level * 5 / 4;
 	}
 
 	@Override
-	public int modifyDefenceLevel(Mob attacker, Mob defender, int damage) {
+	public int modifyDefenceLevel(Actor attacker, Actor defender, int damage) {
 		return damage * 5 / 4;
 	}
 

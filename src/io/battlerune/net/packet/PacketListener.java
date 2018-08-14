@@ -1,6 +1,6 @@
 package io.battlerune.net.packet;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * The itemcontainer that allows any implementing {@Packet}s. The ability to be

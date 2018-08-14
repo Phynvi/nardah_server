@@ -1,6 +1,6 @@
 package io.battlerune.content.skill.impl.runecrafting;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * Holds the runecrafting pouch data.

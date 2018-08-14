@@ -7,10 +7,10 @@ import io.battlerune.game.world.World;
 import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.player.PlayerMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.data.LockType;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.Direction;
+import io.battlerune.game.world.entity.actor.data.LockType;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.util.RandomUtils;
 
@@ -24,7 +24,7 @@ public class DragonSpear extends PlayerMeleeStrategy {
 	private static final Graphic GRAPHIC = new Graphic(253, true, UpdatePriority.HIGH);
 
 	@Override
-	public boolean canAttack(Player attacker, Mob defender) {
+	public boolean canAttack(Player attacker, Actor defender) {
 		// Let them have some fun.
 		/*
 		 * if (defender.isPlayer() && defender.width() > 1 && defender.length() > 1) {
@@ -47,7 +47,7 @@ public class DragonSpear extends PlayerMeleeStrategy {
 	}
 
 	@Override
-	public void attack(Player attacker, Mob defender, Hit hit) {
+	public void attack(Player attacker, Actor defender, Hit hit) {
 		super.attack(attacker, defender, hit);
 
 		Direction direction = attacker.movement.lastDirection;
@@ -67,12 +67,12 @@ public class DragonSpear extends PlayerMeleeStrategy {
 	}
 
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		return new CombatHit[]{nextMeleeHit(attacker, defender)};
 	}
 
 	@Override
-	public Animation getAttackAnimation(Player attacker, Mob defender) {
+	public Animation getAttackAnimation(Player attacker, Actor defender) {
 		return ANIMATION;
 	}
 

@@ -9,9 +9,9 @@ import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.projectile.CombatProjectile;
 import io.battlerune.game.world.entity.combat.strategy.basic.MagicStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.equipment.Equipment;
@@ -30,7 +30,7 @@ public class TridentOfTheSeasStrategy extends MagicStrategy<Player> {
 	}
 	
 	@Override
-	public boolean canAttack(Player attacker, Mob defender) {
+	public boolean canAttack(Player attacker, Actor defender) {
 		if(defender.isPlayer()) {
 			attacker.send(new SendMessage("You can't attack players with this weapon."));
 			return false;
@@ -53,7 +53,7 @@ public class TridentOfTheSeasStrategy extends MagicStrategy<Player> {
 	}
 	
 	@Override
-	public void start(Player attacker, Mob defender, Hit[] hits) {
+	public void start(Player attacker, Actor defender, Hit[] hits) {
 		PROJECTILE.getAnimation().ifPresent(attacker::animate);
 		PROJECTILE.getStart().ifPresent(attacker::graphic);
 		PROJECTILE.getProjectile().ifPresent(projectile -> projectile.send(attacker, defender));
@@ -68,23 +68,23 @@ public class TridentOfTheSeasStrategy extends MagicStrategy<Player> {
 	}
 	
 	@Override
-	public void attack(Player attacker, Mob defender, Hit hit) {
+	public void attack(Player attacker, Actor defender, Hit hit) {
 		attacker.tridentSeasCharges--;
 	}
 	
 	@Override
-	public void hit(Player attacker, Mob defender, Hit hit) {
+	public void hit(Player attacker, Actor defender, Hit hit) {
 		PROJECTILE.getEnd().ifPresent(defender::graphic);
 	}
 	
 	@Override
-	public Animation getAttackAnimation(Player attacker, Mob defender) {
+	public Animation getAttackAnimation(Player attacker, Actor defender) {
 		int animation = attacker.getCombat().getFightType().getAnimation();
 		return new Animation(animation, UpdatePriority.HIGH);
 	}
 	
 	@Override
-	public int getAttackDelay(Player attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Player attacker, Actor defender, FightType fightType) {
 		return attacker.getCombat().getFightType().getDelay();
 	}
 	
@@ -94,7 +94,7 @@ public class TridentOfTheSeasStrategy extends MagicStrategy<Player> {
 	}
 	
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		int max = 23;
 		int level = attacker.skills.getLevel(Skill.MAGIC);
 		if(level - 75 > 0) {

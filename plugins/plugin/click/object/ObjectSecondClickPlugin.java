@@ -13,8 +13,8 @@ import io.battlerune.game.event.impl.ObjectClickEvent;
 import io.battlerune.game.plugin.PluginContext;
 import io.battlerune.game.world.World;
 import io.battlerune.game.world.entity.combat.magic.Autocast;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.game.world.object.GameObject;
 import io.battlerune.net.packet.out.SendMessage;
 

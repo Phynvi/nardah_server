@@ -8,8 +8,8 @@ import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.util.Utility;
 
 import static io.battlerune.game.world.entity.combat.CombatUtil.createStrategyArray;
@@ -33,7 +33,7 @@ public class KrilTsutsaroth extends SimplifiedListener<Npc> {
 	}
 
 	@Override
-	public void start(Npc attacker, Mob defender, Hit[] hits) {
+	public void start(Npc attacker, Actor defender, Hit[] hits) {
 		attacker.setStrategy(randomStrategy(STRATEGIES));
 		if(Utility.random(3) == 0) {
 			attacker.speak(Utility.randomElement(SHOUTS));
@@ -41,7 +41,7 @@ public class KrilTsutsaroth extends SimplifiedListener<Npc> {
 	}
 
 	@Override
-	public void block(Mob attacker, Npc defender, Hit hit, CombatType combatType) {
+	public void block(Actor attacker, Npc defender, Hit hit, CombatType combatType) {
 		attacker.getStrategy().block(attacker, defender, hit, combatType);
 		defender.getCombat().attack(attacker);
 	}
@@ -52,7 +52,7 @@ public class KrilTsutsaroth extends SimplifiedListener<Npc> {
 		}
 
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit hit = nextMagicHit(attacker, defender, 30);
 			hit.setAccurate(true);
 			return new CombatHit[]{hit};

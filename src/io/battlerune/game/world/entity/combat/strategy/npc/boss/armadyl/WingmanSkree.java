@@ -6,8 +6,8 @@ import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.projectile.CombatProjectile;
 import io.battlerune.game.world.entity.combat.strategy.npc.MultiStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 
 public class WingmanSkree extends MultiStrategy {
 	
@@ -16,7 +16,7 @@ public class WingmanSkree extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean canOtherAttack(Mob attacker, Npc defender) {
+	public boolean canOtherAttack(Actor attacker, Npc defender) {
 		if(attacker.isPlayer() && attacker.getStrategy().getCombatType().equals(CombatType.MELEE)) {
 			attacker.getPlayer().message("You can't attack Armadyl with melee!");
 			return false;
@@ -25,7 +25,7 @@ public class WingmanSkree extends MultiStrategy {
 	}
 	
 	@Override
-	public int getAttackDelay(Npc attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Npc attacker, Actor defender, FightType fightType) {
 		return attacker.definition.getAttackDelay();
 	}
 	
@@ -35,7 +35,7 @@ public class WingmanSkree extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextMagicHit(attacker, defender, 16)};
 		}
 	}

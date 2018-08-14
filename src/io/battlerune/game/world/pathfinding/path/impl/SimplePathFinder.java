@@ -1,8 +1,8 @@
 package io.battlerune.game.world.pathfinding.path.impl;
 
 import io.battlerune.game.world.Interactable;
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.Direction;
 import io.battlerune.game.world.pathfinding.path.Path;
 import io.battlerune.game.world.pathfinding.path.PathFinder;
 import io.battlerune.game.world.position.Position;
@@ -12,12 +12,12 @@ import io.battlerune.util.Utility;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-import static io.battlerune.game.world.entity.mob.Direction.NONE;
-import static io.battlerune.game.world.entity.mob.Direction.getDirection;
+import static io.battlerune.game.world.entity.actor.Direction.NONE;
+import static io.battlerune.game.world.entity.actor.Direction.getDirection;
 
 /**
  * Represents a simple path finder which determines a straight path to the first
- * blocked tile or it's destination. Mostly used by {@link Mob} following and
+ * blocked tile or it's destination. Mostly used by {@link Actor} following and
  * movement.
  * @author Artem Batutin <artembatutin@gmail.com>
  */

@@ -1,10 +1,10 @@
 package io.battlerune.game.world.entity.combat;
 
 import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.util.Stopwatch;
 
 import java.util.HashMap;
@@ -22,7 +22,7 @@ public final class CombatDamage {
 	/**
 	 * The damages of players who have inflicted damage.
 	 */
-	private final Map<Mob, DamageCounter> attackers = new HashMap<>();
+	private final Map<Actor, DamageCounter> attackers = new HashMap<>();
 	
 	public Hit lastHit;
 	
@@ -33,7 +33,7 @@ public final class CombatDamage {
 	 * @param character the character to register damage for.
 	 * @param hit the hit to register.
 	 */
-	public void add(Mob character, Hit hit) {
+	public void add(Actor character, Hit hit) {
 		if(hit.getDamage() > 0) {
 			DamageCounter counter = attackers.putIfAbsent(character, new DamageCounter(hit.getDamage()));
 			if(counter != null)
@@ -51,9 +51,9 @@ public final class CombatDamage {
 	public Optional<Npc> getNpcKiller() {
 		int amount = 0;
 		Npc killer = null;
-		for(Map.Entry<Mob, DamageCounter> entry : attackers.entrySet()) {
+		for(Map.Entry<Actor, DamageCounter> entry : attackers.entrySet()) {
 			DamageCounter counter = entry.getValue();
-			Mob entity = entry.getKey();
+			Actor entity = entry.getKey();
 			
 			if(!entity.isNpc() || entity.isDead() || !entity.isValid() || counter.isTimeout())
 				continue;
@@ -74,9 +74,9 @@ public final class CombatDamage {
 	public Optional<Player> getPlayerKiller() {
 		int amount = 0;
 		Player killer = null;
-		for(Map.Entry<Mob, DamageCounter> entry : attackers.entrySet()) {
+		for(Map.Entry<Actor, DamageCounter> entry : attackers.entrySet()) {
 			DamageCounter counter = entry.getValue();
-			Mob entity = entry.getKey();
+			Actor entity = entry.getKey();
 			
 			if(!entity.isPlayer() || entity.isDead() || entity.isValid() || counter.isTimeout())
 				continue;
@@ -94,22 +94,22 @@ public final class CombatDamage {
 	 * @return the player who has inflicted the most damage, or an empty optional if
 	 * there are no entries.
 	 */
-	public Optional<Mob> calculateProperKiller() {
+	public Optional<Actor> calculateProperKiller() {
 		int amount = 0;
-		Mob killer = null;
-		for(Map.Entry<Mob, DamageCounter> entry : attackers.entrySet()) {
+		Actor killer = null;
+		for(Map.Entry<Actor, DamageCounter> entry : attackers.entrySet()) {
 			DamageCounter counter = entry.getValue();
-			Mob mob = entry.getKey();
+			Actor actor = entry.getKey();
 			
-			if(mob.isDead() || !mob.isValid() || counter.isTimeout())
+			if(actor.isDead() || !actor.isValid() || counter.isTimeout())
 				continue;
 			
-			if(attackers.size() > 1 && mob.isPlayer() && PlayerRight.isIronman(mob.getPlayer()))
+			if(attackers.size() > 1 && actor.isPlayer() && PlayerRight.isIronman(actor.getPlayer()))
 				continue;
 			
 			if(counter.getAmount() > amount) {
 				amount = counter.getAmount();
-				killer = mob;
+				killer = actor;
 			}
 		}
 		return Optional.ofNullable(killer);

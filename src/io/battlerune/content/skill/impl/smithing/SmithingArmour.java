@@ -5,7 +5,7 @@ import io.battlerune.Config;
 import io.battlerune.content.skill.impl.ProducingSkillAction;
 import io.battlerune.game.Animation;
 import io.battlerune.game.action.policy.WalkablePolicy;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.object.GameObject;

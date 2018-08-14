@@ -11,8 +11,8 @@ import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.MultiStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 
 import static io.battlerune.game.world.entity.combat.CombatUtil.createStrategyArray;
 import static io.battlerune.game.world.entity.combat.CombatUtil.randomStrategy;
@@ -30,18 +30,18 @@ public class CorporealBeast extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		return currentStrategy.canAttack(attacker, defender);
 	}
 	
 	@Override
-	public void finishOutgoing(Npc attacker, Mob defender) {
+	public void finishOutgoing(Npc attacker, Actor defender) {
 		currentStrategy.finishOutgoing(attacker, defender);
 		currentStrategy = randomStrategy(STRATEGIES);
 	}
 	
 	@Override
-	public void block(Mob attacker, Npc defender, Hit hit, CombatType combatType) {
+	public void block(Actor attacker, Npc defender, Hit hit, CombatType combatType) {
 		//        if (hit.getDamage() > 32) {
 		// 1/8 chance that the dark core will spawn
 		// TODO: make all non-spear weapons have 50% damage reduction
@@ -51,12 +51,12 @@ public class CorporealBeast extends MultiStrategy {
 	}
 	
 	@Override
-	public int getAttackDelay(Npc attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Npc attacker, Actor defender, FightType fightType) {
 		return attacker.definition.getAttackDelay();
 	}
 	
 	@Override
-	public int modifyAccuracy(Npc attacker, Mob defender, int roll) {
+	public int modifyAccuracy(Npc attacker, Actor defender, int roll) {
 		return (int) (roll * 5.05);
 	}
 	
@@ -69,12 +69,12 @@ public class CorporealBeast extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return ANIMATION;
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextMeleeHit(attacker, defender)};
 		}
 	}
@@ -87,22 +87,22 @@ public class CorporealBeast extends MultiStrategy {
 		}
 		
 		@Override
-		public void start(Npc attacker, Mob defender, Hit[] hits) {
+		public void start(Npc attacker, Actor defender, Hit[] hits) {
 			super.start(attacker, defender, hits);
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 			super.hit(attacker, defender, hit);
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextMagicHit(attacker, defender, 65)};
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return ANIMATION;
 		}
 		

@@ -3,7 +3,7 @@ package io.battlerune.game.action.impl;
 import io.battlerune.content.pet.PetData;
 import io.battlerune.game.action.Action;
 import io.battlerune.game.action.policy.WalkablePolicy;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.game.world.position.Position;
 
 import java.util.Arrays;

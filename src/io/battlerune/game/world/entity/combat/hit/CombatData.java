@@ -1,13 +1,13 @@
 package io.battlerune.game.world.entity.combat.hit;
 
 import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
 /**
  * Holds variables to generate combat data of an actor.
  * @author Michael | Chex
  */
-public final class CombatData<T extends Mob> {
+public final class CombatData<T extends Actor> {
 	
 	/**
 	 * The attacker.
@@ -17,7 +17,7 @@ public final class CombatData<T extends Mob> {
 	/**
 	 * The defender.
 	 */
-	private final Mob defender;
+	private final Actor defender;
 	
 	/**
 	 * The combat hit.
@@ -37,7 +37,7 @@ public final class CombatData<T extends Mob> {
 	/**
 	 * Constructs a new {@code CombatHitData} object.
 	 */
-	public CombatData(T attacker, Mob defender, CombatHit hit, CombatStrategy<? super T> strategy, boolean lastHit) {
+	public CombatData(T attacker, Actor defender, CombatHit hit, CombatStrategy<? super T> strategy, boolean lastHit) {
 		this.attacker = attacker;
 		this.defender = defender;
 		this.hit = hit;
@@ -55,7 +55,7 @@ public final class CombatData<T extends Mob> {
 	/**
 	 * @return the defender
 	 */
-	public Mob getDefender() {
+	public Actor getDefender() {
 		return defender;
 	}
 	

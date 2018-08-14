@@ -2,7 +2,7 @@ package io.battlerune.content.store.currency.impl;
 
 import io.battlerune.content.clanchannel.channel.ClanChannel;
 import io.battlerune.content.store.currency.Currency;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * @author <a href="http://www.rune-server.org/members/stand+up/">Stand Up</a>

@@ -3,7 +3,7 @@ package io.battlerune.content.activity.randomevent;
 import io.battlerune.content.activity.randomevent.impl.DrillDemonEvent;
 import io.battlerune.content.activity.randomevent.impl.GenieEvent;
 import io.battlerune.content.activity.randomevent.impl.MimeEvent;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.util.RandomUtils;
 import io.battlerune.util.Utility;

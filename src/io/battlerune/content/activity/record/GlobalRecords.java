@@ -4,7 +4,7 @@ import com.google.common.reflect.TypeToken;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
 import io.battlerune.content.activity.ActivityType;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendScrollbar;
 import io.battlerune.net.packet.out.SendString;
 import io.battlerune.util.GsonUtils;

@@ -6,8 +6,8 @@ import io.battlerune.game.UpdatePriority;
 import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.player.PlayerMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 
 import static io.battlerune.game.world.entity.skill.Skill.HITPOINTS;
@@ -26,13 +26,13 @@ public class SaradominGodsword extends PlayerMeleeStrategy {
 	private static final SaradominGodsword INSTANCE = new SaradominGodsword();
 
 	@Override
-	public void attack(Player attacker, Mob defender, Hit hit) {
+	public void attack(Player attacker, Actor defender, Hit hit) {
 		super.attack(attacker, defender, hit);
 		attacker.graphic(GRAPHIC);
 	}
 
 	@Override
-	public void hit(Player attacker, Mob defender, Hit hit) {
+	public void hit(Player attacker, Actor defender, Hit hit) {
 		super.hit(attacker, defender, hit);
 
 		int heal = hit.getDamage() / 2;
@@ -56,22 +56,22 @@ public class SaradominGodsword extends PlayerMeleeStrategy {
 	}
 
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		return new CombatHit[]{nextMeleeHit(attacker, defender)};
 	}
 
 	@Override
-	public Animation getAttackAnimation(Player attacker, Mob defender) {
+	public Animation getAttackAnimation(Player attacker, Actor defender) {
 		return ANIMATION;
 	}
 
 	@Override
-	public int modifyAccuracy(Player attacker, Mob defender, int roll) {
+	public int modifyAccuracy(Player attacker, Actor defender, int roll) {
 		return roll * 2;
 	}
 
 	@Override
-	public int modifyDamage(Player attacker, Mob defender, int damage) {
+	public int modifyDamage(Player attacker, Actor defender, int damage) {
 		return damage * 11 / 10;
 	}
 

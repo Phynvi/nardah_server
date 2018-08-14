@@ -4,9 +4,9 @@ import io.battlerune.game.world.entity.combat.attack.FightType;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.hit.HitIcon;
 import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.prayer.Prayer;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.prayer.Prayer;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.pathfinding.path.SimplePathChecker;
 import io.battlerune.util.Utility;
@@ -14,10 +14,10 @@ import io.battlerune.util.Utility;
 /**
  * @author Michael | Chex
  */
-public abstract class MeleeStrategy<T extends Mob> extends CombatStrategy<T> {
+public abstract class MeleeStrategy<T extends Actor> extends CombatStrategy<T> {
 	
 	@Override
-	public boolean withinDistance(T attacker, Mob defender) {
+	public boolean withinDistance(T attacker, Actor defender) {
 		FightType fightType = attacker.getCombat().getFightType();
 		int distance = getAttackDistance(attacker, fightType);
 		
@@ -34,7 +34,7 @@ public abstract class MeleeStrategy<T extends Mob> extends CombatStrategy<T> {
 	}
 	
 	@Override
-	public int modifyDamage(T attacker, Mob defender, int damage) {
+	public int modifyDamage(T attacker, Actor defender, int damage) {
 		if(defender.prayer.isActive(Prayer.PROTECT_FROM_MELEE)) {
 			if(defender.attributes.has("VERACS-EFFECT")) {
 				return damage;

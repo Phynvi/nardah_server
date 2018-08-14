@@ -3,8 +3,8 @@ package io.battlerune.content.activity.impl.fightcaves;
 import io.battlerune.content.activity.ActivityListener;
 import io.battlerune.game.world.entity.combat.CombatType;
 import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.util.Utility;
 
 /**
@@ -22,7 +22,7 @@ public class FightCavesListener extends ActivityListener<FightCaves> {
 	}
 
 	@Override
-	public void block(Mob attacker, Mob defender, Hit hit, CombatType combatType) {
+	public void block(Actor attacker, Actor defender, Hit hit, CombatType combatType) {
 		if(!defender.isNpc())
 			return;
 		if(defender.id != 3127)
@@ -37,7 +37,7 @@ public class FightCavesListener extends ActivityListener<FightCaves> {
 	}
 
 	@Override
-	public void onDeath(Mob attacker, Mob defender, Hit hit) {
+	public void onDeath(Actor attacker, Actor defender, Hit hit) {
 		activity.handleDeath(defender);
 	}
 }

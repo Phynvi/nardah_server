@@ -6,9 +6,9 @@ import io.battlerune.game.UpdatePriority;
 import io.battlerune.game.world.entity.combat.attack.FightType;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.player.PlayerMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.prayer.Prayer;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.prayer.Prayer;
 import io.battlerune.net.packet.out.SendMessage;
 
 /**
@@ -24,13 +24,13 @@ public class DragonSword extends PlayerMeleeStrategy {
 	}
 
 	@Override
-	public void start(Player attacker, Mob defender, Hit[] hits) {
+	public void start(Player attacker, Actor defender, Hit[] hits) {
 		super.start(attacker, defender, hits);
 		attacker.graphic(GRAPHIC);
 	}
 
 	@Override
-	public void attack(Player attacker, Mob defender, Hit h) {
+	public void attack(Player attacker, Actor defender, Hit h) {
 		if(!defender.isPlayer())
 			return;
 
@@ -40,17 +40,17 @@ public class DragonSword extends PlayerMeleeStrategy {
 	}
 
 	@Override
-	public int getAttackDelay(Player attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Player attacker, Actor defender, FightType fightType) {
 		return 4;
 	}
 
 	@Override
-	public int modifyDamage(Player attacker, Mob defender, int damage) {
+	public int modifyDamage(Player attacker, Actor defender, int damage) {
 		return damage * 3 / 2;
 	}
 
 	@Override
-	public Animation getAttackAnimation(Player attacker, Mob defender) {
+	public Animation getAttackAnimation(Player attacker, Actor defender) {
 		return ANIMATION;
 	}
 

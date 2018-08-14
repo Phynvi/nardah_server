@@ -6,9 +6,9 @@ import io.battlerune.game.UpdatePriority;
 import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.player.PlayerMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.prayer.Prayer;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.prayer.Prayer;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.net.packet.out.SendMessage;
 
@@ -24,7 +24,7 @@ public class AnicentMace extends PlayerMeleeStrategy {
 	private static final Graphic GRAPHIC = new Graphic(1052, true, UpdatePriority.HIGH);
 
 	@Override
-	public void start(Player attacker, Mob defender, Hit[] hits) {
+	public void start(Player attacker, Actor defender, Hit[] hits) {
 		super.start(attacker, defender, hits);
 		AnicentMace.onRestoreEffect(attacker, true);
 		int realLevel = attacker.skills.getMaxLevel(Skill.PRAYER);
@@ -59,28 +59,28 @@ public class AnicentMace extends PlayerMeleeStrategy {
 	}
 
 	@Override
-	public void attack(Player attacker, Mob defender, Hit hit) {
+	public void attack(Player attacker, Actor defender, Hit hit) {
 		super.attack(attacker, defender, hit);
 		attacker.graphic(GRAPHIC);
 	}
 
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		return new CombatHit[]{nextMeleeHit(attacker, defender)};
 	}
 
 	@Override
-	public Animation getAttackAnimation(Player attacker, Mob defender) {
+	public Animation getAttackAnimation(Player attacker, Actor defender) {
 		return ANIMATION;
 	}
 
 	@Override
-	public int modifyAccuracy(Player attacker, Mob defender, int roll) {
+	public int modifyAccuracy(Player attacker, Actor defender, int roll) {
 		return roll * 4 / 3;
 	}
 
 	@Override
-	public int modifyDamage(Player attacker, Mob defender, int damage) {
+	public int modifyDamage(Player attacker, Actor defender, int damage) {
 		return damage * 23 / 20;
 	}
 

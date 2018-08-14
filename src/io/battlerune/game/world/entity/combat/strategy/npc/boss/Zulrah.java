@@ -10,9 +10,9 @@ import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.npc.MultiStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcRangedStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.data.LockType;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.data.LockType;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.game.world.items.containers.equipment.Equipment;
 import io.battlerune.game.world.pathfinding.path.SimplePathChecker;
 import io.battlerune.game.world.position.Position;
@@ -30,7 +30,7 @@ public class Zulrah extends MultiStrategy {
 	
 	private static final FormulaModifier<Npc> MODIFIER = new FormulaModifier<Npc>() {
 		@Override
-		public int modifyAttackLevel(Npc attacker, Mob defender, int level) {
+		public int modifyAttackLevel(Npc attacker, Actor defender, int level) {
 			return 1;
 		}
 	};
@@ -58,12 +58,12 @@ public class Zulrah extends MultiStrategy {
 		}
 		
 		@Override
-		public boolean withinDistance(Npc attacker, Mob defender) {
+		public boolean withinDistance(Npc attacker, Actor defender) {
 			return Utility.within(attacker, defender, getAttackDistance(attacker, attacker.getCombat().getFightType())) && SimplePathChecker.checkProjectile(attacker, defender);
 		}
 		
 		@Override
-		public void start(Npc attacker, Mob defender, Hit[] hits) {
+		public void start(Npc attacker, Actor defender, Hit[] hits) {
 			Position end = defender.getPosition();
 			attacker.face(end);
 			attacker.animate(new Animation(5807, UpdatePriority.HIGH));
@@ -82,19 +82,19 @@ public class Zulrah extends MultiStrategy {
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 			/* No super call because of splash gfx */
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit hit = nextMagicHit(attacker, defender, 0);
 			hit.setAccurate(false);
 			return new CombatHit[]{hit};
 		}
 		
 		@Override
-		public int getAttackDelay(Npc attacker, Mob defender, FightType fightType) {
+		public int getAttackDelay(Npc attacker, Actor defender, FightType fightType) {
 			return 8;
 		}
 		
@@ -104,20 +104,20 @@ public class Zulrah extends MultiStrategy {
 		}
 		
 		@Override
-		public int modifyOffensiveBonus(Npc attacker, Mob defender, int bonus) {
+		public int modifyOffensiveBonus(Npc attacker, Actor defender, int bonus) {
 			FightType fightType = attacker.getCombat().getFightType();
 			bonus = attacker.getBonus(fightType.getBonus());
 			return attacker.getCombat().modifyOffensiveBonus(defender, bonus);
 		}
 		
 		@Override
-		public int modifyAggressiveBonus(Npc attacker, Mob defender, int bonus) {
+		public int modifyAggressiveBonus(Npc attacker, Actor defender, int bonus) {
 			bonus = attacker.getBonus(Equipment.STRENGTH_BONUS);
 			return attacker.getCombat().modifyAggresiveBonus(defender, bonus);
 		}
 		
 		@Override
-		public int modifyDefensiveBonus(Mob attacker, Npc defender, int bonus) {
+		public int modifyDefensiveBonus(Actor attacker, Npc defender, int bonus) {
 			FightType fightType = attacker.getCombat().getFightType();
 			bonus = defender.getBonus(fightType.getCorrespondingBonus());
 			return defender.getCombat().modifyDefensiveBonus(attacker, bonus);
@@ -131,7 +131,7 @@ public class Zulrah extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextRangedHit(attacker, defender, 41)};
 		}
 		
@@ -148,7 +148,7 @@ public class Zulrah extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit combatHit = nextMagicHit(attacker, defender, 41);
 			combatHit.setAccurate(true);
 			return new CombatHit[]{combatHit};

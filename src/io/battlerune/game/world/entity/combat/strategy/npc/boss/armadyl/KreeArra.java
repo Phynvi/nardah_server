@@ -13,8 +13,8 @@ import io.battlerune.game.world.entity.combat.strategy.npc.MultiStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcRangedStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 
 import static io.battlerune.game.world.entity.combat.CombatUtil.createStrategyArray;
 import static io.battlerune.game.world.entity.combat.CombatUtil.randomStrategy;
@@ -34,7 +34,7 @@ public class KreeArra extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean canOtherAttack(Mob attacker, Npc defender) {
+	public boolean canOtherAttack(Actor attacker, Npc defender) {
 		if(attacker.isPlayer() && attacker.getStrategy().getCombatType().equals(CombatType.MELEE)) {
 			attacker.getPlayer().message("You can't attack Armadyl with melee!");
 			return false;
@@ -43,7 +43,7 @@ public class KreeArra extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		boolean isTarget = attacker.equals(defender.getCombat().getDefender());
 		if(!melee && !isTarget) {
 			currentStrategy = MELEE;
@@ -54,7 +54,7 @@ public class KreeArra extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean withinDistance(Npc attacker, Mob defender) {
+	public boolean withinDistance(Npc attacker, Actor defender) {
 		boolean isTarget = attacker.equals(defender.getCombat().getDefender());
 		if(!melee && !isTarget) {
 			currentStrategy = MELEE;
@@ -65,7 +65,7 @@ public class KreeArra extends MultiStrategy {
 	}
 	
 	@Override
-	public void finishOutgoing(Npc attacker, Mob defender) {
+	public void finishOutgoing(Npc attacker, Actor defender) {
 		super.finishOutgoing(attacker, defender);
 		boolean isTarget = attacker.equals(defender.getCombat().getDefender());
 		if(!melee && !isTarget) {
@@ -79,7 +79,7 @@ public class KreeArra extends MultiStrategy {
 	}
 	
 	@Override
-	public int getAttackDelay(Npc attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Npc attacker, Actor defender, FightType fightType) {
 		return attacker.definition.getAttackDelay();
 	}
 	
@@ -89,7 +89,7 @@ public class KreeArra extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextRangedHit(attacker, defender, 71)};
 		}
 	}
@@ -100,7 +100,7 @@ public class KreeArra extends MultiStrategy {
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 			if(hit.isAccurate())
 				super.hit(attacker, defender, hit);
 			else
@@ -108,7 +108,7 @@ public class KreeArra extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit hit = nextRangedHit(attacker, defender, 21);
 			hit.setIcon(HitIcon.MAGIC);
 			return new CombatHit[]{hit};
@@ -119,12 +119,12 @@ public class KreeArra extends MultiStrategy {
 		private static final Animation ANIMATION = new Animation(6981, UpdatePriority.HIGH);
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return ANIMATION;
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextMeleeHit(attacker, defender, 26)};
 		}
 	}

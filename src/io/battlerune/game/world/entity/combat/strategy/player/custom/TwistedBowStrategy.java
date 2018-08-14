@@ -2,8 +2,8 @@ package io.battlerune.game.world.entity.combat.strategy.player.custom;
 
 import io.battlerune.game.world.entity.combat.attack.FightType;
 import io.battlerune.game.world.entity.combat.strategy.player.PlayerRangedStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 
 /**
@@ -16,7 +16,7 @@ public class TwistedBowStrategy extends PlayerRangedStrategy {
 	}
 	
 	@Override
-	public int modifyAccuracy(Player attacker, Mob defender, int roll) {
+	public int modifyAccuracy(Player attacker, Actor defender, int roll) {
 		int level = defender.skills.getMaxLevel(Skill.MAGIC);
 		if(level > 360)
 			level = 360;
@@ -28,7 +28,7 @@ public class TwistedBowStrategy extends PlayerRangedStrategy {
 	}
 	
 	@Override
-	public int modifyDamage(Player attacker, Mob defender, int roll) {
+	public int modifyDamage(Player attacker, Actor defender, int roll) {
 		int level = defender.skills.getMaxLevel(Skill.MAGIC);
 		if(level > 360)
 			level = 360;
@@ -40,7 +40,7 @@ public class TwistedBowStrategy extends PlayerRangedStrategy {
 	}
 	
 	@Override
-	public int getAttackDelay(Player attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Player attacker, Actor defender, FightType fightType) {
 		return 6;
 	}
 	

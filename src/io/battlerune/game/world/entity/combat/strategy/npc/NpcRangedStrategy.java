@@ -12,8 +12,8 @@ import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.projectile.CombatProjectile;
 import io.battlerune.game.world.entity.combat.strategy.basic.RangedStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.util.RandomUtils;
 
 import java.util.function.Consumer;
@@ -28,7 +28,7 @@ public class NpcRangedStrategy extends RangedStrategy<Npc> {
 	}
 	
 	@Override
-	public void start(Npc attacker, Mob defender, Hit[] hits) {
+	public void start(Npc attacker, Actor defender, Hit[] hits) {
 		Animation animation = getAttackAnimation(attacker, defender);
 		
 		if(projectileDefinition.getAnimation().isPresent() && (animation.getId() == -1 || animation.getId() == 65535)) {
@@ -41,7 +41,7 @@ public class NpcRangedStrategy extends RangedStrategy<Npc> {
 	}
 	
 	@Override
-	public void attack(Npc attacker, Mob defender, Hit hit) {
+	public void attack(Npc attacker, Actor defender, Hit hit) {
 		Predicate<CombatImpact> filter = effect -> effect.canAffect(attacker, defender, hit);
 		Consumer<CombatImpact> execute = effect -> effect.impact(attacker, defender, hit, null);
 		projectileDefinition.getEffect().filter(filter).ifPresent(execute);
@@ -58,12 +58,12 @@ public class NpcRangedStrategy extends RangedStrategy<Npc> {
 	}
 	
 	@Override
-	public void hit(Npc attacker, Mob defender, Hit hit) {
+	public void hit(Npc attacker, Actor defender, Hit hit) {
 		projectileDefinition.getEnd().ifPresent(defender::graphic);
 	}
 	
 	@Override
-	public CombatHit[] getHits(Npc attacker, Mob defender) {
+	public CombatHit[] getHits(Npc attacker, Actor defender) {
 		int max = projectileDefinition.getMaxHit();
 		if(max == -1)
 			max = FormulaFactory.getMaxHit(attacker, defender, getCombatType());
@@ -71,7 +71,7 @@ public class NpcRangedStrategy extends RangedStrategy<Npc> {
 	}
 	
 	@Override
-	public int getAttackDelay(Npc attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Npc attacker, Actor defender, FightType fightType) {
 		return attacker.definition.getAttackDelay();
 	}
 	
@@ -81,12 +81,12 @@ public class NpcRangedStrategy extends RangedStrategy<Npc> {
 	}
 	
 	@Override
-	public Animation getAttackAnimation(Npc attacker, Mob defender) {
+	public Animation getAttackAnimation(Npc attacker, Actor defender) {
 		return new Animation(attacker.definition.getAttackAnimation(), UpdatePriority.HIGH);
 	}
 	
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		return true;
 	}
 	

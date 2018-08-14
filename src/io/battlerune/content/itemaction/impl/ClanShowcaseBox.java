@@ -4,7 +4,7 @@ import io.battlerune.content.clanchannel.ClanUtility;
 import io.battlerune.content.clanchannel.channel.ClanChannel;
 import io.battlerune.content.clanchannel.content.ClanLevel;
 import io.battlerune.content.itemaction.ItemAction;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.net.packet.out.SendMessage;
 import io.battlerune.util.Utility;

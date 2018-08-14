@@ -4,7 +4,7 @@ import io.battlerune.content.event.impl.ItemOnObjectInteractionEvent;
 import io.battlerune.game.Animation;
 import io.battlerune.game.task.Task;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.ItemDefinition;

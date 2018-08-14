@@ -3,9 +3,9 @@ package io.battlerune.game.world.entity.combat.attack.listener.npc;
 import io.battlerune.game.world.entity.combat.attack.listener.NpcCombatListenerSignature;
 import io.battlerune.game.world.entity.combat.attack.listener.SimplifiedListener;
 import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.util.Utility;
 
 /**
@@ -15,7 +15,7 @@ import io.battlerune.util.Utility;
 public class SergeantStrongstack extends SimplifiedListener<Npc> {
 
 	@Override
-	public void hit(Npc attacker, Mob defender, Hit hit) {
+	public void hit(Npc attacker, Actor defender, Hit hit) {
 		if(!defender.isPlayer())
 			return;
 		if(Utility.random(10) != 0)

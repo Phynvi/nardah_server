@@ -12,10 +12,10 @@ import io.battlerune.content.dialogue.Expression;
 import io.battlerune.content.event.impl.ObjectInteractionEvent;
 import io.battlerune.content.skill.impl.magic.teleport.Teleportation;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.npc.NpcDeath;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.NpcDeath;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.net.packet.out.SendMessage;
@@ -65,30 +65,30 @@ public class VorkathActivity extends Activity {
 	}
 
 	@Override
-	public void add(Mob mob) {
-		super.add(mob);
-		if(mob.isNpc()) {
-			if(mob.getNpc().id == VORKATH) {
-				vorkath = mob.getNpc();
+	public void add(Actor actor) {
+		super.add(actor);
+		if(actor.isNpc()) {
+			if(actor.getNpc().id == VORKATH) {
+				vorkath = actor.getNpc();
 			}
-			mob.locking.lock();
+			actor.locking.lock();
 		}
 	}
 
 	@Override
-	public void remove(Mob mob) {
-		if(!mob.isNpc()) {
-			super.remove(mob);
+	public void remove(Actor actor) {
+		if(!actor.isNpc()) {
+			super.remove(actor);
 			return;
 		}
-		int id = mob.getNpc().id;
+		int id = actor.getNpc().id;
 		if(id == VORKATH) {
 			vorkath = null;
 			Teleportation.teleport(player, Config.DEFAULT_POSITION, 20, () -> {
 				player.send(new SendMessage("Get yo ass back home boi, " + player.getName() + "!"));
 			});
 		}
-		super.remove(mob);
+		super.remove(actor);
 	}
 
 	@Override
@@ -148,13 +148,13 @@ public class VorkathActivity extends Activity {
 	}
 
 	@Override
-	public void onDeath(Mob mob) {
-		if(mob.isNpc() && mob.getNpc().equals(vorkath)) {
-			World.schedule(new NpcDeath(mob.getNpc(), this::finish));
+	public void onDeath(Actor actor) {
+		if(actor.isNpc() && actor.getNpc().equals(vorkath)) {
+			World.schedule(new NpcDeath(actor.getNpc(), this::finish));
 			return;
 		}
 
-		super.onDeath(mob);
+		super.onDeath(actor);
 	}
 
 	@Override

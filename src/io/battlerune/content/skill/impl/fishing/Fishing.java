@@ -2,8 +2,8 @@ package io.battlerune.content.skill.impl.fishing;
 
 import io.battlerune.content.event.impl.NpcInteractionEvent;
 import io.battlerune.content.skill.SkillRepository;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.ItemDefinition;

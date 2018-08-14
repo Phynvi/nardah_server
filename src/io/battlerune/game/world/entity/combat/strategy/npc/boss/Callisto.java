@@ -15,10 +15,10 @@ import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.MultiStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.ForceMovement;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.Direction;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.ForceMovement;
 import io.battlerune.game.world.pathfinding.path.SimplePathChecker;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.net.packet.out.SendMessage;
@@ -44,7 +44,7 @@ public class Callisto extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		if(!currentStrategy.withinDistance(attacker, defender)) {
 			if(RandomUtils.success(0.10)) {
 				currentStrategy = ROAR;
@@ -56,13 +56,13 @@ public class Callisto extends MultiStrategy {
 	}
 	
 	@Override
-	public void block(Mob attacker, Npc defender, Hit hit, CombatType combatType) {
+	public void block(Actor attacker, Npc defender, Hit hit, CombatType combatType) {
 		currentStrategy.block(attacker, defender, hit, combatType);
 		defender.getCombat().attack(attacker);
 	}
 	
 	@Override
-	public void finishOutgoing(Npc attacker, Mob defender) {
+	public void finishOutgoing(Npc attacker, Actor defender) {
 		currentStrategy.finishOutgoing(attacker, defender);
 		if(RandomUtils.success(0.10)) {
 			currentStrategy = ROAR;
@@ -72,7 +72,7 @@ public class Callisto extends MultiStrategy {
 	}
 	
 	@Override
-	public int getAttackDelay(Npc attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Npc attacker, Actor defender, FightType fightType) {
 		return attacker.definition.getAttackDelay();
 	}
 	
@@ -82,7 +82,7 @@ public class Callisto extends MultiStrategy {
 		}
 		
 		@Override
-		public void start(Npc attacker, Mob defender, Hit[] hits) {
+		public void start(Npc attacker, Actor defender, Hit[] hits) {
 			attacker.animate(new Animation(4922, UpdatePriority.VERY_HIGH));
 			World.sendProjectile(attacker, defender, new Projectile(395, 46, 80, 43, 31));
 			World.schedule(1, () -> {
@@ -106,19 +106,19 @@ public class Callisto extends MultiStrategy {
 					Position offset = new Position(current.getX() - defender.getX(), current.getY() - defender.getY());
 					ForceMovement movement = new ForceMovement(defender.getPosition(), offset, 33, 60, Direction.getOppositeDirection(opposite));
 					
-					int anim = defender.mobAnimation.getWalk();
+					int anim = defender.actorAnimation.getWalk();
 					World.schedule(new ForceMovementTask(defender, 3, 0, movement, new Animation(3170, UpdatePriority.VERY_HIGH)) {
 						@Override
 						protected void onSchedule() {
 							super.onSchedule();
-							defender.mobAnimation.setWalk(3170);
+							defender.actorAnimation.setWalk(3170);
 							defender.locking.lock();
 						}
 						
 						@Override
 						protected void onCancel(boolean logout) {
 							super.onCancel(logout);
-							defender.mobAnimation.setWalk(anim);
+							defender.actorAnimation.setWalk(anim);
 							defender.locking.unlock();
 						}
 					});
@@ -127,15 +127,15 @@ public class Callisto extends MultiStrategy {
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 		}
 		
 		@Override
-		public void attack(Npc attacker, Mob defender, Hit hit) {
+		public void attack(Npc attacker, Actor defender, Hit hit) {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit hit = nextMagicHit(attacker, defender, 3);
 			hit.setAccurate(true);
 			return new CombatHit[]{hit};
@@ -150,7 +150,7 @@ public class Callisto extends MultiStrategy {
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 			super.hit(attacker, defender, hit);
 			if(defender.isPlayer()) {
 				defender.getPlayer().send(new SendMessage("Callisto's fury sends an almighty shockwave through you."));
@@ -159,14 +159,14 @@ public class Callisto extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit hit = nextMagicHit(attacker, defender, 23);
 			hit.setAccurate(true);
 			return new CombatHit[]{hit};
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return ANIMATION;
 		}
 	}
@@ -180,12 +180,12 @@ public class Callisto extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return ANIMATION;
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextMeleeHit(attacker, defender)};
 		}
 	}

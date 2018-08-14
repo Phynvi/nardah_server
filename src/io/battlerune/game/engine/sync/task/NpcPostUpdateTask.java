@@ -1,6 +1,6 @@
 package io.battlerune.game.engine.sync.task;
 
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.util.log.LogManager;
 import io.battlerune.util.log.Logger;
 import io.battlerune.util.log.LoggerType;

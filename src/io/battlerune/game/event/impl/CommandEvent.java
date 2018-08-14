@@ -1,7 +1,7 @@
 package io.battlerune.game.event.impl;
 
 import io.battlerune.game.event.Event;
-import io.battlerune.game.world.entity.mob.player.command.CommandParser;
+import io.battlerune.game.world.entity.actor.player.command.CommandParser;
 
 public class CommandEvent implements Event {
 

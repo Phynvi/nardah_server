@@ -12,7 +12,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
-import static io.battlerune.game.world.entity.mob.Direction.*;
+import static io.battlerune.game.world.entity.actor.Direction.*;
 
 public final class DijkstraPathFinder extends PathFinder {
 

@@ -1,19 +1,19 @@
 package io.battlerune.net.packet.out;
 
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.OutgoingPacket;
 
 public class SendEntityHintArrow extends OutgoingPacket {
 	
-	private final Mob entity;
+	private final Actor entity;
 	private final boolean reset;
 	
-	public SendEntityHintArrow(Mob entity) {
+	public SendEntityHintArrow(Actor entity) {
 		this(entity, false);
 	}
 	
-	public SendEntityHintArrow(Mob entity, boolean reset) {
+	public SendEntityHintArrow(Actor entity, boolean reset) {
 		super(254, 6);
 		this.entity = entity;
 		this.reset = reset;

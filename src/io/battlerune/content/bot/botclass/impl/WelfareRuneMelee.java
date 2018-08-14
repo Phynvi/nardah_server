@@ -10,9 +10,9 @@ import io.battlerune.game.world.entity.combat.CombatType;
 import io.battlerune.game.world.entity.combat.attack.FightType;
 import io.battlerune.game.world.entity.combat.attack.listener.SimplifiedListener;
 import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.prayer.Prayer;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.prayer.Prayer;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.util.RandomUtils;
@@ -80,7 +80,7 @@ public class WelfareRuneMelee extends SimplifiedListener<Player> implements BotC
 	}
 
 	@Override
-	public void hit(Player attacker, Mob defender, Hit hit) {
+	public void hit(Player attacker, Actor defender, Hit hit) {
 		int max = getModifiedMaxHit(attacker, defender, CombatType.MELEE);
 		max = attacker.getCombat().modifyDamage(defender, max);
 
@@ -164,7 +164,7 @@ public class WelfareRuneMelee extends SimplifiedListener<Player> implements BotC
 	}
 
 	@Override
-	public boolean canOtherAttack(Mob attacker, Player defender) {
+	public boolean canOtherAttack(Actor attacker, Player defender) {
 		if(defender.getCombat().isAttacking() && !defender.getCombat().isAttacking(attacker)) {
 			attacker.getPlayer().message("You cannot attack a bot while they are attacking another player.");
 			return false;
@@ -173,7 +173,7 @@ public class WelfareRuneMelee extends SimplifiedListener<Player> implements BotC
 	}
 
 	@Override
-	public void block(Mob attacker, Player defender, Hit hit, CombatType combatType) {
+	public void block(Actor attacker, Player defender, Hit hit, CombatType combatType) {
 		((PlayerBot) defender).consumableDelay = RandomUtils.inclusive(1, 3);
 	}
 

@@ -2,8 +2,8 @@ package io.battlerune.content.combat.cannon;
 
 import io.battlerune.game.Animation;
 import io.battlerune.game.task.TickableTask;
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Direction;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.object.CustomGameObject;
 

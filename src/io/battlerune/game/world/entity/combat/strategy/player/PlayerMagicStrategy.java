@@ -11,9 +11,9 @@ import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.magic.CombatSpell;
 import io.battlerune.game.world.entity.combat.magic.MagicRune;
 import io.battlerune.game.world.entity.combat.strategy.basic.MagicStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.net.packet.out.SendMessage;
@@ -48,7 +48,7 @@ public class PlayerMagicStrategy extends MagicStrategy<Player> {
 	}
 	
 	@Override
-	public boolean canAttack(Player attacker, Mob defender) {
+	public boolean canAttack(Player attacker, Actor defender) {
 		if(defender.isPlayer() && defender.getPlayer().isBot) {
 			attacker.message("You can't attack bots with magic.");
 			return false;
@@ -76,7 +76,7 @@ public class PlayerMagicStrategy extends MagicStrategy<Player> {
 	}
 	
 	@Override
-	public void start(Player attacker, Mob defender, Hit[] hits) {
+	public void start(Player attacker, Actor defender, Hit[] hits) {
 		if(attacker.getCombat().getDefender() == defender) {
 			Animation animation = spell.getAnimation().orElse(getAttackAnimation(attacker, defender));
 			attacker.animate(animation);
@@ -110,7 +110,7 @@ public class PlayerMagicStrategy extends MagicStrategy<Player> {
 	}
 	
 	@Override
-	public void attack(Player attacker, Mob defender, Hit hit) {
+	public void attack(Player attacker, Actor defender, Hit hit) {
 		if(defender.equals(attacker.getCombat().getDefender())) {
 			MagicRune.remove(attacker, spell.getRunes());
 		}
@@ -123,7 +123,7 @@ public class PlayerMagicStrategy extends MagicStrategy<Player> {
 	}
 	
 	@Override
-	public void hit(Player attacker, Mob defender, Hit hit) {
+	public void hit(Player attacker, Actor defender, Hit hit) {
 		if(!hit.isAccurate()) {
 			defender.graphic(SPLASH);
 		} else {
@@ -135,16 +135,16 @@ public class PlayerMagicStrategy extends MagicStrategy<Player> {
 	}
 	
 	@Override
-	public void hitsplat(Player attacker, Mob defender, Hit hit) {
+	public void hitsplat(Player attacker, Actor defender, Hit hit) {
 	}
 	
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		return new CombatHit[]{nextMagicHit(attacker, defender, spell.getCombatProjectile())};
 	}
 	
 	@Override
-	public int getAttackDelay(Player attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Player attacker, Actor defender, FightType fightType) {
 		if(Utility.getDistance(attacker, defender) >= 8) {
 			return 6;
 		}
@@ -157,7 +157,7 @@ public class PlayerMagicStrategy extends MagicStrategy<Player> {
 	}
 	
 	@Override
-	public Animation getAttackAnimation(Player attacker, Mob defender) {
+	public Animation getAttackAnimation(Player attacker, Actor defender) {
 		FightType fightType = attacker.getCombat().getFightType();
 		int animation = fightType.getAnimation();
 		
@@ -175,7 +175,7 @@ public class PlayerMagicStrategy extends MagicStrategy<Player> {
 	}
 	
 	/*
-	 * @Override public int modifyAccuracy(Player attacker, Mob defender, int roll)
+	 * @Override public int modifyAccuracy(Player attacker, Actor defender, int roll)
 	 * { if (CombatUtil.isFullVoid(attacker)) { if
 	 * (attacker.equipment.contains(11663)) { roll *= 1.45; } } return roll; }
 	 */

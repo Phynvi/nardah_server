@@ -5,7 +5,7 @@ import io.battlerune.content.dialogue.DialogueFactory;
 import io.battlerune.content.store.*;
 import io.battlerune.content.store.currency.CurrencyType;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.ItemContainer;
 import io.battlerune.net.packet.out.*;

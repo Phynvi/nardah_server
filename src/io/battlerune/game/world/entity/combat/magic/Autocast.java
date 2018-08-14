@@ -2,8 +2,8 @@ package io.battlerune.game.world.entity.combat.magic;
 
 import io.battlerune.Config;
 import io.battlerune.content.skill.impl.magic.Spellbook;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.net.packet.out.SendConfig;
 import io.battlerune.net.packet.out.SendMessage;

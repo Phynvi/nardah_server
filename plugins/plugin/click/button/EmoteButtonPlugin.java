@@ -2,7 +2,7 @@ package plugin.click.button;
 
 import io.battlerune.content.emote.Emote;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.util.Utility;
 
 public class EmoteButtonPlugin extends PluginContext {

@@ -4,7 +4,7 @@ import io.battlerune.game.Animation;
 import io.battlerune.game.Graphic;
 import io.battlerune.game.action.Action;
 import io.battlerune.game.action.policy.WalkablePolicy;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * Handles performing an emote action

@@ -2,7 +2,7 @@ package io.battlerune.content.skill;
 
 import io.battlerune.game.Animation;
 import io.battlerune.game.action.Action;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 import io.battlerune.game.world.position.Position;
 
 import java.util.Optional;
@@ -11,7 +11,7 @@ import java.util.Optional;
  * @author <a href="http://www.rune-server.org/members/stand+up/">Stand Up</a>
  * @since 19-12-2016.
  */
-public abstract class SkillAction extends Action<Mob> {
+public abstract class SkillAction extends Action<Actor> {
 
 	/**
 	 * The position we should face.
@@ -20,24 +20,24 @@ public abstract class SkillAction extends Action<Mob> {
 
 	/**
 	 * Creates a new {@link Action} randomevent.
-	 * @param mob {@link #mob}.
+	 * @param actor {@link #mob}.
 	 * @param position {@link #position}.
 	 * @param delay the delay to repeat this action on.
 	 * @param instant {@link #instant}.
 	 */
-	public SkillAction(Mob mob, Optional<Position> position, int delay, boolean instant) {
-		super(mob, delay, instant);
+	public SkillAction(Actor actor, Optional<Position> position, int delay, boolean instant) {
+		super(actor, delay, instant);
 		this.position = position;
 	}
 
 	/**
 	 * Creates a new {@link Action} randomevent.
-	 * @param mob {@link #mob}.
+	 * @param actor {@link #mob}.
 	 * @param position {@link #position}.
 	 * @param instant {@link #instant}.
 	 */
-	public SkillAction(Mob mob, Optional<Position> position, boolean instant) {
-		this(mob, position, 1, instant);
+	public SkillAction(Actor actor, Optional<Position> position, boolean instant) {
+		this(actor, position, 1, instant);
 	}
 
 	/**

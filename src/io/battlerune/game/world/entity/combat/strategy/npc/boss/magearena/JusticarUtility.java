@@ -1,9 +1,9 @@
 package io.battlerune.game.world.entity.combat.strategy.npc.boss.magearena;
 
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Direction;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.util.Utility;
 

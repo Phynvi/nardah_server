@@ -4,7 +4,7 @@ import io.battlerune.Config;
 import io.battlerune.game.world.entity.combat.attack.FightType;
 import io.battlerune.game.world.entity.combat.magic.Autocast;
 import io.battlerune.game.world.entity.combat.strategy.player.special.CombatSpecial;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.net.packet.out.SendConfig;
 import io.battlerune.net.packet.out.SendString;

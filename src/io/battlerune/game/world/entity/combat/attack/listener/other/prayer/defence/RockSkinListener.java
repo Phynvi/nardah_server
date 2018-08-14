@@ -1,12 +1,12 @@
 package io.battlerune.game.world.entity.combat.attack.listener.other.prayer.defence;
 
 import io.battlerune.game.world.entity.combat.attack.listener.SimplifiedListener;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
-public class RockSkinListener extends SimplifiedListener<Mob> {
+public class RockSkinListener extends SimplifiedListener<Actor> {
 
 	@Override
-	public int modifyDefenceLevel(Mob attacker, Mob defender, int damage) {
+	public int modifyDefenceLevel(Actor attacker, Actor defender, int damage) {
 		return damage * 11 / 10;
 	}
 

@@ -1,6 +1,6 @@
 package io.battlerune.content.halloffame;
 
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 
 public class FameBoardPlayer {
 

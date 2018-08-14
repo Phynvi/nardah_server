@@ -1,7 +1,7 @@
 package io.battlerune.game.world.pathfinding.path;
 
 import io.battlerune.game.world.Interactable;
-import io.battlerune.game.world.entity.mob.Direction;
+import io.battlerune.game.world.entity.actor.Direction;
 import io.battlerune.game.world.pathfinding.TraversalMap;
 import io.battlerune.game.world.position.Position;
 

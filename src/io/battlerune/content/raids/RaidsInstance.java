@@ -4,7 +4,7 @@ import io.battlerune.content.raids.npc.RaidsNpc;
 import io.battlerune.content.raids.npc.RaidsNpcData;
 import io.battlerune.content.raids.npc.RaidsNpcHandler;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendFadeScreen;
 
 public class RaidsInstance {

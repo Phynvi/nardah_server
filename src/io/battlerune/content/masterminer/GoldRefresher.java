@@ -1,6 +1,6 @@
 package io.battlerune.content.masterminer;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class GoldRefresher extends Thread {
 	private Player player;

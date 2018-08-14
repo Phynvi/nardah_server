@@ -1,7 +1,7 @@
 package io.battlerune.util.parser.old;
 
 import com.google.gson.JsonObject;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.util.parser.GsonParser;
 import io.battlerune.util.parser.old.defs.NpcDefinition;
 

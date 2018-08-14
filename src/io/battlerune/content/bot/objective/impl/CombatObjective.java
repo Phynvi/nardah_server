@@ -3,7 +3,7 @@ package io.battlerune.content.bot.objective.impl;
 import io.battlerune.content.bot.BotUtility;
 import io.battlerune.content.bot.PlayerBot;
 import io.battlerune.content.bot.objective.BotObjectiveListener;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.util.Utility;
 
 public class CombatObjective implements BotObjectiveListener {

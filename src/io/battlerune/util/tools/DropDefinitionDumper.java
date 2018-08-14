@@ -1,6 +1,6 @@
 package io.battlerune.util.tools;
 
-import io.battlerune.game.world.entity.mob.npc.definition.NpcDefinition;
+import io.battlerune.game.world.entity.actor.npc.definition.NpcDefinition;
 import io.battlerune.util.tools.DropDefinitionDumper.ItemDrop.Rarity;
 
 import java.io.IOException;

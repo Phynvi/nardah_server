@@ -5,7 +5,7 @@ import io.battlerune.game.Animation;
 import io.battlerune.game.Graphic;
 import io.battlerune.game.world.entity.combat.CombatImpact;
 import io.battlerune.game.world.entity.combat.projectile.CombatProjectile;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 import io.battlerune.game.world.items.Item;
 
 import java.util.HashMap;
@@ -191,13 +191,13 @@ public enum CombatSpell {
 		return spellbook;
 	}
 	
-	public void sendProjectile(Mob attacker, Mob defender) {
+	public void sendProjectile(Actor attacker, Actor defender) {
 		if(combatProjectile != null) {
 			combatProjectile.sendProjectile(attacker, defender);
 		}
 	}
 	
-	public boolean canCast(Mob attacker, Mob defender) {
+	public boolean canCast(Actor attacker, Actor defender) {
 		return spell.canCast(attacker, Optional.ofNullable(defender));
 	}
 	

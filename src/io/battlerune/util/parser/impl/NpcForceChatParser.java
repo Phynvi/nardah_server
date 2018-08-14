@@ -1,7 +1,7 @@
 package io.battlerune.util.parser.impl;
 
 import com.google.gson.JsonObject;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.util.Utility;
 import io.battlerune.util.parser.GsonParser;

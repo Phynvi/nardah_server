@@ -3,7 +3,7 @@ package io.battlerune.content.bot.objective.impl;
 import io.battlerune.content.bot.PlayerBot;
 import io.battlerune.content.bot.objective.BotObjective;
 import io.battlerune.content.bot.objective.BotObjectiveListener;
-import io.battlerune.game.world.entity.mob.Direction;
+import io.battlerune.game.world.entity.actor.Direction;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.util.RandomUtils;
 

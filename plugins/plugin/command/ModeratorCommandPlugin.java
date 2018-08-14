@@ -2,20 +2,17 @@ package plugin.command;
 
 import java.util.concurrent.TimeUnit;
 
-import io.battlerune.Config;
 import io.battlerune.content.dialogue.DialogueFactory;
 import io.battlerune.content.skill.impl.magic.teleport.Teleportation;
 import io.battlerune.game.plugin.extension.CommandExtension;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.AccountSecurity;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
-import io.battlerune.game.world.entity.mob.player.command.Command;
-import io.battlerune.game.world.entity.mob.player.command.CommandParser;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.command.Command;
+import io.battlerune.game.world.entity.actor.player.command.CommandParser;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.net.packet.out.SendInputAmount;
 import io.battlerune.net.packet.out.SendMessage;
-import io.battlerune.util.MessageColor;
 
 public class ModeratorCommandPlugin extends CommandExtension {
 

@@ -11,8 +11,8 @@ import io.battlerune.game.world.entity.combat.hit.CombatData;
 import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.game.world.region.Region;
 import io.battlerune.net.packet.out.SendEntityFeed;
@@ -25,11 +25,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class Combat<T extends Mob> {
+public class Combat<T extends Actor> {
 	private final T attacker;
 	
 	private CombatTarget target;
-	private Mob lastAggressor, lastVictim;
+	private Actor lastAggressor, lastVictim;
 	
 	private final Stopwatch lastAttacked = Stopwatch.start();
 	public final Stopwatch lastBlocked = Stopwatch.start();
@@ -55,7 +55,7 @@ public class Combat<T extends Mob> {
 		fightType = FightType.UNARMED_PUNCH;
 	}
 	
-	public boolean attack(Mob defender) {
+	public boolean attack(Actor defender) {
 		if(attacker.isPlayer()) {
 			Player player = attacker.getPlayer();
 			if(!player.interfaceManager.isMainClear() || !player.interfaceManager.isDialogueClear()) {
@@ -115,7 +115,7 @@ public class Combat<T extends Mob> {
 		}
 	}
 	
-	private boolean checkDistances(Mob defender) {
+	private boolean checkDistances(Actor defender) {
 		return defender != null && Utility.withinDistance(attacker, defender, Region.VIEW_DISTANCE);
 	}
 	
@@ -154,7 +154,7 @@ public class Combat<T extends Mob> {
 		}
 	}
 	
-	public void submitStrategy(Mob defender, CombatStrategy<? super T> strategy) {
+	public void submitStrategy(Actor defender, CombatStrategy<? super T> strategy) {
 		if(!canAttack(defender, strategy)) {
 			return;
 		}
@@ -174,7 +174,7 @@ public class Combat<T extends Mob> {
 		}
 	}
 	
-	public void submitHits(Mob defender, CombatHit... hits) {
+	public void submitHits(Actor defender, CombatHit... hits) {
 		CombatStrategy<? super T> strategy = attacker.getStrategy();
 		addModifier(strategy);
 		init(defender, strategy);
@@ -182,7 +182,7 @@ public class Combat<T extends Mob> {
 		removeModifier(strategy);
 	}
 	
-	private void submitHits(Mob defender, CombatStrategy<? super T> strategy, CombatHit... hits) {
+	private void submitHits(Actor defender, CombatStrategy<? super T> strategy, CombatHit... hits) {
 		start(defender, strategy, hits);
 		for(int index = 0; index < hits.length; index++) {
 			boolean last = index == hits.length - 1;
@@ -215,7 +215,7 @@ public class Combat<T extends Mob> {
 		cooldown = delay;
 	}
 	
-	private boolean canAttack(Mob defender, CombatStrategy<? super T> strategy) {
+	private boolean canAttack(Actor defender, CombatStrategy<? super T> strategy) {
 		if(!CombatUtil.validateMobs(attacker, defender)) {
 			return false;
 		}
@@ -233,7 +233,7 @@ public class Combat<T extends Mob> {
 		return defender.getCombat().canOtherAttack(attacker);
 	}
 	
-	private boolean canOtherAttack(Mob attacker) {
+	private boolean canOtherAttack(Actor attacker) {
 		T defender = this.attacker;
 		for(CombatListener<? super T> listener : listeners) {
 			if(!listener.canOtherAttack(attacker, defender)) {
@@ -243,12 +243,12 @@ public class Combat<T extends Mob> {
 		return defender.getStrategy().canOtherAttack(attacker, defender);
 	}
 	
-	private void init(Mob defender, CombatStrategy<? super T> strategy) {
+	private void init(Actor defender, CombatStrategy<? super T> strategy) {
 		strategy.init(attacker, defender);
 		listeners.forEach(listener -> listener.init(attacker, defender));
 	}
 	
-	private void start(Mob defender, CombatStrategy<? super T> strategy, Hit... hits) {
+	private void start(Actor defender, CombatStrategy<? super T> strategy, Hit... hits) {
 		if(!CombatUtil.validateMobs(attacker, defender)) {
 			combatQueue.removeIf(_hit -> _hit.getDefender() == defender);
 			if(defender.inTeleport)
@@ -263,7 +263,7 @@ public class Combat<T extends Mob> {
 		listeners.forEach(listener -> listener.start(attacker, defender, hits));
 	}
 	
-	private void attack(Mob defender, Hit hit, CombatStrategy<? super T> strategy) {
+	private void attack(Actor defender, Hit hit, CombatStrategy<? super T> strategy) {
 		if(!CombatUtil.validateMobs(attacker, defender)) {
 			combatQueue.removeIf(_hit -> _hit.getDefender() == defender);
 			if(defender.inTeleport)
@@ -280,7 +280,7 @@ public class Combat<T extends Mob> {
 		listeners.forEach(listener -> listener.attack(attacker, defender, hit));
 	}
 	
-	private void block(Mob attacker, Hit hit, CombatType combatType) {
+	private void block(Actor attacker, Hit hit, CombatType combatType) {
 		T defender = this.attacker;
 		lastBlocked.reset();
 		lastAggressor = attacker;
@@ -289,7 +289,7 @@ public class Combat<T extends Mob> {
 		defender.getStrategy().block(attacker, defender, hit, combatType);
 	}
 	
-	private void hit(Mob defender, Hit hit, CombatStrategy<? super T> strategy) {
+	private void hit(Actor defender, Hit hit, CombatStrategy<? super T> strategy) {
 		if(!CombatUtil.validateMobs(attacker, defender)) {
 			combatQueue.removeIf(_hit -> _hit.getDefender() == defender);
 			if(defender.inTeleport)
@@ -310,7 +310,7 @@ public class Combat<T extends Mob> {
 		}
 	}
 	
-	private void hitsplat(Mob defender, Hit hit, CombatStrategy<? super T> strategy) {
+	private void hitsplat(Actor defender, Hit hit, CombatStrategy<? super T> strategy) {
 		if(!CombatUtil.validateMobs(attacker, defender)) {
 			combatQueue.removeIf(_hit -> _hit.getDefender() == defender);
 			if(defender.inTeleport)
@@ -330,7 +330,7 @@ public class Combat<T extends Mob> {
 		}
 	}
 	
-	private void retaliate(Mob attacker) {
+	private void retaliate(Actor attacker) {
 		T defender = this.attacker;
 		
 		if(attacker.isPlayer()) {
@@ -361,7 +361,7 @@ public class Combat<T extends Mob> {
 		}
 	}
 	
-	public void preDeath(Mob attacker, Hit hit) {
+	public void preDeath(Actor attacker, Hit hit) {
 		if(attacker != null) {
 			T defender = this.attacker;
 			defender.getStrategy().preDeath(attacker, defender, hit);
@@ -370,19 +370,19 @@ public class Combat<T extends Mob> {
 		}
 	}
 	
-	public void preKill(Mob defender, Hit hit) {
+	public void preKill(Actor defender, Hit hit) {
 		if(attacker != null) {
 			listeners.forEach(listener -> listener.preKill(attacker, defender, hit));
 		}
 	}
 	
-	public void onKill(Mob defender, Hit hit) {
+	public void onKill(Actor defender, Hit hit) {
 		if(attacker != null) {
 			listeners.forEach(listener -> listener.onKill(attacker, defender, hit));
 		}
 	}
 	
-	public void onDeath(Mob attacker, Hit hit) {
+	public void onDeath(Actor attacker, Hit hit) {
 		if(attacker != null) {
 			T defender = this.attacker;
 			listeners.forEach(listener -> listener.onDeath(attacker, defender, hit));
@@ -392,14 +392,14 @@ public class Combat<T extends Mob> {
 		}
 	}
 	
-	private void finishIncoming(Mob attacker) {
+	private void finishIncoming(Actor attacker) {
 		T defender = this.attacker;
 		defender.getStrategy().finishIncoming(attacker, defender);
 		listeners.forEach(listener -> listener.finishIncoming(attacker, defender));
 		defender.getCombat().retaliate(attacker);
 	}
 	
-	private void finishOutgoing(Mob defender, CombatStrategy<? super T> strategy) {
+	private void finishOutgoing(Actor defender, CombatStrategy<? super T> strategy) {
 		strategy.finishOutgoing(attacker, defender);
 		listeners.forEach(listener -> listener.finishOutgoing(attacker, defender));
 		defender.getCombat().finishIncoming(attacker);
@@ -454,8 +454,8 @@ public class Combat<T extends Mob> {
 		return isAttacking() || isUnderAttack();
 	}
 	
-	public boolean inCombatWith(Mob mob) {
-		return isAttacking(mob) || isUnderAttackBy(mob);
+	public boolean inCombatWith(Actor actor) {
+		return isAttacking(actor) || isUnderAttackBy(actor);
 	}
 	
 	public boolean isAttacking() {
@@ -466,11 +466,11 @@ public class Combat<T extends Mob> {
 		return lastAggressor != null && !hasPassed(lastBlocked, CombatConstants.COMBAT_TIMER_COOLDOWN);
 	}
 	
-	public boolean isAttacking(Mob defender) {
+	public boolean isAttacking(Actor defender) {
 		return defender != null && defender.equals(lastVictim) && !hasPassed(lastAttacked, CombatConstants.COMBAT_TIMER_COOLDOWN);
 	}
 	
-	public boolean isUnderAttackBy(Mob attacker) {
+	public boolean isUnderAttackBy(Actor attacker) {
 		return attacker != null && attacker.equals(lastAggressor) && !hasPassed(lastBlocked, CombatConstants.COMBAT_TIMER_COOLDOWN);
 	}
 	
@@ -491,7 +491,7 @@ public class Combat<T extends Mob> {
 		return fightStyle;
 	}
 	
-	public Mob getDefender() {
+	public Actor getDefender() {
 		return target.getTarget();
 	}
 	
@@ -499,23 +499,23 @@ public class Combat<T extends Mob> {
 		return damageCache;
 	}
 	
-	public void compare(Mob mob) {
-		target.compare(mob);
+	public void compare(Actor actor) {
+		target.compare(actor);
 	}
 	
 	public void checkAggression(int level, Position spawn) {
 		target.checkAggression(level, spawn);
 	}
 	
-	public boolean isLastAggressor(Mob mob) {
-		return mob.equals(lastAggressor);
+	public boolean isLastAggressor(Actor actor) {
+		return actor.equals(lastAggressor);
 	}
 	
-	public Mob getLastVictim() {
+	public Actor getLastVictim() {
 		return lastVictim;
 	}
 	
-	public Mob getLastAggressor() {
+	public Actor getLastAggressor() {
 		return lastAggressor;
 	}
 	
@@ -561,7 +561,7 @@ public class Combat<T extends Mob> {
 		lastBlocked.reset(millis, TimeUnit.MILLISECONDS);
 	}
 	
-	private boolean checkWithin(T attacker, Mob defender, CombatStrategy<? super T> strategy) {
+	private boolean checkWithin(T attacker, Actor defender, CombatStrategy<? super T> strategy) {
 		if(strategy == null || Utility.inside(attacker, defender)) {
 			return false;
 		}
@@ -575,47 +575,47 @@ public class Combat<T extends Mob> {
 		return true;
 	}
 	
-	public int modifyAttackLevel(Mob defender, int level) {
+	public int modifyAttackLevel(Actor defender, int level) {
 		return formula.modifyAttackLevel(attacker, defender, level);
 	}
 	
-	public int modifyStrengthLevel(Mob defender, int level) {
+	public int modifyStrengthLevel(Actor defender, int level) {
 		return formula.modifyStrengthLevel(attacker, defender, level);
 	}
 	
-	public int modifyDefenceLevel(Mob attacker, int level) {
+	public int modifyDefenceLevel(Actor attacker, int level) {
 		return formula.modifyDefenceLevel(attacker, this.attacker, level);
 	}
 	
-	public int modifyRangedLevel(Mob defender, int level) {
+	public int modifyRangedLevel(Actor defender, int level) {
 		return formula.modifyRangedLevel(attacker, defender, level);
 	}
 	
-	public int modifyMagicLevel(Mob defender, int level) {
+	public int modifyMagicLevel(Actor defender, int level) {
 		return formula.modifyMagicLevel(attacker, defender, level);
 	}
 	
-	public int modifyAccuracy(Mob defender, int roll) {
+	public int modifyAccuracy(Actor defender, int roll) {
 		return formula.modifyAccuracy(attacker, defender, roll);
 	}
 	
-	public int modifyDefensive(Mob attacker, int roll) {
+	public int modifyDefensive(Actor attacker, int roll) {
 		return formula.modifyDefensive(attacker, this.attacker, roll);
 	}
 	
-	public int modifyDamage(Mob defender, int damage) {
+	public int modifyDamage(Actor defender, int damage) {
 		return formula.modifyDamage(attacker, defender, damage);
 	}
 	
-	public int modifyOffensiveBonus(Mob defender, int bonus) {
+	public int modifyOffensiveBonus(Actor defender, int bonus) {
 		return formula.modifyOffensiveBonus(attacker, defender, bonus);
 	}
 	
-	public int modifyAggresiveBonus(Mob defender, int bonus) {
+	public int modifyAggresiveBonus(Actor defender, int bonus) {
 		return formula.modifyAggressiveBonus(attacker, defender, bonus);
 	}
 	
-	public int modifyDefensiveBonus(Mob attacker, int bonus) {
+	public int modifyDefensiveBonus(Actor attacker, int bonus) {
 		return formula.modifyDefensiveBonus(attacker, this.attacker, bonus);
 	}
 	

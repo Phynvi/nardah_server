@@ -1,7 +1,7 @@
 package io.battlerune.game.world.items.containers;
 
 import com.google.common.base.Preconditions;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.ItemDefinition;
 import io.battlerune.game.world.items.containers.pricechecker.PriceType;

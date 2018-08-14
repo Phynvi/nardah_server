@@ -4,9 +4,9 @@ import io.battlerune.game.world.entity.combat.effect.CombatEffect;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.hit.HitIcon;
 import io.battlerune.game.world.entity.combat.hit.Hitsplat;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.equipment.Equipment;
 import io.battlerune.net.packet.out.SendMessage;
@@ -26,52 +26,52 @@ public final class CombatVenomEffect extends CombatEffect {
 	}
 	
 	@Override
-	public boolean apply(Mob mob) {
-		if(mob.isVenomed()) {
+	public boolean apply(Actor actor) {
+		if(actor.isVenomed()) {
 			return false;
 		}
 		
-		if(mob.isNpc() && mob.getNpc().definition.hasVenomImmunity()) {
+		if(actor.isNpc() && actor.getNpc().definition.hasVenomImmunity()) {
 			return false;
 		}
 		
-		if(mob.isPlayer() && mob.getPlayer().equipment.retrieve(Equipment.HELM_SLOT).filter(helm -> helm.getId() == 13197 || helm.getId() == 13199 || helm.getId() == 12931).isPresent()) {
+		if(actor.isPlayer() && actor.getPlayer().equipment.retrieve(Equipment.HELM_SLOT).filter(helm -> helm.getId() == 13197 || helm.getId() == 13199 || helm.getId() == 12931).isPresent()) {
 			return false;
 		}
 		
-		if(mob.isPlayer()) {
-			Player player = mob.getPlayer();
-			if(player.getVenomImmunity().get() > 0 || mob.isDead())
+		if(actor.isPlayer()) {
+			Player player = actor.getPlayer();
+			if(player.getVenomImmunity().get() > 0 || actor.isDead())
 				return false;
 			player.send(new SendMessage("You have been venomed!"));
 			player.send(new SendPoison(SendPoison.PoisonType.VENOM));
 		}
-		mob.getVenomDamage().set(6);
+		actor.getVenomDamage().set(6);
 		return true;
 	}
 	
 	@Override
-	public boolean removeOn(Mob mob) {
-		boolean remove = !mob.isVenomed() || mob.isDead();
-		if(remove && mob.isPlayer()) {
-			Player player = (Player) mob;
+	public boolean removeOn(Actor actor) {
+		boolean remove = !actor.isVenomed() || actor.isDead();
+		if(remove && actor.isPlayer()) {
+			Player player = (Player) actor;
 			player.send(new SendPoison(SendPoison.PoisonType.NO_POISON));
 		}
 		return remove;
 	}
 	
 	@Override
-	public void process(Mob mob) {
-		if(mob.getVenomDamage().get() < 20)
-			mob.damage(new Hit(mob.getVenomDamage().getAndIncrement(2), Hitsplat.DISEASE, HitIcon.NONE));
+	public void process(Actor actor) {
+		if(actor.getVenomDamage().get() < 20)
+			actor.damage(new Hit(actor.getVenomDamage().getAndIncrement(2), Hitsplat.DISEASE, HitIcon.NONE));
 	}
 	
 	@Override
-	public boolean onLogin(Mob mob) {
-		if(mob.isVenomed() && mob.isPlayer()) {
-			mob.getPlayer().send(new SendPoison(SendPoison.PoisonType.REGULAR));
+	public boolean onLogin(Actor actor) {
+		if(actor.isVenomed() && actor.isPlayer()) {
+			actor.getPlayer().send(new SendPoison(SendPoison.PoisonType.REGULAR));
 		}
-		return mob.isVenomed();
+		return actor.isVenomed();
 	}
 	
 	public static boolean isVenomous(Npc npc) {

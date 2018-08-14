@@ -1,7 +1,7 @@
 package io.battlerune.game.world.items.containers.pricechecker;
 
 import io.battlerune.game.world.InterfaceConstants;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.ItemDefinition;
 import io.battlerune.game.world.items.containers.ItemContainer;

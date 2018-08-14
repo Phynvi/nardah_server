@@ -16,8 +16,8 @@ import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.MultiStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.util.Utility;
 
@@ -38,7 +38,7 @@ public class LizardShaman extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		if(NpcMeleeStrategy.get().canAttack(attacker, defender)) {
 			currentStrategy = randomStrategy(FULL_STRATEGIES);
 		} else {
@@ -60,15 +60,15 @@ public class LizardShaman extends MultiStrategy {
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 		}
 		
 		@Override
-		public void block(Mob attacker, Npc defender, Hit hit, CombatType combatType) {
+		public void block(Actor attacker, Npc defender, Hit hit, CombatType combatType) {
 		}
 		
 		@Override
-		public void start(Npc attacker, Mob defender, Hit[] hits) {
+		public void start(Npc attacker, Actor defender, Hit[] hits) {
 			Position position = defender.getPosition();
 			attacker.animate(new Animation(7152, UpdatePriority.VERY_HIGH));
 			
@@ -105,7 +105,7 @@ public class LizardShaman extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{};
 		}
 	}
@@ -116,15 +116,15 @@ public class LizardShaman extends MultiStrategy {
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 		}
 		
 		@Override
-		public void block(Mob attacker, Npc defender, Hit hit, CombatType combatType) {
+		public void block(Actor attacker, Npc defender, Hit hit, CombatType combatType) {
 		}
 		
 		@Override
-		public void start(Npc attacker, Mob defender, Hit[] hits) {
+		public void start(Npc attacker, Actor defender, Hit[] hits) {
 			attacker.attributes.set("LIZARD_SPAWNED", Boolean.TRUE);
 			for(int index = 0; index < 3; index++) {
 				Npc minion = new Npc(6768, Utility.randomElement(attacker.boundaries));
@@ -145,7 +145,7 @@ public class LizardShaman extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{};
 		}
 	}
@@ -156,12 +156,12 @@ public class LizardShaman extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(7193, UpdatePriority.HIGH);
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit combatHit = nextMagicHit(attacker, defender, 31);
 			combatHit.setAccurate(true);
 			return new CombatHit[]{combatHit};
@@ -174,12 +174,12 @@ public class LizardShaman extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(7193, UpdatePriority.HIGH);
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit combatHit = nextMagicHit(attacker, defender);
 			combatHit.set(Hitsplat.POISON);
 			combatHit.setIcon(HitIcon.NONE);

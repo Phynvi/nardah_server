@@ -3,7 +3,7 @@ package io.battlerune.content.masterminer;
 import io.battlerune.content.clanchannel.content.ClanTaskKey;
 import io.battlerune.content.dialogue.DialogueFactory;
 import io.battlerune.content.dialogue.Expression;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendMessage;
 
 import static io.battlerune.content.masterminer.Util.toNiceString;

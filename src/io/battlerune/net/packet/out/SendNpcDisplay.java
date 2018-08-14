@@ -1,6 +1,6 @@
 package io.battlerune.net.packet.out;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.OutgoingPacket;
 
 public class SendNpcDisplay extends OutgoingPacket {

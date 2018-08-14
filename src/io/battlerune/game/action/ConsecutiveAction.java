@@ -1,11 +1,11 @@
 package io.battlerune.game.action;
 
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
 import java.util.LinkedList;
 import java.util.function.Consumer;
 
-public abstract class ConsecutiveAction<T extends Mob> extends Action<T> {
+public abstract class ConsecutiveAction<T extends Actor> extends Action<T> {
 	
 	/**
 	 * The list of actions.
@@ -14,7 +14,7 @@ public abstract class ConsecutiveAction<T extends Mob> extends Action<T> {
 	
 	/**
 	 * Generates a new {@code ConsecutiveAction} object.
-	 * @param mob The mob to apply this action to.
+	 * @param mob The actor to apply this action to.
 	 */
 	public ConsecutiveAction(T mob) {
 		super(mob, 1, true);

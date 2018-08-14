@@ -3,7 +3,7 @@ package io.battlerune.content.clanchannel.channel;
 import com.google.gson.JsonObject;
 import io.battlerune.content.clanchannel.ClanMember;
 import io.battlerune.content.clanchannel.ClanRank;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendMessage;
 import io.battlerune.net.packet.out.SendScrollbar;
 import io.battlerune.net.packet.out.SendString;

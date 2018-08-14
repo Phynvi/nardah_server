@@ -1,7 +1,7 @@
 package io.battlerune.content;
 
 import io.battlerune.game.world.InterfaceConstants;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.ItemContainer;
 import io.battlerune.net.packet.out.SendItemOnInterface;

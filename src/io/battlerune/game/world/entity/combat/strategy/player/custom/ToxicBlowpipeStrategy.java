@@ -9,9 +9,9 @@ import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.ranged.RangedAmmunition;
 import io.battlerune.game.world.entity.combat.strategy.basic.RangedStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.equipment.Equipment;
 import io.battlerune.game.world.items.ground.GroundItem;
@@ -25,7 +25,7 @@ public class ToxicBlowpipeStrategy extends RangedStrategy<Player> {
 	private static final ToxicBlowpipeStrategy INSTANCE = new ToxicBlowpipeStrategy();
 	
 	@Override
-	public boolean canAttack(Player attacker, Mob defender) {
+	public boolean canAttack(Player attacker, Actor defender) {
 		Item weapon = attacker.equipment.get(Equipment.WEAPON_SLOT);
 		
 		if(weapon == null) {
@@ -59,7 +59,7 @@ public class ToxicBlowpipeStrategy extends RangedStrategy<Player> {
 	}
 	
 	@Override
-	public void start(Player attacker, Mob defender, Hit[] hits) {
+	public void start(Player attacker, Actor defender, Hit[] hits) {
 		if(attacker.isSpecialActivated()) {
 			attacker.getCombatSpecial().drain(attacker);
 		}
@@ -75,7 +75,7 @@ public class ToxicBlowpipeStrategy extends RangedStrategy<Player> {
 	}
 	
 	@Override
-	public void attack(Player attacker, Mob defender, Hit hit) {
+	public void attack(Player attacker, Actor defender, Hit hit) {
 		Item darts = attacker.blowpipeDarts;
 		removeAmmunition(attacker, defender);
 		
@@ -89,13 +89,13 @@ public class ToxicBlowpipeStrategy extends RangedStrategy<Player> {
 	}
 	
 	@Override
-	public Animation getAttackAnimation(Player attacker, Mob defender) {
+	public Animation getAttackAnimation(Player attacker, Actor defender) {
 		int animation = attacker.getCombat().getFightType().getAnimation();
 		return new Animation(animation, UpdatePriority.HIGH);
 	}
 	
 	@Override
-	public int getAttackDelay(Player attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Player attacker, Actor defender, FightType fightType) {
 		int delay = attacker.getCombat().getFightType().getDelay();
 		if(defender.isNpc())
 			return delay - 1;
@@ -108,7 +108,7 @@ public class ToxicBlowpipeStrategy extends RangedStrategy<Player> {
 	}
 	
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		return new CombatHit[]{nextRangedHit(attacker, defender)};
 	}
 	
@@ -117,7 +117,7 @@ public class ToxicBlowpipeStrategy extends RangedStrategy<Player> {
 		return CombatType.RANGED;
 	}
 	
-	private void removeAmmunition(Player attacker, Mob defender) {
+	private void removeAmmunition(Player attacker, Actor defender) {
 		Item darts = attacker.blowpipeDarts;
 		darts.decrementAmount();
 		attacker.blowpipeScales -= 1.5f;

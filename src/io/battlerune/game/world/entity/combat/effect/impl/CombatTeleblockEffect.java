@@ -1,9 +1,9 @@
 package io.battlerune.game.world.entity.combat.effect.impl;
 
 import io.battlerune.game.world.entity.combat.effect.CombatEffect;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.prayer.Prayer;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.prayer.Prayer;
 import io.battlerune.net.packet.out.SendMessage;
 import io.battlerune.net.packet.out.SendWidget;
 
@@ -21,9 +21,9 @@ public final class CombatTeleblockEffect extends CombatEffect {
 	}
 
 	@Override
-	public boolean apply(Mob mob) {
-		if(mob.isPlayer()) {
-			Player player = (Player) mob;
+	public boolean apply(Actor actor) {
+		if(actor.isPlayer()) {
+			Player player = (Player) actor;
 			if(player.isTeleblocked()) {
 				return false;
 			}
@@ -43,18 +43,18 @@ public final class CombatTeleblockEffect extends CombatEffect {
 	}
 
 	@Override
-	public boolean removeOn(Mob mob) {
+	public boolean removeOn(Actor actor) {
 		return false;
 	}
 
 	@Override
-	public void process(Mob mob) {
+	public void process(Actor actor) {
 	}
 
 	@Override
-	public boolean onLogin(Mob mob) {
-		if(mob.isPlayer()) {
-			Player player = (Player) mob;
+	public boolean onLogin(Actor actor) {
+		if(actor.isPlayer()) {
+			Player player = (Player) actor;
 			if(player.isTeleblocked()) {
 				return true;
 			}

@@ -2,8 +2,8 @@ package io.battlerune.content.activity.impl.duelarena;
 
 import io.battlerune.content.activity.ActivityListener;
 import io.battlerune.game.world.entity.combat.CombatType;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.net.packet.out.SendMessage;
 
@@ -19,7 +19,7 @@ public class DuelArenaListener extends ActivityListener<DuelArenaActivity> {
 	}
 
 	@Override
-	public boolean canAttack(Mob attacker, Mob defender) {
+	public boolean canAttack(Actor attacker, Actor defender) {
 
 		// duel arena is player vs player
 		if(attacker.isNpc() || defender.isNpc()) {

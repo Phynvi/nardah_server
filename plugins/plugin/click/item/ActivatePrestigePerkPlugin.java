@@ -5,7 +5,7 @@ import java.util.HashSet;
 import io.battlerune.content.prestige.PrestigePerk;
 import io.battlerune.game.event.impl.ItemClickEvent;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendMessage;
 import io.battlerune.util.MessageColor;
 

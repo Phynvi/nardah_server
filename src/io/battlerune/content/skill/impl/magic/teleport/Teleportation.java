@@ -7,9 +7,9 @@ import io.battlerune.game.Animation;
 import io.battlerune.game.Graphic;
 import io.battlerune.game.UpdatePriority;
 import io.battlerune.game.action.impl.TeleportAction;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.net.packet.out.SendMessage;
@@ -25,8 +25,8 @@ public class Teleportation {
 	/**
 	 * Teleports player to a position.
 	 */
-	public static boolean teleport(Mob mob, Position position) {
-		return teleport(mob, position, 20, () -> {
+	public static boolean teleport(Actor actor, Position position) {
+		return teleport(actor, position, 20, () -> {
 			/* Empty */
 		});
 	}
@@ -34,13 +34,13 @@ public class Teleportation {
 	/**
 	 * Teleports player to a position.
 	 */
-	public static boolean teleport(Mob mob, Position position, int wildernessLevel, Runnable onDestination) {
-		if(mob.isNpc()) {
-			teleport(mob, position, TeleportationData.MODERN, onDestination);
+	public static boolean teleport(Actor actor, Position position, int wildernessLevel, Runnable onDestination) {
+		if(actor.isNpc()) {
+			teleport(actor, position, TeleportationData.MODERN, onDestination);
 			return true;
 		}
 		
-		Player player = mob.getPlayer();
+		Player player = actor.getPlayer();
 		
 		if(!player.interfaceManager.isClear()) {
 			player.interfaceManager.close(false);
@@ -91,8 +91,8 @@ public class Teleportation {
 	/**
 	 * Teleports player using a certain data type.
 	 */
-	public static boolean teleportNoChecks(Mob mob, Position position, TeleportationData type) {
-		return teleport(mob, position, type, () -> {
+	public static boolean teleportNoChecks(Actor actor, Position position, TeleportationData type) {
+		return teleport(actor, position, type, () -> {
 			/* Empty */
 		});
 	}
@@ -100,10 +100,10 @@ public class Teleportation {
 	/**
 	 * Teleports player using a certain data type.
 	 */
-	public static boolean teleport(Mob mob, Position position, TeleportationData type, Runnable onDestination) {
+	public static boolean teleport(Actor actor, Position position, TeleportationData type, Runnable onDestination) {
 		if(type != TeleportationData.HOME)
-			mob.getCombat().reset();
-		mob.action.execute(new TeleportAction(mob, position, type, onDestination), true);
+			actor.getCombat().reset();
+		actor.action.execute(new TeleportAction(actor, position, type, onDestination), true);
 		return true;
 	}
 	

@@ -9,8 +9,8 @@ import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.impl.DragonfireStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 
 import static io.battlerune.game.world.entity.combat.CombatUtil.createStrategyArray;
 import static io.battlerune.game.world.entity.combat.CombatUtil.randomStrategy;
@@ -36,7 +36,7 @@ public class MetalicDragon extends SimplifiedListener<Npc> {
 	}
 
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		if(!NpcMeleeStrategy.get().withinDistance(attacker, defender)) {
 			attacker.setStrategy(DRAGONFIRE);
 		}
@@ -44,7 +44,7 @@ public class MetalicDragon extends SimplifiedListener<Npc> {
 	}
 
 	@Override
-	public void start(Npc attacker, Mob defender, Hit[] hits) {
+	public void start(Npc attacker, Actor defender, Hit[] hits) {
 		if(!NpcMeleeStrategy.get().withinDistance(attacker, defender)) {
 			attacker.setStrategy(DRAGONFIRE);
 		} else {
@@ -63,7 +63,7 @@ public class MetalicDragon extends SimplifiedListener<Npc> {
 		}
 
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{CombatUtil.generateDragonfire(attacker, defender, 60, false)};
 		}
 	}

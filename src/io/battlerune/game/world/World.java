@@ -15,12 +15,12 @@ import io.battlerune.game.task.TaskManager;
 import io.battlerune.game.task.impl.PlayerRemovalTask;
 import io.battlerune.game.task.impl.SystemUpdateEvent;
 import io.battlerune.game.world.entity.MobList;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.npc.NpcAssistant;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
-import io.battlerune.game.world.entity.mob.player.persist.PlayerSerializer;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.NpcAssistant;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.persist.PlayerSerializer;
 import io.battlerune.game.world.object.GameObject;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.game.world.position.Position;
@@ -336,7 +336,7 @@ public final class World {
 	/**
 	 * Sends a world projectile.
 	 */
-	public static void sendProjectile(Mob source, Mob target, Projectile projectile) {
+	public static void sendProjectile(Actor source, Actor target, Projectile projectile) {
 		int lockon = target.isNpc() ? target.getIndex() + 1 : -target.getIndex() - 1;
 		int sourceX = source.getX() + source.width() / 2, sourceY = source.getY() + source.length() / 2;
 		int targetX = target.getX() + target.width() / 2, targetY = target.getY() + target.length() / 2;
@@ -349,7 +349,7 @@ public final class World {
 	/**
 	 * Sends a world projectile.
 	 */
-	public static void sendProjectile(Mob source, Position target, Projectile projectile) {
+	public static void sendProjectile(Actor source, Position target, Projectile projectile) {
 		int sourceX = source.getX() + source.width() / 2, sourceY = source.getY() + source.length() / 2;
 		Position center = new Position(sourceX, sourceY);
 		byte offsetX = (byte) (target.getX() - sourceX);
@@ -462,7 +462,7 @@ public final class World {
 	/**
 	 * Sends a kill feed notification.
 	 */
-	public static void sendKillFeed(String killer, Mob victim) {
+	public static void sendKillFeed(String killer, Actor victim) {
 		if(victim.isNpc() && (Area.inWilderness(victim) || !NpcAssistant.STRATEGIES.containsKey(victim.id)))
 			return;
 		for(Player everyone : getPlayers())

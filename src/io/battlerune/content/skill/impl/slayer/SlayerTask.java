@@ -1,7 +1,7 @@
 package io.battlerune.content.skill.impl.slayer;
 
-import io.battlerune.game.world.entity.mob.npc.definition.NpcDefinition;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.npc.definition.NpcDefinition;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.util.Utility;

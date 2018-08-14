@@ -2,7 +2,7 @@ package io.battlerune.content.quest;
 
 import io.battlerune.content.event.InteractionEvent;
 import io.battlerune.content.quest.impl.*;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 import java.util.Optional;
 

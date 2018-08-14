@@ -5,8 +5,8 @@ import io.battlerune.content.achievement.AchievementHandler;
 import io.battlerune.content.achievement.AchievementKey;
 import io.battlerune.content.clanchannel.content.ClanTaskKey;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.net.packet.out.SendMessage;
 import io.battlerune.util.Utility;
 

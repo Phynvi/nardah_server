@@ -2,9 +2,9 @@ package io.battlerune.net.packet.in;
 
 import io.battlerune.content.event.EventDispatcher;
 import io.battlerune.content.event.impl.PickupItemInteractionEvent;
-import io.battlerune.game.world.entity.mob.data.PacketType;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.data.PacketType;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.net.codec.ByteOrder;

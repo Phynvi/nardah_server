@@ -1,8 +1,8 @@
 package io.battlerune.net.packet.in;
 
 import io.battlerune.game.world.InterfaceConstants;
-import io.battlerune.game.world.entity.mob.data.PacketType;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.data.PacketType;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.codec.ByteModification;
 import io.battlerune.net.codec.ByteOrder;
 import io.battlerune.net.packet.ClientPackets;

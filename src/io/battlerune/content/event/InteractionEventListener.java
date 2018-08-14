@@ -1,6 +1,6 @@
 package io.battlerune.content.event;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public interface InteractionEventListener {
 	

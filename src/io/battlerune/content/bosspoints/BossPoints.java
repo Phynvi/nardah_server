@@ -1,6 +1,6 @@
 package io.battlerune.content.bosspoints;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class BossPoints {
 

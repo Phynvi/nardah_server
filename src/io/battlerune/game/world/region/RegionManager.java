@@ -1,9 +1,9 @@
 package io.battlerune.game.world.region;
 
 import com.google.common.base.Preconditions;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.util.Utility;
 
@@ -22,17 +22,17 @@ public class RegionManager {
 	private final static Map<Integer, Region> activeRegions = new HashMap<>();
 	
 	/**
-	 * Sends an action to {@link Mob} instance which is within a {@code
+	 * Sends an action to {@link Actor} instance which is within a {@code
 	 * distance}.
 	 * @param action action consumer.
 	 */
-	public static void forNearbyPlayer(Mob mob, int distance, Consumer<Player> action) {
-		mob.getRegion().getSurroundingRegions().ifPresent(regions -> {
+	public static void forNearbyPlayer(Actor actor, int distance, Consumer<Player> action) {
+		actor.getRegion().getSurroundingRegions().ifPresent(regions -> {
 			for(Region region : regions) {
-				for(Player nearby : region.getPlayers(mob.getHeight())) {
+				for(Player nearby : region.getPlayers(actor.getHeight())) {
 					if(nearby == null)
 						continue;
-					if(Utility.getDistance(nearby, mob) > distance)
+					if(Utility.getDistance(nearby, actor) > distance)
 						continue;
 					if(nearby.getCurrentHealth() <= 0 || nearby.isDead())
 						continue;
@@ -43,7 +43,7 @@ public class RegionManager {
 	}
 	
 	/**
-	 * Sends an action to {@link Mob} instance which is within a {@code
+	 * Sends an action to {@link Actor} instance which is within a {@code
 	 * distance}.
 	 * @param action action consumer.
 	 */
@@ -65,15 +65,15 @@ public class RegionManager {
 	
 	/**
 	 * Gets the local players around an entity.
-	 * @param mob The entity.
+	 * @param actor The entity.
 	 * @return The collection of local players.
 	 */
-	public List<Player> getLocalPlayers(Mob mob) {
-		Preconditions.checkArgument(mob != null, "mob is null");
+	public List<Player> getLocalPlayers(Actor actor) {
+		Preconditions.checkArgument(actor != null, "actor is null");
 		List<Player> localPlayers = new LinkedList<>();
-		for(Region region : getSurroundingRegions(mob.getPosition())) {
-			for(Player player : region.getPlayers(mob.getHeight())) {
-				if(mob.getPosition().isWithinDistance(player.getPosition(), Region.VIEW_DISTANCE)) {
+		for(Region region : getSurroundingRegions(actor.getPosition())) {
+			for(Player player : region.getPlayers(actor.getHeight())) {
+				if(actor.getPosition().isWithinDistance(player.getPosition(), Region.VIEW_DISTANCE)) {
 					localPlayers.add(player);
 				}
 			}
@@ -83,14 +83,14 @@ public class RegionManager {
 	
 	/**
 	 * Gets the local npcs around an entity.
-	 * @param mob The entity.
+	 * @param actor The entity.
 	 * @return The collection of local npcs.
 	 */
-	public List<Npc> getLocalNpcs(Mob mob) {
+	public List<Npc> getLocalNpcs(Actor actor) {
 		List<Npc> localNpcs = new LinkedList<>();
-		for(Region region : getSurroundingRegions(mob.getPosition())) {
-			for(Npc npc : region.getNpcs(mob.getHeight())) {
-				if(mob.getPosition().isWithinDistance(npc.getPosition(), Region.VIEW_DISTANCE)) {
+		for(Region region : getSurroundingRegions(actor.getPosition())) {
+			for(Npc npc : region.getNpcs(actor.getHeight())) {
+				if(actor.getPosition().isWithinDistance(npc.getPosition(), Region.VIEW_DISTANCE)) {
 					localNpcs.add(npc);
 				}
 			}

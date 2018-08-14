@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 import io.battlerune.game.event.impl.ItemClickEvent;
 import io.battlerune.game.plugin.PluginContext;
 import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Area;
 
 public class DwarvenRockCakePlugin extends PluginContext {

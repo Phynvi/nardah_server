@@ -7,8 +7,8 @@ import io.battlerune.game.world.entity.combat.attack.FightType;
 import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.player.PlayerRangedStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * @author Michael | Chex
@@ -22,33 +22,33 @@ public class Ballista extends PlayerRangedStrategy {
 	}
 
 	@Override
-	public void hitsplat(Player attacker, Mob defender, Hit hit) {
+	public void hitsplat(Player attacker, Actor defender, Hit hit) {
 		super.hitsplat(attacker, defender, hit);
 		defender.graphic(GRAPHIC);
 	}
 
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		return new CombatHit[]{nextRangedHit(attacker, defender)};
 	}
 
 	@Override
-	public int getAttackDelay(Player attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Player attacker, Actor defender, FightType fightType) {
 		return 10;
 	}
 
 	@Override
-	public Animation getAttackAnimation(Player attacker, Mob defender) {
+	public Animation getAttackAnimation(Player attacker, Actor defender) {
 		return ANIMATION;
 	}
 
 	@Override
-	public int modifyAccuracy(Player attacker, Mob defender, int roll) {
+	public int modifyAccuracy(Player attacker, Actor defender, int roll) {
 		return roll * 4 / 3;
 	}
 
 	@Override
-	public int modifyDamage(Player attacker, Mob defender, int roll) {
+	public int modifyDamage(Player attacker, Actor defender, int roll) {
 		return roll * 5 / 4;
 	}
 

@@ -4,7 +4,7 @@ import io.battlerune.game.world.entity.combat.attack.listener.ItemCombatListener
 import io.battlerune.game.world.entity.combat.attack.listener.NpcCombatListenerSignature;
 import io.battlerune.game.world.entity.combat.attack.listener.SimplifiedListener;
 import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 import io.battlerune.util.RandomUtils;
 
 /**
@@ -12,22 +12,22 @@ import io.battlerune.util.RandomUtils;
  */
 @NpcCombatListenerSignature(npcs = {1674})
 @ItemCombatListenerSignature(requireAll = true, items = {4708, 4710, 4712, 4714})
-public class AhrimsListener extends SimplifiedListener<Mob> {
+public class AhrimsListener extends SimplifiedListener<Actor> {
 
 	@Override
-	public int modifyDefensive(Mob attacker, Mob defender, int roll) {
+	public int modifyDefensive(Actor attacker, Actor defender, int roll) {
 		System.out.println("Roll is: " + roll);
 		return roll / 2;
 	}
 
 	@Override
-	public int modifyDefenceLevel(Mob attacker, Mob defender, int level) {
+	public int modifyDefenceLevel(Actor attacker, Actor defender, int level) {
 		System.out.println("Modifying defence level");
 		return level * 2;
 	}
 
 	@Override
-	public void hit(Mob attacker, Mob defender, Hit hit) {
+	public void hit(Actor attacker, Actor defender, Hit hit) {
 		if(hit.getDamage() == 0) {
 			hit.setDamage(RandomUtils.inclusive(0, 20));
 		}

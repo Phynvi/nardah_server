@@ -12,8 +12,8 @@ import io.battlerune.game.UpdatePriority;
 import io.battlerune.game.event.impl.ItemClickEvent;
 import io.battlerune.game.world.World;
 import io.battlerune.game.world.entity.combat.strategy.player.special.CombatSpecial;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.util.Utility;
@@ -57,7 +57,7 @@ public class PlayerBot extends Player {
 		appearance = BotUtility.APPEARANCE;
 		spellbook = Spellbook.LUNAR;
 		prayer.reset();
-		mobAnimation.reset();
+		actorAnimation.reset();
 		playerAssistant.setPrayer();
 		movement.setRunningToggled(true);
 		skills.setCombatLevel();
@@ -131,7 +131,7 @@ public class PlayerBot extends Player {
 		loop = false;
 	}
 	
-	public void pot(Mob opponent, ItemClickEvent event, PotionData potion) {
+	public void pot(Actor opponent, ItemClickEvent event, PotionData potion) {
 		if(!potion.canDrink(this)) {
 			return;
 		}

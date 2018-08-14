@@ -11,9 +11,9 @@ import io.battlerune.game.world.entity.combat.strategy.npc.MultiStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcRangedStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.prayer.Prayer;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.prayer.Prayer;
 import io.battlerune.util.RandomUtils;
 
 import static io.battlerune.game.world.entity.combat.CombatUtil.createStrategyArray;
@@ -46,7 +46,7 @@ public class DemonicGorillas extends MultiStrategy {
 	}
 	
 	@Override
-	public void block(Mob attacker, Npc defender, Hit hit, CombatType combatType) {
+	public void block(Actor attacker, Npc defender, Hit hit, CombatType combatType) {
 		int nextForm = -1;
 		
 		if(form == -1) {
@@ -75,7 +75,7 @@ public class DemonicGorillas extends MultiStrategy {
 	}
 	
 	@Override
-	public void hit(Npc attacker, Mob defender, Hit hit) {
+	public void hit(Npc attacker, Actor defender, Hit hit) {
 		super.hit(attacker, defender, hit);
 		if(hit.getDamage() == 0) {
 			attackCount++;
@@ -87,7 +87,7 @@ public class DemonicGorillas extends MultiStrategy {
 	}
 	
 	@Override
-	public int modifyDefensive(Mob attacker, Npc defender, int roll) {
+	public int modifyDefensive(Actor attacker, Npc defender, int roll) {
 		return (int) (roll * 2.3);
 	}
 	
@@ -100,12 +100,12 @@ public class DemonicGorillas extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return ANIMATION;
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextMeleeHit(attacker, defender)};
 		}
 	}
@@ -118,14 +118,14 @@ public class DemonicGorillas extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit combatHit = nextMagicHit(attacker, defender, 31);
 			combatHit.setAccurate(true);
 			return new CombatHit[]{combatHit};
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return ANIMATION;
 		}
 		
@@ -143,12 +143,12 @@ public class DemonicGorillas extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextRangedHit(attacker, defender, 31)};
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return ANIMATION;
 		}
 		

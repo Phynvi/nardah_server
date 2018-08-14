@@ -8,9 +8,9 @@ import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.projectile.CombatProjectile;
 import io.battlerune.game.world.entity.combat.strategy.npc.MultiStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.movement.waypoint.Waypoint;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.movement.waypoint.Waypoint;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.util.RandomUtils;
 import io.battlerune.util.Stopwatch;
@@ -29,13 +29,13 @@ public class Scorpia extends MultiStrategy {
 	}
 	
 	@Override
-	public void block(Mob attacker, Npc defender, Hit hit, CombatType combatType) {
+	public void block(Actor attacker, Npc defender, Hit hit, CombatType combatType) {
 		currentStrategy.block(attacker, defender, hit, combatType);
 		defender.getCombat().attack(attacker);
 	}
 	
 	@Override
-	public void hit(Npc attacker, Mob defender, Hit hit) {
+	public void hit(Npc attacker, Actor defender, Hit hit) {
 		super.hit(attacker, defender, hit);
 		if(hasGuardians || attacker.getCurrentHealth() >= 100) {
 			return;
@@ -50,7 +50,7 @@ public class Scorpia extends MultiStrategy {
 	}
 	
 	@Override
-	public int getAttackDelay(Npc attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Npc attacker, Actor defender, FightType fightType) {
 		return attacker.definition.getAttackDelay();
 	}
 	
@@ -64,10 +64,10 @@ public class Scorpia extends MultiStrategy {
 		
 		@Override
 		protected void onDestination() {
-			CombatProjectile.getDefinition("Scorpia guardian").getProjectile().ifPresent(projectile -> projectile.send(mob, scorpia));
-			mob.animate(new Animation(6261));
+			CombatProjectile.getDefinition("Scorpia guardian").getProjectile().ifPresent(projectile -> projectile.send(actor, scorpia));
+			actor.animate(new Animation(6261));
 			scorpia.heal(2);
-			((Guardian) mob).lastHeal.reset();
+			((Guardian) actor).lastHeal.reset();
 		}
 	}
 	
@@ -80,9 +80,9 @@ public class Scorpia extends MultiStrategy {
 			setWaypoint(new Waypoint(this, scorpia) {
 				@Override
 				protected void onDestination() {
-					CombatProjectile.getDefinition("Scorpia guardian").getProjectile().ifPresent(projectile -> projectile.send(mob, scorpia));
+					CombatProjectile.getDefinition("Scorpia guardian").getProjectile().ifPresent(projectile -> projectile.send(actor, scorpia));
 					lastHeal.reset();
-					mob.animate(new Animation(6261));
+					actor.animate(new Animation(6261));
 					scorpia.heal(2);
 				}
 			});
@@ -100,7 +100,7 @@ public class Scorpia extends MultiStrategy {
 	
 	private static final class Melee extends NpcMeleeStrategy {
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextMeleeHit(attacker, defender, 16)};
 		}
 	}

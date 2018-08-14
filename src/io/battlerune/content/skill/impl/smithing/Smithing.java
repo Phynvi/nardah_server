@@ -4,7 +4,7 @@ import io.battlerune.content.event.impl.ClickButtonInteractionEvent;
 import io.battlerune.content.event.impl.ItemContainerInteractionEvent;
 import io.battlerune.content.event.impl.ItemOnObjectInteractionEvent;
 import io.battlerune.content.event.impl.ObjectInteractionEvent;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 
 /**

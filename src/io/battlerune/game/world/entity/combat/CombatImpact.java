@@ -1,7 +1,7 @@
 package io.battlerune.game.world.entity.combat;
 
 import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
 import java.util.List;
 
@@ -14,12 +14,12 @@ public interface CombatImpact {
 	/**
 	 * Condition if the impact is affecting.
 	 */
-	default boolean canAffect(Mob attacker, Mob defender, Hit hit) {
+	default boolean canAffect(Actor attacker, Actor defender, Hit hit) {
 		return true;
 	}
 	
 	/**
 	 * The impact execution.
 	 */
-	void impact(Mob attacker, Mob defender, Hit hit, List<Hit> hits);
+	void impact(Actor attacker, Actor defender, Hit hit, List<Hit> hits);
 }

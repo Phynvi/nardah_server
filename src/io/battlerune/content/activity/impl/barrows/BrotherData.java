@@ -1,6 +1,6 @@
 package io.battlerune.content.activity.impl.barrows;
 
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.game.world.position.Position;
 
 public enum BrotherData {

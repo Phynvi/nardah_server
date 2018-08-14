@@ -2,8 +2,8 @@ package io.battlerune.game.world.entity.combat.strategy.player.custom;
 
 import io.battlerune.game.world.entity.combat.attack.FightType;
 import io.battlerune.game.world.entity.combat.strategy.player.PlayerRangedStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * @author Red
@@ -15,13 +15,13 @@ public class LongbowStrategy extends PlayerRangedStrategy {
 	}
 
 	@Override
-	public int modifyDamage(Player attacker, Mob defender, int roll) {
+	public int modifyDamage(Player attacker, Actor defender, int roll) {
 
 		return (int) (roll * 1.6);
 	}
 
 	@Override
-	public int getAttackDelay(Player attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Player attacker, Actor defender, FightType fightType) {
 		return 5;
 	}
 

@@ -1,7 +1,7 @@
 package io.battlerune.content.tittle;
 
-import io.battlerune.game.world.entity.mob.UpdateFlag;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.UpdateFlag;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.*;
 import io.battlerune.util.Utility;
 

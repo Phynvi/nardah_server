@@ -5,8 +5,8 @@ import io.battlerune.game.task.Task;
 import io.battlerune.game.task.TaskManager;
 import io.battlerune.game.task.impl.ObjectPlacementEvent;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.ItemDefinition;
 import io.battlerune.game.world.object.CustomGameObject;
 import io.battlerune.game.world.object.GameObject;
@@ -70,10 +70,10 @@ public class FlowerHandler {
 		});
 	}
 
-	private boolean onFlower(Mob mob) {
-		for(Region region : RegionManager.getSurroundingRegions(mob.getPosition())) {
-			for(GameObject object : region.getGameObjects(mob.getPosition())) {
-				if(mob.getPosition().equals(object.getPosition())) {
+	private boolean onFlower(Actor actor) {
+		for(Region region : RegionManager.getSurroundingRegions(actor.getPosition())) {
+			for(GameObject object : region.getGameObjects(actor.getPosition())) {
+				if(actor.getPosition().equals(object.getPosition())) {
 					return true;
 				}
 			}

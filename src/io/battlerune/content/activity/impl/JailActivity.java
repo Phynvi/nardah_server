@@ -3,14 +3,14 @@ package io.battlerune.content.activity.impl;
 import io.battlerune.Config;
 import io.battlerune.content.activity.Activity;
 import io.battlerune.content.activity.ActivityType;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class JailActivity extends Activity {
 	private final Player player;
 
 	private JailActivity(Player player) {
-		super(30, Mob.DEFAULT_INSTANCE_HEIGHT);
+		super(30, Actor.DEFAULT_INSTANCE_HEIGHT);
 		this.player = player;
 	}
 
@@ -31,7 +31,7 @@ public class JailActivity extends Activity {
 	}
 
 	@Override
-	public void onDeath(Mob mob) {
+	public void onDeath(Actor actor) {
 		player.move(Config.JAIL_ZONE);
 		player.message("BAM! YOU'RE BACK!");
 	}

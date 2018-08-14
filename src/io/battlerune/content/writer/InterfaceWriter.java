@@ -1,6 +1,6 @@
 package io.battlerune.content.writer;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendColor;
 import io.battlerune.net.packet.out.SendFont;
 import io.battlerune.net.packet.out.SendString;

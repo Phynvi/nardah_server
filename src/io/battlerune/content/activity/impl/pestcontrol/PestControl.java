@@ -3,10 +3,10 @@ package io.battlerune.content.activity.impl.pestcontrol;
 import io.battlerune.content.activity.ActivityType;
 import io.battlerune.content.activity.GroupActivity;
 import io.battlerune.content.event.impl.ObjectInteractionEvent;
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Direction;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.pathfinding.TraversalMap;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.game.world.position.Position;
@@ -282,19 +282,19 @@ public class PestControl extends GroupActivity {
 	}
 	
 	@Override
-	public void onDeath(Mob mob) {
-		if(mob.isNpc()) {
-			Npc npc = mob.getNpc();
+	public void onDeath(Actor actor) {
+		if(actor.isNpc()) {
+			Npc npc = actor.getNpc();
 			
 			if(npc.id >= 1739 && npc.id <= 1742) {
 				portalSet.remove(npc);
 			} else {
-				monsters.remove(mob.getNpc());
+				monsters.remove(actor.getNpc());
 			}
 			
-			remove(mob);
+			remove(actor);
 		} else {
-			mob.move(BOAT.transform(Utility.random(4), Utility.random(6)));
+			actor.move(BOAT.transform(Utility.random(4), Utility.random(6)));
 		}
 	}
 	

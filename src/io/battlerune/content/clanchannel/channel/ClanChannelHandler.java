@@ -2,9 +2,9 @@ package io.battlerune.content.clanchannel.channel;
 
 import io.battlerune.Config;
 import io.battlerune.content.clanchannel.*;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
-import io.battlerune.game.world.entity.mob.player.profile.ProfileRepository;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.profile.ProfileRepository;
 import io.battlerune.net.packet.out.*;
 import io.battlerune.util.Utility;
 

@@ -5,9 +5,9 @@ import io.battlerune.game.world.entity.combat.effect.CombatEffect;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.hit.HitIcon;
 import io.battlerune.game.world.entity.combat.hit.Hitsplat;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.definition.NpcDefinition;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.definition.NpcDefinition;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.equipment.Equipment;
 import io.battlerune.net.packet.out.SendMessage;
@@ -34,56 +34,56 @@ public final class CombatPoisonEffect extends CombatEffect {
 	}
 	
 	@Override
-	public boolean apply(Mob mob) {
-		if(mob.getPoisonType() == null || mob.isPoisoned() || mob.isVenomed()) {
+	public boolean apply(Actor actor) {
+		if(actor.getPoisonType() == null || actor.isPoisoned() || actor.isVenomed()) {
 			return false;
 		}
 		
-		if(mob.isNpc() && mob.getNpc().definition.hasPoisonImmunity()) {
+		if(actor.isNpc() && actor.getNpc().definition.hasPoisonImmunity()) {
 			return false;
 		}
 		
-		if(mob.isPlayer() && mob.getPlayer().equipment.retrieve(Equipment.HELM_SLOT).filter(helm -> helm.getId() == 13197 || helm.getId() == 13199 || helm.getId() == 12931).isPresent()) {
+		if(actor.isPlayer() && actor.getPlayer().equipment.retrieve(Equipment.HELM_SLOT).filter(helm -> helm.getId() == 13197 || helm.getId() == 13199 || helm.getId() == 12931).isPresent()) {
 			return true;
 		} // ADAM INCASE THIS DOESN'T WORK REFER BACK TO HERE.
 		
-		if(mob.isPlayer()) {
-			Player player = mob.getPlayer();
-			if(player.getPoisonImmunity().get() > 0 || mob.isDead())
+		if(actor.isPlayer()) {
+			Player player = actor.getPlayer();
+			if(player.getPoisonImmunity().get() > 0 || actor.isDead())
 				return false;
 			player.send(new SendMessage("You have been poisoned!"));
 			player.send(new SendPoison(SendPoison.PoisonType.REGULAR));
 		}
-		mob.getPoisonDamage().set(mob.getPoisonType().getDamage());
+		actor.getPoisonDamage().set(actor.getPoisonType().getDamage());
 		amount = 4;
 		return true;
 	}
 	
-	@Override // removed the !mob.isPoisoned(); ADAM DID THIS :d
-	public boolean removeOn(Mob mob) {
-		boolean remove = mob.isVenomed() || /* !mob.isPoisoned() */!mob.isPoisoned() || mob.isDead();
-		if(remove && mob.isPlayer()) {
-			Player player = (Player) mob;
+	@Override // removed the !actor.isPoisoned(); ADAM DID THIS :d
+	public boolean removeOn(Actor actor) {
+		boolean remove = actor.isVenomed() || /* !actor.isPoisoned() */!actor.isPoisoned() || actor.isDead();
+		if(remove && actor.isPlayer()) {
+			Player player = (Player) actor;
 			player.send(new SendPoison(SendPoison.PoisonType.NO_POISON));
 		}
 		return remove;
 	}
 	
 	@Override
-	public void process(Mob mob) {
+	public void process(Actor actor) {
 		amount--;
-		mob.damage(new Hit(mob.getPoisonDamage().get(), Hitsplat.POISON, HitIcon.NONE));
+		actor.damage(new Hit(actor.getPoisonDamage().get(), Hitsplat.POISON, HitIcon.NONE));
 		if(amount == 0) {
 			amount = 4;
-			mob.getPoisonDamage().decrementAndGet();
+			actor.getPoisonDamage().decrementAndGet();
 		}
 	}
 	
 	@Override
-	public boolean onLogin(Mob mob) {
-		boolean poisoned = mob.isPoisoned();
-		if(poisoned && mob.isPlayer()) {
-			mob.getPlayer().send(new SendPoison(SendPoison.PoisonType.REGULAR));
+	public boolean onLogin(Actor actor) {
+		boolean poisoned = actor.isPoisoned();
+		if(poisoned && actor.isPlayer()) {
+			actor.getPlayer().send(new SendPoison(SendPoison.PoisonType.REGULAR));
 		}
 		return poisoned;
 	}

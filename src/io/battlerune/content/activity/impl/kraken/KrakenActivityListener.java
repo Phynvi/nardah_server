@@ -4,7 +4,7 @@ import io.battlerune.content.activity.ActivityListener;
 import io.battlerune.game.world.Interactable;
 import io.battlerune.game.world.entity.combat.attack.FightType;
 import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.net.packet.out.SendMessage;
 import io.battlerune.util.Utility;
@@ -19,7 +19,7 @@ public class KrakenActivityListener extends ActivityListener<KrakenActivity> {
 	}
 
 	@Override
-	public boolean withinDistance(Mob attacker, Mob defender) {
+	public boolean withinDistance(Actor attacker, Actor defender) {
 		if(!attacker.isPlayer())
 			return true;
 		FightType fightType = attacker.getCombat().getFightType();
@@ -29,7 +29,7 @@ public class KrakenActivityListener extends ActivityListener<KrakenActivity> {
 	}
 
 	@Override
-	public boolean canAttack(Mob attacker, Mob defender) {
+	public boolean canAttack(Actor attacker, Actor defender) {
 		if(attacker.isPlayer() && defender.isNpc() && defender.getNpc().id == 496 && activity.count != 4) {
 			attacker.getPlayer().send(new SendMessage("You must activate all four whirlpools before awakening the Kraken."));
 			return false;
@@ -38,7 +38,7 @@ public class KrakenActivityListener extends ActivityListener<KrakenActivity> {
 	}
 
 	@Override
-	public void hit(Mob attacker, Mob defender, Hit hit) {
+	public void hit(Actor attacker, Actor defender, Hit hit) {
 		if(!attacker.isPlayer() && !defender.isNpc()) {
 			return;
 		}
@@ -51,6 +51,6 @@ public class KrakenActivityListener extends ActivityListener<KrakenActivity> {
 	}
 
 	@Override
-	public void onDeath(Mob attacker, Mob defender, Hit hit) {
+	public void onDeath(Actor attacker, Actor defender, Hit hit) {
 	}
 }

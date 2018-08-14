@@ -8,7 +8,7 @@ import io.battlerune.game.event.impl.ObjectClickEvent;
 import io.battlerune.game.plugin.PluginContext;
 import io.battlerune.game.world.Interactable;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class AgilityObjectClickPlugin extends PluginContext {
 

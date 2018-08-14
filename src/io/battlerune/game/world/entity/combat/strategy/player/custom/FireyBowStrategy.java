@@ -7,8 +7,8 @@ import io.battlerune.game.world.entity.combat.attack.FightType;
 import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.projectile.CombatProjectile;
 import io.battlerune.game.world.entity.combat.strategy.player.PlayerRangedStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 
 /**
@@ -34,19 +34,19 @@ public class FireyBowStrategy extends PlayerRangedStrategy {
 	}
 
 	@Override
-	protected void sendStuff(Player attacker, Mob defender) {
+	protected void sendStuff(Player attacker, Actor defender) {
 		attacker.animate(ANIMATION);
 		PROJECTILE_1.send(attacker, defender);
 		PROJECTILE_2.send(attacker, defender);
 	}
 
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		return new CombatHit[]{nextRangedHit(attacker, defender), nextRangedHit(attacker, defender)};
 	}
 
 	@Override
-	public int modifyAccuracy(Player attacker, Mob defender, int roll) {
+	public int modifyAccuracy(Player attacker, Actor defender, int roll) {
 		int level = defender.skills.getMaxLevel(Skill.MAGIC);
 		if(level > 360)
 			level = 360;
@@ -58,7 +58,7 @@ public class FireyBowStrategy extends PlayerRangedStrategy {
 	}
 
 	@Override
-	public int modifyDamage(Player attacker, Mob defender, int roll) {
+	public int modifyDamage(Player attacker, Actor defender, int roll) {
 		int level = defender.skills.getMaxLevel(Skill.MAGIC);
 		if(level > 360)
 			level = 360;
@@ -70,7 +70,7 @@ public class FireyBowStrategy extends PlayerRangedStrategy {
 	}
 
 	@Override
-	public int getAttackDelay(Player attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Player attacker, Actor defender, FightType fightType) {
 		return 3;
 	}
 

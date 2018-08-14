@@ -15,8 +15,8 @@ import io.battlerune.game.world.entity.combat.projectile.CombatProjectile;
 import io.battlerune.game.world.entity.combat.strategy.npc.MultiStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.game.world.region.RegionManager;
 import io.battlerune.net.packet.out.SendMessage;
@@ -41,7 +41,7 @@ public class Vetion extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean withinDistance(Npc attacker, Mob defender) {
+	public boolean withinDistance(Npc attacker, Actor defender) {
 		if(!currentStrategy.withinDistance(attacker, defender)) {
 			currentStrategy = MAGIC;
 		}
@@ -49,7 +49,7 @@ public class Vetion extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		if(!currentStrategy.withinDistance(attacker, defender)) {
 			currentStrategy = MAGIC;
 		}
@@ -57,7 +57,7 @@ public class Vetion extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean canOtherAttack(Mob attacker, Npc defender) {
+	public boolean canOtherAttack(Actor attacker, Npc defender) {
 		if(pet1 != null || pet2 != null) {
 			if(attacker.isPlayer()) {
 				attacker.getPlayer().message("You must kill his hellhounds before dealing damage!");
@@ -68,7 +68,7 @@ public class Vetion extends MultiStrategy {
 	}
 	
 	@Override
-	public void onDeath(Mob attacker, Npc defender, Hit hit) {
+	public void onDeath(Actor attacker, Npc defender, Hit hit) {
 		if(pet1 != null)
 			pet1.unregister();
 		if(pet2 != null)
@@ -76,7 +76,7 @@ public class Vetion extends MultiStrategy {
 	}
 	
 	@Override
-	public void preDeath(Mob attacker, Npc defender, Hit hit) {
+	public void preDeath(Actor attacker, Npc defender, Hit hit) {
 		super.preDeath(attacker, defender, hit);
 		
 		if(secondTrans) {
@@ -106,7 +106,7 @@ public class Vetion extends MultiStrategy {
 	}
 	
 	@Override
-	public void finishIncoming(Mob attacker, Npc defender) {
+	public void finishIncoming(Actor attacker, Npc defender) {
 		if(spawnPets || defender.getCurrentHealth() > defender.getMaximumHealth() / 2) {
 			return;
 		}
@@ -157,13 +157,13 @@ public class Vetion extends MultiStrategy {
 	}
 	
 	@Override
-	public void block(Mob attacker, Npc defender, Hit hit, CombatType combatType) {
+	public void block(Actor attacker, Npc defender, Hit hit, CombatType combatType) {
 		currentStrategy.block(attacker, defender, hit, combatType);
 		defender.getCombat().attack(attacker);
 	}
 	
 	@Override
-	public void finishOutgoing(Npc attacker, Mob defender) {
+	public void finishOutgoing(Npc attacker, Actor defender) {
 		currentStrategy.finishOutgoing(attacker, defender);
 		if(!NpcMeleeStrategy.get().withinDistance(attacker, defender)) {
 			currentStrategy = MAGIC;
@@ -175,7 +175,7 @@ public class Vetion extends MultiStrategy {
 	}
 	
 	@Override
-	public int getAttackDelay(Npc attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Npc attacker, Actor defender, FightType fightType) {
 		return attacker.definition.getAttackDelay();
 	}
 	
@@ -183,7 +183,7 @@ public class Vetion extends MultiStrategy {
 		private static final Animation ANIMATION = new Animation(5507, UpdatePriority.HIGH);
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 			RegionManager.forNearbyPlayer(defender, 11, player -> {
 				player.send(new SendMessage("Vet'ion pummels the ground sending a shattering earthquake shockwave through you."));
 				if(player.equals(defender)) {
@@ -195,12 +195,12 @@ public class Vetion extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return ANIMATION;
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextMeleeHit(attacker, defender)};
 		}
 	}
@@ -213,7 +213,7 @@ public class Vetion extends MultiStrategy {
 		}
 		
 		@Override
-		public void start(Npc attacker, Mob defender, Hit[] hits) {
+		public void start(Npc attacker, Actor defender, Hit[] hits) {
 			Position[] bounds = Utility.getInnerBoundaries(defender.getPosition().transform(-1, -1), defender.width() + 2, defender.length() + 2);
 			LinkedList<Position> positions = new LinkedList<>(Arrays.asList(bounds));
 			for(int index = 0; index < 3; index++) {
@@ -229,17 +229,17 @@ public class Vetion extends MultiStrategy {
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 			hit.setAccurate(false);
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return ANIMATION;
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextMagicHit(attacker, defender)};
 		}
 	}

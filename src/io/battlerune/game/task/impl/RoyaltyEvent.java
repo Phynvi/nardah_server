@@ -3,7 +3,7 @@ package io.battlerune.game.task.impl;
 import io.battlerune.content.RoyaltyProgram;
 import io.battlerune.game.task.Task;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * Handles the royalty randomevent. Event is executed every 30 minutes and

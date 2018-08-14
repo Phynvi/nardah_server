@@ -6,10 +6,10 @@ import io.battlerune.content.skill.impl.agility.Agility;
 import io.battlerune.game.Animation;
 import io.battlerune.game.task.Task;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.MobAnimation;
-import io.battlerune.game.world.entity.mob.UpdateFlag;
-import io.battlerune.game.world.entity.mob.data.LockType;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.ActorAnimation;
+import io.battlerune.game.world.entity.actor.UpdateFlag;
+import io.battlerune.game.world.entity.actor.data.LockType;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.ground.GroundItem;
@@ -45,7 +45,7 @@ public interface ObstacleInteraction {
 		player.locking.lock();
 
 		World.schedule(new Task(true, 1) {
-			private final MobAnimation ANIMATION = player.mobAnimation.copy();
+			private final ActorAnimation ANIMATION = player.actorAnimation.copy();
 			private final boolean RUNNING = player.movement.isRunning();
 			private boolean started = false;
 			private Obstacle nextObstacle = next;
@@ -141,7 +141,7 @@ public interface ObstacleInteraction {
 						;
 					//                        AchievementHandler.activateAchievement(player, AchievementList.COMPLETE_500_WILD_COURSES, 1);
 				}
-				player.mobAnimation = ANIMATION;
+				player.actorAnimation = ANIMATION;
 				player.animate(new Animation(65535));
 				player.updateFlags.add(UpdateFlag.APPEARANCE);
 				player.movement.setRunningToggled(RUNNING);

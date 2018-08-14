@@ -2,8 +2,8 @@ package io.battlerune;
 
 import com.google.common.collect.ImmutableList;
 import com.moandjiezana.toml.Toml;
-import io.battlerune.game.world.entity.mob.player.appearance.Appearance;
-import io.battlerune.game.world.entity.mob.player.appearance.Gender;
+import io.battlerune.game.world.entity.actor.player.appearance.Appearance;
+import io.battlerune.game.world.entity.actor.player.appearance.Gender;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.net.session.Session;

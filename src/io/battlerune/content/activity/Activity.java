@@ -10,9 +10,9 @@ import io.battlerune.content.event.impl.*;
 import io.battlerune.game.world.World;
 import io.battlerune.game.world.entity.Entity;
 import io.battlerune.game.world.entity.combat.attack.listener.CombatListener;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.NpcDeath;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.NpcDeath;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.equipment.EquipmentType;
 
@@ -89,20 +89,20 @@ public abstract class Activity implements InteractionEventListener {
 		return Optional.empty();
 	}
 	
-	public static boolean evaluate(Mob mob, Predicate<Activity> predicate) {
-		return mob != null && mob.activity != null && predicate.test(mob.activity);
+	public static boolean evaluate(Actor actor, Predicate<Activity> predicate) {
+		return actor != null && actor.activity != null && predicate.test(actor.activity);
 	}
 	
-	public static void forActivity(Mob mob, Consumer<Activity> consumer) {
-		if(mob == null) {
+	public static void forActivity(Actor actor, Consumer<Activity> consumer) {
+		if(actor == null) {
 			return;
 		}
 		
-		if(mob.activity == null) {
+		if(actor.activity == null) {
 			return;
 		}
 		
-		consumer.accept(mob.activity);
+		consumer.accept(actor.activity);
 	}
 	
 	public boolean canEquipItem(Player player, Item item, EquipmentType type) {
@@ -186,13 +186,13 @@ public abstract class Activity implements InteractionEventListener {
 	/**
 	 * Called when the player die
 	 */
-	public void onDeath(Mob mob) {
-		if(mob.isNpc()) {
-			World.schedule(new NpcDeath(mob.getNpc()));
+	public void onDeath(Actor actor) {
+		if(actor.isNpc()) {
+			World.schedule(new NpcDeath(actor.getNpc()));
 			return;
 		}
-		remove(mob);
-		mob.move(Config.DEFAULT_POSITION);
+		remove(actor);
+		actor.move(Config.DEFAULT_POSITION);
 		finish();
 	}
 	
@@ -225,40 +225,40 @@ public abstract class Activity implements InteractionEventListener {
 	}
 	
 	/**
-	 * Adds a mob to the activity.
+	 * Adds a actor to the activity.
 	 */
-	public void add(Mob mob) {
-		if(mob.isNpc() && !mob.isRegistered()) {
-			mob.register();
+	public void add(Actor actor) {
+		if(actor.isNpc() && !actor.isRegistered()) {
+			actor.register();
 		}
-		mob.setActivity(this);
-		mob.instance = instance;
-		getListener().ifPresent(mob.getCombat()::addListener);
-		getCombatListener().ifPresent(mob.getCombat()::addListener);
+		actor.setActivity(this);
+		actor.instance = instance;
+		getListener().ifPresent(actor.getCombat()::addListener);
+		getCombatListener().ifPresent(actor.getCombat()::addListener);
 	}
 	
 	/**
-	 * Removes all mobs from the activity.
+	 * Removes all actors from the activity.
 	 */
-	public void removeAll(Mob... mobs) {
-		if(mobs.length != 0)
-			for(Mob mob : mobs) {
-				if(mob.isRegistered())
-					remove(mob);
+	public void removeAll(Actor... actors) {
+		if(actors.length != 0)
+			for(Actor actor : actors) {
+				if(actor.isRegistered())
+					remove(actor);
 			}
 	}
 	
 	/**
-	 * Removes a mob from the activity.
+	 * Removes a actor from the activity.
 	 */
-	public void remove(Mob mob) {
-		getListener().ifPresent(mob.getCombat()::removeListener);
-		getCombatListener().ifPresent(mob.getCombat()::removeListener);
-		if(mob.isNpc()) {
-			mob.getNpc().unregister();
+	public void remove(Actor actor) {
+		getListener().ifPresent(actor.getCombat()::removeListener);
+		getCombatListener().ifPresent(actor.getCombat()::removeListener);
+		if(actor.isNpc()) {
+			actor.getNpc().unregister();
 		} else {
-			mob.instance = Entity.DEFAULT_INSTANCE_HEIGHT;
-			mob.getPlayer().setActivity(null);
+			actor.instance = Entity.DEFAULT_INSTANCE_HEIGHT;
+			actor.getPlayer().setActivity(null);
 		}
 	}
 	

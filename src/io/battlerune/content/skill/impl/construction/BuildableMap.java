@@ -1,7 +1,7 @@
 package io.battlerune.content.skill.impl.construction;
 
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Direction;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.object.CustomGameObject;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.util.generic.GenericVoid;

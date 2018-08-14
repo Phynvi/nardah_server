@@ -20,8 +20,8 @@ import io.battlerune.game.world.entity.combat.strategy.npc.NpcRangedStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.boss.galvek.GalvekUtility;
 import io.battlerune.game.world.entity.combat.strategy.npc.boss.galvek.GalvekUtility.SpawnData1;
 import io.battlerune.game.world.entity.combat.strategy.npc.impl.DragonfireStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.game.world.object.CustomGameObject;
 import io.battlerune.game.world.pathfinding.TraversalMap;
 import io.battlerune.game.world.position.Position;
@@ -64,7 +64,7 @@ public class Galvek extends MultiStrategy {
 	}
 	
 	@Override
-	public void init(Npc attacker, Mob defender) {
+	public void init(Npc attacker, Actor defender) {
 		if(strategyQueue.isEmpty()) {
 			for(int index = 0; index < 6; index++) {
 				strategyQueue.add(RandomUtils.random(FULL_STRATEGIES));
@@ -75,7 +75,7 @@ public class Galvek extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		if(currentStrategy == MELEE && !MELEE.canAttack(attacker, defender)) {
 			currentStrategy = RandomUtils.random(NON_MELEE);
 		}
@@ -83,7 +83,7 @@ public class Galvek extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean withinDistance(Npc attacker, Mob defender) {
+	public boolean withinDistance(Npc attacker, Actor defender) {
 		if(currentStrategy == MELEE && !MELEE.withinDistance(attacker, defender)) {
 			currentStrategy = RandomUtils.random(NON_MELEE);
 		}
@@ -96,12 +96,12 @@ public class Galvek extends MultiStrategy {
 		}
 		
 		@Override
-		public int getAttackDelay(Npc attacker, Mob defender, FightType fightType) {
+		public int getAttackDelay(Npc attacker, Actor defender, FightType fightType) {
 			return 30;
 		}
 		
 		@Override
-		public void start(Npc attacker, Mob defender, Hit[] hits) {
+		public void start(Npc attacker, Actor defender, Hit[] hits) {
 			World.schedule(2, () -> {
 				attacker.animate(new Animation(7910, UpdatePriority.HIGH));
 				List<Position> boundaries = TraversalMap.getTraversableTiles(attacker.getPosition().transform(-7, -7), 30, 30);
@@ -127,7 +127,7 @@ public class Galvek extends MultiStrategy {
 			
 		}
 		
-		private TickableTask DragonFire(Mob attacker, Mob defender, Projectile projectile) {
+		private TickableTask DragonFire(Actor attacker, Actor defender, Projectile projectile) {
 			return new TickableTask(false, 1) {
 				
 				@Override
@@ -157,7 +157,7 @@ public class Galvek extends MultiStrategy {
 			};
 		}
 		
-		private TickableTask AcidTask(Mob defender, Position position) {
+		private TickableTask AcidTask(Actor defender, Position position) {
 			return new TickableTask(false, 2) {
 				private CustomGameObject object;
 				
@@ -181,7 +181,7 @@ public class Galvek extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit combatHit = nextMagicHit(attacker, defender, 0);
 			combatHit.setAccurate(true);
 			combatHit.setDamage(-1);
@@ -196,12 +196,12 @@ public class Galvek extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(7904, UpdatePriority.HIGH);
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextRangedHit(attacker, defender, 32)};
 		}
 	}
@@ -213,12 +213,12 @@ public class Galvek extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(7901, UpdatePriority.HIGH);
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextRangedHit(attacker, defender, 32)};
 		}
 		
@@ -232,12 +232,12 @@ public class Galvek extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(7901, UpdatePriority.HIGH);
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 			if(Utility.random(1, 5) == 1) {
 				attacker.animate(7909);
 				attacker.transform(8096);
@@ -286,12 +286,12 @@ public class Galvek extends MultiStrategy {
 		}
 		
 		@Override
-		public int getAttackDelay(Npc attacker, Mob defender, FightType fightType) {
+		public int getAttackDelay(Npc attacker, Actor defender, FightType fightType) {
 			return 15;
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit combatHit = nextMagicHit(attacker, defender, -1);
 			combatHit.setAccurate(false);
 			return new CombatHit[]{combatHit};
@@ -304,7 +304,7 @@ public class Galvek extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(7904, UpdatePriority.HIGH);
 		}
 		
@@ -314,7 +314,7 @@ public class Galvek extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{CombatUtil.generateDragonfire(attacker, defender, 85, true)};
 		}
 	}
@@ -325,7 +325,7 @@ public class Galvek extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(7904, UpdatePriority.HIGH);
 		}
 		
@@ -335,7 +335,7 @@ public class Galvek extends MultiStrategy {
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 			super.hit(attacker, defender, hit);
 			if(hit.isAccurate()) {
 				defender.venom();
@@ -343,7 +343,7 @@ public class Galvek extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit combatHit = CombatUtil.generateDragonfire(attacker, defender, 75, true);
 			// combatHit.setHitsplat(Hitsplat.VENOM);
 			return new CombatHit[]{combatHit};
@@ -356,12 +356,12 @@ public class Galvek extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(7904, UpdatePriority.HIGH);
 		}
 		
 		@Override
-		public void hitsplat(Npc attacker, Mob defender, Hit hit) {
+		public void hitsplat(Npc attacker, Actor defender, Hit hit) {
 			super.hitsplat(attacker, defender, hit);
 			
 			if(defender.isPlayer()) {
@@ -375,7 +375,7 @@ public class Galvek extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{CombatUtil.generateDragonfire(attacker, defender, 80, true)};
 		}
 	}
@@ -390,25 +390,25 @@ public class Galvek extends MultiStrategy {
 		}
 		
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(7901, UpdatePriority.HIGH);
 		}
 		
 		@Override
-		public void start(Npc attacker, Mob defender, Hit[] hits) {
+		public void start(Npc attacker, Actor defender, Hit[] hits) {
 			super.start(attacker, defender, hits);
 			position = defender.getPosition();
 			
 		}
 		
 		@Override
-		public void attack(Npc attacker, Mob defender, Hit hit) {
+		public void attack(Npc attacker, Actor defender, Hit hit) {
 			PROJECTILE.send(attacker, position);
 			
 		}
 		
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 			super.hitsplat(attacker, defender, hit);
 			World.sendGraphic(GRAPHIC, position);
 			hit.setAccurate(false);
@@ -429,7 +429,7 @@ public class Galvek extends MultiStrategy {
 		}
 		
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextMagicHit(attacker, defender, -1, CombatUtil.getHitDelay(attacker, defender, CombatType.MAGIC) + 1, 1)};
 		}
 	}

@@ -1,13 +1,8 @@
 package plugin.click.object;
 
-import io.battlerune.game.event.impl.ItemOnObjectEvent;
 import io.battlerune.game.event.impl.ObjectClickEvent;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.skill.Skill;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.game.world.object.GameObject;
-import io.battlerune.net.packet.out.SendMessage;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * @author Ethan Kyle Millard <skype:pumpklins>

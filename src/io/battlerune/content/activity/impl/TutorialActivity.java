@@ -15,10 +15,10 @@ import io.battlerune.content.teleport.TeleportHandler;
 import io.battlerune.game.Animation;
 import io.battlerune.game.Graphic;
 import io.battlerune.game.event.email.EmailInputListener;
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.Direction;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.net.packet.out.SendConfig;
 import io.battlerune.net.packet.out.SendForceTab;
@@ -169,8 +169,8 @@ public class TutorialActivity extends Activity {
 				pause();
 				break;
 			case 8:
-				setInstance(Mob.DEFAULT_INSTANCE_HEIGHT);
-				player.instance = Mob.DEFAULT_INSTANCE_HEIGHT;
+				setInstance(Actor.DEFAULT_INSTANCE_HEIGHT);
+				player.instance = Actor.DEFAULT_INSTANCE_HEIGHT;
 				player.loadRegion();
 				factory.sendNpcChat(306, "Let us move on.");
 				factory.sendNpcChat(306, "Edgeville will be your primary home, however you", "can change it later on as you progress", "in the game.").onAction(this::next);

@@ -3,22 +3,18 @@ package plugin.click.button;
 import io.battlerune.Config;
 import io.battlerune.content.DropDisplay;
 import io.battlerune.content.DropSimulator;
-import io.battlerune.content.Skillguides.AttackApp;
 import io.battlerune.content.achievement.AchievementInterface;
 import io.battlerune.content.activity.ActivityType;
-import io.battlerune.content.presetInterface.PresetInterfaceHandler;
-import io.battlerune.content.skill.impl.magic.teleport.TeleportType;
 import io.battlerune.content.skill.impl.slayer.SlayerTab;
 import io.battlerune.content.staff.PanelType;
 import io.battlerune.content.staff.StaffPanel;
-import io.battlerune.content.teleport.TeleportHandler;
 import io.battlerune.content.tittle.TitleManager;
 import io.battlerune.content.writer.InterfaceWriter;
 import io.battlerune.content.writer.impl.InformationWriter;
 import io.battlerune.content.writer.impl.QuestWriter;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.net.packet.out.SendURL;
 
 public class InformationTabButtonPlugin extends PluginContext {

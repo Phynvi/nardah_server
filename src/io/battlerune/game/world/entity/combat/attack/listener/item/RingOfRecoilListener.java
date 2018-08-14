@@ -6,8 +6,8 @@ import io.battlerune.game.world.entity.combat.attack.listener.NpcCombatListenerS
 import io.battlerune.game.world.entity.combat.attack.listener.SimplifiedListener;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.hit.HitIcon;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.containers.equipment.Equipment;
 import io.battlerune.net.packet.out.SendMessage;
 
@@ -16,10 +16,10 @@ import io.battlerune.net.packet.out.SendMessage;
  */
 @NpcCombatListenerSignature(npcs = {2192})
 @ItemCombatListenerSignature(requireAll = false, items = {2550})
-public class RingOfRecoilListener extends SimplifiedListener<Mob> {
+public class RingOfRecoilListener extends SimplifiedListener<Actor> {
 
 	@Override
-	public void block(Mob attacker, Mob defender, Hit hit, CombatType combatType) {
+	public void block(Actor attacker, Actor defender, Hit hit, CombatType combatType) {
 		if(hit.getDamage() < 1)
 			return;
 
@@ -47,7 +47,7 @@ public class RingOfRecoilListener extends SimplifiedListener<Mob> {
 			handleRecoil(attacker, defender, recoil);
 	}
 
-	private void handleRecoil(Mob attacker, Mob defender, int recoil) {
+	private void handleRecoil(Actor attacker, Actor defender, int recoil) {
 		Hit hit = new Hit(recoil, HitIcon.DEFLECT);
 		attacker.damage(hit);
 		attacker.getCombat().getDamageCache().add(defender, hit);

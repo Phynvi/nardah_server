@@ -8,8 +8,8 @@ import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 
 import static io.battlerune.game.world.entity.combat.projectile.CombatProjectile.getDefinition;
 
@@ -30,7 +30,7 @@ public class AgrithNaNa extends SimplifiedListener<Npc> {
 	}
 
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		if(!NpcMeleeStrategy.get().withinDistance(attacker, defender)) {
 			attacker.setStrategy(MAGIC);
 		}
@@ -38,7 +38,7 @@ public class AgrithNaNa extends SimplifiedListener<Npc> {
 	}
 
 	@Override
-	public void start(Npc attacker, Mob defender, Hit[] hits) {
+	public void start(Npc attacker, Actor defender, Hit[] hits) {
 		if(!NpcMeleeStrategy.get().withinDistance(attacker, defender)) {
 			attacker.setStrategy(MAGIC);
 		} else {
@@ -52,12 +52,12 @@ public class AgrithNaNa extends SimplifiedListener<Npc> {
 		}
 
 		@Override
-		public Animation getAttackAnimation(Npc attacker, Mob defender) {
+		public Animation getAttackAnimation(Npc attacker, Actor defender) {
 			return new Animation(3502, UpdatePriority.HIGH);
 		}
 
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit combatHit = nextMagicHit(attacker, defender, combatProjectile.getMaxHit());
 			combatHit.setAccurate(true);
 			return new CombatHit[]{combatHit};

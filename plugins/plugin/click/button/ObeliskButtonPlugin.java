@@ -2,7 +2,7 @@ package plugin.click.button;
 
 import io.battlerune.content.Obelisks;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class ObeliskButtonPlugin extends PluginContext {
 

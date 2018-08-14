@@ -2,8 +2,8 @@ package io.battlerune.game.task.impl;
 
 import io.battlerune.content.activity.Activity;
 import io.battlerune.game.task.TickableTask;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.persist.PlayerSerializer;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.persist.PlayerSerializer;
 import io.battlerune.util.Stopwatch;
 
 import java.util.concurrent.TimeUnit;

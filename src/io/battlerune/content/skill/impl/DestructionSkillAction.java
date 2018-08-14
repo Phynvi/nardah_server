@@ -2,7 +2,7 @@ package io.battlerune.content.skill.impl;
 
 import io.battlerune.content.skill.SkillAction;
 import io.battlerune.game.action.policy.WalkablePolicy;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.ItemDefinition;
 import io.battlerune.game.world.position.Position;
@@ -30,12 +30,12 @@ public abstract class DestructionSkillAction extends SkillAction {
 
 	/**
 	 * Creates a new {@link DestructionSkillAction}.
-	 * @param mob the mob this skill action is for.
+	 * @param actor the actor this skill action is for.
 	 * @param position the position the player should face.
 	 * @param instant determines if this task should run instantly.
 	 */
-	public DestructionSkillAction(Mob mob, Optional<Position> position, boolean instant) {
-		super(mob, position, instant);
+	public DestructionSkillAction(Actor actor, Optional<Position> position, boolean instant) {
+		super(actor, position, instant);
 	}
 
 	@Override

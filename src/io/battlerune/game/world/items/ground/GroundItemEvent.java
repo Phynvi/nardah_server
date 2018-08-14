@@ -2,7 +2,7 @@ package io.battlerune.game.world.items.ground;
 
 import io.battlerune.game.task.Task;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.region.Region;
 import io.battlerune.net.packet.out.SendGroundItem;
 

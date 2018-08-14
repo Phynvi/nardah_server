@@ -1,7 +1,7 @@
 package io.battlerune.game.task.impl;
 
 import io.battlerune.game.task.TickableTask;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class SkullRemoveTask extends TickableTask {
 

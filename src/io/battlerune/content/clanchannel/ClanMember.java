@@ -1,8 +1,8 @@
 package io.battlerune.content.clanchannel;
 
 import io.battlerune.content.clanchannel.channel.ClanChannel;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.relations.PrivacyChatMode;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.relations.PrivacyChatMode;
 import io.battlerune.net.packet.out.SendClanDetails;
 
 import java.util.Objects;

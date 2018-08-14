@@ -6,8 +6,8 @@ import io.battlerune.content.skill.impl.slayer.SlayerTab;
 import io.battlerune.content.store.Store;
 import io.battlerune.game.event.impl.NpcClickEvent;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 
 public class NpcSecondClickPlugin extends PluginContext {
 

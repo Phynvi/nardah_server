@@ -1,7 +1,7 @@
 package io.battlerune.game.event.impl.log;
 
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.command.CommandParser;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.command.CommandParser;
 
 public class CommandLogEvent extends LogEvent {
 

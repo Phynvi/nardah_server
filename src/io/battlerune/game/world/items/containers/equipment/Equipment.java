@@ -10,8 +10,8 @@ import io.battlerune.game.world.entity.combat.ranged.RangedAmmunition;
 import io.battlerune.game.world.entity.combat.ranged.RangedWeaponDefinition;
 import io.battlerune.game.world.entity.combat.ranged.RangedWeaponType;
 import io.battlerune.game.world.entity.combat.weapon.WeaponInterface;
-import io.battlerune.game.world.entity.mob.UpdateFlag;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.UpdateFlag;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.ItemContainer;
 import io.battlerune.game.world.items.containers.ItemContainerAdapter;
@@ -26,7 +26,7 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
-import static io.battlerune.game.world.entity.mob.MobAnimation.*;
+import static io.battlerune.game.world.entity.actor.ActorAnimation.*;
 
 /**
  * The container that manages the equipment for a player.
@@ -596,9 +596,9 @@ public final class Equipment extends ItemContainer {
 			run = weapon.getRunAnimation();
 		}
 		
-		player.mobAnimation.setStand(stand);
-		player.mobAnimation.setWalk(walk);
-		player.mobAnimation.setRun(run);
+		player.actorAnimation.setStand(stand);
+		player.actorAnimation.setWalk(walk);
+		player.actorAnimation.setRun(run);
 	}
 	
 	public static boolean isWearingDFS(Player player) {

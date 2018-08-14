@@ -1,9 +1,9 @@
 package io.battlerune.game.task.impl;
 
 import io.battlerune.game.task.Task;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.exchange.ExchangeSession;
-import io.battlerune.game.world.entity.mob.player.exchange.ExchangeSessionType;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.exchange.ExchangeSession;
+import io.battlerune.game.world.entity.actor.player.exchange.ExchangeSessionType;
 import io.battlerune.net.packet.out.SendConfig;
 
 public class DuelNotificationTask extends Task {

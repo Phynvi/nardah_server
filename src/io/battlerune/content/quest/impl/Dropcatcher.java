@@ -7,7 +7,7 @@ package io.battlerune.content.quest.impl;
  * io.battlerune.net.packet.out.SendFadeScreen; import
  * io.battlerune.net.packet.out.SendMessage; import
  * io.battlerune.net.packet.out.SendString; import
- * io.battlerune.game.world.entity.mob.player.Player; import
+ * io.battlerune.game.world.entity.actor.player.Player; import
  * io.battlerune.content.dialogue.DialogueFactory; import
  * io.battlerune.content.event.impl.NpcInteractionEvent; import
  * io.battlerune.content.event.impl.ObjectInteractionEvent; import

@@ -1,8 +1,8 @@
 package io.battlerune.game.service;
 
 import io.battlerune.Config;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.util.log.LogManager;
 import io.battlerune.util.log.Logger;

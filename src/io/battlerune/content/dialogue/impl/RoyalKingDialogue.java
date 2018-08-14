@@ -5,7 +5,7 @@ import io.battlerune.content.dialogue.DialogueFactory;
 import io.battlerune.content.dialogue.Expression;
 import io.battlerune.content.store.Store;
 import io.battlerune.game.service.DonationService;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendURL;
 
 /**

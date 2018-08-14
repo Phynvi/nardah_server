@@ -1,7 +1,7 @@
 package io.battlerune.game.event.impl;
 
 import io.battlerune.game.event.Event;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 
 public class NpcClickEvent implements Event {
 

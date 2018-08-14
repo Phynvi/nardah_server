@@ -14,11 +14,11 @@ import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.hit.HitIcon;
 import io.battlerune.game.world.entity.combat.hit.Hitsplat;
 import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.data.PacketType;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.prayer.Prayer;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.data.PacketType;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.prayer.Prayer;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.equipment.Equipment;
 import io.battlerune.game.world.position.Area;
@@ -48,68 +48,68 @@ public final class CombatUtil {
 	
 	/**
 	 * Executes an action for mobs within a 3x3 square, including the source
-	 * {@code mob}.
-	 * @param mob the mob to generate an area for
+	 * {@code actor}.
+	 * @param actor the actor to generate an area for
 	 * @param action the action to apply to all mobs in the area
 	 */
-	public static void areaAction(Mob mob, Consumer<Mob> action) {
-		action.accept(mob);
-		areaAction(mob, 3 * 3, 1, action);
+	public static void areaAction(Actor actor, Consumer<Actor> action) {
+		action.accept(actor);
+		areaAction(actor, 3 * 3, 1, action);
 	}
 	
 	/**
-	 * Sends an action to {@link Mob} instance which is within a {@code
+	 * Sends an action to {@link Actor} instance which is within a {@code
 	 * distance}.
 	 * @param action action consumer.
 	 */
-	public static void areaAction(Mob mob, int max, int distance, Consumer<Mob> action) {
-		if(!Area.inMulti(mob)) {
+	public static void areaAction(Actor actor, int max, int distance, Consumer<Actor> action) {
+		if(!Area.inMulti(actor)) {
 			return;
 		}
 		
 		int added = 0;
-		List<Player> players = World.getRegions().getLocalPlayers(mob);
+		List<Player> players = World.getRegions().getLocalPlayers(actor);
 		players.sort((first, second) -> {
-			int firstD = Utility.getDistance(first, mob);
-			int secondD = Utility.getDistance(second, mob);
+			int firstD = Utility.getDistance(first, actor);
+			int secondD = Utility.getDistance(second, actor);
 			return firstD - secondD;
 		});
 		
 		for(Player other : players) {
 			if(other == null)
 				continue;
-			if(other.instance != mob.instance)
+			if(other.instance != actor.instance)
 				continue;
-			if(!Utility.withinViewingDistance(other, mob, distance))
+			if(!Utility.withinViewingDistance(other, actor, distance))
 				continue;
-			if(other.equals(mob))
+			if(other.equals(actor))
 				continue;
 			if(other.getCurrentHealth() <= 0 || other.isDead())
 				continue;
 			if(!Area.inMulti(other))
 				continue;
-			if(mob.isPlayer() && other.isPlayer() && (!Area.inWilderness(mob) || !Area.inWilderness(other)))
+			if(actor.isPlayer() && other.isPlayer() && (!Area.inWilderness(actor) || !Area.inWilderness(other)))
 				continue;
 			action.accept(other);
 			if(++added == max)
 				return;
 		}
 		
-		List<Npc> npcs = World.getRegions().getLocalNpcs(mob);
+		List<Npc> npcs = World.getRegions().getLocalNpcs(actor);
 		npcs.sort((first, second) -> {
-			int firstD = Utility.getDistance(first, mob);
-			int secondD = Utility.getDistance(second, mob);
+			int firstD = Utility.getDistance(first, actor);
+			int secondD = Utility.getDistance(second, actor);
 			return firstD - secondD;
 		});
 		
 		for(Npc other : npcs) {
 			if(other == null)
 				continue;
-			if(other.instance != mob.instance)
+			if(other.instance != actor.instance)
 				continue;
-			if(!Utility.withinViewingDistance(other, mob, distance))
+			if(!Utility.withinViewingDistance(other, actor, distance))
 				continue;
-			if(other.equals(mob))
+			if(other.equals(actor))
 				continue;
 			if(other.getCurrentHealth() <= 0 || other.isDead())
 				continue;
@@ -130,7 +130,7 @@ public final class CombatUtil {
 	 * @param type the combat type of this hit
 	 * @return the delay for the combat type
 	 */
-	public static int getHitDelay(Mob attacker, Mob defender, CombatType type) {
+	public static int getHitDelay(Actor attacker, Actor defender, CombatType type) {
 		if(!type.equals(CombatType.MELEE)) {
 			int distance = Utility.getDistance(attacker, defender);
 			
@@ -164,7 +164,7 @@ public final class CombatUtil {
 		return 0;
 	}
 	
-	static boolean validateMobs(Mob attacker, Mob defender) {
+	static boolean validateMobs(Actor attacker, Actor defender) {
 		if(!validate(attacker) || !validate(defender)) {
 			attacker.getCombat().reset();
 			return false;
@@ -187,8 +187,8 @@ public final class CombatUtil {
 	 * @param effect the effect that must be applied
 	 * @return {@code true} if it was successfully applied
 	 */
-	public static boolean effect(Mob mob, CombatEffectType effect) {
-		return CombatEffect.EFFECTS.get(effect).start(mob);
+	public static boolean effect(Actor actor, CombatEffectType effect) {
+		return CombatEffect.EFFECTS.get(effect).start(actor);
 	}
 	
 	/**
@@ -196,17 +196,17 @@ public final class CombatUtil {
 	 * @param effect the effect that must be applied
 	 * @return {@code true} if it was successfully applied
 	 */
-	public static boolean cancelEffect(Mob mob, CombatEffectType effect) {
-		return CombatEffect.EFFECTS.get(effect).removeOn(mob);
+	public static boolean cancelEffect(Actor actor, CombatEffectType effect) {
+		return CombatEffect.EFFECTS.get(effect).removeOn(actor);
 	}
 	
-	public static boolean canAttack(Mob attacker, Mob defender) {
+	public static boolean canAttack(Actor attacker, Actor defender) {
 		if(attacker.isPlayer())
 			return canAttack(attacker.getPlayer(), defender);
 		return canAttack(attacker.getNpc(), defender);
 	}
 	
-	private static boolean canAttack(Player attacker, Mob defender) {
+	private static boolean canAttack(Player attacker, Actor defender) {
 		if(defender.isNpc() && !SlayerTask.canAttack(attacker, defender.id)) {
 			attacker.send(new SendMessage("You do not meet the slayer requirements to attack this npc!"));
 			return false;
@@ -294,7 +294,7 @@ public final class CombatUtil {
 		return true;
 	}
 	
-	private static boolean canAttack(Npc attacker, Mob defender) {
+	private static boolean canAttack(Npc attacker, Actor defender) {
 		if(attacker.equals(defender)) {
 			return false;
 		}
@@ -314,7 +314,7 @@ public final class CombatUtil {
 		return true;
 	}
 	
-	public static boolean canBasicAttack(Mob attacker, Mob defender) {
+	public static boolean canBasicAttack(Actor attacker, Actor defender) {
 		if(attacker.equals(defender)) {
 			return false;
 		}
@@ -346,36 +346,36 @@ public final class CombatUtil {
 		return true;
 	}
 	
-	private static boolean validate(Mob mob) {
-		return mob != null && !mob.isDead() && mob.isVisible() && mob.isValid() && !mob.teleporting && !mob.inTeleport;
+	private static boolean validate(Actor actor) {
+		return actor != null && !actor.isDead() && actor.isVisible() && actor.isValid() && !actor.teleporting && !actor.inTeleport;
 	}
 	
-	static Animation getBlockAnimation(Mob mob) {
+	static Animation getBlockAnimation(Actor actor) {
 		int animation = 404;
-		if(mob.isPlayer()) {
-			if(mob.getPlayer().equipment.hasShield()) {
-				Item shield = mob.getPlayer().equipment.getShield();
+		if(actor.isPlayer()) {
+			if(actor.getPlayer().equipment.hasShield()) {
+				Item shield = actor.getPlayer().equipment.getShield();
 				animation = shield.getBlockAnimation().orElse(424);
-			} else if(mob.getPlayer().equipment.hasWeapon()) {
+			} else if(actor.getPlayer().equipment.hasWeapon()) {
 				animation = 404;// TODO
 			}
 		} else {
-			Npc npc = mob.getNpc();
+			Npc npc = actor.getNpc();
 			animation = npc.definition.getBlockAnimation();
 		}
-		int delay = (int) mob.getCombat().lastBlocked.elapsedTime();
+		int delay = (int) actor.getCombat().lastBlocked.elapsedTime();
 		if(delay < 600)
 			return new Animation(animation, delay / 50, UpdatePriority.LOW);
 		return new Animation(animation, UpdatePriority.LOW);
 	}
 	
-	public static CombatHit generateDragonfire(Mob attacker, Mob defender, int max, boolean prayer) {
+	public static CombatHit generateDragonfire(Actor attacker, Actor defender, int max, boolean prayer) {
 		int hitDelay = getHitDelay(attacker, defender, CombatType.MAGIC);
 		int hitsplatDelay = 1;
 		return generateDragonfire(attacker, defender, max, hitDelay, hitsplatDelay, prayer);
 	}
 	
-	public static CombatHit generateDragonfire(Mob attacker, Mob defender, int max, int hitDelay, int hitsplatDelay, boolean prayer) {
+	public static CombatHit generateDragonfire(Actor attacker, Actor defender, int max, int hitDelay, int hitsplatDelay, boolean prayer) {
 		int damage;
 		
 		if(defender.isPlayer()) {

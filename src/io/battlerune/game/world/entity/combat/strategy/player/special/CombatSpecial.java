@@ -8,8 +8,8 @@ import io.battlerune.game.world.entity.combat.Combat;
 import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
 import io.battlerune.game.world.entity.combat.strategy.player.special.melee.*;
 import io.battlerune.game.world.entity.combat.strategy.player.special.range.*;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.equipment.Equipment;
@@ -138,7 +138,7 @@ public enum CombatSpecial {
 			player.send(new SendConfig(301, 1));
 			
 			Combat<Player> combat = player.getCombat();
-			Mob defender = combat.getLastVictim();
+			Actor defender = combat.getLastVictim();
 			
 			if(combat.isAttacking(defender)) {
 				combat.submitStrategy(defender, GraniteMaul.get());

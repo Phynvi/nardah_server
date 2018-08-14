@@ -10,8 +10,8 @@ import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.projectile.CombatProjectile;
 import io.battlerune.game.world.entity.combat.strategy.basic.MagicStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 
 import static io.battlerune.game.world.entity.combat.CombatUtil.getHitDelay;
@@ -29,14 +29,14 @@ public class DragonfireShieldStrategy extends MagicStrategy<Player> {
 	}
 
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		int hitDelay = getHitDelay(attacker, defender, CombatType.MAGIC) + 2;
 		int hitsplatDelay = 1;
 		return new CombatHit[]{CombatUtil.generateDragonfire(attacker, defender, 25, hitDelay, hitsplatDelay, false)};
 	}
 
 	@Override
-	public boolean canAttack(Player attacker, Mob defender) {
+	public boolean canAttack(Player attacker, Actor defender) {
 		if(attacker.dragonfireCharges == 0) {
 			attacker.message("You have no charges to do this!");
 			return false;
@@ -45,7 +45,7 @@ public class DragonfireShieldStrategy extends MagicStrategy<Player> {
 	}
 
 	@Override
-	public void start(Player attacker, Mob defender, Hit[] hits) {
+	public void start(Player attacker, Actor defender, Hit[] hits) {
 		PROJECTILE.getAnimation().ifPresent(attacker::animate);
 		PROJECTILE.getStart().ifPresent(attacker::graphic);
 
@@ -66,28 +66,28 @@ public class DragonfireShieldStrategy extends MagicStrategy<Player> {
 	}
 
 	@Override
-	public void attack(Player attacker, Mob defender, Hit hit) {
+	public void attack(Player attacker, Actor defender, Hit hit) {
 		PROJECTILE.sendProjectile(attacker, defender);
 		attacker.dragonfireCharges--;
 	}
 
 	@Override
-	public void hit(Player attacker, Mob defender, Hit hit) {
+	public void hit(Player attacker, Actor defender, Hit hit) {
 		PROJECTILE.getEnd().ifPresent(defender::graphic);
 		attacker.resetFace();
 	}
 
 	@Override
-	public void hitsplat(Player attacker, Mob defender, Hit hit) {
+	public void hitsplat(Player attacker, Actor defender, Hit hit) {
 	}
 
 	@Override
-	public Animation getAttackAnimation(Player attacker, Mob defender) {
+	public Animation getAttackAnimation(Player attacker, Actor defender) {
 		return new Animation(6696, UpdatePriority.HIGH);
 	}
 
 	@Override
-	public int getAttackDelay(Player attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Player attacker, Actor defender, FightType fightType) {
 		return 5;
 	}
 

@@ -1,6 +1,6 @@
 package io.battlerune.content.consume;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 
 import java.util.Arrays;

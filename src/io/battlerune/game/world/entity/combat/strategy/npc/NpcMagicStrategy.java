@@ -12,8 +12,8 @@ import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.projectile.CombatProjectile;
 import io.battlerune.game.world.entity.combat.strategy.basic.MagicStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.util.RandomUtils;
 
 import java.util.function.Consumer;
@@ -33,7 +33,7 @@ public class NpcMagicStrategy extends MagicStrategy<Npc> {
 	}
 	
 	@Override
-	public void start(Npc attacker, Mob defender, Hit[] hits) {
+	public void start(Npc attacker, Actor defender, Hit[] hits) {
 		Animation animation = getAttackAnimation(attacker, defender);
 		
 		if(combatProjectile.getAnimation().isPresent() && (animation.getId() == -1 || animation.getId() == 65535)) {
@@ -62,7 +62,7 @@ public class NpcMagicStrategy extends MagicStrategy<Npc> {
 	}
 	
 	@Override
-	public void hit(Npc attacker, Mob defender, Hit hit) {
+	public void hit(Npc attacker, Actor defender, Hit hit) {
 		if(!hit.isAccurate()) {
 			defender.graphic(SPLASH);
 		} else {
@@ -71,12 +71,12 @@ public class NpcMagicStrategy extends MagicStrategy<Npc> {
 	}
 	
 	@Override
-	public CombatHit[] getHits(Npc attacker, Mob defender) {
+	public CombatHit[] getHits(Npc attacker, Actor defender) {
 		return new CombatHit[]{nextMagicHit(attacker, defender, combatProjectile)};
 	}
 	
 	@Override
-	public int getAttackDelay(Npc attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Npc attacker, Actor defender, FightType fightType) {
 		int delay = attacker.definition.getAttackDelay();
 		
 		if(attacker.getPosition().getDistance(defender.getPosition()) > 4) {
@@ -92,12 +92,12 @@ public class NpcMagicStrategy extends MagicStrategy<Npc> {
 	}
 	
 	@Override
-	public Animation getAttackAnimation(Npc attacker, Mob defender) {
+	public Animation getAttackAnimation(Npc attacker, Actor defender) {
 		return new Animation(attacker.definition.getAttackAnimation(), UpdatePriority.HIGH);
 	}
 	
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		return true;
 	}
 	

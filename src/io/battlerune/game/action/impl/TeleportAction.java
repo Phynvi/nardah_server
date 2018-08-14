@@ -6,7 +6,7 @@ import io.battlerune.game.Graphic;
 import io.battlerune.game.action.Action;
 import io.battlerune.game.action.ConsecutiveAction;
 import io.battlerune.game.action.policy.WalkablePolicy;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.net.packet.out.SendMessage;
 import io.battlerune.net.packet.out.SendString;
@@ -16,7 +16,7 @@ import io.battlerune.net.packet.out.SendString;
  * @author Daniel
  * @author Michael | Chex
  */
-public final class TeleportAction extends ConsecutiveAction<Mob> {
+public final class TeleportAction extends ConsecutiveAction<Actor> {
 
 	/**
 	 * The teleport position.
@@ -36,7 +36,7 @@ public final class TeleportAction extends ConsecutiveAction<Mob> {
 	/**
 	 * Constructs a new {@code TeleportAction} object.
 	 */
-	public TeleportAction(Mob entity, Position position, TeleportationData type, Runnable onDestination) {
+	public TeleportAction(Actor entity, Position position, TeleportationData type, Runnable onDestination) {
 		super(entity);
 		this.position = position;
 		this.type = type;
@@ -66,7 +66,7 @@ public final class TeleportAction extends ConsecutiveAction<Mob> {
 		add(this::reset);
 	}
 
-	private boolean valid(Action<Mob> action) {
+	private boolean valid(Action<Actor> action) {
 		if(type == TeleportationData.HOME && action.getMob().getCombat().inCombat()) {
 			if(action.getMob().isPlayer()) {
 				action.getMob().getPlayer().send(new SendMessage("You can't teleport home while in combat!"));
@@ -77,7 +77,7 @@ public final class TeleportAction extends ConsecutiveAction<Mob> {
 		return true;
 	}
 
-	private void start(Action<Mob> action) {
+	private void start(Action<Actor> action) {
 		if(type != TeleportationData.HOME)
 			action.getMob().inTeleport = true;
 
@@ -95,12 +95,12 @@ public final class TeleportAction extends ConsecutiveAction<Mob> {
 		}
 	}
 
-	private void startTablet(Action<Mob> action) {
+	private void startTablet(Action<Actor> action) {
 		action.setDelay(type.getDelay());
 		type.getEndAnimation().ifPresent(action.getMob()::animate);
 	}
 
-	private void move(Action<Mob> action) {
+	private void move(Action<Actor> action) {
 		if(valid(action)) {
 			action.setDelay(1);
 			action.getMob().move(position);
@@ -115,7 +115,7 @@ public final class TeleportAction extends ConsecutiveAction<Mob> {
 		}
 	}
 
-	private void end(Action<Mob> action) {
+	private void end(Action<Actor> action) {
 		type.getEndGraphic().ifPresent(action.getMob()::graphic);
 		type.getEndAnimation().ifPresent(action.getMob()::animate);
 
@@ -124,7 +124,7 @@ public final class TeleportAction extends ConsecutiveAction<Mob> {
 		}
 	}
 
-	private void reset(Action<Mob> action) {
+	private void reset(Action<Actor> action) {
 		action.getMob().inTeleport = false;
 		onDestination.run();
 		cancel();

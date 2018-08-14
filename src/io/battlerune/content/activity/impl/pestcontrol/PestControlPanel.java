@@ -1,7 +1,7 @@
 package io.battlerune.content.activity.impl.pestcontrol;
 
 import io.battlerune.content.activity.panel.Activity_Panel;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.util.Utility;
 

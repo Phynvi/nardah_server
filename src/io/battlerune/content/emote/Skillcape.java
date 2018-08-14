@@ -2,7 +2,7 @@ package io.battlerune.content.emote;
 
 import io.battlerune.content.store.StoreItem;
 import io.battlerune.content.store.currency.CurrencyType;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.net.packet.out.SendMessage;

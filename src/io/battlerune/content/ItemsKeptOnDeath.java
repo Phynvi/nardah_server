@@ -1,7 +1,7 @@
 package io.battlerune.content;
 
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.prayer.Prayer;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.prayer.Prayer;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.ItemComparator;
 import io.battlerune.game.world.items.containers.pricechecker.PriceType;

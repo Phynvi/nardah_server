@@ -5,8 +5,8 @@ import io.battlerune.game.world.entity.combat.attack.listener.SimplifiedListener
 import io.battlerune.game.world.entity.combat.effect.impl.CombatPoisonEffect;
 import io.battlerune.game.world.entity.combat.effect.impl.CombatVenomEffect;
 import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.equipment.Equipment;
 import io.battlerune.util.RandomUtils;
@@ -15,7 +15,7 @@ import io.battlerune.util.RandomUtils;
 public class ZulrahHelm extends SimplifiedListener<Player> {
 
 	@Override
-	public void hit(Player attacker, Mob defender, Hit hit) {
+	public void hit(Player attacker, Actor defender, Hit hit) {
 		if(!defender.isNpc()) {
 			return;
 		}
@@ -35,7 +35,7 @@ public class ZulrahHelm extends SimplifiedListener<Player> {
 		}
 	}
 
-	private static void serp(Player attacker, Mob defender, ZulrahHelm listener) {
+	private static void serp(Player attacker, Actor defender, ZulrahHelm listener) {
 		if(attacker.serpentineHelmCharges > 0) {
 			attacker.serpentineHelmCharges -= 2;
 			boolean poisonous = false;
@@ -76,7 +76,7 @@ public class ZulrahHelm extends SimplifiedListener<Player> {
 
 	}
 
-	private static void tanz(Player attacker, Mob defender, ZulrahHelm listener) {
+	private static void tanz(Player attacker, Actor defender, ZulrahHelm listener) {
 		if(attacker.tanzaniteHelmCharges > 0) {
 			attacker.tanzaniteHelmCharges -= 2;
 			boolean poisonous = false;
@@ -103,7 +103,7 @@ public class ZulrahHelm extends SimplifiedListener<Player> {
 		}
 	}
 
-	private static void magma(Player attacker, Mob defender, ZulrahHelm listener) {
+	private static void magma(Player attacker, Actor defender, ZulrahHelm listener) {
 		if(attacker.magmaHelmCharges > 0) {
 			attacker.magmaHelmCharges -= 2;
 			boolean poisonous = false;

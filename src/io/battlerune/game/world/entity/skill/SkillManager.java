@@ -24,10 +24,10 @@ import io.battlerune.game.Graphic;
 import io.battlerune.game.UpdatePriority;
 import io.battlerune.game.world.World;
 import io.battlerune.game.world.entity.EntityType;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.UpdateFlag;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.prayer.Prayer;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.UpdateFlag;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.prayer.Prayer;
 import io.battlerune.net.packet.out.*;
 import io.battlerune.util.Utility;
 
@@ -37,16 +37,16 @@ import java.util.function.Function;
 import java.util.stream.IntStream;
 
 /**
- * Manages all skills related to an mob.
+ * Manages all skills related to an actor.
  * @author Michael | Chex
  * @Edited by Adam / Adameternal123
  */
 public class SkillManager {
 	
 	/**
-	 * The mob to manage for.
+	 * The actor to manage for.
 	 */
-	private final Mob mob;
+	private final Actor actor;
 	
 	/**
 	 * The experience counter.
@@ -54,26 +54,26 @@ public class SkillManager {
 	public double experienceCounter;
 	
 	/**
-	 * An array of skills that belong to an mob.
+	 * An array of skills that belong to an actor.
 	 */
 	private Skill[] skills;
 	
 	/**
-	 * The mob's combat level.
+	 * The actor's combat level.
 	 */
 	private double combatLevel;
 	
 	/**
 	 * Constructs a new {@code SkillManager} object.
 	 */
-	public SkillManager(Mob mob) {
-		this.mob = mob;
-		this.skills = new Skill[mob.isPlayer() ? Skill.SKILL_COUNT : 7];
+	public SkillManager(Actor actor) {
+		this.actor = actor;
+		this.skills = new Skill[actor.isPlayer() ? Skill.SKILL_COUNT : 7];
 		for(int index = 0; index < skills.length; index++) {
-			boolean hitpoints = mob.isPlayer() && index == 3;
+			boolean hitpoints = actor.isPlayer() && index == 3;
 			skills[index] = hitpoints ? new Skill(index, 10, 1154) : new Skill(index, 1, 0);
 		}
-		if(mob.isPlayer()) {
+		if(actor.isPlayer()) {
 			skills[Skill.HUNTER] = new Hunter(1, 0);
 			skills[Skill.COOKING] = new Cooking(1, 0);
 			skills[Skill.HERBLORE] = new Herblore(1, 0);
@@ -91,7 +91,7 @@ public class SkillManager {
 	}
 	
 	/**
-	 * Calculates the combat level of an mob.
+	 * Calculates the combat level of an actor.
 	 */
 	public static double calculateCombat(int attack, int defence, int strength, int hp, int prayer, int ranged, int magic) {
 		final double base_calculation = .25 * (defence + hp + Math.floor(prayer / 2));
@@ -138,13 +138,13 @@ public class SkillManager {
 	 */
 	public void setMaxLevel(int id, int level) {
 		setExperience(id, Skill.getExperienceForLevel(level));
-		if(mob.isPlayer() && id <= Skill.MAGIC && !mob.getPlayer().quickPrayers.getEnabled().isEmpty()) {
+		if(actor.isPlayer() && id <= Skill.MAGIC && !actor.getPlayer().quickPrayers.getEnabled().isEmpty()) {
 			List<Prayer> deactivate = new LinkedList<>();
-			for(Prayer prayer : mob.getPlayer().quickPrayers.getEnabled())
-				if(!prayer.canToggle(mob.getPlayer()))
+			for(Prayer prayer : actor.getPlayer().quickPrayers.getEnabled())
+				if(!prayer.canToggle(actor.getPlayer()))
 					deactivate.add(prayer);
 			if(!deactivate.isEmpty())
-				mob.getPlayer().quickPrayers.deactivate(deactivate.toArray(new Prayer[deactivate.size()]));
+				actor.getPlayer().quickPrayers.deactivate(deactivate.toArray(new Prayer[deactivate.size()]));
 		}
 	}
 	
@@ -201,7 +201,7 @@ public class SkillManager {
 	}
 	
 	/**
-	 * Gets the total level of the mob.
+	 * Gets the total level of the actor.
 	 */
 	public int getTotalLevel() {
 		int total = 0;
@@ -220,7 +220,7 @@ public class SkillManager {
 	}
 	
 	/**
-	 * Refreshes all the skills for the mob.
+	 * Refreshes all the skills for the actor.
 	 */
 	public void refresh() {
 		for(final Skill skill : skills) {
@@ -248,7 +248,7 @@ public class SkillManager {
 	 * Handles a player logging in.
 	 */
 	public void login() {
-		Smelting.clearInterfaces(mob.getPlayer());
+		Smelting.clearInterfaces(actor.getPlayer());
 		refresh();
 		setCombatLevel();
 	}
@@ -260,28 +260,28 @@ public class SkillManager {
 		for(int index = 0; index < Skill.SKILL_COUNT; index++) {
 			setMaxLevel(index, 99);
 			if(index < 7) {
-				mob.getPlayer().achievedSkills[index] = 99;
-				mob.getPlayer().achievedExp[index] = 13034431;
+				actor.getPlayer().achievedSkills[index] = 99;
+				actor.getPlayer().achievedExp[index] = 13034431;
 			}
 			
 		}
-		mob.getPlayer().send(new SendMessage("You have successfully mastered all skills."));
+		actor.getPlayer().send(new SendMessage("You have successfully mastered all skills."));
 		setCombatLevel();
-		mob.updateFlags.add(UpdateFlag.APPEARANCE);
+		actor.updateFlags.add(UpdateFlag.APPEARANCE);
 	}
 	
 	/**
-	 * Refreshes a skill to a player's client if this class's mob is a player.
+	 * Refreshes a skill to a player's client if this class's actor is a player.
 	 */
 	public void refresh(int id) {
-		if(mob.isPlayer()) {
+		if(actor.isPlayer()) {
 			Skill skill = get(id);
-			mob.getPlayer().send(new SendSkill(skill));
+			actor.getPlayer().send(new SendSkill(skill));
 		}
 	}
 	
 	/**
-	 * Checks if the mob is maxed in all skills.
+	 * Checks if the actor is maxed in all skills.
 	 */
 	public boolean isMaxed() {
 		int maxCount = Skill.SKILL_COUNT;
@@ -305,8 +305,8 @@ public class SkillManager {
 	 * The interactionEvent listener.
 	 */
 	public boolean onEvent(InteractionEvent interactionEvent) {
-		if(mob.is(EntityType.PLAYER)) {
-			Player player = (Player) mob;
+		if(actor.is(EntityType.PLAYER)) {
+			Player player = (Player) actor;
 			boolean success = false;
 			for(final Skill skill : skills) {
 				success |= skill.onEvent(player, interactionEvent);
@@ -337,9 +337,9 @@ public class SkillManager {
 	 * experience causes the skill to level up.
 	 */
 	public void addExperience(int id, double experience, boolean levelUp, boolean counter) {
-		if(!mob.isPlayer() || mob.getPlayer().settings.lockExperience)
+		if(!actor.isPlayer() || actor.getPlayer().settings.lockExperience)
 			return;
-		Player player = (Player) mob;
+		Player player = (Player) actor;
 		Skill skill = get(id);
 		double old = skill.getExperience();
 		double modified_experience;
@@ -389,7 +389,7 @@ public class SkillManager {
 				player.achievedSkills[id] = skill.getMaxLevel();
 			}
 			updateCombat();
-			mob.updateFlags.add(UpdateFlag.APPEARANCE);
+			actor.updateFlags.add(UpdateFlag.APPEARANCE);
 		} else {
 			//            ClanManager.addExperience(player, experience);
 		}
@@ -439,16 +439,16 @@ public class SkillManager {
 		setCombatLevel();
 		int newLevel = (int) getCombatLevel();
 		if(newLevel != oldLevel)
-			mob.getPlayer().send(new SendMessage("You've reached a combat level of " + newLevel + "."));
+			actor.getPlayer().send(new SendMessage("You've reached a combat level of " + newLevel + "."));
 	}
 	
 	/**
-	 * Sends all skills to this player's client. If the mob created with this object
+	 * Sends all skills to this player's client. If the actor created with this object
 	 * is not a player, no code will be executed.
 	 */
 	public void sendSkills() {
-		if(mob.is(EntityType.PLAYER)) {
-			Player player = (Player) mob;
+		if(actor.is(EntityType.PLAYER)) {
+			Player player = (Player) actor;
 			for(Skill skill : skills) {
 				player.send(new SendSkill(skill));
 			}
@@ -464,12 +464,12 @@ public class SkillManager {
 			}
 		}
 		if(doingSkill) {
-			mob.resetAnimation();
+			actor.resetAnimation();
 		}
 	}
 	
 	/**
-	 * Calculates the combat level of an mob.
+	 * Calculates the combat level of an actor.
 	 */
 	public double calculateCombat() {
 		return calculateCombat(getMaxLevel(Skill.ATTACK), getMaxLevel(Skill.DEFENCE), getMaxLevel(Skill.STRENGTH), getMaxLevel(Skill.HITPOINTS), getMaxLevel(Skill.PRAYER), getMaxLevel(Skill.RANGED), getMaxLevel(Skill.MAGIC));
@@ -483,32 +483,32 @@ public class SkillManager {
 	}
 	
 	/**
-	 * Gets the mob's combat level.
+	 * Gets the actor's combat level.
 	 */
 	public double getCombatLevel() {
 		return combatLevel;
 	}
 	
 	/**
-	 * Sets the mob's combat level.
+	 * Sets the actor's combat level.
 	 */
 	public void setCombatLevel() {
 		this.combatLevel = calculateCombat();
 	}
 	
 	/**
-	 * Gets the skills of the mob.
+	 * Gets the skills of the actor.
 	 */
 	public Skill[] getSkills() {
 		return skills;
 	}
 	
 	/**
-	 * Sets the skills of the mob.
+	 * Sets the skills of the actor.
 	 */
 	public void setSkills(Skill[] skills) {
 		this.skills = skills;
-		if(mob.isPlayer()) {
+		if(actor.isPlayer()) {
 			this.skills[Skill.HUNTER] = new Hunter(skills[Skill.HUNTER].getLevel(), skills[Skill.HUNTER].getExperience());
 			this.skills[Skill.PRAYER] = new BoneSacrifice(skills[Skill.PRAYER].getLevel(), skills[Skill.PRAYER].getExperience());
 			this.skills[Skill.COOKING] = new Cooking(skills[Skill.COOKING].getLevel(), skills[Skill.COOKING].getExperience());

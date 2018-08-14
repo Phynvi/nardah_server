@@ -1,10 +1,10 @@
 package io.battlerune.util.parser.impl;
 
 import com.google.gson.JsonObject;
-import io.battlerune.game.world.entity.mob.npc.drop.NpcDrop;
-import io.battlerune.game.world.entity.mob.npc.drop.NpcDropChance;
-import io.battlerune.game.world.entity.mob.npc.drop.NpcDropManager;
-import io.battlerune.game.world.entity.mob.npc.drop.NpcDropTable;
+import io.battlerune.game.world.entity.actor.npc.drop.NpcDrop;
+import io.battlerune.game.world.entity.actor.npc.drop.NpcDropChance;
+import io.battlerune.game.world.entity.actor.npc.drop.NpcDropManager;
+import io.battlerune.game.world.entity.actor.npc.drop.NpcDropTable;
 import io.battlerune.game.world.items.ItemDefinition;
 import io.battlerune.util.parser.GsonParser;
 

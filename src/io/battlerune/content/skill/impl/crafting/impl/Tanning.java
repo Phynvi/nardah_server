@@ -1,7 +1,7 @@
 package io.battlerune.content.skill.impl.crafting.impl;
 
 import io.battlerune.Config;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.ItemDefinition;
 import io.battlerune.net.packet.out.SendInputAmount;

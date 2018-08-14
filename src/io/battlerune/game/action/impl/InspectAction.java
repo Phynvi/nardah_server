@@ -2,7 +2,7 @@ package io.battlerune.game.action.impl;
 
 import io.battlerune.game.action.Action;
 import io.battlerune.game.action.policy.WalkablePolicy;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Position;
 
 public abstract class InspectAction extends Action<Player> {

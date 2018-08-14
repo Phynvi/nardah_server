@@ -1,6 +1,6 @@
 package io.battlerune.game.world.entity;
 
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 import io.battlerune.util.RandomUtils;
 
 import java.util.*;
@@ -22,7 +22,7 @@ import static com.google.common.base.Preconditions.*;
  * @author Artem Batutin <artembatutin@gmail.com>
  * @author lare96 <http://github.org/lare96>
  */
-public final class MobList<E extends Mob> implements Iterable<E> {
+public final class MobList<E extends Actor> implements Iterable<E> {
 	
 	/**
 	 * An {@link Iterator} implementation designed specifically {@link MobList}s.
@@ -30,7 +30,7 @@ public final class MobList<E extends Mob> implements Iterable<E> {
 	 * {@code Iterator}.
 	 * @author lare96 <http://github.org/lare96>
 	 */
-	public static final class EntityListIterator<E extends Mob> implements Iterator<E> {
+	public static final class EntityListIterator<E extends Actor> implements Iterator<E> {
 		
 		/**
 		 * The {@link MobList} this {@link Iterator} is dedicated to.
@@ -117,7 +117,7 @@ public final class MobList<E extends Mob> implements Iterable<E> {
 	 */
 	@SuppressWarnings("unchecked")
 	public MobList(int capacity) {
-		entities = (E[]) new Mob[++capacity];
+		entities = (E[]) new Actor[++capacity];
 		Stream<Integer> indexStream = IntStream.rangeClosed(1, capacity).boxed();
 		indices = new TreeSet<>(indexStream.collect(Collectors.toList()));
 	}

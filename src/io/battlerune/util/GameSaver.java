@@ -7,7 +7,7 @@ import com.google.gson.reflect.TypeToken;
 import io.battlerune.content.WellOfGoodwill;
 import io.battlerune.content.WellOfGoodwill.Contributor;
 import io.battlerune.content.bot.BotUtility;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.util.parser.GsonParser;
 
 import java.io.FileWriter;

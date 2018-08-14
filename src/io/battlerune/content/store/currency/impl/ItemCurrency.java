@@ -1,7 +1,7 @@
 package io.battlerune.content.store.currency.impl;
 
 import io.battlerune.content.store.currency.Currency;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.ItemDefinition;
 

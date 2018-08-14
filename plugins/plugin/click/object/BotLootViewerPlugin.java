@@ -7,7 +7,7 @@ import java.util.Map;
 import io.battlerune.content.bot.BotUtility;
 import io.battlerune.game.event.impl.ObjectClickEvent;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.net.packet.out.SendItemOnInterfaceSlot;
 import io.battlerune.net.packet.out.SendString;

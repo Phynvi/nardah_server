@@ -8,8 +8,8 @@ import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.util.RandomUtils;
 
 import static io.battlerune.game.world.entity.combat.projectile.CombatProjectile.getDefinition;
@@ -19,7 +19,7 @@ public class DarkBeast extends SimplifiedListener<Npc> {
 	private static MagicAttack MAGIC = new MagicAttack();
 
 	@Override
-	public void start(Npc attacker, Mob defender, Hit[] hits) {
+	public void start(Npc attacker, Actor defender, Hit[] hits) {
 		if(RandomUtils.success(.85)) {
 			attacker.setStrategy(NpcMeleeStrategy.get());
 		} else {
@@ -33,18 +33,18 @@ public class DarkBeast extends SimplifiedListener<Npc> {
 		}
 
 		@Override
-		public void start(Npc attacker, Mob defender, Hit[] hits) {
+		public void start(Npc attacker, Actor defender, Hit[] hits) {
 			attacker.animate(new Animation(2730, UpdatePriority.VERY_HIGH));
 			combatProjectile.sendProjectile(attacker, defender);
 
 		}
 
 		@Override
-		public void hit(Npc attacker, Mob defender, Hit hit) {
+		public void hit(Npc attacker, Actor defender, Hit hit) {
 		}
 
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit hit = nextMagicHit(attacker, defender, 8, 2, 1);
 			hit.setAccurate(true);
 			return new CombatHit[]{hit};

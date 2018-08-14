@@ -1,6 +1,6 @@
 package io.battlerune.content.skill.impl.construction;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.object.ObjectDefinition;
 import io.battlerune.net.packet.out.SendItemOnInterface;
 import io.battlerune.net.packet.out.SendString;

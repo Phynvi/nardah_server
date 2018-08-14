@@ -1,7 +1,7 @@
 package io.battlerune.game.world.entity.combat.magic;
 
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.net.packet.out.SendMessage;
@@ -29,7 +29,7 @@ public abstract class MagicSpell {
 		return Optional.empty();
 	}
 	
-	boolean canCast(Mob attacker, Optional<Mob> defender) {
+	boolean canCast(Actor attacker, Optional<Actor> defender) {
 		if(attacker.isNpc()) {
 			return true;
 		}

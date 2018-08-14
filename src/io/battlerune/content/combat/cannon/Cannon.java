@@ -4,7 +4,7 @@ import io.battlerune.content.combat.cannon.CannonManager.Rotation;
 import io.battlerune.content.combat.cannon.CannonManager.Setup;
 import io.battlerune.game.world.entity.Entity;
 import io.battlerune.game.world.entity.EntityType;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.object.CustomGameObject;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.game.world.region.Region;

@@ -7,9 +7,9 @@ import io.battlerune.game.world.entity.combat.CombatUtil;
 import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.player.PlayerMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -27,7 +27,7 @@ public class Dragon2h extends PlayerMeleeStrategy {
 	}
 
 	@Override
-	public void start(Player attacker, Mob defender, Hit[] hits) {
+	public void start(Player attacker, Actor defender, Hit[] hits) {
 		attacker.getCombatSpecial().drain(attacker);
 		attacker.animate(getAttackAnimation(attacker, defender));
 
@@ -43,7 +43,7 @@ public class Dragon2h extends PlayerMeleeStrategy {
 	}
 
 	@Override
-	public Animation getAttackAnimation(Player attacker, Mob defender) {
+	public Animation getAttackAnimation(Player attacker, Actor defender) {
 		return ANIMATION;
 	}
 
@@ -51,7 +51,7 @@ public class Dragon2h extends PlayerMeleeStrategy {
 		return INSTANCE;
 	}
 
-	private void hitEvent(Player attacker, Mob defender, Mob other, List<Hit> extra) {
+	private void hitEvent(Player attacker, Actor defender, Actor other, List<Hit> extra) {
 		if(!CombatUtil.canBasicAttack(attacker, other)) {
 			return;
 		}

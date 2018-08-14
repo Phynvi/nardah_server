@@ -2,7 +2,7 @@ package io.battlerune.content.event;
 
 import io.battlerune.content.activity.Activity;
 import io.battlerune.content.event.InteractionEvent.InteractionType;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class EventDispatcher {
 	

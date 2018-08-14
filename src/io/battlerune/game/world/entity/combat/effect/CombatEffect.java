@@ -1,7 +1,7 @@
 package io.battlerune.game.world.entity.combat.effect;
 
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Some sort of temporary effect applied to a {@link Mob} during combat. Combat
+ * Some sort of temporary effect applied to a {@link Actor} during combat. Combat
  * effects include but are not limited to; being poisoned, skulled, and
  * teleblocked.
  * @author lare96 <http://github.org/lare96>
@@ -38,33 +38,33 @@ public abstract class CombatEffect {
 	 * Starts this combat effect by scheduling a task utilizing the abstract methods
 	 * in this class.
 	 */
-	public final boolean start(Mob mob) {
-		if(apply(mob)) {
-			World.schedule(new CombatEffectTask(mob, this));
+	public final boolean start(Actor actor) {
+		if(apply(actor)) {
+			World.schedule(new CombatEffectTask(actor, this));
 			return true;
 		}
 		return false;
 	}
 	
 	/**
-	 * Applies this effect to {@code mob}.
+	 * Applies this effect to {@code actor}.
 	 */
-	public abstract boolean apply(Mob mob);
+	public abstract boolean apply(Actor actor);
 	
 	/**
-	 * Removes this effect from {@code mob} if needed.
+	 * Removes this effect from {@code actor} if needed.
 	 */
-	public abstract boolean removeOn(Mob mob);
+	public abstract boolean removeOn(Actor actor);
 	
 	/**
-	 * Provides processing for this effect on {@code mob}.
+	 * Provides processing for this effect on {@code actor}.
 	 */
-	public abstract void process(Mob mob);
+	public abstract void process(Actor actor);
 	
 	/**
-	 * Executed on login, primarily used to re-apply the effect to {@code mob}.
+	 * Executed on login, primarily used to re-apply the effect to {@code actor}.
 	 */
-	public abstract boolean onLogin(Mob mob);
+	public abstract boolean onLogin(Actor actor);
 	
 	/**
 	 * Gets the delay for this individual combat effect.

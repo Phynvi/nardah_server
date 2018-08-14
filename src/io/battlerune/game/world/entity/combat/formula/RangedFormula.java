@@ -2,14 +2,14 @@ package io.battlerune.game.world.entity.combat.formula;
 
 import io.battlerune.game.world.entity.combat.FormulaModifier;
 import io.battlerune.game.world.entity.combat.attack.FightType;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.containers.equipment.Equipment;
 
-public final class RangedFormula implements FormulaModifier<Mob> {
+public final class RangedFormula implements FormulaModifier<Actor> {
 	
 	@Override
-	public int modifyAccuracy(Mob attacker, Mob defender, int roll) {
+	public int modifyAccuracy(Actor attacker, Actor defender, int roll) {
 		FightType fightType = attacker.getCombat().getFightType();
 		int level = attacker.skills.getLevel(Skill.RANGED);
 		int effectiveAccuracy = attacker.getCombat().modifyRangedLevel(defender, level);
@@ -17,13 +17,13 @@ public final class RangedFormula implements FormulaModifier<Mob> {
 	}
 	
 	@Override
-	public int modifyAggressive(Mob attacker, Mob defender, int roll) {
+	public int modifyAggressive(Actor attacker, Actor defender, int roll) {
 		int level = attacker.skills.getLevel(Skill.RANGED);
 		return 13 + attacker.getCombat().modifyRangedLevel(defender, level);
 	}
 	
 	@Override
-	public int modifyDefensive(Mob attacker, Mob defender, int roll) {
+	public int modifyDefensive(Actor attacker, Actor defender, int roll) {
 		FightType fightType = defender.getCombat().getFightType();
 		int level = defender.skills.getLevel(Skill.DEFENCE);
 		int effectiveDefence = defender.getCombat().modifyDefenceLevel(attacker, level);
@@ -31,19 +31,19 @@ public final class RangedFormula implements FormulaModifier<Mob> {
 	}
 	
 	@Override
-	public int modifyOffensiveBonus(Mob attacker, Mob defender, int bonus) {
+	public int modifyOffensiveBonus(Actor attacker, Actor defender, int bonus) {
 		bonus = attacker.getBonus(Equipment.RANGED_OFFENSE);
 		return attacker.getCombat().modifyOffensiveBonus(defender, bonus);
 	}
 	
 	@Override
-	public int modifyAggressiveBonus(Mob attacker, Mob defender, int bonus) {
+	public int modifyAggressiveBonus(Actor attacker, Actor defender, int bonus) {
 		bonus = attacker.getBonus(Equipment.RANGED_STRENGTH);
 		return attacker.getCombat().modifyAggresiveBonus(defender, bonus);
 	}
 	
 	@Override
-	public int modifyDefensiveBonus(Mob attacker, Mob defender, int bonus) {
+	public int modifyDefensiveBonus(Actor attacker, Actor defender, int bonus) {
 		bonus = defender.getBonus(Equipment.RANGED_DEFENSE);
 		return defender.getCombat().modifyDefensiveBonus(attacker, bonus);
 	}

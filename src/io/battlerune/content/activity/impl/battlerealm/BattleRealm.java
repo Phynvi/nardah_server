@@ -7,9 +7,9 @@ import io.battlerune.game.Animation;
 import io.battlerune.game.UpdatePriority;
 import io.battlerune.game.task.Task;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.object.CustomGameObject;
 import io.battlerune.game.world.object.GameObject;
 import io.battlerune.game.world.position.Area;
@@ -170,13 +170,13 @@ public class BattleRealm extends GroupActivity {
 	}
 	
 	@Override
-	public void onDeath(Mob mob) {
-		if(mob.isPlayer()) {
-			groupMessage(mob.getName() + " has died!");
+	public void onDeath(Actor actor) {
+		if(actor.isPlayer()) {
+			groupMessage(actor.getName() + " has died!");
 			
-			BattleRealmNode node = mob.getPlayer().battleRealmNode;
+			BattleRealmNode node = actor.getPlayer().battleRealmNode;
 			if(node.getTeamLives() > 0) {
-				mob.getPlayer().battleRealmNode.moveToSpawn();
+				actor.getPlayer().battleRealmNode.moveToSpawn();
 				node.decrementTeamLives();
 			} else {
 				endGame(this);

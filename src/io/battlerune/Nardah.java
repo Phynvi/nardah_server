@@ -25,8 +25,8 @@ import io.battlerune.game.world.entity.combat.strategy.npc.boss.magearena.Derwen
 import io.battlerune.game.world.entity.combat.strategy.npc.boss.magearena.JusticarEvent;
 import io.battlerune.game.world.entity.combat.strategy.npc.boss.magearena.PorazdirEvent;
 import io.battlerune.game.world.entity.combat.strategy.npc.boss.skotizo.SkotizoEvent;
-import io.battlerune.game.world.entity.mob.npc.definition.NpcDefinition;
-import io.battlerune.game.world.entity.mob.player.profile.ProfileRepository;
+import io.battlerune.game.world.entity.actor.npc.definition.NpcDefinition;
+import io.battlerune.game.world.entity.actor.player.profile.ProfileRepository;
 import io.battlerune.game.world.items.ItemDefinition;
 import io.battlerune.io.PacketListenerLoader;
 import io.battlerune.util.GameSaver;
@@ -126,7 +126,7 @@ public final class Nardah {
 		World.schedule(new ClanUpdateEvent());
 		World.schedule(new PlayerSaveEvent());
 		//World.schedule(new BotStartupEvent());
-		// World.schedule(new DiscordEvent());
+		//World.schedule(new DiscordEvent());
 		World.schedule(new SkotizoEvent());
 		World.schedule(new ArenaEvent());
 		// World.schedule(new GanoEvent());

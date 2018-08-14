@@ -5,8 +5,8 @@ import io.battlerune.game.world.entity.combat.attack.listener.SimplifiedListener
 import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMagicStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 
 import static io.battlerune.game.world.entity.combat.CombatUtil.createStrategyArray;
 import static io.battlerune.game.world.entity.combat.CombatUtil.randomStrategy;
@@ -25,7 +25,7 @@ public class Ahrim extends SimplifiedListener<Npc> {
 	private static final CombatStrategy<Npc>[] STRATEGIES = createStrategyArray(FIRE_BLAST, FIRE_BLAST, FIRE_BLAST, CONFUSE, WEAKEN, CURSE);
 
 	@Override
-	public void finishOutgoing(Npc attacker, Mob defender) {
+	public void finishOutgoing(Npc attacker, Actor defender) {
 		attacker.setStrategy(randomStrategy(STRATEGIES));
 	}
 
@@ -35,7 +35,7 @@ public class Ahrim extends SimplifiedListener<Npc> {
 		}
 
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			CombatHit hit = nextMagicHit(attacker, defender, 25);
 			hit.setAccurate(true);
 			return new CombatHit[]{hit};

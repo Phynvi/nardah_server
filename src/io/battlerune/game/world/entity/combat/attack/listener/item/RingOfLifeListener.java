@@ -6,8 +6,8 @@ import io.battlerune.game.world.entity.combat.CombatType;
 import io.battlerune.game.world.entity.combat.attack.listener.ItemCombatListenerSignature;
 import io.battlerune.game.world.entity.combat.attack.listener.SimplifiedListener;
 import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.net.packet.out.SendMessage;
 
@@ -20,7 +20,7 @@ import io.battlerune.net.packet.out.SendMessage;
 public class RingOfLifeListener extends SimplifiedListener<Player> {
 
 	@Override
-	public void block(Mob attacker, Player defender, Hit hit, CombatType combatType) {
+	public void block(Actor attacker, Player defender, Hit hit, CombatType combatType) {
 		if(Area.inDuelArena(defender))
 			return;
 		if(defender.getCurrentHealth() - hit.getDamage() <= 0)

@@ -1,15 +1,12 @@
 package plugin.command;
 
-import static io.battlerune.content.skill.impl.magic.teleport.Teleportation.TeleportationData.DONATOR;
-
 import io.battlerune.Config;
 import io.battlerune.content.skill.impl.magic.teleport.Teleportation;
 import io.battlerune.game.plugin.extension.CommandExtension;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
-import io.battlerune.game.world.entity.mob.player.command.Command;
-import io.battlerune.game.world.entity.mob.player.command.CommandParser;
-import io.battlerune.game.world.position.Position;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.command.Command;
+import io.battlerune.game.world.entity.actor.player.command.CommandParser;
 import io.battlerune.net.packet.out.SendMessage;
 
 public class DonatorCommandPlugin extends CommandExtension {

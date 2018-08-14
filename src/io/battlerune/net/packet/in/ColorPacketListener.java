@@ -1,9 +1,9 @@
 package io.battlerune.net.packet.in;
 
 import io.battlerune.content.tittle.PlayerTitle;
-import io.battlerune.game.world.entity.mob.UpdateFlag;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.UpdateFlag;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.net.codec.ByteOrder;
 import io.battlerune.net.packet.GamePacket;
 import io.battlerune.net.packet.PacketListener;

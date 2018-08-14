@@ -1,6 +1,6 @@
 package io.battlerune.content.activity.impl.pestcontrol;
 
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.game.world.position.Position;
 
 import static io.battlerune.game.world.entity.combat.attack.listener.SimplifiedListener.CANT_ATTACK;

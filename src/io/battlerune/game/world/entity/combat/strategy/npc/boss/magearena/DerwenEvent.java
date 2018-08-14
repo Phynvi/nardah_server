@@ -2,7 +2,7 @@ package io.battlerune.game.world.entity.combat.strategy.npc.boss.magearena;
 
 import io.battlerune.game.task.Task;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 import io.battlerune.util.Stopwatch;
 
 import java.util.concurrent.TimeUnit;

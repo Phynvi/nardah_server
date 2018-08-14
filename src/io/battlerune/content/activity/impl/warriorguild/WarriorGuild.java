@@ -15,11 +15,11 @@ import io.battlerune.game.UpdatePriority;
 import io.battlerune.game.task.Task;
 import io.battlerune.game.task.impl.WarriorGuildCyclopEvent;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.data.LockType;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.npc.NpcDeath;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.data.LockType;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.NpcDeath;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.game.world.position.Position;
@@ -59,7 +59,7 @@ public class WarriorGuild extends Activity {
 	 * Contructs a new <code>WarriorGuild</code>.
 	 */
 	private WarriorGuild(Player player) {
-		super(3, Mob.DEFAULT_INSTANCE_HEIGHT);
+		super(3, Actor.DEFAULT_INSTANCE_HEIGHT);
 		this.player = player;
 	}
 
@@ -263,15 +263,15 @@ public class WarriorGuild extends Activity {
 	}
 
 	@Override
-	public void onDeath(Mob mob) {
-		if(mob.isNpc()) {
-			World.schedule(new NpcDeath(mob.getNpc()));
+	public void onDeath(Actor actor) {
+		if(actor.isNpc()) {
+			World.schedule(new NpcDeath(actor.getNpc()));
 			player.send(new SendEntityHintArrow(player, true));
 			animated = null;
 			return;
 		}
-		remove(mob);
-		mob.move(Config.DEFAULT_POSITION);
+		remove(actor);
+		actor.move(Config.DEFAULT_POSITION);
 		end();
 	}
 

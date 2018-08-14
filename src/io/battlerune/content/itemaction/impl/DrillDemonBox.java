@@ -3,7 +3,7 @@ package io.battlerune.content.itemaction.impl;
 import io.battlerune.content.emote.EmoteHandler;
 import io.battlerune.content.emote.EmoteUnlockable;
 import io.battlerune.content.itemaction.ItemAction;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.net.packet.out.SendMessage;
 import io.battlerune.util.Utility;

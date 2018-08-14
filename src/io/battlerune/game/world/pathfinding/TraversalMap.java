@@ -1,7 +1,7 @@
 package io.battlerune.game.world.pathfinding;
 
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.Direction;
+import io.battlerune.game.world.entity.actor.Direction;
 import io.battlerune.game.world.object.GameObject;
 import io.battlerune.game.world.object.ObjectDefinition;
 import io.battlerune.game.world.object.ObjectDirection;
@@ -903,7 +903,7 @@ public final class TraversalMap {
 	 * Returns a {@link List} of positions that are traversable from the specified
 	 * position.
 	 * @param from The position moving from.
-	 * @param size The size of the mob attempting to traverse.
+	 * @param size The size of the actor attempting to traverse.
 	 * @return A {@link List} of positions.
 	 */
 	public static List<Position> getNearbyTraversableTiles(Position from, int size) {
@@ -932,7 +932,7 @@ public final class TraversalMap {
 	 * position.
 	 * @param from The position moving from.
 	 * @param exclude the position to exclude
-	 * @param size The size of the mob attempting to traverse.
+	 * @param size The size of the actor attempting to traverse.
 	 * @return A {@link List} of positions.
 	 */
 	public static Position getRandomNearby(Position from, Position exclude, int size) {
@@ -985,7 +985,7 @@ public final class TraversalMap {
 	/**
 	 * Returns a {@link Optional} {@link Position} of a random traversable tile.
 	 * @param from The position moving from.
-	 * @param size The size of the mob attempting to traverse.
+	 * @param size The size of the actor attempting to traverse.
 	 * @param exceptions The exceptions of traversable positions.
 	 * @return A random traversable position.
 	 */
@@ -1012,7 +1012,7 @@ public final class TraversalMap {
 	 * position depending on a direction. Used for NPC movements as they are based
 	 * on a straight line.
 	 * @param from The position.
-	 * @param size The size of the mob attempting to traverse.
+	 * @param size The size of the actor attempting to traverse.
 	 * @return A {@link List} of positions.
 	 */
 	public static List<Position> getNonDiagonalNearbyTraversableTiles(Position from, int size) {
@@ -1097,7 +1097,7 @@ public final class TraversalMap {
 	 * Returns a {@link List} of positions that are traversable from the specified
 	 * position.
 	 * @param southWest The position moving from.
-	 * @param width The size of the mob attempting to traverse.
+	 * @param width The size of the actor attempting to traverse.
 	 * @param length
 	 * @return A {@link List} of positions.
 	 */

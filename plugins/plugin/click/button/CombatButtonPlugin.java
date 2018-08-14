@@ -7,7 +7,7 @@ import io.battlerune.game.plugin.PluginContext;
 import io.battlerune.game.world.entity.combat.attack.FightType;
 import io.battlerune.game.world.entity.combat.magic.Autocast;
 import io.battlerune.game.world.entity.combat.weapon.WeaponInterface;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class CombatButtonPlugin extends PluginContext {
 

@@ -11,9 +11,9 @@ import io.battlerune.game.world.entity.combat.effect.impl.CombatPoisonEffect;
 import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.strategy.basic.MeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.game.world.items.Item;
 
 public class PlayerMeleeStrategy extends MeleeStrategy<Player> {
@@ -23,7 +23,7 @@ public class PlayerMeleeStrategy extends MeleeStrategy<Player> {
 	}
 	
 	@Override
-	public boolean canAttack(Player attacker, Mob defender) {
+	public boolean canAttack(Player attacker, Actor defender) {
 		if(Activity.search(attacker, DuelArenaActivity.class).isPresent()) {
 			DuelArenaActivity activity = Activity.search(attacker, DuelArenaActivity.class).get();
 			
@@ -36,7 +36,7 @@ public class PlayerMeleeStrategy extends MeleeStrategy<Player> {
 	}
 	
 	@Override
-	public void start(Player attacker, Mob defender, Hit[] hits) {
+	public void start(Player attacker, Actor defender, Hit[] hits) {
 		if(attacker.isSpecialActivated()) {
 			attacker.getCombatSpecial().drain(attacker);
 		}
@@ -48,7 +48,7 @@ public class PlayerMeleeStrategy extends MeleeStrategy<Player> {
 	}
 	
 	@Override
-	public void hit(Player attacker, Mob defender, Hit hit) {
+	public void hit(Player attacker, Actor defender, Hit hit) {
 		if(hit.getDamage() < 1) {
 			return;
 		}
@@ -57,12 +57,12 @@ public class PlayerMeleeStrategy extends MeleeStrategy<Player> {
 	}
 	
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		return new CombatHit[]{nextMeleeHit(attacker, defender)};
 	}
 	
 	@Override
-	public int getAttackDelay(Player attacker, Mob defender, FightType fightType) {
+	public int getAttackDelay(Player attacker, Actor defender, FightType fightType) {
 		return attacker.getCombat().getFightType().getDelay();
 	}
 	
@@ -72,7 +72,7 @@ public class PlayerMeleeStrategy extends MeleeStrategy<Player> {
 	}
 	
 	@Override
-	public Animation getAttackAnimation(Player attacker, Mob defender) {
+	public Animation getAttackAnimation(Player attacker, Actor defender) {
 		int animation = attacker.getCombat().getFightType().getAnimation();
 		
 		if(attacker.equipment.hasShield()) {
@@ -91,11 +91,11 @@ public class PlayerMeleeStrategy extends MeleeStrategy<Player> {
 	}
 	
 	/*
-	 * @Override public int modifyAccuracy(Player attacker, Mob defender, int roll)
+	 * @Override public int modifyAccuracy(Player attacker, Actor defender, int roll)
 	 * { if (CombatUtil.isFullVoid(attacker) && attacker.equipment.contains(11665))
 	 * { roll *= 1.10; } return roll; }
 	 *
-	 * @Override public int modifyAggressive(Player attacker, Mob defender, int
+	 * @Override public int modifyAggressive(Player attacker, Actor defender, int
 	 * roll) { if (CombatUtil.isFullVoid(attacker) &&
 	 * attacker.equipment.contains(11665)) { roll *= 1.10; } return roll; }
 	 */

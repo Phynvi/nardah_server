@@ -1,6 +1,6 @@
 package io.battlerune.content.event.impl;
 
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 
 public class FirstNpcClick extends NpcInteractionEvent {
 

@@ -1,8 +1,8 @@
 package io.battlerune.game.world.pathfinding.path.impl;
 
 import io.battlerune.game.world.Interactable;
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.Direction;
 import io.battlerune.game.world.pathfinding.distance.Distance;
 import io.battlerune.game.world.pathfinding.path.Path;
 import io.battlerune.game.world.pathfinding.path.PathFinder;
@@ -25,7 +25,7 @@ public final class AStarPathFinder extends PathFinder {
 	 * The Heuristic used by this {@code PathFinder}.
 	 */
 	private final Distance heuristic;
-	private final Mob character;
+	private final Actor character;
 	private final Map<Position, Node> nodes = new HashMap<>(Region.SIZE * Region.SIZE);
 	private final Set<Node> open = new HashSet<>(Region.SIZE * Region.SIZE);
 	private final Queue<Node> sorted = new PriorityQueue<>(Region.SIZE * Region.SIZE);
@@ -35,13 +35,13 @@ public final class AStarPathFinder extends PathFinder {
 	 * Constructs a new {@link AStarPathFinder} with the specified traversal
 	 * tool.mapviewer.
 	 */
-	public AStarPathFinder(Mob character, Distance heuristic) {
+	public AStarPathFinder(Actor character, Distance heuristic) {
 		this.character = character;
 		this.heuristic = heuristic;
 	}
 
 	/**
-	 * A default method to find a path for the specified {@link Mob}.
+	 * A default method to find a path for the specified {@link Actor}.
 	 * @param destination The destination of the path.
 	 * @return A {@link Deque} of {@link Position steps} to the specified
 	 * destination.
@@ -54,7 +54,7 @@ public final class AStarPathFinder extends PathFinder {
 	}
 
 	/**
-	 * A default method to find a path for the specified {@link Mob}.
+	 * A default method to find a path for the specified {@link Actor}.
 	 * @param destination The destination of the path.
 	 * @return A {@link Deque} of {@link Position steps} to the specified
 	 * destination.

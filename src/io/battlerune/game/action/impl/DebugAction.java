@@ -3,7 +3,7 @@ package io.battlerune.game.action.impl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.battlerune.game.task.Task;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendInputMessage;
 import io.battlerune.net.packet.out.SendMessage;
 import io.battlerune.util.MessageColor;

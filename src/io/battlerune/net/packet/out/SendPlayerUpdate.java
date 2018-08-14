@@ -5,14 +5,14 @@ import io.battlerune.game.Graphic;
 import io.battlerune.game.world.World;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.hit.Hitsplat;
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.UpdateFlag;
-import io.battlerune.game.world.entity.mob.Viewport;
-import io.battlerune.game.world.entity.mob.player.ForceMovement;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.appearance.Gender;
-import io.battlerune.game.world.entity.mob.player.relations.ChatMessage;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.Direction;
+import io.battlerune.game.world.entity.actor.UpdateFlag;
+import io.battlerune.game.world.entity.actor.Viewport;
+import io.battlerune.game.world.entity.actor.player.ForceMovement;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.appearance.Gender;
+import io.battlerune.game.world.entity.actor.player.relations.ChatMessage;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.equipment.Equipment;
 import io.battlerune.game.world.items.containers.equipment.EquipmentType;
@@ -225,10 +225,10 @@ public final class SendPlayerUpdate extends OutgoingPacket {
 	}
 	
 	private static void appendFaceEntityMask(Player other, PacketBuilder blockBuf) {
-		Mob mob = other.interactingWith;
-		if(mob != null) {
-			int index = mob.getIndex();
-			if(mob.isPlayer()) {
+		Actor actor = other.interactingWith;
+		if(actor != null) {
+			int index = actor.getIndex();
+			if(actor.isPlayer()) {
 				index += 32768;
 			}
 			blockBuf.writeShort(index, ByteOrder.LE);
@@ -364,7 +364,7 @@ public final class SendPlayerUpdate extends OutgoingPacket {
 			}
 		}
 		
-		tempBuf.writeByte(other.appearance.getHairColor()).writeByte(other.appearance.getTorsoColor()).writeByte(other.appearance.getLegsColor()).writeByte(other.appearance.getFeetColor()).writeByte(other.appearance.getSkinColor()).writeShort(other.mobAnimation.getStand()).writeShort(other.mobAnimation.getTurn()).writeShort(other.mobAnimation.getWalk()).writeShort(other.mobAnimation.getTurn180()).writeShort(other.mobAnimation.getTurn90CW()).writeShort(other.mobAnimation.getTurn90CCW()).writeShort(other.mobAnimation.getRun()).writeLong(Utility.hash(other.getName())).writeString(other.playerTitle.getTitle()).writeInt(other.playerTitle.getColor()).writeString(other.clanChannel == null ? "" : other.clanChannel.getOwner()).writeString(other.clanTag).writeString(other.clanTagColor).writeLong(Double.doubleToLongBits(other.skills.getCombatLevel())).writeByte(other.right.getCrown()).writeShort(0);
+		tempBuf.writeByte(other.appearance.getHairColor()).writeByte(other.appearance.getTorsoColor()).writeByte(other.appearance.getLegsColor()).writeByte(other.appearance.getFeetColor()).writeByte(other.appearance.getSkinColor()).writeShort(other.actorAnimation.getStand()).writeShort(other.actorAnimation.getTurn()).writeShort(other.actorAnimation.getWalk()).writeShort(other.actorAnimation.getTurn180()).writeShort(other.actorAnimation.getTurn90CW()).writeShort(other.actorAnimation.getTurn90CCW()).writeShort(other.actorAnimation.getRun()).writeLong(Utility.hash(other.getName())).writeString(other.playerTitle.getTitle()).writeInt(other.playerTitle.getColor()).writeString(other.clanChannel == null ? "" : other.clanChannel.getOwner()).writeString(other.clanTag).writeString(other.clanTagColor).writeLong(Double.doubleToLongBits(other.skills.getCombatLevel())).writeByte(other.right.getCrown()).writeShort(0);
 		blockBuf.writeByte(tempBuf.buffer().writerIndex(), ByteModification.NEG);
 		blockBuf.writeBytes(tempBuf.buffer());
 	}

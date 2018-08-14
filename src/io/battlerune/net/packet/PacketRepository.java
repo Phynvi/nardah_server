@@ -1,7 +1,7 @@
 package io.battlerune.net.packet;
 
 import com.google.common.base.Preconditions;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.netty.util.ReferenceCountUtil;
 
 import java.util.Optional;

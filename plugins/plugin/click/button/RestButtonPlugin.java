@@ -2,7 +2,7 @@ package plugin.click.button;
 
 import io.battlerune.game.Animation;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.net.packet.out.SendMessage;
 

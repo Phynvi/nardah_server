@@ -2,7 +2,7 @@ package io.battlerune.content.activity.impl.duelarena;
 
 import com.google.common.collect.ImmutableSet;
 import io.battlerune.content.activity.Activity;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.ItemDefinition;
 import io.battlerune.game.world.items.containers.equipment.Equipment;

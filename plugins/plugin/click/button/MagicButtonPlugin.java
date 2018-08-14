@@ -7,8 +7,8 @@ import io.battlerune.content.skill.impl.magic.spell.impl.Vengeance;
 import io.battlerune.content.skill.impl.magic.teleport.Teleportation;
 import io.battlerune.game.event.impl.ItemContainerContextMenuEvent;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.game.world.position.Position;
 
 public class MagicButtonPlugin extends PluginContext {

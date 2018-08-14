@@ -9,7 +9,7 @@ import io.battlerune.content.quest.QuestManager;
 import io.battlerune.content.quest.QuestState;
 import io.battlerune.content.store.impl.RecipeForDisasterStore;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendFadeScreen;
 import io.battlerune.net.packet.out.SendMessage;
 import io.battlerune.net.packet.out.SendString;

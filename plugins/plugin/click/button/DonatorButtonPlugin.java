@@ -5,7 +5,7 @@ import io.battlerune.content.skill.impl.magic.teleport.Teleportation;
 import io.battlerune.content.store.Store;
 import io.battlerune.content.tittle.TitleManager;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class DonatorButtonPlugin extends PluginContext {
 

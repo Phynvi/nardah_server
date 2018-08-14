@@ -2,8 +2,8 @@ package io.battlerune.content.tittle;
 
 import io.battlerune.content.achievement.AchievementHandler;
 import io.battlerune.content.achievement.AchievementList;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.PlayerRight;
 import io.battlerune.util.generic.BooleanInterface;
 
 import java.util.Arrays;

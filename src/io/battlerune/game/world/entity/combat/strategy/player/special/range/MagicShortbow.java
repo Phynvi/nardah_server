@@ -6,8 +6,8 @@ import io.battlerune.game.UpdatePriority;
 import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.projectile.CombatProjectile;
 import io.battlerune.game.world.entity.combat.strategy.player.PlayerRangedStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * Handles the magic shortbow weapon special attack.
@@ -33,19 +33,19 @@ public class MagicShortbow extends PlayerRangedStrategy {
 	}
 
 	@Override
-	protected void sendStuff(Player attacker, Mob defender) {
+	protected void sendStuff(Player attacker, Actor defender) {
 		attacker.animate(ANIMATION);
 		PROJECTILE_1.send(attacker, defender);
 		PROJECTILE_2.send(attacker, defender);
 	}
 
 	@Override
-	public CombatHit[] getHits(Player attacker, Mob defender) {
+	public CombatHit[] getHits(Player attacker, Actor defender) {
 		return new CombatHit[]{nextRangedHit(attacker, defender), nextRangedHit(attacker, defender)};
 	}
 
 	@Override
-	public int modifyAccuracy(Player attacker, Mob defender, int roll) {
+	public int modifyAccuracy(Player attacker, Actor defender, int roll) {
 		return roll - roll / 4;
 	}
 

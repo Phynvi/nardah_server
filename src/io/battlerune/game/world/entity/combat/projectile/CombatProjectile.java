@@ -4,7 +4,7 @@ import io.battlerune.game.Animation;
 import io.battlerune.game.Graphic;
 import io.battlerune.game.Projectile;
 import io.battlerune.game.world.entity.combat.CombatImpact;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +38,7 @@ public final class CombatProjectile {
 		this.hitsplatDelay = hitsplatDelay;
 	}
 	
-	public void sendProjectile(Mob attacker, Mob defender) {
+	public void sendProjectile(Actor attacker, Actor defender) {
 		if(projectile != null) {
 			projectile.send(attacker, defender);
 		}

@@ -6,8 +6,8 @@ import io.battlerune.game.world.entity.combat.attack.listener.ItemCombatListener
 import io.battlerune.game.world.entity.combat.attack.listener.NpcCombatListenerSignature;
 import io.battlerune.game.world.entity.combat.attack.listener.SimplifiedListener;
 import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendMessage;
 import io.battlerune.util.Utility;
 
@@ -17,10 +17,10 @@ import io.battlerune.util.Utility;
  */
 @NpcCombatListenerSignature(npcs = {1676})
 @ItemCombatListenerSignature(requireAll = true, items = {4745, 4747, 4749, 4751})
-public class ToragListener extends SimplifiedListener<Mob> {
+public class ToragListener extends SimplifiedListener<Actor> {
 
 	@Override
-	public void hit(Mob attacker, Mob defender, Hit hit) {
+	public void hit(Actor attacker, Actor defender, Hit hit) {
 		if(defender.isPlayer() && hit.getDamage() > 1) {
 			boolean success = Utility.random(100) <= 25;
 

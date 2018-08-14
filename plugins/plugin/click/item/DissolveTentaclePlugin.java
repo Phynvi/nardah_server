@@ -2,7 +2,7 @@ package plugin.click.item;
 
 import io.battlerune.game.event.impl.DropItemEvent;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class DissolveTentaclePlugin extends PluginContext {
 

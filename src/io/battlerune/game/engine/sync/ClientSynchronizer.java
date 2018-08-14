@@ -1,8 +1,8 @@
 package io.battlerune.game.engine.sync;
 
 import io.battlerune.game.world.entity.MobList;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public interface ClientSynchronizer {
 

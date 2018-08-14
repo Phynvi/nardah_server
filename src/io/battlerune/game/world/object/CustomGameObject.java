@@ -3,8 +3,8 @@ package io.battlerune.game.world.object;
 import io.battlerune.game.world.World;
 import io.battlerune.game.world.entity.Entity;
 import io.battlerune.game.world.entity.EntityType;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.pathfinding.TraversalMap;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.game.world.region.Region;
@@ -52,7 +52,7 @@ public class CustomGameObject extends Entity implements GameObject {
 	}
 	
 	public CustomGameObject(int id, Position position, ObjectDirection direction, ObjectType type) {
-		this(id, Mob.DEFAULT_INSTANCE_HEIGHT, position, direction, type);
+		this(id, Actor.DEFAULT_INSTANCE_HEIGHT, position, direction, type);
 	}
 	
 	public CustomGameObject(int id, int instance, Position position) {
@@ -60,7 +60,7 @@ public class CustomGameObject extends Entity implements GameObject {
 	}
 	
 	public CustomGameObject(int id, Position position) {
-		this(id, Mob.DEFAULT_INSTANCE_HEIGHT, position, NORTH, ObjectType.INTERACTABLE);
+		this(id, Actor.DEFAULT_INSTANCE_HEIGHT, position, NORTH, ObjectType.INTERACTABLE);
 	}
 	
 	@Override

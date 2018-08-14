@@ -2,7 +2,7 @@ package io.battlerune.game.task.impl;
 
 import io.battlerune.game.task.TickableTask;
 import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.net.packet.out.SendCameraReset;
 import io.battlerune.net.packet.out.SendCameraShake;

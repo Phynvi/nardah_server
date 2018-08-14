@@ -1,6 +1,6 @@
 package io.battlerune.content.skillingpoints;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class SkillingPoints {
 	/**

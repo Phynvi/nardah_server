@@ -11,7 +11,7 @@ import io.battlerune.content.clanchannel.content.ClanMemberComporator;
 import io.battlerune.content.clanchannel.content.ClanViewer;
 import io.battlerune.content.dialogue.impl.ClanRankDialogue;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendConfig;
 import io.battlerune.net.packet.out.SendInputMessage;
 import io.battlerune.net.packet.out.SendMessage;

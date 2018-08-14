@@ -8,7 +8,7 @@ import io.battlerune.content.event.InteractionEventListener;
 import io.battlerune.content.event.impl.*;
 import io.battlerune.content.writer.InterfaceWriter;
 import io.battlerune.content.writer.impl.QuestWriter;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendMessage;
 import io.battlerune.net.packet.out.SendScrollbar;
 import io.battlerune.net.packet.out.SendString;

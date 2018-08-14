@@ -2,8 +2,8 @@ package io.battlerune.game.world.entity.combat.effect.impl;
 
 import io.battlerune.game.world.entity.combat.effect.AntifireDetails;
 import io.battlerune.game.world.entity.combat.effect.CombatEffect;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendMessage;
 
 /**
@@ -28,12 +28,12 @@ public final class CombatAntifireEffect extends CombatEffect {
 	}
 
 	@Override
-	public boolean apply(Mob mob) {
-		if(!mob.isPlayer()) {
+	public boolean apply(Actor actor) {
+		if(!actor.isPlayer()) {
 			return false;
 		}
 
-		Player player = mob.getPlayer();
+		Player player = actor.getPlayer();
 
 		if(player.getAntifireDetails().isPresent()) {
 			player.setAntifireDetail(new AntifireDetails(type));
@@ -44,9 +44,9 @@ public final class CombatAntifireEffect extends CombatEffect {
 	}
 
 	@Override
-	public boolean removeOn(Mob mob) {
-		if(mob.isPlayer()) {
-			Player player = mob.getPlayer();
+	public boolean removeOn(Actor actor) {
+		if(actor.isPlayer()) {
+			Player player = actor.getPlayer();
 
 			return !player.getAntifireDetails().isPresent();
 
@@ -55,9 +55,9 @@ public final class CombatAntifireEffect extends CombatEffect {
 	}
 
 	@Override
-	public void process(Mob mob) {
-		if(mob.isPlayer() && mob.getPlayer().getAntifireDetails().isPresent()) {
-			Player player = mob.getPlayer();
+	public void process(Actor actor) {
+		if(actor.isPlayer() && actor.getPlayer().getAntifireDetails().isPresent()) {
+			Player player = actor.getPlayer();
 			AntifireDetails detail = player.getAntifireDetails().get();
 			int count = detail.getAntifireDelay().decrementAndGet();
 			if(count == 30) {
@@ -71,8 +71,8 @@ public final class CombatAntifireEffect extends CombatEffect {
 	}
 
 	@Override
-	public boolean onLogin(Mob mob) {
-		return mob.isPlayer() && mob.getPlayer().getAntifireDetails().isPresent();
+	public boolean onLogin(Actor actor) {
+		return actor.isPlayer() && actor.getPlayer().getAntifireDetails().isPresent();
 	}
 
 }

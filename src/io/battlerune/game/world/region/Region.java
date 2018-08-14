@@ -1,8 +1,8 @@
 package io.battlerune.game.world.region;
 
 import io.battlerune.game.world.Interactable;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.ground.GroundItem;
 import io.battlerune.game.world.object.GameObject;
 import io.battlerune.game.world.pathfinding.TraversalMap;

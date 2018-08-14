@@ -3,7 +3,7 @@ package io.battlerune.game.action.impl;
 import io.battlerune.content.skill.impl.magic.spell.Spell;
 import io.battlerune.game.action.Action;
 import io.battlerune.game.action.policy.WalkablePolicy;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 
 /**

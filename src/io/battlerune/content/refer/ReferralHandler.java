@@ -1,6 +1,6 @@
 package io.battlerune.content.refer;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendString;
 
 import java.io.File;

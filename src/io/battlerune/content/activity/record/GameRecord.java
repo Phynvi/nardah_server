@@ -1,7 +1,7 @@
 package io.battlerune.content.activity.record;
 
 import io.battlerune.content.activity.ActivityType;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.util.Utility;
 
 import java.util.Objects;

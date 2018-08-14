@@ -6,10 +6,10 @@ import io.battlerune.content.activity.ActivityType;
 import io.battlerune.game.world.World;
 import io.battlerune.game.world.entity.combat.hit.Hit;
 import io.battlerune.game.world.entity.combat.hit.Hitsplat;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.npc.NpcDeath;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.NpcDeath;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.object.CustomGameObject;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.game.world.position.Position;
@@ -125,21 +125,21 @@ public class ZulrahActivity extends Activity {
 	}
 
 	@Override
-	public void onDeath(Mob mob) {
-		if(mob.isNpc() && mob.getNpc().id != 2045) {
-			World.schedule(new NpcDeath(mob.getNpc()));
+	public void onDeath(Actor actor) {
+		if(actor.isNpc() && actor.getNpc().id != 2045) {
+			World.schedule(new NpcDeath(actor.getNpc()));
 			completed = true;
 			finish();
 			return;
 		}
-		if(mob.isNpc() && snakes.contains(mob.getNpc())) {
-			World.schedule(new NpcDeath(mob.getNpc(), () -> {
-				snakes.remove(mob.getNpc());
-				remove(mob);
+		if(actor.isNpc() && snakes.contains(actor.getNpc())) {
+			World.schedule(new NpcDeath(actor.getNpc(), () -> {
+				snakes.remove(actor.getNpc());
+				remove(actor);
 			}));
 			return;
 		}
-		super.onDeath(mob);
+		super.onDeath(actor);
 	}
 
 	@Override

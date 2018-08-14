@@ -2,12 +2,12 @@ package io.battlerune.game.task.impl;
 
 import io.battlerune.game.Animation;
 import io.battlerune.game.task.Task;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.ForceMovement;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.ForceMovement;
 import io.battlerune.game.world.position.Position;
 
 public class ForceMovementTask extends Task {
-	private Mob mob;
+	private Actor actor;
 	private Position start;
 	private Position end;
 	private Animation animation;
@@ -16,13 +16,13 @@ public class ForceMovementTask extends Task {
 	private final int moveDelay;
 	private int tick;
 
-	public ForceMovementTask(Mob mob, int delay, ForceMovement forceMovement, Animation animation) {
-		this(mob, delay, 0, forceMovement, animation);
+	public ForceMovementTask(Actor actor, int delay, ForceMovement forceMovement, Animation animation) {
+		this(actor, delay, 0, forceMovement, animation);
 	}
 
-	public ForceMovementTask(Mob mob, int delay, int moveDelay, ForceMovement forceMovement, Animation animation) {
+	public ForceMovementTask(Actor actor, int delay, int moveDelay, ForceMovement forceMovement, Animation animation) {
 		super(delay == 0, delay);
-		this.mob = mob;
+		this.actor = actor;
 		this.start = forceMovement.getStart().copy();
 		this.end = forceMovement.getEnd().copy();
 		this.animation = animation;
@@ -32,15 +32,15 @@ public class ForceMovementTask extends Task {
 
 	@Override
 	protected boolean canSchedule() {
-		return mob.forceMovement == null;
+		return actor.forceMovement == null;
 	}
 
 	@Override
 	protected void onSchedule() {
-		mob.getCombat().reset();
-		mob.movement.reset();
-		mob.animate(animation);
-		mob.setForceMovement(forceMovement);
+		actor.getCombat().reset();
+		actor.movement.reset();
+		actor.animate(animation);
+		actor.setForceMovement(forceMovement);
 	}
 
 	@Override
@@ -48,8 +48,8 @@ public class ForceMovementTask extends Task {
 		if(tick >= moveDelay) {
 			final int x = start.getX() + end.getX();
 			final int y = start.getY() + end.getY();
-			mob.move(new Position(x, y, mob.getHeight()));
-			mob.setForceMovement(null);
+			actor.move(new Position(x, y, actor.getHeight()));
+			actor.setForceMovement(null);
 			cancel();
 		}
 		tick++;

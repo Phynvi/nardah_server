@@ -1,6 +1,6 @@
 package io.battlerune.content.skill.impl.slayer;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.net.packet.out.*;
 import io.battlerune.util.Utility;

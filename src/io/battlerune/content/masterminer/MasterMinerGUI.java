@@ -1,6 +1,6 @@
 package io.battlerune.content.masterminer;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.net.packet.out.SendString;
 import io.battlerune.net.packet.out.SendTooltip;
 

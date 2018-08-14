@@ -3,8 +3,8 @@ package io.battlerune.game.world.entity.combat.strategy.npc.boss.kril;
 import io.battlerune.game.world.entity.combat.hit.CombatHit;
 import io.battlerune.game.world.entity.combat.strategy.npc.MultiStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 
 public class Tstanon extends MultiStrategy {
 	
@@ -14,7 +14,7 @@ public class Tstanon extends MultiStrategy {
 	
 	private class Melee extends NpcMeleeStrategy {
 		@Override
-		public CombatHit[] getHits(Npc attacker, Mob defender) {
+		public CombatHit[] getHits(Npc attacker, Actor defender) {
 			return new CombatHit[]{nextMeleeHit(attacker, defender, 15)};
 		}
 	}

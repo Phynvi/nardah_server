@@ -2,7 +2,7 @@ package plugin.click.object;
 
 import io.battlerune.game.event.impl.ObjectClickEvent;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.object.ObjectDefinition;
 
 public class OpenBankObjectClickPlugin extends PluginContext {

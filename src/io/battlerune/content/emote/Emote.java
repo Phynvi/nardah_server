@@ -1,7 +1,7 @@
 package io.battlerune.content.emote;
 
 import io.battlerune.game.action.impl.EmoteAction;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.equipment.Equipment;
 import io.battlerune.net.packet.out.SendMessage;

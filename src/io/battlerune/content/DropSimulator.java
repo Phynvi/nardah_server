@@ -1,10 +1,10 @@
 package io.battlerune.content;
 
-import io.battlerune.game.world.entity.mob.npc.definition.NpcDefinition;
-import io.battlerune.game.world.entity.mob.npc.drop.NpcDrop;
-import io.battlerune.game.world.entity.mob.npc.drop.NpcDropManager;
-import io.battlerune.game.world.entity.mob.npc.drop.NpcDropTable;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.npc.definition.NpcDefinition;
+import io.battlerune.game.world.entity.actor.npc.drop.NpcDrop;
+import io.battlerune.game.world.entity.actor.npc.drop.NpcDropManager;
+import io.battlerune.game.world.entity.actor.npc.drop.NpcDropTable;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.pricechecker.PriceType;
 import io.battlerune.net.packet.out.SendItemOnInterface;

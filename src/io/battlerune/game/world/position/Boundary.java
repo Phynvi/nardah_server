@@ -1,8 +1,8 @@
 package io.battlerune.game.world.position;
 
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 import java.util.*;
 
@@ -46,13 +46,13 @@ public class Boundary {
 		return highY;
 	}
 	
-	public static boolean isIn(Mob mob, Boundary... boundaries) {
+	public static boolean isIn(Actor actor, Boundary... boundaries) {
 		for(Boundary b : boundaries) {
 			if(b.height >= 0) {
-				if(mob.getHeight() != b.height)
+				if(actor.getHeight() != b.height)
 					continue;
 			}
-			if(mob.getX() >= b.minX && mob.getX() <= b.highX && mob.getY() >= b.minY && mob.getY() <= b.highY)
+			if(actor.getX() >= b.minX && actor.getX() <= b.highX && actor.getY() >= b.minY && actor.getY() <= b.highY)
 				return true;
 		}
 		return false;

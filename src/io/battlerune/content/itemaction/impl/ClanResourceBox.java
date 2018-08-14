@@ -1,7 +1,7 @@
 package io.battlerune.content.itemaction.impl;
 
 import io.battlerune.content.itemaction.ItemAction;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 
 public class ClanResourceBox extends ItemAction {

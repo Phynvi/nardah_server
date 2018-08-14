@@ -13,9 +13,9 @@ import io.battlerune.content.skill.impl.hunter.net.impl.Butterfly;
 import io.battlerune.content.skill.impl.hunter.net.impl.Impling;
 import io.battlerune.content.skill.impl.mining.OreData;
 import io.battlerune.content.skill.impl.woodcutting.TreeData;
-import io.battlerune.game.world.entity.mob.Direction;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Direction;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Position;
 import io.battlerune.util.Utility;
 

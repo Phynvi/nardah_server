@@ -1,8 +1,8 @@
 package io.battlerune.game.world.entity.combat.effect.impl;
 
 import io.battlerune.game.world.entity.combat.effect.CombatEffect;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Area;
 
 /**
@@ -19,15 +19,15 @@ public final class CombatSkullEffect extends CombatEffect {
 	}
 
 	@Override
-	public boolean apply(Mob mob) {
-		if(mob.isPlayer()) {
-			Player player = (Player) mob;
+	public boolean apply(Actor actor) {
+		if(actor.isPlayer()) {
+			Player player = (Player) actor;
 
-			if(Area.inEventArena(mob)) {
+			if(Area.inEventArena(actor)) {
 				return false;
 			}
 
-			if(!Area.inWilderness(mob)) {
+			if(!Area.inWilderness(actor)) {
 				return false;
 			}
 
@@ -42,9 +42,9 @@ public final class CombatSkullEffect extends CombatEffect {
 	}
 
 	@Override
-	public boolean removeOn(Mob mob) {
-		if(mob.isPlayer()) {
-			Player player = (Player) mob;
+	public boolean removeOn(Actor actor) {
+		if(actor.isPlayer()) {
+			Player player = (Player) actor;
 
 			if(!player.skulling.isSkulled()) {
 				player.skulling.unskull();
@@ -58,14 +58,14 @@ public final class CombatSkullEffect extends CombatEffect {
 	}
 
 	@Override
-	public void process(Mob mob) {
+	public void process(Actor actor) {
 		// nothing to process
 	}
 
 	@Override
-	public boolean onLogin(Mob mob) {
-		if(mob.isPlayer()) {
-			Player player = (Player) mob;
+	public boolean onLogin(Actor actor) {
+		if(actor.isPlayer()) {
+			Player player = (Player) actor;
 
 			if(player.skulling.isSkulled()) {
 				return true;

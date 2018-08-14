@@ -2,7 +2,7 @@ package io.battlerune.content.skill.impl.woodcutting;
 
 import io.battlerune.content.event.impl.ObjectInteractionEvent;
 import io.battlerune.content.skill.SkillRepository;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.net.packet.out.SendMessage;

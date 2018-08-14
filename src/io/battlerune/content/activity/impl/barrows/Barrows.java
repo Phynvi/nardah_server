@@ -5,10 +5,10 @@ import io.battlerune.content.activity.ActivityType;
 import io.battlerune.content.activity.panel.ActivityPanel;
 import io.battlerune.content.event.impl.ObjectInteractionEvent;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
-import io.battlerune.game.world.entity.mob.npc.NpcDeath;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
+import io.battlerune.game.world.entity.actor.npc.NpcDeath;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.position.Area;
 import io.battlerune.game.world.position.Position;
@@ -23,7 +23,7 @@ public class Barrows extends Activity {
 	private Npc brotherNpc;
 
 	private Barrows(Player player) {
-		super(10, Mob.DEFAULT_INSTANCE_HEIGHT);
+		super(10, Actor.DEFAULT_INSTANCE_HEIGHT);
 		this.player = player;
 	}
 
@@ -70,13 +70,13 @@ public class Barrows extends Activity {
 	}
 
 	@Override
-	public void onDeath(Mob mob) {
-		if(mob.isPlayer() && mob.equals(player)) {
+	public void onDeath(Actor actor) {
+		if(actor.isPlayer() && actor.equals(player)) {
 			finish();
 			return;
 		}
-		if(mob.isNpc()) {
-			BrotherData bro = BrotherData.getBarrowsBrother(mob.getNpc());
+		if(actor.isNpc()) {
+			BrotherData bro = BrotherData.getBarrowsBrother(actor.getNpc());
 			if(bro != null) {
 				brotherNpc = null;
 				player.barrowsKillCount += 1;
@@ -84,7 +84,7 @@ public class Barrows extends Activity {
 				if(player.barrowsKillCount == 1) {
 					player.hiddenBrother = BarrowsUtility.getHiddenBrother(player);
 				}
-				World.schedule(new NpcDeath(mob.getNpc()));
+				World.schedule(new NpcDeath(actor.getNpc()));
 			}
 		}
 	}

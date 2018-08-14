@@ -216,7 +216,7 @@ public enum PetData {
 			factory.sendPlayerChat("Hey, Mole. How is life above ground?");
 			factory.sendNpcChat(6651, "Well, the last time I was above ground,", "I was having to contend with people throwing", "snow at some weird yellow duck in my park.");
 			factory.sendPlayerChat("Why were they doing that?");
-			factory.sendNpcChat(6651, "No idea, I didn't stop to ask as an angry", "mob was closing in on them pretty quickly.");
+			factory.sendNpcChat(6651, "No idea, I didn't stop to ask as an angry", "actor was closing in on them pretty quickly.");
 			factory.sendPlayerChat("Sounds awful.");
 			factory.sendNpcChat(6651, "Anyway, keep Molin'!");
 			factory.execute();

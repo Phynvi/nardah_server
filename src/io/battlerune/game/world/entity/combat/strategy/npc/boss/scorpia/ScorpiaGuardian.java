@@ -2,8 +2,8 @@ package io.battlerune.game.world.entity.combat.strategy.npc.boss.scorpia;
 
 import io.battlerune.game.world.entity.combat.strategy.npc.MultiStrategy;
 import io.battlerune.game.world.entity.combat.strategy.npc.NpcMeleeStrategy;
-import io.battlerune.game.world.entity.mob.Mob;
-import io.battlerune.game.world.entity.mob.npc.Npc;
+import io.battlerune.game.world.entity.actor.Actor;
+import io.battlerune.game.world.entity.actor.npc.Npc;
 
 public class ScorpiaGuardian extends MultiStrategy {
 	
@@ -12,7 +12,7 @@ public class ScorpiaGuardian extends MultiStrategy {
 	}
 	
 	@Override
-	public boolean canAttack(Npc attacker, Mob defender) {
+	public boolean canAttack(Npc attacker, Actor defender) {
 		return false;
 	}
 	

@@ -1,7 +1,7 @@
 package io.battlerune.content.writer.impl;
 
 import io.battlerune.content.writer.InterfaceWriter;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 /**
  * Class handles writing on the obelisk itemcontainer.

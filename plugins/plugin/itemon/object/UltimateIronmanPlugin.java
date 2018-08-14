@@ -2,8 +2,7 @@ package plugin.itemon.object;
 
 import io.battlerune.game.event.impl.ItemOnObjectEvent;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.PlayerRight;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 
 public class UltimateIronmanPlugin extends PluginContext {

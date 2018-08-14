@@ -2,9 +2,9 @@ package io.battlerune.content.bot;
 
 import io.battlerune.content.tittle.PlayerTitle;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
-import io.battlerune.game.world.entity.mob.player.appearance.Appearance;
-import io.battlerune.game.world.entity.mob.player.appearance.Gender;
+import io.battlerune.game.world.entity.actor.player.Player;
+import io.battlerune.game.world.entity.actor.player.appearance.Appearance;
+import io.battlerune.game.world.entity.actor.player.appearance.Gender;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.util.MutableNumber;
 import io.battlerune.util.Utility;

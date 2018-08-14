@@ -2,24 +2,24 @@ package io.battlerune.game.world.entity.combat.attack.listener.other.prayer;
 
 import io.battlerune.game.world.entity.combat.CombatType;
 import io.battlerune.game.world.entity.combat.attack.listener.SimplifiedListener;
-import io.battlerune.game.world.entity.mob.Mob;
+import io.battlerune.game.world.entity.actor.Actor;
 
-public class RigourListener extends SimplifiedListener<Mob> {
+public class RigourListener extends SimplifiedListener<Actor> {
 
 	@Override
-	public int modifyRangedLevel(Mob attacker, Mob defender, int level) {
+	public int modifyRangedLevel(Actor attacker, Actor defender, int level) {
 		return level * 6 / 5;
 	}
 
 	@Override
-	public int modifyDamage(Mob attacker, Mob defender, int damage) {
+	public int modifyDamage(Actor attacker, Actor defender, int damage) {
 		if(attacker.getStrategy().getCombatType() != CombatType.RANGED)
 			return damage;
 		return damage * 103 / 100;
 	}
 
 	@Override
-	public int modifyDefenceLevel(Mob attacker, Mob defender, int level) {
+	public int modifyDefenceLevel(Actor attacker, Actor defender, int level) {
 		return level * 5 / 4;
 	}
 

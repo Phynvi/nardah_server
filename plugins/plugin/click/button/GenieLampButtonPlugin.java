@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 import io.battlerune.content.GenieLamp;
 import io.battlerune.game.plugin.PluginContext;
 import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.entity.skill.Skill;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.net.packet.out.SendMessage;

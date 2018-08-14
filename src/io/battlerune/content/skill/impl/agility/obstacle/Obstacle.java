@@ -1,6 +1,6 @@
 package io.battlerune.content.skill.impl.agility.obstacle;
 
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.position.Position;
 
 public final class Obstacle {

@@ -4,8 +4,8 @@ import java.util.List;
 
 import io.battlerune.content.DropDisplay;
 import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.mob.npc.drop.NpcDropManager;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.npc.drop.NpcDropManager;
+import io.battlerune.game.world.entity.actor.player.Player;
 
 public class DropDisplayButtonPlugin extends PluginContext {
 

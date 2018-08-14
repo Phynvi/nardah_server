@@ -1,7 +1,7 @@
 package io.battlerune.content.skill.impl;
 
 import io.battlerune.content.skill.SkillAction;
-import io.battlerune.game.world.entity.mob.player.Player;
+import io.battlerune.game.world.entity.actor.player.Player;
 import io.battlerune.game.world.items.Item;
 import io.battlerune.game.world.items.containers.ItemContainer;
 import io.battlerune.game.world.position.Position;
