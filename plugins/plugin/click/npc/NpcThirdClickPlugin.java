@@ -1,16 +1,16 @@
 package plugin.click.npc;
 
-import io.battlerune.content.dialogue.impl.RoyalKingDialogue;
-import io.battlerune.content.skill.impl.slayer.SlayerOfferings;
-import io.battlerune.game.event.impl.NpcClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
+import com.nardah.content.dialogue.impl.RoyalKingDialogue;
+import com.nardah.content.skill.impl.slayer.SlayerOfferings;
+import com.nardah.game.event.impl.NpcClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
 
 public class NpcThirdClickPlugin extends PluginContext {
 
 	@Override
 	protected boolean thirdClickNpc(Player player, NpcClickEvent event) {
-		switch (event.getNpc().id) {
+		switch (event.getMob().id) {
 		case 5523:
 			player.dialogueFactory.sendDialogue(new RoyalKingDialogue(1));
 			break;

@@ -1,11 +1,11 @@
 package plugin.click.button;
 
-import static io.battlerune.content.quest.QuestManager.QUEST_COUNT;
+import static com.nardah.content.quest.QuestManager.QUEST_COUNT;
 
-import io.battlerune.content.quest.QuestManager;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.net.packet.out.SendString;
+import com.nardah.content.quest.QuestManager;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.net.packet.out.SendString;
 
 public class QuestButtonPlugin extends PluginContext {
 

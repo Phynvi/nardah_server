@@ -1,13 +1,13 @@
 package plugin.click.button;
 
-import io.battlerune.content.SkillSet;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.UpdateFlag;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.game.world.entity.skill.Skill;
-import io.battlerune.game.world.position.Area;
-import io.battlerune.net.packet.out.SendMessage;
+import com.nardah.content.SkillSet;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.UpdateFlag;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.game.world.entity.skill.Skill;
+import com.nardah.game.world.position.Area;
+import com.nardah.net.packet.out.SendMessage;
 
 public class SkillSetButtonPlugin extends PluginContext {
 
@@ -15,7 +15,7 @@ public class SkillSetButtonPlugin extends PluginContext {
 	 * (author adam trinity)
 	 * 
 	 * @see
-	 * io.battlerune.game.plugin.PluginContext#onClick(io.battlerune.game.world.
+	 * PluginContext#onClick(io.battlerune.game.world.
 	 * entity.actor.player.Player, int)
 	 */
 	@SuppressWarnings("static-access")

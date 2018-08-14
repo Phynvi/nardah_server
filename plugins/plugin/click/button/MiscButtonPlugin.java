@@ -1,16 +1,16 @@
 package plugin.click.button;
 
-import io.battlerune.Config;
-import io.battlerune.content.WellOfGoodwill;
-import io.battlerune.content.skill.impl.agility.Agility;
-import io.battlerune.content.skill.impl.construction.BuildableInterface;
-import io.battlerune.content.skill.impl.construction.BuildableType;
-import io.battlerune.content.skill.impl.magic.teleport.TeleportType;
-import io.battlerune.content.teleport.TeleportHandler;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.net.packet.out.SendInputAmount;
-import io.battlerune.net.packet.out.SendURL;
+import com.nardah.Config;
+import com.nardah.content.WellOfGoodwill;
+import com.nardah.content.skill.impl.agility.Agility;
+import com.nardah.content.skill.impl.construction.BuildableInterface;
+import com.nardah.content.skill.impl.construction.BuildableType;
+import com.nardah.content.skill.impl.magic.teleport.TeleportType;
+import com.nardah.content.teleport.TeleportHandler;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.net.packet.out.SendInputAmount;
+import com.nardah.net.packet.out.SendURL;
 
 public class MiscButtonPlugin extends PluginContext {
 

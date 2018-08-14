@@ -1,15 +1,15 @@
 package plugin.click.button;
 
-import io.battlerune.content.activity.Activity;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.game.world.entity.actor.prayer.Prayer;
-import io.battlerune.game.world.entity.skill.Skill;
-import io.battlerune.game.world.position.Area;
-import io.battlerune.net.packet.out.SendConfig;
-import io.battlerune.net.packet.out.SendMessage;
-import io.battlerune.util.Utility;
+import com.nardah.content.activity.Activity;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.game.world.entity.actor.prayer.Prayer;
+import com.nardah.game.world.entity.skill.Skill;
+import com.nardah.game.world.position.Area;
+import com.nardah.net.packet.out.SendConfig;
+import com.nardah.net.packet.out.SendMessage;
+import com.nardah.util.Utility;
 
 public class PrayerButtonPlugin extends PluginContext {
 

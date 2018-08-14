@@ -1,14 +1,14 @@
 package plugin.click.button;
 
-import io.battlerune.content.Skillguides.AttackApp;
-import io.battlerune.content.Skillguides.DefenceApp;
-import io.battlerune.content.Skillguides.MagicApp;
-import io.battlerune.content.Skillguides.PrayerApp;
-import io.battlerune.content.Skillguides.RangingApp;
-import io.battlerune.content.Skillguides.StrengthApp;
-import io.battlerune.content.skill.impl.firemaking.FiremakingData;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
+import com.nardah.content.Skillguides.AttackApp;
+import com.nardah.content.Skillguides.DefenceApp;
+import com.nardah.content.Skillguides.MagicApp;
+import com.nardah.content.Skillguides.PrayerApp;
+import com.nardah.content.Skillguides.RangingApp;
+import com.nardah.content.Skillguides.StrengthApp;
+import com.nardah.content.skill.impl.firemaking.FiremakingData;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
 
 public class SkillsButtonPlugin extends PluginContext {
 

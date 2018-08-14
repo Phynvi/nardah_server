@@ -1,10 +1,10 @@
 package plugin.click.item;
 
-import io.battlerune.game.event.impl.ItemClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.net.packet.out.SendMessage;
+import com.nardah.game.event.impl.ItemClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.items.Item;
+import com.nardah.net.packet.out.SendMessage;
 
 /**
  * Created by Daniel on 2018-01-04. Edited by Adam_#6723

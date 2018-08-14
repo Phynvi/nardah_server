@@ -1,13 +1,13 @@
 package plugin.command;
 
-import io.battlerune.Config;
-import io.battlerune.content.skill.impl.magic.teleport.Teleportation;
-import io.battlerune.game.plugin.extension.CommandExtension;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.game.world.entity.actor.player.command.Command;
-import io.battlerune.game.world.entity.actor.player.command.CommandParser;
-import io.battlerune.net.packet.out.SendMessage;
+import com.nardah.Config;
+import com.nardah.content.skill.impl.magic.teleport.Teleportation;
+import com.nardah.game.plugin.extension.CommandExtension;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.game.world.entity.actor.player.command.Command;
+import com.nardah.game.world.entity.actor.player.command.CommandParser;
+import com.nardah.net.packet.out.SendMessage;
 
 public class DonatorCommandPlugin extends CommandExtension {
 

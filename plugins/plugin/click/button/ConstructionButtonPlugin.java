@@ -1,9 +1,9 @@
 package plugin.click.button;
 
-import io.battlerune.content.skill.impl.construction.BuildableInterface;
-import io.battlerune.content.skill.impl.construction.BuildableType;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
+import com.nardah.content.skill.impl.construction.BuildableInterface;
+import com.nardah.content.skill.impl.construction.BuildableType;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
 
 public class ConstructionButtonPlugin extends PluginContext {
 

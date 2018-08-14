@@ -1,13 +1,13 @@
 package plugin.click.object;
 
-import io.battlerune.content.CrystalChest;
-import io.battlerune.game.action.impl.CrystalChestAction;
-import io.battlerune.game.event.impl.ItemOnItemEvent;
-import io.battlerune.game.event.impl.ItemOnObjectEvent;
-import io.battlerune.game.event.impl.ObjectClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.net.packet.out.SendMessage;
+import com.nardah.content.CrystalChest;
+import com.nardah.game.action.impl.CrystalChestAction;
+import com.nardah.game.event.impl.ItemOnItemEvent;
+import com.nardah.game.event.impl.ItemOnObjectEvent;
+import com.nardah.game.event.impl.ObjectClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.net.packet.out.SendMessage;
 
 public class CrystalChestPlugin extends PluginContext {
 

@@ -2,16 +2,16 @@ package plugin.click.button;
 
 import java.util.Optional;
 
-import io.battlerune.content.staff.DeveloperAction;
-import io.battlerune.content.staff.PanelType;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.net.packet.out.SendMessage;
-import io.battlerune.util.MessageColor;
-import io.battlerune.util.log.LogManager;
-import io.battlerune.util.log.Logger;
-import io.battlerune.util.log.LoggerType;
+import com.nardah.content.staff.DeveloperAction;
+import com.nardah.content.staff.PanelType;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.net.packet.out.SendMessage;
+import com.nardah.util.MessageColor;
+import com.nardah.util.log.LogManager;
+import com.nardah.util.log.Logger;
+import com.nardah.util.log.LoggerType;
 
 public class DeveloperActionButtonPlugin extends PluginContext {
 

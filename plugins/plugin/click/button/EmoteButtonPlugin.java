@@ -1,9 +1,9 @@
 package plugin.click.button;
 
-import io.battlerune.content.emote.Emote;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.util.Utility;
+import com.nardah.content.emote.Emote;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.util.Utility;
 
 public class EmoteButtonPlugin extends PluginContext {
 

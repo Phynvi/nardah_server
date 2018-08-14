@@ -2,14 +2,14 @@ package plugin.click.button;
 
 import java.util.concurrent.TimeUnit;
 
-import io.battlerune.content.GenieLamp;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.skill.Skill;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.net.packet.out.SendMessage;
-import io.battlerune.util.Utility;
+import com.nardah.content.GenieLamp;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.World;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.skill.Skill;
+import com.nardah.game.world.items.Item;
+import com.nardah.net.packet.out.SendMessage;
+import com.nardah.util.Utility;
 
 public class GenieLampButtonPlugin extends PluginContext {
 

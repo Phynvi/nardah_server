@@ -1,14 +1,14 @@
 package plugin.itemon.npc;
 
-import io.battlerune.content.dialogue.DialogueFactory;
-import io.battlerune.content.dialogue.Expression;
-import io.battlerune.content.pet.Pets;
-import io.battlerune.game.event.impl.DropItemEvent;
-import io.battlerune.game.event.impl.ItemOnNpcEvent;
-import io.battlerune.game.event.impl.NpcClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.util.Utility;
+import com.nardah.content.dialogue.DialogueFactory;
+import com.nardah.content.dialogue.Expression;
+import com.nardah.content.pet.Pets;
+import com.nardah.game.event.impl.DropItemEvent;
+import com.nardah.game.event.impl.ItemOnNpcEvent;
+import com.nardah.game.event.impl.NpcClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.util.Utility;
 
 /**
  * The Pet insurance plugin.
@@ -19,7 +19,7 @@ public class PetPlugin extends PluginContext {
 
 	@Override
 	protected boolean itemOnNpc(Player player, ItemOnNpcEvent event) {
-		if (event.getNpc().id != 7601) {
+		if (event.getMob().id != 7601) {
 			return false;
 		}
 		Pets.buyInsurance(player, event.getUsed());
@@ -33,10 +33,10 @@ public class PetPlugin extends PluginContext {
 
 	@Override
 	protected boolean firstClickNpc(Player player, NpcClickEvent event) {
-		if (Pets.dialogue(player, event.getNpc())) {
+		if (Pets.dialogue(player, event.getMob())) {
 			return true;
 		}
-		if (event.getNpc().id != 7601) {
+		if (event.getMob().id != 7601) {
 			return false;
 		}
 		DialogueFactory factory = player.dialogueFactory;
@@ -51,7 +51,7 @@ public class PetPlugin extends PluginContext {
 
 	@Override
 	protected boolean secondClickNpc(Player player, NpcClickEvent event) {
-		if (event.getNpc().id != 7601) {
+		if (event.getMob().id != 7601) {
 			return false;
 		}
 		Pets.openInsurance(player);

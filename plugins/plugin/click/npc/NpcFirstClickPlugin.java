@@ -1,40 +1,40 @@
 package plugin.click.npc;
 
-import static io.battlerune.content.pet.PetData.JAD;
+import static com.nardah.content.pet.PetData.JAD;
 
 import java.util.concurrent.TimeUnit;
 
-import io.battlerune.content.activity.impl.TutorialActivity;
-import io.battlerune.content.consume.PotionData;
-import io.battlerune.content.dialogue.DialogueFactory;
-import io.battlerune.content.dialogue.Expression;
-import io.battlerune.content.dialogue.impl.ClanmasterDialogue;
-import io.battlerune.content.dialogue.impl.ConstructionDialogue;
-import io.battlerune.content.dialogue.impl.GamblerDialogue;
-import io.battlerune.content.dialogue.impl.NieveDialogue;
-import io.battlerune.content.dialogue.impl.RealmLordDialogue;
-import io.battlerune.content.dialogue.impl.RoyalKingDialogue;
-import io.battlerune.content.dialogue.impl.SailorKingDialouge;
-import io.battlerune.content.dialogue.impl.VoteDialogue;
-import io.battlerune.content.pet.Pets;
-import io.battlerune.content.skill.impl.thieving.Thieving;
-import io.battlerune.content.store.Store;
-import io.battlerune.content.store.impl.SkillcapeStore;
-import io.battlerune.game.event.impl.NpcClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.combat.strategy.player.special.CombatSpecial;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.net.packet.out.SendRunEnergy;
-import io.battlerune.net.packet.out.SendString;
-import io.battlerune.util.Utility;
+import com.nardah.content.activity.impl.TutorialActivity;
+import com.nardah.content.consume.PotionData;
+import com.nardah.content.dialogue.DialogueFactory;
+import com.nardah.content.dialogue.Expression;
+import com.nardah.content.dialogue.impl.ClanmasterDialogue;
+import com.nardah.content.dialogue.impl.ConstructionDialogue;
+import com.nardah.content.dialogue.impl.GamblerDialogue;
+import com.nardah.content.dialogue.impl.NieveDialogue;
+import com.nardah.content.dialogue.impl.RealmLordDialogue;
+import com.nardah.content.dialogue.impl.RoyalKingDialogue;
+import com.nardah.content.dialogue.impl.SailorKingDialouge;
+import com.nardah.content.dialogue.impl.VoteDialogue;
+import com.nardah.content.pet.Pets;
+import com.nardah.content.skill.impl.thieving.Thieving;
+import com.nardah.content.store.Store;
+import com.nardah.content.store.impl.SkillcapeStore;
+import com.nardah.game.event.impl.NpcClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.combat.strategy.player.special.CombatSpecial;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.game.world.items.Item;
+import com.nardah.net.packet.out.SendRunEnergy;
+import com.nardah.net.packet.out.SendString;
+import com.nardah.util.Utility;
 
 public class NpcFirstClickPlugin extends PluginContext {
 
 	@Override
 	protected boolean firstClickNpc(Player player, NpcClickEvent event) {
-		final int id = event.getNpc().id;
+		final int id = event.getMob().id;
 		switch (id) {
 		case 3893:
 			player.dialogueFactory.sendNpcChat(3893, "Ahoy there!", "I'll note your Rune Essence!").execute();
@@ -247,7 +247,7 @@ public class NpcFirstClickPlugin extends PluginContext {
 			break;
 		/* Gambler */
 		case 1012:
-			player.dialogueFactory.sendDialogue(new GamblerDialogue(event.getNpc()));
+			player.dialogueFactory.sendDialogue(new GamblerDialogue(event.getMob()));
 			break;
 		/* Note Trader Shop */
 		case 3189:

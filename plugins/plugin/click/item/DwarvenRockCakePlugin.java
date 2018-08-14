@@ -2,11 +2,11 @@ package plugin.click.item;
 
 import java.util.concurrent.TimeUnit;
 
-import io.battlerune.game.event.impl.ItemClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.position.Area;
+import com.nardah.game.event.impl.ItemClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.combat.hit.Hit;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.position.Area;
 
 public class DwarvenRockCakePlugin extends PluginContext {
 

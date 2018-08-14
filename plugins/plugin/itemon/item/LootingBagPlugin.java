@@ -1,9 +1,9 @@
 package plugin.itemon.item;
 
-import io.battlerune.game.event.impl.ItemOnItemEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.items.Item;
+import com.nardah.game.event.impl.ItemOnItemEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.items.Item;
 
 public class LootingBagPlugin extends PluginContext {
 

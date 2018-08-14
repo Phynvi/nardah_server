@@ -4,15 +4,15 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import io.battlerune.content.bot.BotUtility;
-import io.battlerune.game.event.impl.ObjectClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.net.packet.out.SendItemOnInterfaceSlot;
-import io.battlerune.net.packet.out.SendString;
-import io.battlerune.util.MutableNumber;
-import io.battlerune.util.Utility;
+import com.nardah.content.bot.BotUtility;
+import com.nardah.game.event.impl.ObjectClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.items.Item;
+import com.nardah.net.packet.out.SendItemOnInterfaceSlot;
+import com.nardah.net.packet.out.SendString;
+import com.nardah.util.MutableNumber;
+import com.nardah.util.Utility;
 
 public class BotLootViewerPlugin extends PluginContext {
 

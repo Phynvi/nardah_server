@@ -1,19 +1,19 @@
 package plugin.click.button;
 
-import io.battlerune.content.dialogue.impl.PrestigeDialogue;
-import io.battlerune.content.prestige.PrestigeData;
-import io.battlerune.content.store.Store;
-import io.battlerune.game.event.impl.ItemClickEvent;
-import io.battlerune.game.event.impl.NpcClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.skill.Skill;
+import com.nardah.content.dialogue.impl.PrestigeDialogue;
+import com.nardah.content.prestige.PrestigeData;
+import com.nardah.content.store.Store;
+import com.nardah.game.event.impl.ItemClickEvent;
+import com.nardah.game.event.impl.NpcClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.skill.Skill;
 
 public class PrestigeButtonPlugin extends PluginContext {
 
 	@Override
 	protected boolean firstClickNpc(Player player, NpcClickEvent event) {
-		if (event.getNpc().id != 345)
+		if (event.getMob().id != 345)
 			return false;
 		player.dialogueFactory.sendDialogue(new PrestigeDialogue());
 		return true;
@@ -21,7 +21,7 @@ public class PrestigeButtonPlugin extends PluginContext {
 
 	@Override
 	protected boolean secondClickNpc(Player player, NpcClickEvent event) {
-		if (event.getNpc().id != 345)
+		if (event.getMob().id != 345)
 			return false;
 		Store.STORES.get("Prestige Rewards Store").open(player);
 		return true;
@@ -29,7 +29,7 @@ public class PrestigeButtonPlugin extends PluginContext {
 
 	@Override
 	protected boolean thirdClickNpc(Player player, NpcClickEvent event) {
-		if (event.getNpc().id != 345)
+		if (event.getMob().id != 345)
 			return false;
 		player.prestige.open();
 		return true;
@@ -37,7 +37,7 @@ public class PrestigeButtonPlugin extends PluginContext {
 
 	@Override
 	protected boolean fourthClickNpc(Player player, NpcClickEvent event) {
-		if (event.getNpc().id != 345)
+		if (event.getMob().id != 345)
 			return false;
 		player.prestige.perkInformation();
 		return true;

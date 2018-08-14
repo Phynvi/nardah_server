@@ -1,10 +1,10 @@
 package plugin.pickup;
 
-import io.battlerune.game.event.impl.PickupItemEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.game.world.items.Item;
+import com.nardah.game.event.impl.PickupItemEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.game.world.items.Item;
 
 /**
  * @author Ethan Kyle Millard <skype:pumpklins>

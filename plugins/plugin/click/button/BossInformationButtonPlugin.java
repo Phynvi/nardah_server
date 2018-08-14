@@ -1,19 +1,19 @@
 package plugin.click.button;
 
-import io.battlerune.Config;
-import io.battlerune.content.activity.impl.cerberus.CerberusActivity;
-import io.battlerune.content.activity.impl.kraken.KrakenActivity;
-import io.battlerune.content.activity.impl.vorkath.VorkathActivity;
-import io.battlerune.content.activity.impl.zulrah.ZulrahActivity;
-import io.battlerune.content.dialogue.DialogueFactory;
-import io.battlerune.content.skill.impl.magic.teleport.Teleportation;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.skill.Skill;
-import io.battlerune.game.world.position.Position;
-import io.battlerune.net.packet.out.SendFadeScreen;
-import io.battlerune.net.packet.out.SendMessage;
+import com.nardah.Config;
+import com.nardah.content.activity.impl.cerberus.CerberusActivity;
+import com.nardah.content.activity.impl.kraken.KrakenActivity;
+import com.nardah.content.activity.impl.vorkath.VorkathActivity;
+import com.nardah.content.activity.impl.zulrah.ZulrahActivity;
+import com.nardah.content.dialogue.DialogueFactory;
+import com.nardah.content.skill.impl.magic.teleport.Teleportation;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.World;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.skill.Skill;
+import com.nardah.game.world.position.Position;
+import com.nardah.net.packet.out.SendFadeScreen;
+import com.nardah.net.packet.out.SendMessage;
 
 public class BossInformationButtonPlugin extends PluginContext {
 

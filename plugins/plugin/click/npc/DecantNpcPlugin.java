@@ -3,14 +3,14 @@ package plugin.click.npc;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.battlerune.content.consume.PotionData;
-import io.battlerune.content.dialogue.DialogueFactory;
-import io.battlerune.game.event.impl.NpcClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.game.world.items.ItemDefinition;
-import io.battlerune.util.Utility;
+import com.nardah.content.consume.PotionData;
+import com.nardah.content.dialogue.DialogueFactory;
+import com.nardah.game.event.impl.NpcClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.items.Item;
+import com.nardah.game.world.items.ItemDefinition;
+import com.nardah.util.Utility;
 
 public class DecantNpcPlugin extends PluginContext {
 
@@ -28,7 +28,7 @@ public class DecantNpcPlugin extends PluginContext {
 
 	@Override
 	protected boolean firstClickNpc(Player player, NpcClickEvent event) {
-		if (event.getNpc().id != 1146) {
+		if (event.getMob().id != 1146) {
 			return false;
 		}
 

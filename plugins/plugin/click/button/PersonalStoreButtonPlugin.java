@@ -1,9 +1,9 @@
 package plugin.click.button;
 
-import io.battlerune.content.store.StoreType;
-import io.battlerune.content.store.impl.PersonalStore;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
+import com.nardah.content.store.StoreType;
+import com.nardah.content.store.impl.PersonalStore;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
 
 public class PersonalStoreButtonPlugin extends PluginContext {
 

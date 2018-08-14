@@ -1,12 +1,12 @@
 package plugin;
 
-import io.battlerune.content.dialogue.DialogueFactory;
-import io.battlerune.content.donators.DonatorBond;
-import io.battlerune.game.event.impl.ItemClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.game.world.position.Area;
+import com.nardah.content.dialogue.DialogueFactory;
+import com.nardah.content.donators.DonatorBond;
+import com.nardah.game.event.impl.ItemClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.items.Item;
+import com.nardah.game.world.position.Area;
 
 /**
  * Handles the donator plugin.

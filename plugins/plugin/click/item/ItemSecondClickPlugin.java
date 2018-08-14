@@ -1,13 +1,13 @@
 package plugin.click.item;
 
-import io.battlerune.Config;
-import io.battlerune.content.DiceBag;
-import io.battlerune.content.skill.impl.magic.teleport.Teleportation;
-import io.battlerune.game.event.impl.ItemClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.net.packet.out.SendMessage;
+import com.nardah.Config;
+import com.nardah.content.DiceBag;
+import com.nardah.content.skill.impl.magic.teleport.Teleportation;
+import com.nardah.game.event.impl.ItemClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.net.packet.out.SendMessage;
 
 public class ItemSecondClickPlugin extends PluginContext {
 

@@ -1,10 +1,10 @@
 package plugin.command;
 
-import io.battlerune.game.plugin.extension.CommandExtension;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.game.world.entity.actor.player.command.Command;
-import io.battlerune.game.world.entity.actor.player.command.CommandParser;
+import com.nardah.game.plugin.extension.CommandExtension;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.game.world.entity.actor.player.command.Command;
+import com.nardah.game.world.entity.actor.player.command.CommandParser;
 
 public class SupremeCommandPlugin extends CommandExtension {
 

@@ -1,19 +1,19 @@
 package plugin.click.npc;
 
-import io.battlerune.content.dialogue.impl.RealmLordDialogue;
-import io.battlerune.content.dialogue.impl.RoyalKingDialogue;
-import io.battlerune.content.skill.impl.slayer.SlayerTab;
-import io.battlerune.content.store.Store;
-import io.battlerune.game.event.impl.NpcClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
+import com.nardah.content.dialogue.impl.RealmLordDialogue;
+import com.nardah.content.dialogue.impl.RoyalKingDialogue;
+import com.nardah.content.skill.impl.slayer.SlayerTab;
+import com.nardah.content.store.Store;
+import com.nardah.game.event.impl.NpcClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
 
 public class NpcSecondClickPlugin extends PluginContext {
 
 	@Override
 	protected boolean secondClickNpc(Player player, NpcClickEvent event) {
-		final int id = event.getNpc().id;
+		final int id = event.getMob().id;
 		switch (id) {
 		/* King Royal dialogue */
 		case 5523:

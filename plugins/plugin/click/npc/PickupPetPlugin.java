@@ -1,22 +1,22 @@
 package plugin.click.npc;
 
-import io.battlerune.content.pet.PetData;
-import io.battlerune.game.Animation;
-import io.battlerune.game.event.impl.NpcClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.net.packet.out.SendMessage;
+import com.nardah.content.pet.PetData;
+import com.nardah.game.Animation;
+import com.nardah.game.event.impl.NpcClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.World;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.net.packet.out.SendMessage;
 
 public class PickupPetPlugin extends PluginContext {
 
 	@Override
 	protected boolean secondClickNpc(Player player, NpcClickEvent event) {
-		if (!PetData.forNpc(event.getNpc().id).isPresent()) {
+		if (!PetData.forNpc(event.getMob().id).isPresent()) {
 			return false;
 		}
 
-		if (event.getNpc().owner != null && event.getNpc().owner != player) {
+		if (event.getMob().owner != null && event.getMob().owner != player) {
 			player.send(new SendMessage("This is not your pet!"));
 			return true;
 		}
@@ -30,7 +30,7 @@ public class PickupPetPlugin extends PluginContext {
 			return true;
 		}
 
-		PetData pets = PetData.forNpc(event.getNpc().id).get();
+		PetData pets = PetData.forNpc(event.getMob().id).get();
 		player.interact(player.pet);
 		player.animate(new Animation(827));
 		World.schedule(1, () -> {

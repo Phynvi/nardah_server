@@ -1,11 +1,11 @@
 package plugin.itemon;
 
-import io.battlerune.game.event.impl.ItemOnNpcEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.npc.Npc;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.game.world.items.Item;
+import com.nardah.game.event.impl.ItemOnNpcEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.mob.Mob;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.game.world.items.Item;
 
 /**
  * Handles the rotten tomatoe plugin.
@@ -24,9 +24,9 @@ public class RottenTomatoePlugin extends PluginContext {
 		if (item.getId() != 5733)
 			return false;
 
-		Npc npc = event.getNpc();
+		Mob mob = event.getMob();
 
-		player.dialogueFactory.sendStatement("<col=255>" + npc.getName(), "spawn=" + npc.spawnPosition + "");
+		player.dialogueFactory.sendStatement("<col=255>" + mob.getName(), "spawn=" + mob.spawnPosition + "");
 		player.dialogueFactory.execute();
 		return true;
 	}

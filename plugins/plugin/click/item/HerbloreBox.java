@@ -2,13 +2,13 @@ package plugin.click.item;
 
 import java.util.Arrays;
 
-import io.battlerune.game.event.impl.ItemClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.util.Utility;
-import io.battlerune.util.chance.Chance;
-import io.battlerune.util.chance.WeightedChance;
+import com.nardah.game.event.impl.ItemClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.items.Item;
+import com.nardah.util.Utility;
+import com.nardah.util.chance.Chance;
+import com.nardah.util.chance.WeightedChance;
 
 /**
  * Created by Daniel on 2018-01-09.

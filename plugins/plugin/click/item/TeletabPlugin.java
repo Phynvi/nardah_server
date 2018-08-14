@@ -1,13 +1,13 @@
 package plugin.click.item;
 
-import io.battlerune.content.skill.impl.magic.teleport.Teleportation;
-import io.battlerune.content.teleport.TeleportTablet;
-import io.battlerune.game.event.impl.ItemClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.net.packet.out.SendMessage;
-import io.battlerune.util.Utility;
+import com.nardah.content.skill.impl.magic.teleport.Teleportation;
+import com.nardah.content.teleport.TeleportTablet;
+import com.nardah.game.event.impl.ItemClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.items.Item;
+import com.nardah.net.packet.out.SendMessage;
+import com.nardah.util.Utility;
 
 public class TeletabPlugin extends PluginContext {
 

@@ -1,15 +1,15 @@
 package plugin.click.button;
 
-import io.battlerune.Config;
-import io.battlerune.content.skill.impl.magic.spell.impl.BonesToBananas;
-import io.battlerune.content.skill.impl.magic.spell.impl.BonesToPeaches;
-import io.battlerune.content.skill.impl.magic.spell.impl.Vengeance;
-import io.battlerune.content.skill.impl.magic.teleport.Teleportation;
-import io.battlerune.game.event.impl.ItemContainerContextMenuEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.game.world.position.Position;
+import com.nardah.Config;
+import com.nardah.content.skill.impl.magic.spell.impl.BonesToBananas;
+import com.nardah.content.skill.impl.magic.spell.impl.BonesToPeaches;
+import com.nardah.content.skill.impl.magic.spell.impl.Vengeance;
+import com.nardah.content.skill.impl.magic.teleport.Teleportation;
+import com.nardah.game.event.impl.ItemContainerContextMenuEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.game.world.position.Position;
 
 public class MagicButtonPlugin extends PluginContext {
 

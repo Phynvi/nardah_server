@@ -2,16 +2,16 @@ package plugin.itemon.item;
 
 import java.util.Arrays;
 
-import io.battlerune.content.ItemCreation;
-import io.battlerune.content.dialogue.DialogueFactory;
-import io.battlerune.content.skill.impl.slayer.SlayerUnlockable;
-import io.battlerune.game.event.impl.ItemOnItemEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.skill.Skill;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.net.packet.out.SendMessage;
-import io.battlerune.util.Utility;
+import com.nardah.content.ItemCreation;
+import com.nardah.content.dialogue.DialogueFactory;
+import com.nardah.content.skill.impl.slayer.SlayerUnlockable;
+import com.nardah.game.event.impl.ItemOnItemEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.skill.Skill;
+import com.nardah.game.world.items.Item;
+import com.nardah.net.packet.out.SendMessage;
+import com.nardah.util.Utility;
 
 public class ItemCreationPlugin extends PluginContext {
 

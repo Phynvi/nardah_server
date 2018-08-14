@@ -1,17 +1,17 @@
 package plugin.itemon.npc;
 
-import io.battlerune.game.event.impl.ItemOnNpcEvent;
-import io.battlerune.game.event.impl.NpcClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.util.Utility;
+import com.nardah.game.event.impl.ItemOnNpcEvent;
+import com.nardah.game.event.impl.NpcClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.items.Item;
+import com.nardah.util.Utility;
 
 public class ResourceArenaPlugin extends PluginContext {
 
 	@Override
 	protected boolean firstClickNpc(Player player, NpcClickEvent event) {
-		if (event.getNpc().id != 6599) {
+		if (event.getMob().id != 6599) {
 			return false;
 		}
 
@@ -23,7 +23,7 @@ public class ResourceArenaPlugin extends PluginContext {
 
 	@Override
 	protected boolean itemOnNpc(Player player, ItemOnNpcEvent event) {
-		if (event.getNpc().id != 6599) {
+		if (event.getMob().id != 6599) {
 			return false;
 		}
 

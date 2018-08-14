@@ -1,28 +1,28 @@
 package plugin.command;
 
-import io.battlerune.Config;
-import io.battlerune.content.activity.randomevent.impl.MimeEvent;
-import io.battlerune.content.dialogue.DialogueFactory;
-import io.battlerune.content.pet.PetData;
-import io.battlerune.content.pet.Pets;
-import io.battlerune.game.plugin.extension.CommandExtension;
-import io.battlerune.game.task.Task;
-import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.actor.UpdateFlag;
-import io.battlerune.game.world.entity.actor.npc.Npc;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.game.world.entity.actor.player.command.Command;
-import io.battlerune.game.world.entity.actor.player.command.CommandParser;
-import io.battlerune.game.world.entity.skill.Skill;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.game.world.position.Area;
-import io.battlerune.game.world.position.Position;
-import io.battlerune.net.packet.out.SendInputAmount;
-import io.battlerune.net.packet.out.SendMessage;
-import io.battlerune.util.Utility;
-import io.battlerune.util.parser.old.defs.NpcDefinition;
+import com.nardah.Config;
+import com.nardah.content.activity.randomevent.impl.MimeEvent;
+import com.nardah.content.dialogue.DialogueFactory;
+import com.nardah.content.pet.PetData;
+import com.nardah.content.pet.Pets;
+import com.nardah.game.plugin.extension.CommandExtension;
+import com.nardah.game.task.Task;
+import com.nardah.game.world.World;
+import com.nardah.game.world.entity.actor.mob.Mob;
+import com.nardah.game.world.entity.combat.hit.Hit;
+import com.nardah.game.world.entity.actor.UpdateFlag;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.game.world.entity.actor.player.command.Command;
+import com.nardah.game.world.entity.actor.player.command.CommandParser;
+import com.nardah.game.world.entity.skill.Skill;
+import com.nardah.game.world.items.Item;
+import com.nardah.game.world.position.Area;
+import com.nardah.game.world.position.Position;
+import com.nardah.net.packet.out.SendInputAmount;
+import com.nardah.net.packet.out.SendMessage;
+import com.nardah.util.Utility;
+import com.nardah.util.parser.old.defs.NpcDefinition;
 
 public class OwnerCommandPlugin extends CommandExtension {
 
@@ -55,9 +55,9 @@ public class OwnerCommandPlugin extends CommandExtension {
             @Override
             public void execute(Player player, CommandParser parser) {
                 for (PetData pet : PetData.values()) {
-                    Npc npc = new Npc(pet.getNpc(), player.getPosition());
-                    npc.register();
-                    World.schedule(Pets.abandon(npc));
+                    Mob mob = new Mob(pet.getNpc(), player.getPosition());
+                    mob.register();
+                    World.schedule(Pets.abandon(mob));
                 }
             }
         });
@@ -301,8 +301,8 @@ public class OwnerCommandPlugin extends CommandExtension {
                         player.send(new SendMessage("Definition for one or more of the monsters were null."));
                         return;
                     }
-                    Npc boss1 = new Npc(one, new Position(start.getX() - 3, start.getY() + 3));
-                    Npc boss2 = new Npc(two, new Position(start.getX() + 3, start.getY() + 3));
+                    Mob boss1 = new Mob(one, new Position(start.getX() - 3, start.getY() + 3));
+                    Mob boss2 = new Mob(two, new Position(start.getX() + 3, start.getY() + 3));
                     boss1.register();
                     boss2.register();
                     boss1.walk = false;

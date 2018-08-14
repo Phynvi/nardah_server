@@ -1,8 +1,8 @@
 package plugin.click.button;
 
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.exchange.ExchangeSession;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.exchange.ExchangeSession;
 
 public class ExchangeSessionButtonPlugin extends PluginContext {
 

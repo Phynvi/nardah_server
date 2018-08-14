@@ -2,17 +2,17 @@ package plugin.command;
 
 import java.util.concurrent.TimeUnit;
 
-import io.battlerune.content.dialogue.DialogueFactory;
-import io.battlerune.content.skill.impl.magic.teleport.Teleportation;
-import io.battlerune.game.plugin.extension.CommandExtension;
-import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.game.world.entity.actor.player.command.Command;
-import io.battlerune.game.world.entity.actor.player.command.CommandParser;
-import io.battlerune.game.world.position.Position;
-import io.battlerune.net.packet.out.SendInputAmount;
-import io.battlerune.net.packet.out.SendMessage;
+import com.nardah.content.dialogue.DialogueFactory;
+import com.nardah.content.skill.impl.magic.teleport.Teleportation;
+import com.nardah.game.plugin.extension.CommandExtension;
+import com.nardah.game.world.World;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.game.world.entity.actor.player.command.Command;
+import com.nardah.game.world.entity.actor.player.command.CommandParser;
+import com.nardah.game.world.position.Position;
+import com.nardah.net.packet.out.SendInputAmount;
+import com.nardah.net.packet.out.SendMessage;
 
 public class ModeratorCommandPlugin extends CommandExtension {
 

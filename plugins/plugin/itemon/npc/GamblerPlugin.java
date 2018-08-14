@@ -2,30 +2,30 @@ package plugin.itemon.npc;
 
 import java.util.Random;
 
-import io.battlerune.content.dialogue.DialogueFactory;
-import io.battlerune.content.dialogue.Expression;
-import io.battlerune.game.event.impl.ItemOnNpcEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.actor.npc.Npc;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.net.packet.out.SendInputAmount;
-import io.battlerune.net.packet.out.SendMessage;
+import com.nardah.content.dialogue.DialogueFactory;
+import com.nardah.content.dialogue.Expression;
+import com.nardah.game.event.impl.ItemOnNpcEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.World;
+import com.nardah.game.world.entity.actor.mob.Mob;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.items.Item;
+import com.nardah.net.packet.out.SendInputAmount;
+import com.nardah.net.packet.out.SendMessage;
 
 public class GamblerPlugin extends PluginContext {
-	private Npc npc;
+	private Mob mob;
 	private Item item;
 
 	@Override
 	protected boolean itemOnNpc(Player player, ItemOnNpcEvent event) {
-		if (event.getNpc().id != 1012) {
+		if (event.getMob().id != 1012) {
 			return false;
 		}
 		DialogueFactory factory = player.dialogueFactory;
 		item = event.getUsed();
-		npc = event.getNpc();
-		npc.face(player);
+		mob = event.getMob();
+		mob.face(player);
 
 		if (item.isStackable()) {
 			factory.sendNpcChat(1012, Expression.HAPPY, "Oooh some " + item.getName() + "...",
@@ -53,7 +53,7 @@ public class GamblerPlugin extends PluginContext {
 		}
 
 		int roll = new Random().nextInt(100);
-		npc.speak("You rolled a " + roll);
+		mob.speak("You rolled a " + roll);
 		if (roll >= 55) {
 			player.inventory.add(item.getId(), i);
 		} else {

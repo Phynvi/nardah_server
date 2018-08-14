@@ -2,19 +2,19 @@ package plugin.click.button;
 
 import java.util.List;
 
-import io.battlerune.Config;
-import io.battlerune.content.clanchannel.ClanMember;
-import io.battlerune.content.clanchannel.ClanRank;
-import io.battlerune.content.clanchannel.channel.ClanChannel;
-import io.battlerune.content.clanchannel.channel.ClanChannelHandler;
-import io.battlerune.content.clanchannel.content.ClanMemberComporator;
-import io.battlerune.content.clanchannel.content.ClanViewer;
-import io.battlerune.content.dialogue.impl.ClanRankDialogue;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.net.packet.out.SendConfig;
-import io.battlerune.net.packet.out.SendInputMessage;
-import io.battlerune.net.packet.out.SendMessage;
+import com.nardah.Config;
+import com.nardah.content.clanchannel.ClanMember;
+import com.nardah.content.clanchannel.ClanRank;
+import com.nardah.content.clanchannel.channel.ClanChannel;
+import com.nardah.content.clanchannel.channel.ClanChannelHandler;
+import com.nardah.content.clanchannel.content.ClanMemberComporator;
+import com.nardah.content.clanchannel.content.ClanViewer;
+import com.nardah.content.dialogue.impl.ClanRankDialogue;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.net.packet.out.SendConfig;
+import com.nardah.net.packet.out.SendInputMessage;
+import com.nardah.net.packet.out.SendMessage;
 
 public class ClanButtonPlugin extends PluginContext {
 

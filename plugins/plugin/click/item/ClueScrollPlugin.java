@@ -1,14 +1,14 @@
 package plugin.click.item;
 
-import io.battlerune.content.ActivityLog;
-import io.battlerune.game.event.impl.ItemClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.net.packet.out.SendItemOnInterface;
-import io.battlerune.util.Utility;
-import io.battlerune.util.chance.Chance;
+import com.nardah.content.ActivityLog;
+import com.nardah.game.event.impl.ItemClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.World;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.items.Item;
+import com.nardah.net.packet.out.SendItemOnInterface;
+import com.nardah.util.Utility;
+import com.nardah.util.chance.Chance;
 
 /**
  * Handles opening the clue scroll

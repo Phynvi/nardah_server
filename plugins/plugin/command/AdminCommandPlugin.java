@@ -1,27 +1,27 @@
 package plugin.command;
 
-import io.battlerune.Config;
-import io.battlerune.content.achievement.AchievementHandler;
-import io.battlerune.content.emote.EmoteHandler;
-import io.battlerune.content.skill.impl.magic.Spellbook;
-import io.battlerune.game.plugin.extension.CommandExtension;
-import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.actor.UpdateFlag;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.game.world.entity.actor.player.command.Command;
-import io.battlerune.game.world.entity.actor.player.command.CommandParser;
-import io.battlerune.game.world.entity.skill.Skill;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.game.world.items.ItemDefinition;
-import io.battlerune.game.world.items.containers.ItemContainer;
-import io.battlerune.game.world.position.Area;
-import io.battlerune.game.world.position.Position;
-import io.battlerune.net.packet.out.SendItemOnInterface;
-import io.battlerune.net.packet.out.SendMessage;
-import io.battlerune.net.packet.out.SendScrollbar;
-import io.battlerune.net.packet.out.SendString;
-import io.battlerune.util.MessageColor;
+import com.nardah.Config;
+import com.nardah.content.achievement.AchievementHandler;
+import com.nardah.content.emote.EmoteHandler;
+import com.nardah.content.skill.impl.magic.Spellbook;
+import com.nardah.game.plugin.extension.CommandExtension;
+import com.nardah.game.world.World;
+import com.nardah.game.world.entity.actor.UpdateFlag;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.game.world.entity.actor.player.command.Command;
+import com.nardah.game.world.entity.actor.player.command.CommandParser;
+import com.nardah.game.world.entity.skill.Skill;
+import com.nardah.game.world.items.Item;
+import com.nardah.game.world.items.ItemDefinition;
+import com.nardah.game.world.items.containers.ItemContainer;
+import com.nardah.game.world.position.Area;
+import com.nardah.game.world.position.Position;
+import com.nardah.net.packet.out.SendItemOnInterface;
+import com.nardah.net.packet.out.SendMessage;
+import com.nardah.net.packet.out.SendScrollbar;
+import com.nardah.net.packet.out.SendString;
+import com.nardah.util.MessageColor;
 
 public class AdminCommandPlugin extends CommandExtension {
 

@@ -2,10 +2,10 @@ package plugin.click.button;
 
 import java.util.List;
 
-import io.battlerune.content.DropDisplay;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.npc.drop.NpcDropManager;
-import io.battlerune.game.world.entity.actor.player.Player;
+import com.nardah.content.DropDisplay;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.mob.drop.MobDropManager;
+import com.nardah.game.world.entity.actor.player.Player;
 
 public class DropDisplayButtonPlugin extends PluginContext {
 
@@ -20,7 +20,7 @@ public class DropDisplayButtonPlugin extends PluginContext {
 				return false;
 			if (index >= key.size())
 				return false;
-			DropDisplay.display(player, NpcDropManager.NPC_DROPS.get(key.get(index)));
+			DropDisplay.display(player, MobDropManager.NPC_DROPS.get(key.get(index)));
 			return true;
 		}
 		return false;

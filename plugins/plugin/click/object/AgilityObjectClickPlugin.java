@@ -1,14 +1,14 @@
 package plugin.click.object;
 
-import io.battlerune.content.activity.randomevent.RandomEventHandler;
-import io.battlerune.content.skill.impl.agility.Agility;
-import io.battlerune.content.skill.impl.agility.obstacle.Obstacle;
-import io.battlerune.content.skill.impl.agility.obstacle.ObstacleType;
-import io.battlerune.game.event.impl.ObjectClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.Interactable;
-import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.actor.player.Player;
+import com.nardah.content.activity.randomevent.RandomEventHandler;
+import com.nardah.content.skill.impl.agility.Agility;
+import com.nardah.content.skill.impl.agility.obstacle.Obstacle;
+import com.nardah.content.skill.impl.agility.obstacle.ObstacleType;
+import com.nardah.game.event.impl.ObjectClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.Interactable;
+import com.nardah.game.world.World;
+import com.nardah.game.world.entity.actor.player.Player;
 
 public class AgilityObjectClickPlugin extends PluginContext {
 

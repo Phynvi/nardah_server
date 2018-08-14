@@ -1,21 +1,21 @@
 package plugin.click.button;
 
-import io.battlerune.Config;
-import io.battlerune.content.DropDisplay;
-import io.battlerune.content.DropSimulator;
-import io.battlerune.content.achievement.AchievementInterface;
-import io.battlerune.content.activity.ActivityType;
-import io.battlerune.content.skill.impl.slayer.SlayerTab;
-import io.battlerune.content.staff.PanelType;
-import io.battlerune.content.staff.StaffPanel;
-import io.battlerune.content.tittle.TitleManager;
-import io.battlerune.content.writer.InterfaceWriter;
-import io.battlerune.content.writer.impl.InformationWriter;
-import io.battlerune.content.writer.impl.QuestWriter;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.net.packet.out.SendURL;
+import com.nardah.Config;
+import com.nardah.content.DropDisplay;
+import com.nardah.content.DropSimulator;
+import com.nardah.content.achievement.AchievementInterface;
+import com.nardah.content.activity.ActivityType;
+import com.nardah.content.skill.impl.slayer.SlayerTab;
+import com.nardah.content.staff.PanelType;
+import com.nardah.content.staff.StaffPanel;
+import com.nardah.content.tittle.TitleManager;
+import com.nardah.content.writer.InterfaceWriter;
+import com.nardah.content.writer.impl.InformationWriter;
+import com.nardah.content.writer.impl.QuestWriter;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.net.packet.out.SendURL;
 
 public class InformationTabButtonPlugin extends PluginContext {
 

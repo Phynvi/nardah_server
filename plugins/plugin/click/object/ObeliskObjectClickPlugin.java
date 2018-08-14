@@ -1,9 +1,9 @@
 package plugin.click.object;
 
-import io.battlerune.content.Obelisks;
-import io.battlerune.game.event.impl.ObjectClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
+import com.nardah.content.Obelisks;
+import com.nardah.game.event.impl.ObjectClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
 
 public class ObeliskObjectClickPlugin extends PluginContext {
 

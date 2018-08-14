@@ -1,23 +1,23 @@
 package plugin.click.item;
 
-import io.battlerune.content.DiceBag;
-import io.battlerune.content.activity.impl.zulrah.ZulrahActivity;
-import io.battlerune.content.consume.Anglerfish;
-import io.battlerune.content.skill.impl.slayer.Slayer;
-import io.battlerune.content.skill.impl.slayer.SlayerTask;
-import io.battlerune.content.skill.impl.woodcutting.BirdsNest;
-import io.battlerune.game.action.impl.SpadeAction;
-import io.battlerune.game.event.impl.ItemClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.prayer.Prayer;
-import io.battlerune.game.world.position.Position;
-import io.battlerune.net.packet.out.SendFadeScreen;
-import io.battlerune.net.packet.out.SendInputAmount;
-import io.battlerune.net.packet.out.SendMessage;
-import io.battlerune.net.packet.out.SendString;
-import io.battlerune.util.Utility;
+import com.nardah.content.DiceBag;
+import com.nardah.content.activity.impl.zulrah.ZulrahActivity;
+import com.nardah.content.consume.Anglerfish;
+import com.nardah.content.skill.impl.slayer.Slayer;
+import com.nardah.content.skill.impl.slayer.SlayerTask;
+import com.nardah.content.skill.impl.woodcutting.BirdsNest;
+import com.nardah.game.action.impl.SpadeAction;
+import com.nardah.game.event.impl.ItemClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.World;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.prayer.Prayer;
+import com.nardah.game.world.position.Position;
+import com.nardah.net.packet.out.SendFadeScreen;
+import com.nardah.net.packet.out.SendInputAmount;
+import com.nardah.net.packet.out.SendMessage;
+import com.nardah.net.packet.out.SendString;
+import com.nardah.util.Utility;
 
 public class ItemFirstClickPlugin extends PluginContext { // etest
 

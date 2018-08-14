@@ -1,8 +1,8 @@
 package plugin.click.button;
 
-import io.battlerune.content.ItemsKeptOnDeath;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
+import com.nardah.content.ItemsKeptOnDeath;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
 
 public class EquipmentButtonPlugin extends PluginContext {
 

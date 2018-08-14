@@ -1,58 +1,58 @@
 package plugin.command;
 
-import io.battlerune.Config;
-import io.battlerune.content.activity.impl.cerberus.CerberusActivity;
-import io.battlerune.content.activity.impl.vorkath.VorkathActivity;
-import io.battlerune.content.activity.randomevent.impl.MimeEvent;
-import io.battlerune.content.bot.PlayerBot;
-import io.battlerune.content.bot.objective.BotObjective;
-import io.battlerune.content.clanchannel.ClanRepository;
-import io.battlerune.content.clanchannel.channel.ClanChannel;
-import io.battlerune.content.dialogue.DialogueFactory;
-import io.battlerune.content.pet.PetData;
-import io.battlerune.content.pet.Pets;
-import io.battlerune.content.skill.SkillRepository;
-import io.battlerune.content.skill.impl.magic.teleport.Teleportation;
-import io.battlerune.content.store.Store;
-import io.battlerune.game.Animation;
-import io.battlerune.game.Graphic;
-import io.battlerune.game.plugin.extension.CommandExtension;
-import io.battlerune.game.task.Task;
-import io.battlerune.game.task.impl.ObjectPlacementEvent;
-import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.combat.CombatType;
-import io.battlerune.game.world.entity.combat.attack.listener.CombatListenerManager;
-import io.battlerune.game.world.entity.combat.hit.Hit;
-import io.battlerune.game.world.entity.combat.hit.Hitsplat;
-import io.battlerune.game.world.entity.combat.strategy.CombatStrategy;
-import io.battlerune.game.world.entity.combat.strategy.npc.boss.arena.ArenaUtility;
-import io.battlerune.game.world.entity.combat.strategy.player.special.CombatSpecial;
-import io.battlerune.game.world.entity.actor.Direction;
-import io.battlerune.game.world.entity.actor.UpdateFlag;
-import io.battlerune.game.world.entity.actor.npc.Npc;
-import io.battlerune.game.world.entity.actor.npc.definition.NpcDefinition;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.game.world.entity.actor.player.command.Command;
-import io.battlerune.game.world.entity.actor.player.command.CommandParser;
-import io.battlerune.game.world.entity.skill.Skill;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.game.world.items.ItemDefinition;
-import io.battlerune.game.world.object.CustomGameObject;
-import io.battlerune.game.world.object.ObjectDefinition;
-import io.battlerune.game.world.object.ObjectDirection;
-import io.battlerune.game.world.object.ObjectType;
-import io.battlerune.game.world.pathfinding.TraversalMap;
-import io.battlerune.game.world.position.Area;
-import io.battlerune.game.world.position.Position;
-import io.battlerune.net.packet.out.SendBanner;
-import io.battlerune.net.packet.out.SendInputAmount;
-import io.battlerune.net.packet.out.SendInputMessage;
-import io.battlerune.net.packet.out.SendMessage;
-import io.battlerune.util.MessageColor;
-import io.battlerune.util.RandomUtils;
-import io.battlerune.util.Utility;
-import io.battlerune.util.parser.impl.*;
+import com.nardah.Config;
+import com.nardah.content.activity.impl.cerberus.CerberusActivity;
+import com.nardah.content.activity.impl.vorkath.VorkathActivity;
+import com.nardah.content.activity.randomevent.impl.MimeEvent;
+import com.nardah.content.bot.PlayerBot;
+import com.nardah.content.bot.objective.BotObjective;
+import com.nardah.content.clanchannel.ClanRepository;
+import com.nardah.content.clanchannel.channel.ClanChannel;
+import com.nardah.content.dialogue.DialogueFactory;
+import com.nardah.content.pet.PetData;
+import com.nardah.content.pet.Pets;
+import com.nardah.content.skill.SkillRepository;
+import com.nardah.content.skill.impl.magic.teleport.Teleportation;
+import com.nardah.content.store.Store;
+import com.nardah.game.Animation;
+import com.nardah.game.Graphic;
+import com.nardah.game.plugin.extension.CommandExtension;
+import com.nardah.game.task.Task;
+import com.nardah.game.task.impl.ObjectPlacementEvent;
+import com.nardah.game.world.World;
+import com.nardah.game.world.entity.actor.mob.Mob;
+import com.nardah.game.world.entity.combat.CombatType;
+import com.nardah.game.world.entity.combat.attack.listener.CombatListenerManager;
+import com.nardah.game.world.entity.combat.hit.Hit;
+import com.nardah.game.world.entity.combat.hit.Hitsplat;
+import com.nardah.game.world.entity.combat.strategy.CombatStrategy;
+import com.nardah.game.world.entity.combat.strategy.npc.boss.arena.ArenaUtility;
+import com.nardah.game.world.entity.combat.strategy.player.special.CombatSpecial;
+import com.nardah.game.world.entity.actor.Direction;
+import com.nardah.game.world.entity.actor.UpdateFlag;
+import com.nardah.game.world.entity.actor.mob.MobDefinition;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.game.world.entity.actor.player.command.Command;
+import com.nardah.game.world.entity.actor.player.command.CommandParser;
+import com.nardah.game.world.entity.skill.Skill;
+import com.nardah.game.world.items.Item;
+import com.nardah.game.world.items.ItemDefinition;
+import com.nardah.game.world.object.CustomGameObject;
+import com.nardah.game.world.object.ObjectDefinition;
+import com.nardah.game.world.object.ObjectDirection;
+import com.nardah.game.world.object.ObjectType;
+import com.nardah.game.world.pathfinding.TraversalMap;
+import com.nardah.game.world.position.Area;
+import com.nardah.game.world.position.Position;
+import com.nardah.net.packet.out.SendBanner;
+import com.nardah.net.packet.out.SendInputAmount;
+import com.nardah.net.packet.out.SendInputMessage;
+import com.nardah.net.packet.out.SendMessage;
+import com.nardah.util.MessageColor;
+import com.nardah.util.RandomUtils;
+import com.nardah.util.Utility;
+import com.nardah.util.parser.impl.*;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -62,8 +62,6 @@ import java.util.EnumSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
-import static io.battlerune.game.world.entity.combat.attack.FormulaFactory.*;
 
 public class DeveloperCommandPlugin extends CommandExtension {
 
@@ -115,7 +113,7 @@ public class DeveloperCommandPlugin extends CommandExtension {
                     if (other != null) {
                         other.playerAssistant.transform(Integer.parseInt(input));
                     }
-                    player.send(new SendMessage(other == null ? message : "You have turned " + other.getName() + " into " + NpcDefinition.get(Integer.parseInt(input)).getName() + ".", MessageColor.DARK_BLUE));
+                    player.send(new SendMessage(other == null ? message : "You have turned " + other.getName() + " into " + MobDefinition.get(Integer.parseInt(input)).getName() + ".", MessageColor.DARK_BLUE));
                 }));
 
             }
@@ -423,14 +421,14 @@ public class DeveloperCommandPlugin extends CommandExtension {
                 int diameter = size * size;
                 for (int index = 0; index < diameter; index++) {
                     Position position = player.getPosition().transform(index % size, index / size, 0);
-                    Npc man = new Npc(3080, position);
+                    Mob man = new Mob(3080, position);
                     man.skills.setLevel(3, 450);
                     man.register();
                 }
-//                for (Npc npc : spawned) {
-//                    if (npc == middle) continue;
-//                    if (npc.getCombat().inCombat()) break;
-//                    npc.getCombat().attack(middle);
+//                for (Mob mob : spawned) {
+//                    if (mob == middle) continue;
+//                    if (mob.getCombat().inCombat()) break;
+//                    mob.getCombat().attack(middle);
 //                }
             }
         });
@@ -442,8 +440,8 @@ public class DeveloperCommandPlugin extends CommandExtension {
                 if (parser.hasNext()) {
                     final String name = parser.nextLine();
 
-                    for (int i = 0; i < NpcDefinition.DEFINITIONS.length; i++) {
-                        NpcDefinition def = NpcDefinition.get(i);
+                    for (int i = 0; i < MobDefinition.DEFINITIONS.length; i++) {
+                        MobDefinition def = MobDefinition.get(i);
                         if (def == null) {
                             continue;
                         }
@@ -846,26 +844,26 @@ public class DeveloperCommandPlugin extends CommandExtension {
             }
         });
 
-        commands.add(new Command("npc") {
+        commands.add(new Command("mob") {
             @Override
             public void execute(Player player, CommandParser parser) {
                 if (parser.hasNext()) {
                     int id = parser.nextInt();
-                    Npc npc = new Npc(id, player.getPosition(), Config.NPC_WALKING_RADIUS);
-                    npc.walk = false;
-                    npc.register();
+                    Mob mob = new Mob(id, player.getPosition(), Config.NPC_WALKING_RADIUS);
+                    mob.walk = false;
+                    mob.register();
 
                     if (id == 3080) {
-                        npc.skills.setNpcMaxLevel(3, 99_999);
-                        npc.locking.lock();
+                        mob.skills.setNpcMaxLevel(3, 99_999);
+                        mob.locking.lock();
                     }
                     if (id == 2267 || id == 2266 || id == 2265) {
-                        npc.locking.lock();
+                        mob.locking.lock();
                     }
                     if (id == 2075) {
-                        npc.skills.setNpcMaxLevel(3, 800);
+                        mob.skills.setNpcMaxLevel(3, 800);
                     }
-                    player.send(new SendMessage("Npc " + id + " has been spawned."));
+                    player.send(new SendMessage("Mob " + id + " has been spawned."));
                 }
             }
         });
@@ -875,8 +873,8 @@ public class DeveloperCommandPlugin extends CommandExtension {
             public void execute(Player player, CommandParser parser) {
                 if (parser.hasNext()) {
                     int id = parser.nextInt();
-                    Npc npc = new Npc(id, player.getPosition(), 0, Direction.NORTH);
-                    npc.register();
+                    Mob mob = new Mob(id, player.getPosition(), 0, Direction.NORTH);
+                    mob.register();
                     System.out.println("  {");
                     System.out.println("    \"id\": " + id + ",");
                     System.out.println("    \"radius\": \"0\",");
@@ -887,7 +885,7 @@ public class DeveloperCommandPlugin extends CommandExtension {
                     System.out.println("      \"height\": " + player.getPosition().getHeight() + "");
                     System.out.println("    }");
                     System.out.println("  },");
-                    player.send(new SendMessage("Npc " + id + " has been spawned."));
+                    player.send(new SendMessage("Mob " + id + " has been spawned."));
                 }
             }
         });
@@ -927,13 +925,13 @@ public class DeveloperCommandPlugin extends CommandExtension {
         commands.add(new Command("getnpcroll") {
             @Override
             public void execute(Player player, CommandParser parser) {
-                Npc npc = new Npc(parser.nextInt(), player.getPosition());
-                NpcDefinition definition = NpcDefinition.get(npc.id);
-                npc.definition = definition;
-                npc.setBonuses(definition.getBonuses());
+                Mob mob = new Mob(parser.nextInt(), player.getPosition());
+                MobDefinition definition = MobDefinition.get(mob.id);
+                mob.definition = definition;
+                mob.setBonuses(definition.getBonuses());
 
                 for (int index = 0; index < definition.getSkills().length; index++) {
-                    npc.skills.setNpcMaxLevel(index, definition.getSkills()[index]);
+                    mob.skills.setNpcMaxLevel(index, definition.getSkills()[index]);
                 }
 
                 CombatStrategy<? super Player> strategy = player.getStrategy();
@@ -941,30 +939,30 @@ public class DeveloperCommandPlugin extends CommandExtension {
 
                 player.getCombat().addModifier(strategy);
 
-                double attackRoll = rollOffensive(player, npc, type.getFormula());
-                double defenceRoll = rollDefensive(player, npc, type.getFormula());
+                double attackRoll = rollOffensive(player, mob, type.getFormula());
+                double defenceRoll = rollDefensive(player, mob, type.getFormula());
                 double chance = attackRoll / (attackRoll + defenceRoll);
                 double accuracy = (int) (chance * 10000) / 100.0;
 
-                int max = getModifiedMaxHit(player, npc, type);
-                max = player.getCombat().modifyDamage(npc, max);
+                int max = getModifiedMaxHit(player, mob, type);
+                max = player.getCombat().modifyDamage(mob, max);
 
                 player.message("");
-                player.message("You have <col=FF0000>" + accuracy + "%</col> accuracy against " + npc.getName() + ".");
-                player.message("Your max hit against " + npc.getName() + " is <col=FF0000>" + max);
+                player.message("You have <col=FF0000>" + accuracy + "%</col> accuracy against " + mob.getName() + ".");
+                player.message("Your max hit against " + mob.getName() + " is <col=FF0000>" + max);
                 player.message("Attack roll: <col=FF0000>" + (int) attackRoll + "</col>  ---  Defence roll: <col=FF0000>" + (int) defenceRoll);
 
                 String rolls = "";
-                rolls += "accuracy: <col=FF0000>" + player.getCombat().modifyAccuracy(npc, 100) + "%</col>  ---  ";
-                rolls += "defence: <col=FF0000>" + player.getCombat().modifyDefensive(npc, 100) + "%</col>  --- ";
-                rolls += "damage: <col=FF0000>" + player.getCombat().modifyDamage(npc, 100) + "%";
+                rolls += "accuracy: <col=FF0000>" + player.getCombat().modifyAccuracy(mob, 100) + "%</col>  ---  ";
+                rolls += "defence: <col=FF0000>" + player.getCombat().modifyDefensive(mob, 100) + "%</col>  --- ";
+                rolls += "damage: <col=FF0000>" + player.getCombat().modifyDamage(mob, 100) + "%";
 
                 String levels = "";
-                levels += "attack: <col=FF0000>" + player.getCombat().modifyAttackLevel(npc, 100) + "%</col> -- ";
-                levels += "strength: <col=FF0000>" + player.getCombat().modifyStrengthLevel(npc, 100) + "%</col> -- ";
-                levels += "defence: <col=FF0000>" + player.getCombat().modifyDefenceLevel(npc, 100) + "%</col> -- ";
-                levels += "ranged: <col=FF0000>" + player.getCombat().modifyRangedLevel(npc, 100) + "%</col> -- ";
-                levels += "magic: <col=FF0000>" + player.getCombat().modifyMagicLevel(npc, 100) + "%";
+                levels += "attack: <col=FF0000>" + player.getCombat().modifyAttackLevel(mob, 100) + "%</col> -- ";
+                levels += "strength: <col=FF0000>" + player.getCombat().modifyStrengthLevel(mob, 100) + "%</col> -- ";
+                levels += "defence: <col=FF0000>" + player.getCombat().modifyDefenceLevel(mob, 100) + "%</col> -- ";
+                levels += "ranged: <col=FF0000>" + player.getCombat().modifyRangedLevel(mob, 100) + "%</col> -- ";
+                levels += "magic: <col=FF0000>" + player.getCombat().modifyMagicLevel(mob, 100) + "%";
 
                 player.getCombat().removeModifier(strategy);
                 player.message(rolls, levels);
@@ -998,9 +996,9 @@ public class DeveloperCommandPlugin extends CommandExtension {
             @Override
             public void execute(Player player, CommandParser parser) {
                 for (PetData pet : PetData.values()) {
-                    Npc npc = new Npc(pet.getNpc(), player.getPosition());
-                    npc.register();
-                    World.schedule(Pets.abandon(npc));
+                    Mob mob = new Mob(pet.getNpc(), player.getPosition());
+                    mob.register();
+                    World.schedule(Pets.abandon(mob));
                 }
             }
         });
@@ -1240,12 +1238,12 @@ public class DeveloperCommandPlugin extends CommandExtension {
                     int one = parser.nextInt();
                     int two = parser.nextInt();
                     Position start = player.getPosition().copy();
-                    if (NpcDefinition.get(one) == null || NpcDefinition.get(two) == null) {
+                    if (MobDefinition.get(one) == null || MobDefinition.get(two) == null) {
                         player.send(new SendMessage("Definition for one or more of the monsters were null."));
                         return;
                     }
-                    Npc boss1 = new Npc(one, new Position(start.getX() - 3, start.getY() + 3));
-                    Npc boss2 = new Npc(two, new Position(start.getX() + 3, start.getY() + 3));
+                    Mob boss1 = new Mob(one, new Position(start.getX() - 3, start.getY() + 3));
+                    Mob boss2 = new Mob(two, new Position(start.getX() + 3, start.getY() + 3));
                     boss1.register();
                     boss2.register();
                     boss1.walk = false;
@@ -1392,11 +1390,11 @@ public class DeveloperCommandPlugin extends CommandExtension {
                         case "COMBAT":
                             new CombatProjectileParser().run();
                             player.send(new SendMessage("Combat projectiles have been successfully loaded."));
-                            World.getNpcs().forEach(Npc::unregister);
-                            NpcDefinition.createParser().run();
+                            World.getNpcs().forEach(Mob::unregister);
+                            MobDefinition.createParser().run();
                             new NpcSpawnParser().run();
                             new NpcForceChatParser().run();
-                            player.send(new SendMessage("Npc spawns have been successfully loaded."));
+                            player.send(new SendMessage("Mob spawns have been successfully loaded."));
                             ItemDefinition.createParser().run();
                             player.send(new SendMessage("Items have been successfully loaded."));
                             CombatListenerManager.load();
@@ -1404,12 +1402,12 @@ public class DeveloperCommandPlugin extends CommandExtension {
                             break;
                         case "NPC":
                         case "SPAWN":
-                            World.getNpcs().forEach(Npc::unregister);
-                            NpcDefinition.createParser().run();
+                            World.getNpcs().forEach(Mob::unregister);
+                            MobDefinition.createParser().run();
                             new NpcSpawnParser().run();
                             new NpcForceChatParser().run();
                             new NpcDropParser().run();
-                            player.send(new SendMessage("Npc spawns have been successfully loaded."));
+                            player.send(new SendMessage("Mob spawns have been successfully loaded."));
                             break;
                         case "SKILL":
                         case "SKILLS":

@@ -1,10 +1,10 @@
 package plugin.click.button;
 
-import io.battlerune.content.dialogue.DialogueFactory;
-import io.battlerune.content.skill.impl.slayer.SlayerTab;
-import io.battlerune.content.skill.impl.slayer.TaskDifficulty;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
+import com.nardah.content.dialogue.DialogueFactory;
+import com.nardah.content.skill.impl.slayer.SlayerTab;
+import com.nardah.content.skill.impl.slayer.TaskDifficulty;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
 
 public class SlayerButtonPlugin extends PluginContext {
 

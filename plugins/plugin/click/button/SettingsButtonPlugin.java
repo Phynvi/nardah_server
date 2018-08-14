@@ -1,15 +1,15 @@
 package plugin.click.button;
 
-import io.battlerune.Config;
-import io.battlerune.content.writer.InterfaceWriter;
-import io.battlerune.content.writer.impl.SettingWriter;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.net.packet.out.SendConfig;
-import io.battlerune.net.packet.out.SendMessage;
-import io.battlerune.net.packet.out.SendScreenMode;
-import io.battlerune.net.packet.out.SendString;
+import com.nardah.Config;
+import com.nardah.content.writer.InterfaceWriter;
+import com.nardah.content.writer.impl.SettingWriter;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.net.packet.out.SendConfig;
+import com.nardah.net.packet.out.SendMessage;
+import com.nardah.net.packet.out.SendScreenMode;
+import com.nardah.net.packet.out.SendString;
 
 public class SettingsButtonPlugin extends PluginContext {
 

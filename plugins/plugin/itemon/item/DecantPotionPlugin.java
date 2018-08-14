@@ -1,15 +1,15 @@
 package plugin.itemon.item;
 
-import io.battlerune.Config;
-import io.battlerune.content.clanchannel.content.ClanTaskKey;
-import io.battlerune.content.consume.PotionData;
-import io.battlerune.game.event.impl.ItemOnItemEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.skill.Skill;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.game.world.items.ItemDefinition;
-import io.battlerune.net.packet.out.SendMessage;
+import com.nardah.Config;
+import com.nardah.content.clanchannel.content.ClanTaskKey;
+import com.nardah.content.consume.PotionData;
+import com.nardah.game.event.impl.ItemOnItemEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.skill.Skill;
+import com.nardah.game.world.items.Item;
+import com.nardah.game.world.items.ItemDefinition;
+import com.nardah.net.packet.out.SendMessage;
 
 public class DecantPotionPlugin extends PluginContext {
 

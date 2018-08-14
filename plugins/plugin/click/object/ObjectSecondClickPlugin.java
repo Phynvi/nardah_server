@@ -1,22 +1,22 @@
 package plugin.click.object;
 
-import io.battlerune.Config;
-import io.battlerune.content.Obelisks;
-import io.battlerune.content.WellOfGoodwill;
-import io.battlerune.content.combat.cannon.CannonManager;
-import io.battlerune.content.dialogue.DialogueFactory;
-import io.battlerune.content.skill.impl.magic.Spellbook;
-import io.battlerune.content.store.impl.PersonalStore;
-import io.battlerune.game.Animation;
-import io.battlerune.game.action.impl.FlaxPickingAction;
-import io.battlerune.game.event.impl.ObjectClickEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.combat.magic.Autocast;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.game.world.object.GameObject;
-import io.battlerune.net.packet.out.SendMessage;
+import com.nardah.Config;
+import com.nardah.content.Obelisks;
+import com.nardah.content.WellOfGoodwill;
+import com.nardah.content.combat.cannon.CannonManager;
+import com.nardah.content.dialogue.DialogueFactory;
+import com.nardah.content.skill.impl.magic.Spellbook;
+import com.nardah.content.store.impl.PersonalStore;
+import com.nardah.game.Animation;
+import com.nardah.game.action.impl.FlaxPickingAction;
+import com.nardah.game.event.impl.ObjectClickEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.World;
+import com.nardah.game.world.entity.combat.magic.Autocast;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.game.world.object.GameObject;
+import com.nardah.net.packet.out.SendMessage;
 
 public class ObjectSecondClickPlugin extends PluginContext {
 

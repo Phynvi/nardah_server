@@ -1,15 +1,15 @@
 package plugin;
 
-import io.battlerune.game.event.impl.DropItemEvent;
-import io.battlerune.game.event.impl.MovementEvent;
-import io.battlerune.game.event.impl.PickupItemEvent;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.UpdateFlag;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.data.ValueIcon;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.game.world.position.Area;
-import io.battlerune.game.world.position.Position;
+import com.nardah.game.event.impl.DropItemEvent;
+import com.nardah.game.event.impl.MovementEvent;
+import com.nardah.game.event.impl.PickupItemEvent;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.UpdateFlag;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.data.ValueIcon;
+import com.nardah.game.world.items.Item;
+import com.nardah.game.world.position.Area;
+import com.nardah.game.world.position.Position;
 
 public class ValueIconPlugin extends PluginContext {
 

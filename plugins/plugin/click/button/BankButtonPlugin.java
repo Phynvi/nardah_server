@@ -1,13 +1,13 @@
 package plugin.click.button;
 
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.items.Item;
-import io.battlerune.net.packet.out.SendConfig;
-import io.battlerune.net.packet.out.SendInputAmount;
-import io.battlerune.net.packet.out.SendMessage;
-import io.battlerune.net.packet.out.SendString;
-import io.battlerune.net.packet.out.SendTooltip;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.items.Item;
+import com.nardah.net.packet.out.SendConfig;
+import com.nardah.net.packet.out.SendInputAmount;
+import com.nardah.net.packet.out.SendMessage;
+import com.nardah.net.packet.out.SendString;
+import com.nardah.net.packet.out.SendTooltip;
 
 public class BankButtonPlugin extends PluginContext {
 

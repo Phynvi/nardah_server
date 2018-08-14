@@ -3,11 +3,11 @@ package plugin.click.button;
 import java.util.Arrays;
 import java.util.Optional;
 
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.entity.combat.attack.FightType;
-import io.battlerune.game.world.entity.combat.magic.Autocast;
-import io.battlerune.game.world.entity.combat.weapon.WeaponInterface;
-import io.battlerune.game.world.entity.actor.player.Player;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.entity.combat.attack.FightType;
+import com.nardah.game.world.entity.combat.magic.Autocast;
+import com.nardah.game.world.entity.combat.weapon.WeaponInterface;
+import com.nardah.game.world.entity.actor.player.Player;
 
 public class CombatButtonPlugin extends PluginContext {
 

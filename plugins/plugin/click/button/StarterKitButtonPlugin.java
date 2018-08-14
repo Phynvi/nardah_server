@@ -1,24 +1,24 @@
 package plugin.click.button;
 
-import static io.battlerune.content.StarterKit.refresh;
+import static com.nardah.content.StarterKit.refresh;
 
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
-import io.battlerune.Config;
-import io.battlerune.content.StarterKit;
-import io.battlerune.content.clanchannel.channel.ClanChannelHandler;
-import io.battlerune.content.dialogue.Expression;
-import io.battlerune.game.plugin.PluginContext;
-import io.battlerune.game.world.World;
-import io.battlerune.game.world.entity.combat.strategy.player.special.CombatSpecial;
-import io.battlerune.game.world.entity.actor.player.Player;
-import io.battlerune.game.world.entity.actor.player.PlayerRight;
-import io.battlerune.game.world.entity.actor.player.persist.PlayerSerializer;
-import io.battlerune.net.packet.out.SendMessage;
-import io.battlerune.net.packet.out.SendSpecialAmount;
-import io.battlerune.util.MessageColor;
-import io.battlerune.util.Utility;
+import com.nardah.Config;
+import com.nardah.content.StarterKit;
+import com.nardah.content.clanchannel.channel.ClanChannelHandler;
+import com.nardah.content.dialogue.Expression;
+import com.nardah.game.plugin.PluginContext;
+import com.nardah.game.world.World;
+import com.nardah.game.world.entity.combat.strategy.player.special.CombatSpecial;
+import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.game.world.entity.actor.player.persist.PlayerSerializer;
+import com.nardah.net.packet.out.SendMessage;
+import com.nardah.net.packet.out.SendSpecialAmount;
+import com.nardah.util.MessageColor;
+import com.nardah.util.Utility;
 
 public class StarterKitButtonPlugin extends PluginContext {
 
