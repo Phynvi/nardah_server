@@ -7,7 +7,6 @@ import com.nardah.content.event.EventDispatcher;
 import com.nardah.content.event.InteractionEvent;
 import com.nardah.content.event.InteractionEventListener;
 import com.nardah.content.event.impl.*;
-import io.battlerune.content.event.impl.*;
 import com.nardah.game.world.World;
 import com.nardah.game.world.entity.Entity;
 import com.nardah.game.world.entity.combat.attack.listener.CombatListener;

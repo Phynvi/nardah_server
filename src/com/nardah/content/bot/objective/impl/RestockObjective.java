@@ -6,7 +6,6 @@ import com.nardah.content.consume.PotionData;
 import com.nardah.content.bot.BotUtility;
 import com.nardah.content.bot.PlayerBot;
 import com.nardah.content.bot.botclass.BotClass;
-import io.battlerune.content.bot.botclass.impl.*;
 import com.nardah.content.bot.objective.BotObjective;
 import com.nardah.content.bot.objective.BotObjectiveListener;
 import com.nardah.game.world.entity.combat.strategy.player.special.CombatSpecial;

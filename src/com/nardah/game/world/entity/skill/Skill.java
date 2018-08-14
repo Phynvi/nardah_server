@@ -5,7 +5,6 @@ import com.nardah.content.event.InteractionEvent;
 import com.nardah.content.event.InteractionEventListener;
 import com.nardah.content.event.impl.*;
 import com.nardah.util.Stopwatch;
-import io.battlerune.content.event.impl.*;
 import com.nardah.game.world.entity.actor.player.Player;
 
 import java.util.function.Function;

@@ -63,6 +63,10 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import static com.nardah.game.world.entity.combat.attack.FormulaFactory.getModifiedMaxHit;
+import static com.nardah.game.world.entity.combat.attack.FormulaFactory.rollDefensive;
+import static com.nardah.game.world.entity.combat.attack.FormulaFactory.rollOffensive;
+
 public class DeveloperCommandPlugin extends CommandExtension {
 
     @Override

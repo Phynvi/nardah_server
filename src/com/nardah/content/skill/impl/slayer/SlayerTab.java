@@ -3,7 +3,6 @@ package com.nardah.content.skill.impl.slayer;
 import com.nardah.game.world.entity.actor.player.Player;
 import com.nardah.game.world.items.Item;
 import com.nardah.net.packet.out.*;
-import io.battlerune.net.packet.out.*;
 import com.nardah.util.Utility;
 
 import java.util.Arrays;

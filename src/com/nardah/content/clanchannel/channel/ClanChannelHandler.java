@@ -3,11 +3,9 @@ package com.nardah.content.clanchannel.channel;
 import com.nardah.Config;
 import com.nardah.content.clanchannel.*;
 import com.nardah.net.packet.out.*;
-import io.battlerune.content.clanchannel.*;
 import com.nardah.game.world.entity.actor.player.Player;
 import com.nardah.game.world.entity.actor.player.PlayerRight;
 import com.nardah.game.world.entity.actor.player.profile.ProfileRepository;
-import io.battlerune.net.packet.out.*;
 import com.nardah.util.Utility;
 
 import java.io.File;

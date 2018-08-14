@@ -8,7 +8,6 @@ import com.nardah.game.world.items.Item;
 import com.nardah.game.world.items.ItemDefinition;
 import com.nardah.game.world.items.containers.ItemContainer;
 import com.nardah.game.world.items.containers.ItemContainerAdapter;
-import io.battlerune.net.packet.out.*;
 
 import java.text.NumberFormat;
 import java.util.Optional;

@@ -2,9 +2,9 @@ package com.nardah.content.bot.objective;
 
 import com.nardah.content.bot.objective.impl.*;
 import com.nardah.content.bot.PlayerBot;
-import io.battlerune.content.bot.objective.impl.*;
 
 public enum BotObjective implements BotObjectiveListener {
+	
 	WALK_IN_WILDERNESS(new WildernessWalkObjective()), WALK_TO_DITCH(new WildernessDitchObjective()), WALK_TO_BANK(new BankObjective()), RESTOCK(new RestockObjective()), COMBAT(new CombatObjective());
 
 	private final BotObjectiveListener listener;

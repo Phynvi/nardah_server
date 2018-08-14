@@ -2,7 +2,6 @@ package com.nardah.game.world.entity.combat.effect;
 
 import com.google.common.collect.ImmutableSet;
 import com.nardah.game.world.entity.combat.effect.impl.*;
-import io.battlerune.game.world.entity.combat.effect.impl.*;
 
 /**
  * The enumerated type whose values represent the collection of different combat

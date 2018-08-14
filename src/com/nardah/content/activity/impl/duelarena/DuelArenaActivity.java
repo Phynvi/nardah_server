@@ -18,7 +18,6 @@ import com.nardah.game.world.items.containers.pricechecker.PriceType;
 import com.nardah.game.world.pathfinding.TraversalMap;
 import com.nardah.game.world.position.Position;
 import com.nardah.net.packet.out.*;
-import io.battlerune.net.packet.out.*;
 import com.nardah.util.Utility;
 
 import java.util.ArrayList;

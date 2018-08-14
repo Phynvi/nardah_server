@@ -28,28 +28,28 @@ public final class CannonFireAction extends Task {
 		}
 
 		switch(cannon.getRotation()) {
-			case CannonManager.Rotation.NORTH:
+			case NORTH:
 				cannon.setRotation(CannonManager.Rotation.NORTH_EAST);
 				break;
-			case CannonManager.Rotation.NORTH_EAST:
+			case NORTH_EAST:
 				cannon.setRotation(CannonManager.Rotation.EAST);
 				break;
-			case CannonManager.Rotation.EAST:
+			case EAST:
 				cannon.setRotation(CannonManager.Rotation.SOUTH_EAST);
 				break;
-			case CannonManager.Rotation.SOUTH_EAST:
+			case SOUTH_EAST:
 				cannon.setRotation(CannonManager.Rotation.SOUTH);
 				break;
-			case CannonManager.Rotation.SOUTH:
+			case SOUTH:
 				cannon.setRotation(CannonManager.Rotation.SOUTH_WEST);
 				break;
-			case CannonManager.Rotation.SOUTH_WEST:
+			case SOUTH_WEST:
 				cannon.setRotation(CannonManager.Rotation.WEST);
 				break;
-			case CannonManager.Rotation.WEST:
+			case WEST:
 				cannon.setRotation(CannonManager.Rotation.NORTH_WEST);
 				break;
-			case CannonManager.Rotation.NORTH_WEST:
+			case NORTH_WEST:
 				cannon.setRotation(CannonManager.Rotation.NORTH);
 				break;
 		}

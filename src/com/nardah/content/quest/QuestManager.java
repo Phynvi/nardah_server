@@ -2,7 +2,6 @@ package com.nardah.content.quest;
 
 import com.nardah.content.quest.impl.*;
 import com.nardah.content.event.InteractionEvent;
-import io.battlerune.content.quest.impl.*;
 import com.nardah.game.world.entity.actor.player.Player;
 
 import java.util.Optional;

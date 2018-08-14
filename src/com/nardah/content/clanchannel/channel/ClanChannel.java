@@ -19,7 +19,6 @@ import com.nardah.net.packet.out.SendTooltip;
 import com.nardah.util.Difficulty;
 import com.nardah.util.Utility;
 import com.nardah.util.parser.GsonParser;
-import io.battlerune.content.clanchannel.content.*;
 import com.nardah.game.world.entity.actor.player.Player;
 
 import java.util.*;

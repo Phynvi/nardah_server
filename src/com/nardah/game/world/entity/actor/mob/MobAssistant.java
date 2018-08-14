@@ -29,7 +29,6 @@ import com.nardah.game.world.entity.combat.strategy.npc.boss.skotizo.Skotizo;
 import com.nardah.util.parser.impl.NpcForceChatParser;
 import com.nardah.game.task.impl.ForceChatEvent;
 import com.nardah.game.world.World;
-import io.battlerune.game.world.entity.combat.strategy.npc.boss.*;
 
 import java.util.HashMap;
 import java.util.Map;

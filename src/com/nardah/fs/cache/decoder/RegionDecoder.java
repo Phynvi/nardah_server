@@ -10,7 +10,6 @@ import com.nardah.game.world.region.RegionDefinition;
 import com.nardah.fs.cache.FileSystem;
 import com.nardah.fs.util.ByteBufferUtil;
 import com.nardah.fs.util.CompressionUtil;
-import io.battlerune.game.world.object.*;
 import com.nardah.game.world.region.Region;
 import com.nardah.util.log.LogManager;
 import com.nardah.util.log.Logger;

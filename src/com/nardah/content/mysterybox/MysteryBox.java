@@ -1,7 +1,6 @@
 package com.nardah.content.mysterybox;
 
 import com.nardah.content.mysterybox.impl.*;
-import io.battlerune.content.mysterybox.impl.*;
 import com.nardah.game.world.items.Item;
 
 import java.util.HashMap;

@@ -8,7 +8,6 @@ import com.nardah.content.event.EventDispatcher;
 import com.nardah.content.event.InteractionEvent;
 import com.nardah.content.event.InteractionEvent.InteractionType;
 import com.nardah.content.event.InteractionEventListener;
-import io.battlerune.content.event.impl.*;
 import com.nardah.game.world.entity.actor.player.Player;
 import com.nardah.net.packet.out.SendMessage;
 import com.nardah.net.packet.out.SendScrollbar;

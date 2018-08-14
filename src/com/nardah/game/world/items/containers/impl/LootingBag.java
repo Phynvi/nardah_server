@@ -10,7 +10,6 @@ import com.nardah.game.world.entity.actor.player.Player;
 import com.nardah.game.world.items.Item;
 import com.nardah.game.world.items.containers.ItemContainer;
 import com.nardah.game.world.items.containers.ItemContainerAdapter;
-import io.battlerune.net.packet.out.*;
 
 /**
  * Handles the looting bag container.

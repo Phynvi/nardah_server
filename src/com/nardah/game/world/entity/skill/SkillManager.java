@@ -30,7 +30,6 @@ import com.nardah.game.world.entity.actor.Actor;
 import com.nardah.game.world.entity.actor.UpdateFlag;
 import com.nardah.game.world.entity.actor.player.Player;
 import com.nardah.game.world.entity.actor.prayer.Prayer;
-import io.battlerune.net.packet.out.*;
 
 import java.util.LinkedList;
 import java.util.List;

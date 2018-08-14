@@ -1,7 +1,6 @@
 package com.nardah.content.skill.impl.agility.obstacle;
 
 import com.nardah.content.skill.impl.agility.obstacle.impl.*;
-import io.battlerune.content.skill.impl.agility.obstacle.impl.*;
 import com.nardah.game.world.entity.actor.player.Player;
 import com.nardah.game.world.position.Position;
 
