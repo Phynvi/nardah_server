@@ -1,0 +1,286 @@
+[
+  {
+    "id": 869,
+    "name": "Morphic's Team",
+    "type": 10,
+    "rotation": "EAST",
+    "position": {
+      "x": 2547,
+      "y": 3822
+    }
+  },
+  {
+    "id": 3680,
+    "name": "Mophic's Team",
+    "type": 10,
+    "rotation": "EAST",
+    "position": {
+      "x": 2537,
+      "y": 3822
+    }
+  },
+  {
+    "id": 6084,
+    "name": "Blurite bank booth",
+    "type": 10,
+    "rotation": "EAST",
+    "position": {
+      "x": 2858,
+      "y": 3552,
+      "z": 0
+    }
+  },
+  {
+    "id": 6943,
+    "name": "Bank (Outside Gamble)",
+    "type": 10,
+    "rotation": "NORTH",
+    "position": {
+      "x": 2459,
+      "y": 3096,
+      "z": 0
+    }
+  },
+    {
+    "id": 4150,
+    "name": "Portal",
+    "type": 10,
+    "rotation": "NORTH",
+    "position": {
+      "x": 3080,
+      "y": 3499,
+      "z": 0
+    }
+  },
+  {
+    "id": 6084,
+    "name": "Blurite bank booth",
+    "type": 10,
+    "rotation": "EAST",
+    "position": {
+      "x": 2856,
+      "y": 3552,
+      "z": 0
+    }
+  },
+  {
+    "id": 6084,
+    "name": "Blurite bank booth",
+    "type": 10,
+    "rotation": "NORTH",
+    "position": {
+      "x": 2857,
+      "y": 3551,
+      "z": 0
+    }
+  },
+  {
+    "id": 6084,
+    "name": "Blurite bank booth",
+    "type": 10,
+    "rotation": "NORTH",
+    "position": {
+      "x": 2857,
+      "y": 3553,
+      "z": 0
+    }
+  },
+  {
+    "id": 29241,
+    "name": "Restoration pool (Staff Zone)",
+    "type": 10,
+    "rotation": "NORTH",
+    "position": {
+      "x": 3109,
+      "y": 3156,
+      "z": 3
+    }
+  },
+  {
+    "id": 29150,
+    "name": "Occult altar (Staff Zone)",
+    "type": 10,
+    "rotation": "SOUTH",
+    "position": {
+      "x": 3111,
+      "y": 3156,
+      "z": 3
+    }
+  },
+  {
+    "id": 11601,
+    "name": "Pottery (Flax)",
+    "type": 10,
+    "rotation": "SOUTH",
+    "position": {
+      "x": 2736,
+      "y": 3440,
+      "z": 0
+    }
+  },
+  {
+    "id": 4309,
+    "name": "Spinning wheel (Flax)",
+    "type": 10,
+    "rotation": "NORTH",
+    "position": {
+      "x": 2736,
+      "y": 3448,
+      "z": 0
+    }
+  },
+  {
+    "id": 6943,
+    "name": "Bank (mining falador)",
+    "type": 10,
+    "rotation": "NORTH",
+    "position": {
+      "x": 3044,
+      "y": 9776,
+      "z": 0
+    }
+  },
+  {
+	    "id": 3399,
+	    "name": "Search for Tokens",
+	    "type": 10,
+	    "rotation": "NORTH",
+	    "position": {
+	      "x": 2853,
+	      "y": 3546,
+	      "z": 0
+	    }
+	  },
+  {
+    "id": 6943,
+    "name": "Bank (mining falador)",
+    "type": 10,
+    "rotation": "NORTH",
+    "position": {
+      "x": 3045,
+      "y": 9776,
+      "z": 0
+    }
+  },
+  {
+    "id": 6943,
+    "name": "Bank (mining falador)",
+    "type": 10,
+    "rotation": "NORTH",
+    "position": {
+      "x": 3046,
+      "y": 9776,
+      "z": 0
+    }
+  },
+  {
+    "id": 26254,
+    "name": "Donator Deposit (giant mole)",
+    "type": 10,
+    "rotation": "WEST",
+    "position": {
+      "x": 1754,
+      "y": 5187,
+      "z": 0
+    }
+  },
+  {
+    "id": 26254,
+    "name": "Donator Deposit (wyverns)",
+    "type": 10,
+    "rotation": "EAST",
+    "position": {
+      "x": 3058,
+      "y": 9563,
+      "z": 0
+    }
+  },
+  {
+    "id": 26254,
+    "name": "Donator Deposit (mining varrock)",
+    "type": 10,
+    "rotation": "EAST",
+    "position": {
+      "x": 3290,
+      "y": 3372,
+      "z": 0
+    }
+  },
+  {
+    "id": 26254,
+    "name": "Donator Deposit (fishing)",
+    "type": 10,
+    "rotation": "NORTH",
+    "position": {
+      "x": 2837,
+      "y": 3437,
+      "z": 0
+    }
+  },
+  {
+    "id": 26254,
+    "name": "Donator Deposit (Puro puro)",
+    "type": 10,
+    "rotation": "NORTH",
+    "position": {
+      "x": 2594,
+      "y": 4317,
+      "z": 0
+    }
+  },
+  {
+    "id": 26254,
+    "name": "Donator Deposit (Flax)",
+    "type": 10,
+    "rotation": "NORTH",
+    "position": {
+      "x": 2736,
+      "y": 3444,
+      "z": 0
+    }
+  },
+  {
+    "id": 7409,
+    "name": "CW BANK",
+    "type": 10,
+    "rotation": "NORTH",
+    "position": {
+      "x": 2444,
+      "y": 3084,
+      "z": 0
+    }
+  },
+  {
+    "id": 7409,
+    "name": "CW BANK",
+    "type": 10,
+    "rotation": "NORTH",
+    "position": {
+      "x": 2444,
+      "y": 3083,
+      "z": 0
+    }
+  },
+  {
+    "id": 7409,
+    "name": "CW BANK",
+    "type": 10,
+    "rotation": "NORTH",
+    "position": {
+      "x": 2444,
+      "y": 3082,
+      "z": 0
+    }
+  },
+  {
+    "id": 11735,
+    "name": "Toy soldier quest",
+    "type": 10,
+    "rotation": "WEST",
+    "position": {
+      "x": 3194,
+      "y": 3960,
+      "z": 0
+    }
+  }
+]

@@ -1,0 +1,75 @@
+[server]
+server_name = "Nardah"
+server_port = 43594
+server_debug = false
+live_server = true
+test_world = false
+server_cycle_debug = false
+parallel_game_engine = false
+
+[services]
+highscores_enabled = true
+
+[client]
+client_version = 5
+cache_version = 3
+
+[game]
+skull_time = 720
+log_player = true
+npc_bits = 16
+npc_walking_radius = 5
+max_players = 2048
+max_npcs = 33000
+max_bots = 10 
+npc_definition_limit = 8399
+item_definition_limit = 22517
+combat_modifier = 100.0
+agility_modifier = 50.0
+cooking_modifier = 50.0
+crafting_modifier = 50.0
+firemaking_modifier = 50.0
+fletching_modifier = 50.0
+herblore_modifier = 50.0
+hunter_modifier = 50.0
+magic_modifier = 50.0
+mining_modifier = 50.0
+prayer_modifier =  50.0
+runecrafting_modifier = 50.0
+slayer_modifier = 50.0
+woodcutting_modifier = 50.0
+thieving_modifier = 50.0
+smithing_modifier = 50.0
+fishing_modifier = 50.0
+farming_modifier = 50.0
+
+[network]
+connection_limit = 3
+failed_login_attempts = 5
+failed_login_timeout = 1
+login_threshold = 20
+logout_threshold = 20
+client_packet_threshold = 30
+idle_timeout = 15
+display_packets = true
+resource_leak_detection = "DISABLED"
+rsa_modulus = "94904992129904410061849432720048295856082621425118273522925386720620318960919649616773860564226013741030211135158797393273808089000770687087538386210551037271884505217469135237269866084874090369313013016228010726263597258760029391951907049483204438424117908438852851618778702170822555894057960542749301583313"
+rsa_exponent = "72640252303588278644467876834506654511692882736878142674473705672822320822095174696379303197013981434572187481298130748148385818094460521624198552406940508805602215708418094058951352076283100448576575511642453669107583920561043364042814766866691981132717812444681081534760715694225059124574441435942822149161"
+
+[website]
+website_url = "http://runity.io"
+website_integration = false
+forum_db_url = "jdbc:mysql://runity.io:3306/runity_global"
+forum_db_user = "runity_root"
+forum_db_pass = "JNfIn3IvH5$V"
+
+[discord]
+token = "MzczOTYzMDU5NDc3MjE3Mjkx.DNaXwA.BhZzB5FnopplnSpfkW0cDcn_zXE"
+
+[postgre]
+postgre_url = "jdbc:postgresql://170.178.188.106:5432/frostblades"
+postgre_user = "root"
+postgre_pass = ""
+
+[vps]
+vps_ip = "35.184.230.63"
