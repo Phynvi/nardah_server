@@ -124,7 +124,7 @@ public class Obelisks {
 			}
 		}
 		
-		static ObeliskData getRandom(ObeliskData exclude) {
+		public static ObeliskData getRandom(ObeliskData exclude) {
 			ArrayList<ObeliskData> locations = new ArrayList<>(Arrays.asList(values()));
 			locations.remove(exclude);
 			return locations.get(Utility.random(locations.size() - 1));

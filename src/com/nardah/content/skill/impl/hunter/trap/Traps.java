@@ -42,7 +42,7 @@ public enum Traps {
 	 */
 	private int baseLevel;
 
-	private Traps(String option, Item[] items, int objectId, int[][] animations, int baseLevel) {
+	Traps(String option, Item[] items, int objectId, int[][] animations, int baseLevel) {
 		this.option = option;
 		this.items = items;
 		this.objectId = objectId;
