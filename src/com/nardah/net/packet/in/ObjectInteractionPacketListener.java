@@ -1,5 +1,7 @@
 package com.nardah.net.packet.in;
 
+import com.nardah.action.ActionContainer;
+import com.nardah.action.impl.ObjectAction;
 import com.nardah.content.event.EventDispatcher;
 import com.nardah.content.event.impl.FirstObjectClick;
 import com.nardah.content.event.impl.ObjectInteractionEvent;
@@ -30,6 +32,10 @@ import static com.google.common.base.Preconditions.checkState;
  */
 @PacketListenerMeta({ClientPackets.FIRST_CLICK_OBJECT, ClientPackets.SECOND_CLICK_OBJECT, ClientPackets.THIRD_CLICK_OBJECT})
 public class ObjectInteractionPacketListener implements PacketListener {
+	
+	public static ActionContainer<ObjectAction> FIRST = new ActionContainer<>();
+	public static ActionContainer<ObjectAction> SECOND = new ActionContainer<>();
+	public static ActionContainer<ObjectAction> THIRD = new ActionContainer<>();
 
 	@Override
 	public void handlePacket(final Player player, GamePacket packet) {
@@ -128,11 +134,31 @@ public class ObjectInteractionPacketListener implements PacketListener {
 		player.face(object);
 		ObjectInteractionEvent event;
 
+		ObjectAction action = null;
+		
 		if(type == 2) {
+			action = SECOND.get(object.getId());
+			if(action != null) {
+				if(action.click(player, object, 2)) {
+					return;
+				}
+			}
 			event = new SecondObjectClick(object);
 		} else if(type == 3) {
+			action = THIRD.get(object.getId());
+			if(action != null) {
+				if(action.click(player, object, 3)) {
+					return;
+				}
+			}
 			event = new ThirdObjectClick(object);
 		} else {
+			action = FIRST.get(object.getId());
+			if(action != null) {
+				if(action.click(player, object, 1)) {
+					return;
+				}
+			}
 			event = new FirstObjectClick(object);
 		}
 

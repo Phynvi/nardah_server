@@ -138,8 +138,4 @@ public enum StaffAction implements ActionEffect<Player> {
 		return rights;
 	}
 
-	public static Optional<StaffAction> forAction(int button) {
-		return Arrays.stream(values()).filter(a -> a.button == button).findAny();
-	}
-
 }

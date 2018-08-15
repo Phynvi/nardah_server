@@ -1,5 +1,7 @@
 package com.nardah;
 
+import com.nardah.action.ActionContainer;
+import com.nardah.action.impl.ButtonAction;
 import com.nardah.content.WellOfGoodwill;
 import com.nardah.content.activity.record.GlobalRecords;
 import com.nardah.content.clanchannel.ClanRepository;
@@ -79,6 +81,7 @@ public final class Nardah {
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
+		ActionContainer.loadEvents();
 		ItemDefinition.createParser().run();
 		MobDefinition.createParser().run();
 		new CombatProjectileParser().run();

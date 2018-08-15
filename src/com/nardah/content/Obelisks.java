@@ -1,5 +1,6 @@
 package com.nardah.content;
 
+import com.nardah.action.impl.ObjectAction;
 import com.nardah.content.skill.impl.magic.teleport.Teleportation;
 import com.nardah.content.writer.InterfaceWriter;
 import com.nardah.content.writer.impl.ObeliskWriter;
@@ -47,14 +48,7 @@ public class Obelisks {
 		player.interfaceManager.open(51000);
 	}
 	
-	public boolean activate(Player player, int objectId) {
-		ObeliskData location = ObeliskData.forObject(objectId);
-		return location != null && activate(player, objectId, ObeliskData.getRandom(location));
-	}
-	
-	public boolean activate(Player player, int objectId, ObeliskData destination) {
-		ObeliskData location = ObeliskData.forObject(objectId);
-		
+	public boolean activate(Player player, int objectId, ObeliskData destination, ObeliskData location) {
 		if(location == null)
 			return false;
 		
@@ -117,13 +111,17 @@ public class Obelisks {
 			return boundary;
 		}
 		
-		static ObeliskData forObject(int objectId) {
-			for(ObeliskData l : values()) {
-				if(l.objectId == objectId) {
-					return l;
-				}
+		public static void init() {
+			for(ObeliskData data : ObeliskData.values()) {
+				ObjectAction action = new ObjectAction() {
+					@Override
+					public boolean click(Player player, GameObject object, int click) {
+						Obelisks.get().activate(player, object.getId(), ObeliskData.getRandom(data), data);
+						return true;
+					}
+				};
+				action.registerFirst(data.objectId);
 			}
-			return null;
 		}
 		
 		static ObeliskData getRandom(ObeliskData exclude) {

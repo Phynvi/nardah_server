@@ -141,12 +141,10 @@ public class ObjectFirstClickPlugin extends PluginContext {
 
 		case 16529:
 			player.move(new Position(3142, 3513));
-
 			break;
 
 		case 16530:
 			player.move(new Position(3137, 3516));
-
 			break;
 
 		case 25016:

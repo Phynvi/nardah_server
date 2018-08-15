@@ -5,7 +5,7 @@ import com.nardah.content.dialogue.Dialogue;
 import com.nardah.content.event.EventDispatcher;
 import com.nardah.content.event.impl.ClickButtonInteractionEvent;
 import com.nardah.game.world.entity.actor.Actor;
-import plugin.click.button.StarterKitButtonPlugin;
+import com.nardah.action.but.StarterKitButtonAction;
 
 public enum PacketType {
 	COMBAT {
@@ -50,7 +50,7 @@ public enum PacketType {
 				return true;
 			if(Dialogue.isDialogueButton(button))
 				return true;
-			if(StarterKitButtonPlugin.isButton(button))
+			if(StarterKitButtonAction.isButton(button))
 				return true;
 			if(actor.inActivity(ActivityType.TUTORIAL) && EventDispatcher.execute(actor.getPlayer(), new ClickButtonInteractionEvent(button)))
 				return true;

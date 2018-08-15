@@ -378,11 +378,11 @@ public abstract class Activity implements InteractionEventListener {
 		dispatcher.dispatch(InteractionEvent.InteractionType.FIRST_ITEM_CLICK, e -> clickItem(player, (FirstItemClickInteractionEvent) e));
 		dispatcher.dispatch(InteractionEvent.InteractionType.SECOND_ITEM_CLICK, e -> clickItem(player, (SecondItemClickInteractionEvent) e));
 		dispatcher.dispatch(InteractionEvent.InteractionType.THIRD_ITEM_CLICK, e -> clickItem(player, (ThirdItemClickInteractionEvent) e));
-		//		dispatcher.dispatch(InteractionType.FOURTH_ITEM_CLICK, e -> clickItem(player, (FourthItemClick) e));
+		//dispatcher.dispatch(InteractionType.FOURTH_ITEM_CLICK, e -> clickItem(player, (FourthItemClick) e));
 		dispatcher.dispatch(InteractionEvent.InteractionType.FIRST_CLICK_NPC, e -> clickNpc(player, (FirstNpcClick) e));
 		dispatcher.dispatch(InteractionEvent.InteractionType.SECOND_CLICK_NPC, e -> clickNpc(player, (SecondNpcClick) e));
-		//		dispatcher.dispatch(InteractionType.CLICK_NPC, e -> clickNpc(player, (ThirdNpcClick) e));
-		//		dispatcher.dispatch(InteractionType.CLICK_NPC, e -> clickNpc(player, (FourthNpcClick) e));
+		//dispatcher.dispatch(InteractionType.CLICK_NPC, e -> clickNpc(player, (ThirdNpcClick) e));
+		//dispatcher.dispatch(InteractionType.CLICK_NPC, e -> clickNpc(player, (FourthNpcClick) e));
 		dispatcher.dispatch(InteractionEvent.InteractionType.FIRST_CLICK_OBJECT, e -> clickObject(player, (FirstObjectClick) e));
 		dispatcher.dispatch(InteractionEvent.InteractionType.SECOND_CLICK_OBJECT, e -> clickObject(player, (SecondObjectClick) e));
 		dispatcher.dispatch(InteractionEvent.InteractionType.THIRD_CLICK_OBJECT, e -> clickObject(player, (ThirdObjectClick) e));
