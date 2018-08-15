@@ -393,6 +393,7 @@ public class Utility {
 	 */
 	public static List<Object> getClassesInDirectory(String directory) {
 		List<Object> classes = new LinkedList<>();
+		directory = directory.replace("com.nardah.action.", "");
 		File dir = new File(directory);
 		if(!dir.exists() || !dir.isDirectory()) {
 			return classes;
@@ -416,7 +417,7 @@ public class Utility {
 				classes.add(o);
 			}
 		} catch(ClassNotFoundException | IllegalAccessException | InstantiationException e) {
-			// e.printStackTrace();
+			//e.printStackTrace();
 		}
 		return classes;
 	}
