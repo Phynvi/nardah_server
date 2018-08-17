@@ -59,11 +59,6 @@ public class Thieving extends Skill {
 			return false;
 		}
 
-		if (player.getCombat().inCombat()) {
-			player.send(new SendMessage("You can not do this while in combat."));
-			return false;
-		}
-
 		if(player.skills.get(THIEVING).isDoingSkill()) {
 			return true;
 		}

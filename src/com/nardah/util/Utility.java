@@ -28,12 +28,6 @@ import java.util.stream.Stream;
  * @edited Adam_#6723
  */
 public class Utility {
-
-	public static void main(String[] args) {
-		for (int i = -7484; i <= -7440; i++) {
-			System.out.println(i);
-		}
-	}
 	
 	/**
 	 * Random instance, used to generate pseudo-random primitive types.

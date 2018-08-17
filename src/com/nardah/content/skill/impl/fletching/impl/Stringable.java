@@ -52,17 +52,17 @@ public enum Stringable implements Fletchable {
 			case MAGIC_LONGBOWBOWS:
 				return 6689;
 			case BRONZE_CROSSBOWS:
-				return 4436;
-			case IRON_CROSSBOWS:
-				return 4438;
+				return 9454;
 			case STEEL_CROSSBOWS:
-				return 4439;
+				return 9457;
+			case IRON_CROSSBOWS:
+				return 9459;
 			case MITHRIL_CROSSBOWS:
-				return 4440;
+				return 9461;
 			case ADAMANT_CROSSBOWS:
-				return 4441;
+				return 9463;
 			case RUNITE_CROSSBOWS:
-				return 4442;
+				return 9465;
 			default:
 				return 6678;
 		}
