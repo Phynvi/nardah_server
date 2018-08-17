@@ -1,4 +1,4 @@
-package com.nardah.filesystem;
+package com.nardah.fs.cache;
 
 import com.google.common.base.Preconditions;
 

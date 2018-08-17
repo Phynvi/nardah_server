@@ -16,7 +16,7 @@ import java.util.Map;
 public final class HighscoreService {
 	
 	private static Logger logger = LogManager.getLogger(LoggerType.DATABASE);
-	private static final String CONNECTION_STRING = "jdbc:mysql://localhost:3306/nardah";
+	private static final String CONNECTION_STRING = "jdbc:mysql://localhost:3306/runity";
 	private static final String USERNAME = "root";
 	private static final String PASSWORD = "";
 	

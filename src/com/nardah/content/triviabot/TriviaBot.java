@@ -49,6 +49,7 @@ public class TriviaBot {
 	public static void assign() {
 		answeredAt = Long.MAX_VALUE;
 		CURRENT = Utility.randomElement(DATA);
+		CURRENT.rerandomize();
 		answeredPlayers.clear();
 		String toSend = CURRENT.getQuestion().replaceAll("%.*", "");
 		if(toSend.length() < 74) {

@@ -1,8 +1,8 @@
-package com.nardah.filesystem.decoder;
+package com.nardah.fs.cache.decoder;
 
 import com.nardah.game.world.region.RegionDefinition;
-import com.nardah.filesystem.FileSystem;
-import com.nardah.filesystem.archive.Archive;
+import com.nardah.fs.cache.FileSystem;
+import com.nardah.fs.cache.archive.Archive;
 import com.nardah.util.log.LogManager;
 import com.nardah.util.log.Logger;
 import com.nardah.util.log.LoggerType;

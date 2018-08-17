@@ -1,4 +1,4 @@
-package com.nardah.net.packet;
+package com.nardah.io;
 
 import com.nardah.net.packet.PacketListener;
 import com.nardah.net.packet.PacketListenerMeta;

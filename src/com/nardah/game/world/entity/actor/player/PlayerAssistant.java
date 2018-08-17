@@ -120,8 +120,8 @@ public class PlayerAssistant {
 		// Toolkit.TOOLS.forEach(t -> player.toolkit.fill(t.getId()));
 		player.getCombat().resetTimers(-CombatConstants.COMBAT_LOGOUT_COOLDOWN);
 		player.send(new SendEntityFeed(null, 0, 0));
-		player.send(new SendString(PlayerRight.isManagement(player) ? "Open management panel" : "www.nardah.com", 29404));
-		player.send(new SendTooltip(PlayerRight.isManagement(player) ? "Open management panel" : "Open website www.nardah.com", 29404));
+		player.send(new SendString(PlayerRight.isManagement(player) ? "Open management panel" : "www.runity.io", 29404));
+		player.send(new SendTooltip(PlayerRight.isManagement(player) ? "Open management panel" : "Open website www.runity.io", 29404));
 		player.send(new SendSpecialAmount());
 		InterfaceWriter.write(new InformationWriter(player));
 	}

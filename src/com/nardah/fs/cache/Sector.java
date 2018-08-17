@@ -1,7 +1,7 @@
-package com.nardah.filesystem;
+package com.nardah.fs.cache;
 
 import com.google.common.base.Preconditions;
-import com.nardah.filesystem.util.ByteBufferUtil;
+import com.nardah.fs.util.ByteBufferUtil;
 
 import java.nio.ByteBuffer;
 

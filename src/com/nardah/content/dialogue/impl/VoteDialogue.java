@@ -30,10 +30,10 @@ public class VoteDialogue extends Dialogue {
 		}, "Exchange vote token", () -> {
 			World.schedule(1, () -> player.send(new SendInputAmount("How many vote tokens would you like to exchange?", 10, input -> exchange(factory, Integer.parseInt(input)))));
 		}, "Show me your voting store!", () -> {
-			Store.STORES.get("Nardah Vote Store").open(player);
+			Store.STORES.get("Runity Vote Store").open(player);
 		}, "I would like to vote to support this great server!", () -> {
-			player.send(new SendURL("https://www.nardah.com/vote"));
-			factory.sendNpcChat(7481, "Thank you for voting!");
+			player.send(new SendURL("https://www.runity.io/vote"));
+			factory.sendNpcChat(7481, "THANK-YOU FOR VOTING!!!!");
 		}, "Nevermind, I don't want to do anything for this server.", () -> {
 			player.damage(new Hit(5, Hitsplat.CRITICAL, HitIcon.CANON));
 			factory.clear();

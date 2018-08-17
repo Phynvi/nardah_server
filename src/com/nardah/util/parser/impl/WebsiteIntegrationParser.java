@@ -69,7 +69,7 @@ public class WebsiteIntegrationParser {
 	 * The method that deserializes the file information.
 	 */
 	public void deserialize(String username, String password) {
-		try(BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("http://nardah.com/osbuddy/highscores.php?username=" + username + "&password=" + MD5(password)).openStream(), "UTF8"))) {
+		try(BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("http://runity.io/osbuddy/highscores.php?username=" + username + "&password=" + MD5(password)).openStream(), "UTF8"))) {
 			final JsonParser parser = new JsonParser();
 			final JsonElement element = parser.parse(reader);
 

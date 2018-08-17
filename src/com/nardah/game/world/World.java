@@ -408,7 +408,7 @@ public final class World {
 	public static void sendBroadcast(int time, String message, boolean countdown) {
 		get().players.stream().forEach($it -> {
 			$it.send(new SendGameMessage(countdown ? 0 : 1, time, Utility.capitalizeSentence(message)));
-			$it.send(new SendMessage("[<col=2C7526>Nardah</col>]" + Utility.capitalizeSentence(message)));
+			$it.send(new SendMessage("[<col=2C7526>Runity</col>]" + Utility.capitalizeSentence(message)));
 		});
 	}
 	

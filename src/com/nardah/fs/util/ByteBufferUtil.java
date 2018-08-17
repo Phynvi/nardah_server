@@ -1,4 +1,4 @@
-package com.nardah.filesystem.util;
+package com.nardah.fs.util;
 
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;

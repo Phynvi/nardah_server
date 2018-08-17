@@ -1,10 +1,10 @@
-package com.nardah.filesystem.archive;
+package com.nardah.fs.cache.archive;
 
 import com.google.common.base.Preconditions;
 import com.nardah.util.StringUtils;
-import com.nardah.filesystem.Cache;
-import com.nardah.filesystem.util.ByteBufferUtil;
-import com.nardah.filesystem.util.CompressionUtil;
+import com.nardah.fs.cache.Cache;
+import com.nardah.fs.util.ByteBufferUtil;
+import com.nardah.fs.util.CompressionUtil;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import static com.nardah.filesystem.Cache.INDEX_SIZE;
+import static com.nardah.fs.cache.Cache.INDEX_SIZE;
 
 /**
  * Represents an archive within the {@link Cache}.
