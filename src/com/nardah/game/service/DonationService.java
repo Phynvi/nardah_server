@@ -14,19 +14,19 @@ import java.util.concurrent.TimeUnit;
 public final class DonationService {
 	
 	private static final Logger logger = LogManager.getLogger(LoggerType.DATABASE);
-	private static final String USER = "osroyjs_exo1";
-	private static final String PASS = "ouFREO0euNgB";
-	private static final String CONNECTION_STRING = "jdbc:mysql://osroyale.com:3306/osroyjs_store_2";
+	private static final String USER = "runity_root";
+	private static final String PASS = "JNfIn3IvH5$V";
+	private static final String CONNECTION_STRING = "jdbc:mysql://nardah.com:3306/runity_store";
 	
 	private DonationService() {
 	
 	}
 	
 	public static void claimDonation(Player player) {
-		if(!player.databaseRequest.elapsed(1, TimeUnit.MINUTES)) {
-			player.dialogueFactory.sendNpcChat(5523, "You can only check our database once every 1 minute!").execute();
-			return;
-		}
+//		if(!player.databaseRequest.elapsed(1, TimeUnit.MINUTES)) {
+//			player.dialogueFactory.sendNpcChat(5523, "You can only check our database once every 1 minute!").execute();
+//			return;
+//		}
 		
 		if(!player.inventory.isEmpty()) {
 			player.dialogueFactory.sendNpcChat(5523, Expression.SAD, "You must have an empty inventory to do this!").execute();

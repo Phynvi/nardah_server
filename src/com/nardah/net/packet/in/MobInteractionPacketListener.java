@@ -1,7 +1,5 @@
 package com.nardah.net.packet.in;
 
-import com.nardah.action.ActionContainer;
-import com.nardah.action.impl.MobAction;
 import com.nardah.content.event.EventDispatcher;
 import com.nardah.content.event.impl.FirstNpcClick;
 import com.nardah.content.event.impl.SecondNpcClick;
@@ -9,11 +7,10 @@ import com.nardah.game.action.impl.NpcFaceAction;
 import com.nardah.game.event.impl.NpcClickEvent;
 import com.nardah.game.plugin.PluginManager;
 import com.nardah.game.world.World;
-import com.nardah.game.world.entity.combat.magic.CombatSpell;
-import com.nardah.game.world.position.Position;
-import com.nardah.net.packet.out.SendMessage;
 import com.nardah.game.world.entity.actor.data.PacketType;
 import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.game.world.entity.combat.magic.CombatSpell;
+import com.nardah.game.world.position.Position;
 import com.nardah.game.world.region.Region;
 import com.nardah.net.codec.ByteModification;
 import com.nardah.net.codec.ByteOrder;
@@ -21,6 +18,7 @@ import com.nardah.net.packet.ClientPackets;
 import com.nardah.net.packet.GamePacket;
 import com.nardah.net.packet.PacketListener;
 import com.nardah.net.packet.PacketListenerMeta;
+import com.nardah.net.packet.out.SendMessage;
 
 /**
  * The {@link GamePacket} responsible for the different options while clicking
@@ -30,10 +28,6 @@ import com.nardah.net.packet.PacketListenerMeta;
 @PacketListenerMeta({ClientPackets.ATTACK_NPC, ClientPackets.MAGIC_ON_NPC, ClientPackets.NPC_ACTION_1, ClientPackets.NPC_ACTION_2, ClientPackets.NPC_ACTION_3, ClientPackets.NPC_ACTION_4})
 public class MobInteractionPacketListener implements PacketListener {
 	
-	public static ActionContainer<MobAction> FIRST = new ActionContainer<>();
-	public static ActionContainer<MobAction> SECOND = new ActionContainer<>();
-	public static ActionContainer<MobAction> THIRD = new ActionContainer<>();
-	public static ActionContainer<MobAction> FOURTH = new ActionContainer<>();
 
 	@Override
 	public void handlePacket(final Player player, GamePacket packet) {
@@ -124,12 +118,6 @@ public class MobInteractionPacketListener implements PacketListener {
 			player.walkTo(npc, () -> {
 				npc.action.execute(new NpcFaceAction(npc, player.getPosition(), 0), true);
 				
-				MobAction action = FIRST.get(npc.id);
-				if(action != null) {
-					if(action.click(player, npc, 1)) {
-						return;
-					}
-				}
 
 				if(EventDispatcher.execute(player, new FirstNpcClick(npc))) {
 					return;
@@ -158,13 +146,6 @@ public class MobInteractionPacketListener implements PacketListener {
 			player.walkTo(npc, () -> {
 				npc.action.execute(new NpcFaceAction(npc, player.getPosition(), 1), true);
 				
-				MobAction action = SECOND.get(npc.id);
-				if(action != null) {
-					if(action.click(player, npc, 2)) {
-						return;
-					}
-				}
-
 				if(EventDispatcher.execute(player, new SecondNpcClick(npc))) {
 					return;
 				}
@@ -193,12 +174,6 @@ public class MobInteractionPacketListener implements PacketListener {
 			player.walkTo(npc, () -> {
 				npc.action.execute(new NpcFaceAction(npc, player.getPosition(), 2), true);
 				
-				MobAction action = THIRD.get(npc.id);
-				if(action != null) {
-					if(action.click(player, npc, 3)) {
-						return;
-					}
-				}
 
 				PluginManager.getDataBus().publish(player, new NpcClickEvent(3, npc));
 			});
@@ -223,13 +198,6 @@ public class MobInteractionPacketListener implements PacketListener {
 			player.walkTo(npc, () -> {
 				npc.action.execute(new NpcFaceAction(npc, player.getPosition(), 3), true);
 				
-				MobAction action = FOURTH.get(npc.id);
-				if(action != null) {
-					if(action.click(player, npc, 4)) {
-						return;
-					}
-				}
-
 				PluginManager.getDataBus().publish(player, new NpcClickEvent(4, npc));
 			});
 		});

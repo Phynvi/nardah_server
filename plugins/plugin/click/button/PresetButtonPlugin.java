@@ -60,7 +60,7 @@ public class PresetButtonPlugin extends PluginContext {
 			return true;
 		case -8498:
 			player.send(new SendMessage("Please wait as the preset gear guide loads..."));
-			player.send(new SendURL("http://www.runity.io/index.php?/topic/8-preloading-gear-guide/"));
+			player.send(new SendURL("http://www.nardah.com/community/"));
 			return true;
 		}
 		return false;

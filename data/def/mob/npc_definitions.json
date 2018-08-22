@@ -305,7 +305,11 @@
     "combat-level": 13,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 22
   },
   {
     "id": 27,
@@ -313,7 +317,11 @@
     "combat-level": 13,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 22
   },
   {
     "id": 28,
@@ -321,7 +329,11 @@
     "combat-level": 13,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 22
   },
   {
     "id": 29,
@@ -329,7 +341,11 @@
     "combat-level": 13,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 22
   },
   {
     "id": 30,
@@ -337,7 +353,11 @@
     "combat-level": 13,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 22
   },
   {
     "id": 31,
@@ -345,7 +365,11 @@
     "combat-level": 13,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 22
   },
   {
     "id": 32,
@@ -353,7 +377,11 @@
     "combat-level": 13,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 22
   },
   {
     "id": 33,
@@ -369,7 +397,11 @@
     "combat-level": 13,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 22
   },
   {
     "id": 35,
@@ -377,7 +409,11 @@
     "combat-level": 13,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 22
   },
   {
     "id": 36,
@@ -385,7 +421,11 @@
     "combat-level": 13,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 22
   },
   {
     "id": 37,
@@ -393,7 +433,11 @@
     "combat-level": 13,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 22
   },
   {
     "id": 38,
@@ -409,7 +453,11 @@
     "combat-level": 13,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 22
   },
   {
     "id": 40,
@@ -417,7 +465,11 @@
     "combat-level": 13,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 22
   },
   {
     "id": 41,
@@ -425,7 +477,11 @@
     "combat-level": 13,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 22
   },
   {
     "id": 42,
@@ -441,7 +497,11 @@
     "combat-level": 18,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 24
   },
   {
     "id": 44,
@@ -457,7 +517,11 @@
     "combat-level": 18,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 24
   },
   {
     "id": 46,
@@ -465,7 +529,11 @@
     "combat-level": 18,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 24
   },
   {
     "id": 47,
@@ -473,7 +541,11 @@
     "combat-level": 18,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 24
   },
   {
     "id": 48,
@@ -481,31 +553,47 @@
     "combat-level": 18,
     "attackable": true,
     "stand": 5565,
-    "walk": 5566
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 24
   },
   {
     "id": 49,
     "name": "Zombie",
     "combat-level": 24,
     "attackable": true,
-    "stand": 5572,
-    "walk": 5570
+    "stand": 5565,
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 30
   },
   {
     "id": 50,
     "name": "Zombie",
     "combat-level": 24,
     "attackable": true,
-    "stand": 5572,
-    "walk": 5570
+    "stand": 5565,
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 30
   },
   {
     "id": 51,
     "name": "Zombie",
     "combat-level": 24,
     "attackable": true,
-    "stand": 5576,
-    "walk": 5577
+    "stand": 5565,
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 30
   },
   {
     "id": 52,
@@ -520,24 +608,36 @@
     "name": "Zombie",
     "combat-level": 24,
     "attackable": true,
-    "stand": 5572,
-    "walk": 5570
+    "stand": 5565,
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 30
   },
   {
     "id": 54,
     "name": "Zombie",
     "combat-level": 24,
     "attackable": true,
-    "stand": 5572,
-    "walk": 5570
+    "stand": 5565,
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 30
   },
   {
     "id": 55,
     "name": "Zombie",
     "combat-level": 24,
     "attackable": true,
-    "stand": 5572,
-    "walk": 5570
+    "stand": 5565,
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 30
   },
   {
     "id": 56,
@@ -545,63 +645,95 @@
     "combat-level": 24,
     "attackable": true,
     "stand": 5565,
-    "walk": 5570
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 30
   },
   {
     "id": 57,
     "name": "Zombie",
     "combat-level": 24,
     "attackable": true,
-    "stand": 5572,
-    "walk": 5570
+    "stand": 5565,
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 30
   },
   {
     "id": 58,
     "name": "Zombie",
     "combat-level": 24,
     "attackable": true,
-    "stand": 5576,
-    "walk": 5577
+    "stand": 5565,
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 30
   },
   {
     "id": 59,
     "name": "Zombie",
     "combat-level": 24,
     "attackable": true,
-    "stand": 5572,
-    "walk": 5570
+    "stand": 5565,
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 30
   },
   {
     "id": 60,
     "name": "Zombie",
     "combat-level": 24,
     "attackable": true,
-    "stand": 5572,
-    "walk": 5570
+    "stand": 5565,
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 30
   },
   {
     "id": 61,
     "name": "Zombie",
     "combat-level": 24,
     "attackable": true,
-    "stand": 5572,
-    "walk": 5570
+    "stand": 5565,
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 30
   },
   {
     "id": 62,
     "name": "Zombie",
     "combat-level": 24,
     "attackable": true,
-    "stand": 5572,
-    "walk": 5570
+    "stand": 5565,
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 30
   },
   {
     "id": 63,
     "name": "Zombie",
     "combat-level": 24,
     "attackable": true,
-    "stand": 5572,
-    "walk": 5570
+    "stand": 5565,
+    "walk": 5566,
+    "aggressive": true,
+    "attack-style": "Melee",
+    "attack-cooldown": 4,
+    "hitpoints-level": 30
   },
   {
     "id": 64,
@@ -909,7 +1041,7 @@
     "attack-style": "Melee",
     "weakness": "Magic",
     "attack-cooldown": 4,
-    "hitpoints-level": 2
+    "hitpoints-level": 25
   },
   {
     "id": 86,
@@ -922,7 +1054,7 @@
     "attack-style": "Melee",
     "weakness": "Magic",
     "attack-cooldown": 4,
-    "hitpoints-level": 2
+    "hitpoints-level": 25
   },
   {
     "id": 87,
@@ -935,7 +1067,7 @@
     "attack-style": "Melee",
     "weakness": "Magic",
     "attack-cooldown": 4,
-    "hitpoints-level": 2
+    "hitpoints-level": 25
   },
   {
     "id": 88,
@@ -948,7 +1080,7 @@
     "attack-style": "Melee",
     "weakness": "Magic",
     "attack-cooldown": 4,
-    "hitpoints-level": 2
+    "hitpoints-level": 25
   },
   {
     "id": 89,
@@ -961,7 +1093,7 @@
     "attack-style": "Melee",
     "weakness": "Magic",
     "attack-cooldown": 4,
-    "hitpoints-level": 2
+    "hitpoints-level": 25
   },
   {
     "id": 90,
@@ -974,7 +1106,7 @@
     "attack-style": "Melee",
     "weakness": "Magic",
     "attack-cooldown": 4,
-    "hitpoints-level": 2
+    "hitpoints-level": 25
   },
   {
     "id": 91,
@@ -987,7 +1119,7 @@
     "attack-style": "Melee",
     "weakness": "Magic",
     "attack-cooldown": 4,
-    "hitpoints-level": 2
+    "hitpoints-level": 25
   },
   {
     "id": 92,
@@ -1000,7 +1132,7 @@
     "attack-style": "Melee",
     "weakness": "Magic",
     "attack-cooldown": 4,
-    "hitpoints-level": 2
+    "hitpoints-level": 25
   },
   {
     "id": 93,
@@ -1013,7 +1145,7 @@
     "attack-style": "Melee",
     "weakness": "Magic",
     "attack-cooldown": 4,
-    "hitpoints-level": 2
+    "hitpoints-level": 25
   },
   {
     "id": 94,
@@ -1026,7 +1158,7 @@
     "attack-style": "Melee",
     "weakness": "Magic",
     "attack-cooldown": 4,
-    "hitpoints-level": 2
+    "hitpoints-level": 25
   },
   {
     "id": 95,
@@ -1039,7 +1171,7 @@
     "attack-style": "Melee",
     "weakness": "Magic",
     "attack-cooldown": 4,
-    "hitpoints-level": 2
+    "hitpoints-level": 25
   },
   {
     "id": 96,
@@ -1052,7 +1184,7 @@
     "attack-style": "Melee",
     "weakness": "Magic",
     "attack-cooldown": 4,
-    "hitpoints-level": 2
+    "hitpoints-level": 25
   },
   {
     "id": 97,
@@ -1065,7 +1197,7 @@
     "attack-style": "Melee",
     "weakness": "Magic",
     "attack-cooldown": 4,
-    "hitpoints-level": 2
+    "hitpoints-level": 25
   },
   {
     "id": 98,
@@ -21954,7 +22086,7 @@
     "attack-level": 18,
     "defence-level": 18,
     "strength-level": 18,
-    "hitpoints-level": 2,
+    "hitpoints-level": 22,
     "ranged-level": 18,
     "magic-level": 18,
     "defence-stab": 18,
@@ -21976,7 +22108,7 @@
     "attack-level": 18,
     "defence-level": 18,
     "strength-level": 18,
-    "hitpoints-level": 2,
+    "hitpoints-level": 22,
     "ranged-level": 18,
     "magic-level": 18,
     "defence-stab": 18,
@@ -26282,7 +26414,7 @@
     "attack-level": 18,
     "defence-level": 18,
     "strength-level": 18,
-    "hitpoints-level": 2,
+    "hitpoints-level": 22,
     "ranged-level": 18,
     "magic-level": 18,
     "defence-stab": 18,
@@ -26305,7 +26437,7 @@
     "attack-level": 18,
     "defence-level": 18,
     "strength-level": 18,
-    "hitpoints-level": 2,
+    "hitpoints-level": 22,
     "ranged-level": 18,
     "magic-level": 18,
     "defence-stab": 18,
@@ -31564,7 +31696,7 @@
     "attack-level": 18,
     "defence-level": 18,
     "strength-level": 18,
-    "hitpoints-level": 2,
+    "hitpoints-level": 27,
     "ranged-level": 18,
     "magic-level": 18,
     "attack-stab": 1,
@@ -32397,9 +32529,10 @@
     "aggressive": true,
     "poison-immunity": true,
     "venom-immunity": true,
-    "attack-style": "Unknown (edit)",
+    "attack-style": "Melee (slash)",
     "weakness": "Crush attacks, Magic",
-    "attack-cooldown": 4
+    "attack-cooldown": 4,
+    "hitpoints-level": 17
   },
   {
     "id": 2890,
@@ -38689,7 +38822,7 @@
     "attack-level": 18,
     "defence-level": 18,
     "strength-level": 18,
-    "hitpoints-level": 2,
+    "hitpoints-level": 35,
     "ranged-level": 18,
     "magic-level": 18,
     "attack-stab": 1,
@@ -51852,7 +51985,7 @@
     "attack-level": 18,
     "defence-level": 18,
     "strength-level": 18,
-    "hitpoints-level": 2,
+    "hitpoints-level": 22,
     "ranged-level": 18,
     "magic-level": 18,
     "defence-stab": 18,
@@ -51875,7 +52008,7 @@
     "attack-level": 18,
     "defence-level": 18,
     "strength-level": 18,
-    "hitpoints-level": 2,
+    "hitpoints-level": 22,
     "ranged-level": 18,
     "magic-level": 18,
     "defence-stab": 18,
@@ -56180,7 +56313,7 @@
     "attack-level": 18,
     "defence-level": 18,
     "strength-level": 18,
-    "hitpoints-level": 2,
+    "hitpoints-level": 22,
     "ranged-level": 18,
     "magic-level": 18,
     "defence-stab": 18,
@@ -56603,7 +56736,7 @@
     "attack-level": 18,
     "defence-level": 18,
     "strength-level": 18,
-    "hitpoints-level": 2,
+    "hitpoints-level": 22,
     "ranged-level": 18,
     "magic-level": 18,
     "defence-stab": 18,
@@ -56626,7 +56759,7 @@
     "attack-level": 18,
     "defence-level": 18,
     "strength-level": 18,
-    "hitpoints-level": 2,
+    "hitpoints-level": 22,
     "ranged-level": 18,
     "magic-level": 18,
     "defence-stab": 18,
@@ -56649,7 +56782,7 @@
     "attack-level": 18,
     "defence-level": 18,
     "strength-level": 18,
-    "hitpoints-level": 2,
+    "hitpoints-level": 22,
     "ranged-level": 18,
     "magic-level": 18,
     "defence-stab": 18,
@@ -56672,7 +56805,7 @@
     "attack-level": 18,
     "defence-level": 18,
     "strength-level": 18,
-    "hitpoints-level": 2,
+    "hitpoints-level": 22,
     "ranged-level": 18,
     "magic-level": 18,
     "defence-stab": 18,
@@ -70685,7 +70818,8 @@
     "venom-immunity": true,
     "attack-style": "Unknown (edit)",
     "weakness": "Crush attacks, Magic",
-    "attack-cooldown": 4
+    "attack-cooldown": 4,
+    "hitpoints-level": 137
   },
   {
     "id": 6607,
@@ -80390,12 +80524,12 @@
     "walk": 4674
   },
   {
-  "id": 8026,
-  "name": "Vorkath",
-  "combat-level": 1,
-  "size": 1,
-  "stand": -1,
-  "walk": -1
+    "id": 8026,
+    "name": "Vorkath",
+    "combat-level": 1,
+    "size": 1,
+    "stand": -1,
+    "walk": -1
   },
   {
     "id": 8058,

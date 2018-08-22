@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
+import com.nardah.Config;
 import com.nardah.content.ActivityLog;
 import com.nardah.content.achievement.AchievementKey;
 import com.nardah.content.activity.impl.barrows.BrotherData;
@@ -31,6 +32,7 @@ import com.nardah.game.world.entity.actor.prayer.PrayerBook;
 import com.nardah.game.world.entity.combat.attack.FightType;
 import com.nardah.game.world.entity.skill.Skill;
 import com.nardah.game.world.position.Position;
+import com.nardah.util.AccountUtility;
 import com.nardah.util.GsonUtils;
 import com.nardah.util.Utility;
 import com.nardah.content.clanchannel.channel.ClanChannel;
@@ -118,9 +120,19 @@ public final class PlayerPersistFile implements PlayerPersistable {
 						property.read(player, jsonReader.get(property.label));
 					}
 				}
-				
-				if(!expectedPassword.equals(player.getPassword())) {
-					return LoginResponse.INVALID_CREDENTIALS;
+
+				if (Config.FORUM_INTEGRATION) {
+					LoginResponse response = LoginResponse.NORMAL;
+					if (!AccountUtility.verify(player.getName(), expectedPassword)) {
+						System.out.println("issue here");
+						response = LoginResponse.INVALID_CREDENTIALS;
+					}
+					return response;
+				} else {
+
+					if (!expectedPassword.equals(player.getPassword())) {
+						return LoginResponse.INVALID_CREDENTIALS;
+					}
 				}
 			}
 			
@@ -145,13 +157,13 @@ public final class PlayerPersistFile implements PlayerPersistable {
 					return player.getUsername();
 				}
 			},
-			
+
 			new PlayerJSONProperty("password") {
 				@Override
 				void read(Player player, JsonElement property) {
 					player.setPassword(property.getAsString());
 				}
-				
+
 				@Override
 				Object write(Player player) {
 					return player.getPassword();

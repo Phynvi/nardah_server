@@ -9,6 +9,8 @@ import com.nardah.util.Utility;
 import java.util.HashSet;
 import java.util.Set;
 
+import static com.nardah.content.clanchannel.content.ClanTaskKey.*;
+
 /**
  * Holds all the clan task data.
  * @author Daniel
@@ -18,13 +20,13 @@ public enum ClanTask {
 	 * PvP
 	 */
 	/* -> Easy <- */
-	KILL_PLAYERS_I(ClanType.PVP, Difficulty.EASY, "Kill % players", ClanTaskKey.PLAYER_KILLING, new InclusiveRandom(10, 25)), KILL_BOT_I(ClanType.PVP, Difficulty.EASY, "Kill % bots", ClanTaskKey.BOT_KILLING, new InclusiveRandom(10, 25)),
+	KILL_PLAYERS_I(ClanType.PVP, Difficulty.EASY, "Kill % players", PLAYER_KILLING, new InclusiveRandom(10, 25)), KILL_BOT_I(ClanType.PVP, Difficulty.EASY, "Kill % bots", ClanTaskKey.BOT_KILLING, new InclusiveRandom(10, 25)),
 
 	/* -> Medium <- */
-	KILL_PLAYERS_II(ClanType.PVP, Difficulty.MEDIUM, "Kill % players", ClanTaskKey.PLAYER_KILLING, new InclusiveRandom(25, 50)), KILL_BOT_II(ClanType.PVP, Difficulty.MEDIUM, "Kill % bots", ClanTaskKey.BOT_KILLING, new InclusiveRandom(25, 50)),
+	KILL_PLAYERS_II(ClanType.PVP, Difficulty.MEDIUM, "Kill % players", PLAYER_KILLING, new InclusiveRandom(25, 50)), KILL_BOT_II(ClanType.PVP, Difficulty.MEDIUM, "Kill % bots", ClanTaskKey.BOT_KILLING, new InclusiveRandom(25, 50)),
 
 	/* -> Hard <- */
-	KILL_PLAYERS_III(ClanType.PVP, Difficulty.HARD, "Kill % players", ClanTaskKey.PLAYER_KILLING, new InclusiveRandom(50, 125)), KILL_BOT_III(ClanType.PVP, Difficulty.HARD, "Kill % bots", ClanTaskKey.BOT_KILLING, new InclusiveRandom(50, 125)),
+	KILL_PLAYERS_III(ClanType.PVP, Difficulty.HARD, "Kill % players", PLAYER_KILLING, new InclusiveRandom(50, 125)), KILL_BOT_III(ClanType.PVP, Difficulty.HARD, "Kill % bots", ClanTaskKey.BOT_KILLING, new InclusiveRandom(50, 125)),
 
 	/**
 	 * PvM

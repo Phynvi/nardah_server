@@ -11,8 +11,8 @@ parallel_game_engine = false
 highscores_enabled = true
 
 [client]
-client_version = 5
-cache_version = 3
+client_version = 6
+cache_version = 4
 
 [game]
 skull_time = 720
@@ -57,9 +57,9 @@ rsa_modulus = "94904992129904410061849432720048295856082621425118273522925386720
 rsa_exponent = "72640252303588278644467876834506654511692882736878142674473705672822320822095174696379303197013981434572187481298130748148385818094460521624198552406940508805602215708418094058951352076283100448576575511642453669107583920561043364042814766866691981132717812444681081534760715694225059124574441435942822149161"
 
 [website]
-website_url = "http://runity.io"
-website_integration = false
-forum_db_url = "jdbc:mysql://runity.io:3306/runity_global"
+website_url = "http://nardah.com"
+website_integration = true
+forum_db_url = "jdbc:mysql://nardah.com:3306/runity_global"
 forum_db_user = "runity_root"
 forum_db_pass = "JNfIn3IvH5$V"
 

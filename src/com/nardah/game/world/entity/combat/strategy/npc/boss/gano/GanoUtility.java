@@ -22,7 +22,7 @@ public class GanoUtility {
 		SpawnData spawn = SpawnData.generate();
 		Mob gano = new Mob(REPLACE_THIS, spawn.position, 10, Direction.NORTH);
 		World.sendMessage("<col=8714E6> gano has just spawned! He is located at " + spawn.location + "!", "<col=8714E6> First clan to kill him will be rewarded handsomely!");
-		World.sendMessage("to enter the gano do ::gano and rid this beast from the world of Runity!");
+		World.sendMessage("to enter the gano do ::gano and rid this beast from the world of Nardah!");
 		World.sendBroadcast(1, "The gano boss has spawned enter by doing ::gano", true);
 		gano.register();
 		gano.definition.setRespawnTime(-1);

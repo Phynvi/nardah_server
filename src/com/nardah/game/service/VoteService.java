@@ -15,16 +15,16 @@ import java.util.concurrent.TimeUnit;
 public final class VoteService {
 	
 	private static final Logger logger = LogManager.getLogger(LoggerType.DATABASE);
-	private static final String CONNECTION_STRING = "jdbc:mysql://osroyale.com:3306/osroyjs_vote";
-	private static final String USER = "osroyjs_exo1";
-	private static final String PASS = "ouFREO0euNgB";
+	private static final String CONNECTION_STRING = "jdbc:mysql://nardah.com:3306/nardah_website";
+	private static final String USER = "runity_root";
+	private static final String PASS = "JNfIn3IvH5$V";
 	private static final Item REWARD = new Item(7478, 1);
 	
 	public static void claimReward(Player player) {
-		if(!player.databaseRequest.elapsed(1, TimeUnit.MINUTES)) {
-			player.dialogueFactory.sendStatement("You can only check our database once every 1 minute!").execute();
-			return;
-		}
+//		if(!player.databaseRequest.elapsed(10, TimeUnit.SECONDS)) {
+//			player.dialogueFactory.sendStatement("You can only check our database once every 10 seconds!").execute();
+//			return;
+//		}
 		
 		if(!player.inventory.hasCapacityFor(REWARD)) {
 			player.dialogueFactory.sendStatement("Please clear up some inventory spaces before doing this!").execute();

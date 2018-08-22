@@ -17,6 +17,8 @@ import java.math.BigInteger;
  * The class that contains setting-related constants for the server.
  */
 public final class Config {
+
+	public static final String GLOBAL_DATABASE = "runity_global";
 	
 	/**
 	 * The name of the server.
@@ -26,12 +28,12 @@ public final class Config {
 	/**
 	 * The latest announcement thread link.
 	 */
-	public static final String LATEST_ANNOUNCEMENT_THREAD = "http://runity.io/forums/index.php?/topic/5-rebirth-of-near-reality/&tab=comments#comment-11";
+	public static final String LATEST_ANNOUNCEMENT_THREAD = "http://nardah.com/community/index.php?/topic/45-nardah-staff-announcement/";
 	
 	/**
 	 * The latest update thread link.
 	 */
-	public static final String LATEST_UPDATE_THREAD = "http://runity.io/forums/index.php?/topic/3-updates-of-04012018/&tab=comments#comment-7";
+	public static final String LATEST_UPDATE_THREAD = "http://nardah.com/community/";
 	
 	/**
 	 * The welcome marquee.
@@ -245,7 +247,7 @@ public final class Config {
 	/** **/
 	public static final Position STORES_POSITION = new Position(3164, 3470, 0);
 	
-	public static final Position LUMBRIDGE = new Position(3222, 3218, 0);
+	public static final Position NARDAH = new Position(3417, 2900, 0);
 	
 	/**
 	 * The donator zone.
@@ -410,7 +412,7 @@ public final class Config {
 	/**
 	 * Messages that are sent periodically to all players.
 	 */
-	public static final String[] MESSAGES = {"The owner & founder of Runity is Jordan & Adam.", "Runity game developers are Adam & Harry", "Our website is located at: http://runity.io", "Add more security to your account by setting a bank pin.", "Tired of constantly re-gearing? Set a preset!", "Have any ideas on how we could improve our gameplay? Post on forums!.", "Voting daily can be very beneficial & it supports the server!", "Found a bug? Let a moderator know or post it on the forums!", "Did you know you can change your combat level by clicking on the skill?", "You can do ::commands for a list of commands!", "Royalty rewards are given every 30 minutes! ::royaltyprogram", "Saying you don't need privacy because you have nothing to hide is like saying you don't need free speech because you have nothing to say."};
+	public static final String[] MESSAGES = {"The owner & founder of Nardah is Ethan.", "The Nardah game developer is Ethan", "Our website is located at: http://nardah.com", "Add more security to your account by setting a bank pin.", "Tired of constantly re-gearing? Set a preset!", "Have any ideas on how we could improve our gameplay? Post on forums!.", "Voting daily can be very beneficial & it supports the server!", "Found a bug? Let a moderator know or post it on the forums!", "Did you know you can change your combat level by clicking on the skill?", "You can do ::commands for a list of commands!", "Royalty rewards are given every 30 minutes! ::royaltyprogram", "Saying you don't need privacy because you have nothing to hide is like saying you don't need free speech because you have nothing to say."};
 	
 	/**
 	 * Holds the array of all the side-bar identification and their corresponding

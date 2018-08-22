@@ -70,12 +70,12 @@ public class Hunter extends Skill {
 		}
 		Item item = event.getItem();
 
-		for(Traps trap : Traps.values()) {
-			if(trap.getItems()[0].getId() != item.getId())
-				continue;
-			player.action.execute(new BoxTrapping(player, trap), true);
-			return true;
-		}
+//		for(Traps trap : Traps.values()) {
+//			if(trap.getItems()[0].getId() != item.getId())
+//				continue;
+//			player.action.execute(new BoxTrapping(player, trap), true);
+//			return true;
+//		}
 
 		if(!ImplingReward.forId(item.getId()).isPresent()) {
 			return false;

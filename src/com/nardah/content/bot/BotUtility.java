@@ -43,7 +43,7 @@ public class BotUtility {
 	/**
 	 * Array of all the possible fight start message.
 	 */
-	public static final String[] GEAR_UP_MESSAGES = {"It�s time to take a soul from someone on my list", "I am one with the demon of death, it�s time to kill all of you!", "Time to make my daddy, Adam proud!"};
+	public static final String[] GEAR_UP_MESSAGES = {"It�s time to take a soul from someone on my list", "I am one with the demon of death, it�s time to kill all of you!", "Time to make my daddy, Ethan proud!"};
 
 	/**
 	 * Array of all the possible fight start message.

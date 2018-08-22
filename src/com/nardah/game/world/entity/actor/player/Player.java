@@ -87,10 +87,7 @@ import com.nardah.game.world.region.Region;
 import com.nardah.net.packet.OutgoingPacket;
 import com.nardah.net.packet.out.*;
 import com.nardah.net.session.GameSession;
-import com.nardah.util.MessageColor;
-import com.nardah.util.MutableNumber;
-import com.nardah.util.Stopwatch;
-import com.nardah.util.Utility;
+import com.nardah.util.*;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -382,7 +379,7 @@ public class Player extends Actor {
 	public long dragonfireUsed;
 	
 	public Player(String username) {
-		super(Config.LUMBRIDGE, false);
+		super(Config.NARDAH, false);
 		this.username = username;
 		this.usernameLong = Utility.nameToLong(username);
 	}
@@ -581,9 +578,10 @@ public class Player extends Actor {
 		if(!isRegistered()) {
 			return;
 		}
-		
 		if(!World.getPlayers().contains(this)) {
 			return;
+
+
 		}
 		
 		send(new SendLogout());

@@ -76,7 +76,7 @@ public class TutorialActivity extends Activity {
 		player.movement.setRunningToggled(false);
 		player.playerAssistant.setSidebar(true);
 		player.setVisible(false);
-		player.move(Config.LUMBRIDGE);
+		player.move(Config.NARDAH);
 		activity.cooldown(3);
 		activity.add(player);
 		player.locking.lock();
@@ -106,7 +106,7 @@ public class TutorialActivity extends Activity {
 		//        System.out.println(stage);
 		switch(stage) {
 			case 0:
-				guide = new Mob(306, new Position(3222, 3221));
+				guide = new Mob(315, new Position(3417, 2904));
 				add(guide);
 				guide.graphic(new Graphic(86, true));
 				cooldown(2);
@@ -118,28 +118,28 @@ public class TutorialActivity extends Activity {
 				cooldown(2);
 				break;
 			case 2:
-				guide.walk(new Position(3222, 3218));
+				guide.walk(new Position(3417, 2900));
 				guide.speak("Welcome " + player.getName() + "!");
 				// guide.animate(new Animation(406));
 				cooldown(1);
 				break;
 			case 3:
 				player.face(guide.getPosition());
-				factory.sendNpcChat(306, "Welcome to <col=D63E3E>Runity</col>, " + player.getName(), "Would you like a tutorial of our lands?");
+				factory.sendNpcChat(315, "Welcome to <col=D63E3E>Nardah</col>, " + player.getName(), "Would you like a tutorial of our lands?");
 				factory.sendOption("Yes", () -> cooldown(1), "No", this::finish);
 				factory.execute();
 				pause();
 				break;
 			case 4:
 				update("This is the activity panel.", "The activity panel replaces a lot", "of interfaces so be sure", "to get acquainted to it.");
-				factory.sendNpcChat(306, "Wise choice my friend! Lets get started.", "The first thing you need to know about is the", "activity panel. When you are doing an activity,", "like this tutorial for example; a panel will be available to you.");
-				factory.sendNpcChat(306, "You can access this panel by clicking the red tab icon.", "The activity panel is disabled by default but will", "automatically enable when in a activity.");
+				factory.sendNpcChat(315, "Wise choice my friend! Lets get started.", "The first thing you need to know about is the", "activity panel. When doing an activity, such as", "this tutorial for example; a panel will be available to you.");
+				factory.sendNpcChat(315, "You can access this panel by clicking the red tab icon.", "The activity panel is disabled by default but will", "automatically enable when in an activity.");
 				factory.onAction(() -> cooldown(1));
 				factory.execute();
 				pause();
 				break;
 			case 5:
-				factory.sendNpcChat(306, "Before I show you around I want to show you", "useful content for your adventures.");
+				factory.sendNpcChat(315, "Before I show you around I want to show you", "useful content for your adventure.");
 				factory.onAction(() -> {
 					player.interfaceManager.setSidebar(Config.QUEST_TAB, 29400);
 					player.send(new SendForceTab(Config.QUEST_TAB));
@@ -149,10 +149,13 @@ public class TutorialActivity extends Activity {
 				pause();
 				break;
 			case 6:
-				factory.sendNpcChat(306, "This is your quest tab. Inside contains information about", "the world and yourself. On the top right corner of the", "tab you will see a bunch of different buttons.");
-				factory.sendNpcChat(306, "The blue button will show you the quest tab", "and the green button will show you the achievement tab.");
-				factory.sendNpcChat(306, "The purple button will provide you with various options.", "Some of these options include - mob drop viwer,", "log drop simulator, log kill logs, title manager and more!");
-				factory.sendNpcChat(306, "Lastly, the scroll button will open a menu where you can", "change game related options. For example: welcome screen,", " triviabot, drop notification, and more! These options", "are not to be confused with the client options.");
+				factory.sendNpcChat(315, "QUEST TAB: Inside contains information about the world", "and your character. On the top right corner of the", "tab you will see a selection of different buttons.");
+				factory.sendNpcChat(315, "The blue button will show you the quest tab", "and the green button will show you the achievement tab.");
+				factory.sendNpcChat(315, "The purple button will provide you with various options.", "Some of these options include - mob drop viewer,", "log drop simulator, log kill logs, title manager and more!").onAction(() -> {
+					player.interfaceManager.setSidebar(Config.QUEST_TAB, 51200);
+					next();
+				});
+				factory.sendNpcChat(315, "Lastly, the panels button will open a menu where you can", "change game related options. For example: welcome screen,", " triviabot, drop notification, and more! These options", "are not to be confused with the client options.");
 				factory.onAction(() -> {
 					player.interfaceManager.setSidebar(Config.QUEST_TAB, -1);
 					player.interfaceManager.setSidebar(Config.WRENCH_TAB, 50020);
@@ -163,7 +166,7 @@ public class TutorialActivity extends Activity {
 				break;
 			case 7:
 				player.send(new SendForceTab(Config.WRENCH_TAB));
-				factory.sendNpcChat(306, "This is your wrench tab. Here you can change all options", "that are for your client. The interface has different tabs.", "You are currently in the display tab. You can change all", " display settings here.");
+				factory.sendNpcChat(315, "This is your wrench tab. Here you can change all options", "that are for your client. The interface has different tabs.", "You are currently in the display tab. You can change all", " display settings here.");
 				factory.onAction(this::next);
 				factory.execute();
 				pause();
@@ -172,13 +175,13 @@ public class TutorialActivity extends Activity {
 				setInstance(Actor.DEFAULT_INSTANCE_HEIGHT);
 				player.instance = Actor.DEFAULT_INSTANCE_HEIGHT;
 				player.loadRegion();
-				factory.sendNpcChat(306, "Let us move on.");
-				factory.sendNpcChat(306, "Edgeville will be your primary home, however you", "can change it later on as you progress", "in the game.").onAction(this::next);
+				factory.sendNpcChat(315, "Let us move on.");
+				factory.sendNpcChat(315, "Nardah will be your primary home, here you're", "provided the necessary resources to have", "an easy and above all enjoyable game play.").onAction(this::next);
 				factory.execute();
 				pause();
 				break;
 			case 9:
-				Teleportation.teleport(player, new Position(3089, 3492), MODERN, () -> {
+				Teleportation.teleport(player, new Position(3433, 2904), MODERN, () -> {
 					player.face(Direction.EAST);
 					next();
 					player.locking.lock();
@@ -186,7 +189,7 @@ public class TutorialActivity extends Activity {
 				pause();
 				break;
 			case 10:
-				factory.sendNpcChat(306, "Throughout your adventures you will find key halves.", "When using the right halves together you will be able", "to form a Crystal key. With that key you can unlock this chest.", "This chest contains various high valued items.").onAction(this::next).execute();
+				factory.sendNpcChat(315, "Here you'll be able to access your bank and store your", "items securely with a bank pin.").onAction(this::next).execute();
 				pause();
 				break;
 			case 11:
@@ -392,7 +395,7 @@ public class TutorialActivity extends Activity {
 	public void onLogout(Player player) {
 		cleanup();
 		remove(player);
-		player.move(Config.LUMBRIDGE);
+		player.move(Config.NARDAH);
 
 		if(player.needsStarter) {
 			player.newPlayer = true;

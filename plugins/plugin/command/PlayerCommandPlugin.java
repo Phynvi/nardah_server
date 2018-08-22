@@ -19,6 +19,7 @@ import com.nardah.game.plugin.extension.CommandExtension;
 import com.nardah.game.service.DonationService;
 import com.nardah.game.service.VoteService;
 import com.nardah.game.world.World;
+import com.nardah.game.world.entity.MobList;
 import com.nardah.game.world.entity.combat.strategy.player.special.CombatSpecial;
 import com.nardah.game.world.entity.actor.UpdateFlag;
 import com.nardah.game.world.entity.actor.player.AccountSecurity;
@@ -102,18 +103,8 @@ public class PlayerCommandPlugin extends CommandExtension {
             }
         });
         
-        commands.add(new Command("defaultbank") {
-            @Override
-            public void execute(Player player, CommandParser parser) {
-                player.bank.clear();
-                player.bank.addAll(Config.BANK_ITEMS);
-                System.arraycopy(Config.TAB_AMOUNT, 0, player.bank.tabAmounts, 0, Config.TAB_AMOUNT.length);
-                player.bank.shift();
-                player.bank.open();
-            }
-        });
-        
-        commands.add(new Command("resetskills", "resetskill", "reset") {
+
+       /* commands.add(new Command("resetskills", "resetskill", "reset") {
             @Override
             public void execute(Player player, CommandParser parser) {
                 for (int index = 0; index < Skill.SKILL_COUNT; index++) {
@@ -125,9 +116,9 @@ public class PlayerCommandPlugin extends CommandExtension {
                 player.updateFlags.add(UpdateFlag.APPEARANCE);
                 player.send(new SendMessage("You have reset all your skills."));
             }
-        });
+        });*/
         
-        commands.add(new Command("find", "give") {
+        /*commands.add(new Command("find", "give") {
             @Override
             public void execute(Player player, CommandParser parser) {
                 if (parser.hasNext()) {
@@ -152,26 +143,9 @@ public class PlayerCommandPlugin extends CommandExtension {
                     player.send(new SendMessage(String.format("Found %s item%s containing the key '%s'.", count, count != 1 ? "s" : "", name)));
                 }
             }
-        });
+        });*/
 
         
-        commands.add(new Command("master") {
-            @Override
-            public void execute(Player player, CommandParser parser) {
-                player.skills.master();
-                AchievementHandler.completeAll(player);
-                EmoteHandler.unlockAll(player);
-                player.send(new SendMessage("Your account is now maxed out.", MessageColor.BLUE));
-            }
-        });
-        
-        commands.add(new Command("gano") {
-            @Override
-            public void execute(Player player, CommandParser parser) {
-      
-              
-            }
-        });
 
         /*commands.add(new Command("ffa") {
             @Override
@@ -245,7 +219,7 @@ public class PlayerCommandPlugin extends CommandExtension {
         commands.add(new Command("vote") {
             @Override
             public void execute(Player player, CommandParser parser) {
-                player.send(new SendURL("https://www.nearreality.io/vote"));
+                player.send(new SendURL("https://www.nardah.com/vote"));
             }
         });
         commands.add(new Command("train", "tran", "start") {
@@ -402,13 +376,13 @@ public class PlayerCommandPlugin extends CommandExtension {
         commands.add(new Command("donate", "webstore") {
             @Override
             public void execute(Player player, CommandParser parser) {
-                player.send(new SendURL("https://www.nearreality.io/store"));
+                player.send(new SendURL("https://www.nardah.com/store"));
             }
         });
         commands.add(new Command("Disord", "discord") {
             @Override
             public void execute(Player player, CommandParser parser) {
-                player.send(new SendURL("https://www.nearreality.io/store"));
+                player.send(new SendURL("https://discord.gg/nwnqKYr"));
             }
         });
 
@@ -448,7 +422,7 @@ public class PlayerCommandPlugin extends CommandExtension {
 
                 player.send(new SendString("", 37113));
                 player.send(new SendString("", 37107));
-                player.send(new SendString("NR Online Staff", 37103));
+                player.send(new SendString("Nardah Online Staff", 37103));
                 player.send(new SendScrollbar(37110, length * 20));
 
                 for (int index = 0, string = 37112; index < length; index++, string++) {
@@ -516,7 +490,26 @@ public class PlayerCommandPlugin extends CommandExtension {
         commands.add(new Command("players") {
             @Override
             public void execute(Player player, CommandParser parser) {
-                player.send(new SendMessage("There are currently " + World.getPlayerCount() + " players playing Near Reality!", MessageColor.RED));
+                MobList<Player> players = World.getPlayers();
+                int length = players.size() < 10 ? 10 : players.size();
+
+                player.send(new SendString("", 37113));
+                player.send(new SendString("", 37107));
+                player.send(new SendString("Nardah Players Online [" +World.getPlayers().size()+"]", 37103));
+                player.send(new SendScrollbar(37110, length * 20));
+
+                for (int index = 0, string = 37112; index < length; index++, string++) {
+                    if (index < players.size()) {
+                        Player p = players.get(index);
+                        p.send(new SendString(PlayerRight.getCrown(p) + " " + p.getName() + "    (<col=255>" + p.right.getName() + "</col>)", string));
+                    } else {
+                        player.send(new SendString("", string));
+                    }
+                }
+
+                player.send(new SendItemOnInterface(37199));
+                player.interfaceManager.open(37100);
+                player.send(new SendMessage("There are currently " + World.getPlayerCount() + " players playing Nardah!", MessageColor.RED));
             }
         });
 

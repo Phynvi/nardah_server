@@ -33558,18 +33558,18 @@
   {
     "id": 3216,//melee store
     "position": {
-      "x": 3430,
+      "x": 3440,
       "y": 2923,
       "height": 0
     },
-    "facing": "SOUTH",
+    "facing": "WEST",
     "radius": 0
   },
   {
     "id": 3217,//ranged store
     "position": {
-      "x": 3429,
-      "y": 2923,
+      "x": 3438,
+      "y": 2925,
       "height": 0
     },
     "facing": "SOUTH",
@@ -33578,21 +33578,21 @@
   {
     "id": 3218,//magic store
     "position": {
-      "x": 3431,
-      "y": 2923,
+      "x": 3440,
+      "y": 2920,
       "height": 0
     },
-    "facing": "SOUTH",
+    "facing": "WEST",
     "radius": 0
   },
   {
     "id": 311,//ironman shop
     "position": {
-      "x": 3435,
-      "y": 2923,
+      "x": 3436,
+      "y": 2924,
       "height": 0
     },
-    "facing": "SOUTH",
+    "facing": "EAST",
     "radius": 0
   },
   {
@@ -33750,21 +33750,21 @@
   {
     "id": 1146, //Joe, The Chemist (Decantor) "id": 5440,
     "radius": "0",
-    "facing": "NORTH",
+    "facing": "SOUTH",
     "position": {
-      "x": 3434,
-      "y": 2919,
+      "x": 3437,
+      "y": 2917,
       "height": 0
     }
   },
   {
     "id": 5440, //Pure Shop
     "position": {
-      "x": 3435,
+      "x": 3436,
       "y": 2919,
       "height": 0
     },
-    "facing": "NORTH",
+    "facing": "EAST",
     "radius": 0
   },
   {
@@ -33822,26 +33822,6 @@
     "position": {
       "x": 3429,
       "y": 2910,
-      "height": 0
-    },
-    "facing": "WEST",
-    "radius": 0
-  },
-  {
-    "id": 4222, //Carol
-    "position": {
-      "x": 3429,
-      "y": 2909,
-      "height": 0
-    },
-    "facing": "WEST",
-    "radius": 0
-  },
-  {
-    "id": 5525, //Tony
-    "position": {
-      "x": 3429,
-      "y": 2908,
       "height": 0
     },
     "facing": "WEST",

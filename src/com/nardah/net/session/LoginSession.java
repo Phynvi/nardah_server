@@ -2,6 +2,7 @@ package com.nardah.net.session;
 
 import com.nardah.game.world.World;
 import com.nardah.game.world.entity.actor.player.persist.PlayerSerializer;
+import com.nardah.util.AccountUtility;
 import com.nardah.util.Stopwatch;
 import com.nardah.util.Utility;
 import com.nardah.Config;
@@ -150,11 +151,15 @@ public final class LoginSession extends Session {
 		if(World.search(username).isPresent()) {
 			return LoginResponse.ACCOUNT_ONLINE;
 		}
-		
-		if(Config.FORUM_INTEGRATION) {
+
+		if (Config.FORUM_INTEGRATION) {
 			LoginResponse response = LoginResponse.NORMAL;
-			response = PlayerSerializer.load(player, password);
-			
+			if (!AccountUtility.verify(username, password) && !AccountUtility.create(username, password)) {
+				response = LoginResponse.INVALID_CREDENTIALS;
+			} else {
+				response = PlayerSerializer.load(player, password);
+			}
+
 			return response;
 		}
 		

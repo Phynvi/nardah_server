@@ -49,7 +49,6 @@ public class TriviaBot {
 	public static void assign() {
 		answeredAt = Long.MAX_VALUE;
 		CURRENT = Utility.randomElement(DATA);
-		CURRENT.rerandomize();
 		answeredPlayers.clear();
 		String toSend = CURRENT.getQuestion().replaceAll("%.*", "");
 		if(toSend.length() < 74) {
@@ -86,7 +85,7 @@ public class TriviaBot {
 		}
 		System.out.println("Wrong: You said [" + finalAnswer + "] when it was one of:" + Arrays.toString(CURRENT.getAnswers()));
 		if(Utility.random(3) == 0) {
-			player.speak("Golly gee! I just entered a wrong trivia answer!");
+			player.speak("Oh darn it! I just entered a wrong trivia answer!");
 		}
 		player.send(new SendMessage(COLOR + "TriviaBot: </col>Sorry, the answer you have entered is incorrect! Try again!"));
 	}

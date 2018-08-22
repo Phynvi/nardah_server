@@ -1,7 +1,5 @@
 package com.nardah.net.packet.in;
 
-import com.nardah.action.ActionContainer;
-import com.nardah.action.impl.ButtonAction;
 import com.nardah.content.event.EventDispatcher;
 import com.nardah.content.event.impl.ClickButtonInteractionEvent;
 import com.nardah.game.event.impl.ButtonClickEvent;
@@ -22,7 +20,7 @@ import com.nardah.net.packet.PacketListenerMeta;
 @PacketListenerMeta(ClientPackets.BUTTON_CLICK)
 public class ButtonClickPacketListener implements PacketListener {
 	
-	public static final ActionContainer<ButtonAction> BUTTONS_LISTENERS = new ActionContainer<>();
+//	public static final ActionContainer<ButtonAction> BUTTONS_LISTENERS = new ActionContainer<>();
 
 	@SuppressWarnings("static-access")
 	@Override
@@ -43,12 +41,12 @@ public class ButtonClickPacketListener implements PacketListener {
 			player.send(new SendMessage(String.format("[%s]: button=%d", ButtonClickPacketListener.class.getSimpleName(), button)));
 		}
 		
-		ButtonAction action = BUTTONS_LISTENERS.get(button);
-		
-		if(action != null) {
-			if(action.click(player, button))
-				return;
-		}
+//		ButtonAction action = BUTTONS_LISTENERS.get(button);
+//
+//		if(action != null) {
+//			if(action.click(player, button))
+//				return;
+//		}
 
 		if(EventDispatcher.execute(player, new ClickButtonInteractionEvent(button))) {
 			return;

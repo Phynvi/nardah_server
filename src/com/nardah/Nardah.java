@@ -1,7 +1,5 @@
 package com.nardah;
 
-import com.nardah.action.ActionContainer;
-import com.nardah.action.impl.ButtonAction;
 import com.nardah.content.WellOfGoodwill;
 import com.nardah.content.activity.record.GlobalRecords;
 import com.nardah.content.clanchannel.ClanRepository;
@@ -32,6 +30,7 @@ import com.nardah.game.world.items.ItemDefinition;
 import com.nardah.io.PacketListenerLoader;
 import com.nardah.util.GameSaver;
 import com.nardah.util.Stopwatch;
+import com.nardah.util.database.MySQLDatabase;
 import com.nardah.util.parser.impl.*;
 import com.nardah.util.sql.MySqlConnector;
 import com.nardah.game.world.entity.actor.mob.MobDefinition;
@@ -57,6 +56,8 @@ public final class Nardah {
 	private static final NetworkService networkService = new NetworkService();
 	
 	private static final Nardah INSTANCE = new Nardah();
+
+	private static final MySQLDatabase database = new MySQLDatabase(Config.GLOBAL_DATABASE);
 	
 	private Nardah() {
 	
@@ -81,7 +82,6 @@ public final class Nardah {
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
-		ActionContainer.loadEvents();
 		ItemDefinition.createParser().run();
 		MobDefinition.createParser().run();
 		new CombatProjectileParser().run();
@@ -143,6 +143,16 @@ public final class Nardah {
 	}
 	
 	public void start() throws Exception {
+		if (Config.FORUM_INTEGRATION) {
+//            ForumService.start(); // used to check users logging in with website credentials
+			getDatabase().prepare("nardah.com", "runity_root", "JNfIn3IvH5$V");
+
+			if (Config.LIVE_SERVER) {
+//                PostgreService.start(); // used to start the postgres connection pool
+//                WebsitePlayerCountService.getInstance().startAsync(); // used to display player count on website
+			}
+		}
+
 		
 		logger.info(String.format("Starting %s Game Engine", Config.PARALLEL_GAME_ENGINE ? "Parallel" : "Sequential"));
 		processSequentialStatupTasks();
@@ -179,5 +189,10 @@ public final class Nardah {
 	public static Nardah getInstance() {
 		return INSTANCE;
 	}
+
+	public static MySQLDatabase getDatabase() {
+		return database;
+	}
+
 	
 }

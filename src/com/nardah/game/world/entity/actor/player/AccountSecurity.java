@@ -96,14 +96,12 @@ public class AccountSecurity {
 	public enum AccountData {
 		/* Owner */
 		
-		ADAM(PlayerRight.DEVELOPER, "Adam", "", "127.0.0.1"), HARRYL(PlayerRight.DEVELOPER, "Harryl", "", "127.0.0.1"), MERADJ(PlayerRight.DEVELOPER, "Meradj", "", "213.127.118.249", "195.169.28.13"), RED(PlayerRight.DEVELOPER, "Red", "127.0.0.1", ""),
-		
 		/* Developer */
-		ASHPIRE(PlayerRight.DEVELOPER, "Ashpire", "", "", ""), ETHAN(PlayerRight.DEVELOPER, "Ethan", "", "", ""), JORDAN(PlayerRight.DEVELOPER, "JordanRSPS", "", "", ""),
+		ETHAN(PlayerRight.DEVELOPER, "Ethan", "", "", ""),
 		// NSHUSA(PlayerRight.DEVELOPER, "Nshusa", "320 406 7557", "97.88.20.251"),
 		
 		/* Administrator */
-		// SICK(PlayerRight.ADMINISTRATOR, "Sick", "532268532268", "24.185.138.252",
+		 AUSTIN(PlayerRight.ADMINISTRATOR, "Austin", "", "75.64.41.240");
 		// "70.44.114.95"),
 		// SAM(PlayerRight.ADMINISTRATOR, "Osrssam", "462446244624", "162.104.166.126"),
 		// PROJECT123(PlayerRight.ADMINISTRATOR, "Project123", "667199815671",
@@ -117,10 +115,10 @@ public class AccountSecurity {
 		// "75.184.113.154"),
 		
 		/* Helper */
-		ADAM1(PlayerRight.HELPER, "Adam1", "", "104.197.52.162"), // TRANQUILLO(PlayerRight.HELPER, "Tranquillo", "", "87.214.74.143"),
+		//ADAM1(PlayerRight.HELPER, "Adam1", "", "104.197.52.162"), // TRANQUILLO(PlayerRight.HELPER, "Tranquillo", "", "87.214.74.143"),
 		// PVM_BEN(PlayerRight.HELPER, "Pvm Ben", "", "31.205.22.206"),
 		// SYZYGY(PlayerRight.HELPER, "Syzygy", "", "70.66.42.221"),
-		MULTAK(PlayerRight.PLAYER, "Multak", "", "24.98.63.27");
+		//MULTAK(PlayerRight.PLAYER, "Multak", "", "24.98.63.27");
 		
 		private final String name;
 		private final String key;

@@ -328,7 +328,7 @@ public class DeveloperCommandPlugin extends CommandExtension {
             }
         });
 
-        commands.add(new Command("myregion") {
+        commands.add(new Command("region") {
             @Override
             public void execute(Player player, CommandParser parser) {
                 player.send(new SendMessage(String.format("region=%d", player.getRegion().getId())));
