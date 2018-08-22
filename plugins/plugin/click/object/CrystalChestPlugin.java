@@ -11,6 +11,29 @@ import com.nardah.net.packet.out.SendMessage;
 
 public class CrystalChestPlugin extends PluginContext {
 
+
+	@Override
+	protected boolean firstClickObject(Player player, ObjectClickEvent event) {
+		if (event.getObject().getId() != 2191) {
+			return false;
+		}
+
+		if (!player.inventory.contains(CrystalChest.KEY)) {
+			player.dialogueFactory.sendItem("Crystal Key", "You need a crystal key to enter this chest!",
+					CrystalChest.KEY.getId());
+			player.send(new SendMessage("You need a crystal key to enter this chest!"));
+			return true;
+		}
+
+		if (player.inventory.remaining() < 3) {
+			player.send(new SendMessage("You need at lest 3 free inventory spaces to enter the chest."));
+			return true;
+		}
+
+		player.action.execute(new CrystalChestAction(player, event.getObject()), true);
+		return true;
+	}
+
 	@Override
 	protected boolean itemOnItem(Player player, ItemOnItemEvent event) {
 		boolean valid = false;

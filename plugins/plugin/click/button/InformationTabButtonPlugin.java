@@ -47,8 +47,6 @@ public class InformationTabButtonPlugin extends PluginContext {
             case 29423:
                 player.dialogueFactory.sendOption("Activity Logger", () -> {
                     player.dialogueFactory.onAction(player.activityLogger::open);
-                }, "Game Records", () -> {
-                    player.dialogueFactory.onAction(() -> player.gameRecord.display(ActivityType.getFirst()));
                 }, "Title Manager", () -> {
                     player.dialogueFactory.onAction(() -> TitleManager.open(player));
                 }).execute();

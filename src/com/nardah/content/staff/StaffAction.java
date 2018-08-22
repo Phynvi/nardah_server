@@ -126,6 +126,11 @@ public enum StaffAction implements ActionEffect<Player> {
 		this.rights = rights;
 	}
 
+	public static Optional<StaffAction> forAction(int button) {
+		return Arrays.stream(values()).filter(a -> a.button == button).findAny();
+	}
+
+
 	public String getName() {
 		return name;
 	}
