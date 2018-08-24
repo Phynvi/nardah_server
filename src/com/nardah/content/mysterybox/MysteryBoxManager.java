@@ -19,7 +19,7 @@ public class MysteryBoxManager {
 	
 	public boolean click(Item item) {
 		Optional<MysteryBox> mBox = MysteryBox.getMysteryBox(item.getId());
-		
+
 		if(!mBox.isPresent()) {
 			return false;
 		}

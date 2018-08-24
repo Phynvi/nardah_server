@@ -5,13 +5,13 @@
   "last-host": "127.0.0.1",
   "host-list": [],
   "position": {
-    "x": 3442,
-    "y": 2912,
+    "x": 3418,
+    "y": 3002,
     "height": 0
   },
   "created": "Fri Aug 17 2018",
   "trivia-points": 0,
-  "play-time": 180639,
+  "play-time": 225986,
   "money-spent": 0,
   "donation-credits": 0,
   "pest-points": 0,
@@ -33,8 +33,8 @@
   "bank-placeholder": false,
   "bank-pin": null,
   "bank-vault": 0,
-  "royalty": 80,
-  "royalty-level": 1,
+  "royalty": 1,
+  "royalty-level": 2,
   "pet": -1,
   "pet-insurnce": [],
   "lost-pets": [],
@@ -148,133 +148,133 @@
     0
   ],
   "achievement": {
-    "DAGGER": 0,
-    "ZULRAHASS": 0,
-    "KILL_GALVEK": 0,
-    "ENCHANT_BOLTS": 0,
-    "CHANGE_APPEARANCE": 0,
-    "COMPLETE_RFD": 0,
-    "MINER": 0,
-    "KILL_A_MAN": 0,
-    "KILLER": 0,
-    "SKELEWYVERN": 0,
     "CRAFT_DEATHRUNE": 0,
-    "BARROWS": 0,
-    "STEELDRAGASS": 0,
-    "STEAL_FROM_STALL": 0,
-    "VOTE": 0,
-    "WOODCUTTING": 0,
-    "KILL_GLOD": 0,
-    "CRYSTAL_CHEST": 0,
-    "CUT_A_OAK_TREE": 0,
-    "MINE_A_IRON_ORE": 0,
-    "CUT_YEWTREE": 0,
-    "BOSS_DESTROYER": 0,
-    "FLETCH250ADAMANET": 0,
-    "KILL_KRAKEN": 0,
-    "MINE_100_RUNITE_ORE": 0,
-    "SHEAR_SHEEPS": 0,
-    "MITHDRAGASS": 0,
-    "MINE_100_ORE": 0,
-    "MAULED": 0,
-    "GRIZZLY_BEAR": 0,
-    "WYVASS": 0,
-    "JADASS": 0,
     "BURY_BONES": 0,
-    "DAGSASS": 0,
-    "BALLISTA_MAX": 0,
     "KRAKENASS": 0,
-    "EXPERIENCE_MASTERY": 0,
-    "VORKATH": 0,
-    "ADEMONASS": 0,
-    "HALL_OF_FAME": 0,
-    "BURN_AN_OAK_LOG": 0,
-    "BILLIONS": 0,
-    "BURN100ANY": 0,
-    "CRAFT_BLOODRUNE": 0,
-    "KBDASS": 0,
-    "POTION_MAKING": 0,
-    "TRIVIABOT": 0,
-    "CUT100TREES": 0,
-    "TRIVIABOT_II": 0,
-    "KILL_SKOTIZO": 0,
-    "AGS_MAX": 0,
-    "COOK_A_SALMON": 0,
-    "COMPLETE_TUTORIAL": 0,
-    "BURN100YEW": 0,
-    "KILL_LAVA_DRAGON": 0,
-    "HIGH_ALCHEMY": 0,
-    "SETUP_PRELOADING_GEAR": 0,
-    "SKILL_MASTERY": 0,
-    "CUT_MAGICTREE": 0,
     "CATCH_A_SALMON": 0,
+    "CUT_YEWTREE": 0,
+    "CHANGE_APPEARANCE": 0,
+    "MINER": 0,
+    "DAGGER": 0,
+    "BILLIONS": 0,
+    "ENCHANT_BOLTS": 0,
+    "MITHDRAGASS": 0,
+    "STEELDRAGASS": 0,
+    "EXPERIENCE_MASTERY": 0,
+    "BARROWS": 0,
+    "STEAL_FROM_STALL": 0,
+    "MINE_100_ORE": 0,
+    "VORKATH": 0,
+    "TRIVIABOT_II": 0,
+    "KILLER": 0,
+    "SHEAR_SHEEPS": 0,
+    "SETUP_PRELOADING_GEAR": 0,
+    "KILL_KRAKEN": 0,
+    "BURN_AN_OAK_LOG": 0,
+    "GRIZZLY_BEAR": 0,
+    "CUT_MAGICTREE": 0,
+    "KILL_SKOTIZO": 0,
+    "KILL_GALVEK": 0,
+    "WOODCUTTING": 0,
+    "CUT100TREES": 0,
+    "JADASS": 0,
+    "MAULED": 0,
+    "CRYSTAL_CHEST": 0,
+    "BALLISTA_MAX": 0,
+    "BOSS_DESTROYER": 0,
+    "CRAFT_BLOODRUNE": 0,
+    "BURN100YEW": 0,
+    "TRIVIABOT": 0,
+    "BURN100ANY": 0,
+    "VOTE": 0,
+    "KILL_A_MAN": 0,
+    "HIGH_ALCHEMY": 0,
+    "COMPLETE_RFD": 0,
+    "MINE_100_RUNITE_ORE": 0,
+    "SKELEWYVERN": 0,
+    "AGS_MAX": 0,
+    "WYVASS": 0,
+    "KILL_GLOD": 0,
+    "BOSSPOINT": 0,
     "CARCHASS": 0,
-    "BOSSPOINT": 0
+    "COOK_A_SALMON": 0,
+    "KBDASS": 0,
+    "HALL_OF_FAME": 0,
+    "SKILL_MASTERY": 0,
+    "CUT_A_OAK_TREE": 0,
+    "KILL_LAVA_DRAGON": 0,
+    "ZULRAHASS": 0,
+    "ADEMONASS": 0,
+    "MINE_A_IRON_ORE": 0,
+    "POTION_MAKING": 0,
+    "COMPLETE_TUTORIAL": 0,
+    "FLETCH250ADAMANET": 0,
+    "DAGSASS": 0
   },
   "daily-achievement": {
-    "GRIZZLY_BEAR": 0,
-    "KILL_SKOTIZO": 0,
-    "BURN100YEW": 0,
-    "KILL_A_MAN": 0,
-    "KBDASS": 0,
-    "MITHDRAGASS": 0,
-    "FLETCH250ADAMANET": 0,
-    "MINER": 0,
-    "STEAL_FROM_STALL": 0,
-    "CHANGE_APPEARANCE": 0,
-    "MAULED": 0,
-    "BILLIONS": 0,
-    "COOK_A_SALMON": 0,
-    "CUT_YEWTREE": 0,
-    "SKILL_MASTERY": 0,
-    "BURY_BONES": 0,
-    "DAGGER": 0,
-    "CRYSTAL_CHEST": 0,
-    "AGS_MAX": 0,
-    "CARCHASS": 0,
-    "BOSSPOINT": 0,
-    "CUT100TREES": 0,
-    "CATCH_A_SALMON": 0,
     "ENCHANT_BOLTS": 0,
-    "HIGH_ALCHEMY": 0,
-    "POTION_MAKING": 0,
-    "WOODCUTTING": 0,
-    "ADEMONASS": 0,
-    "KILLER": 0,
-    "TRIVIABOT_II": 0,
-    "MINE_100_RUNITE_ORE": 0,
-    "COMPLETE_RFD": 0,
-    "BOSS_DESTROYER": 0,
-    "WYVASS": 0,
-    "MINE_A_IRON_ORE": 0,
-    "SHEAR_SHEEPS": 0,
-    "JADASS": 0,
-    "EXPERIENCE_MASTERY": 0,
-    "CUT_A_OAK_TREE": 0,
-    "SETUP_PRELOADING_GEAR": 0,
-    "KILL_GLOD": 0,
-    "BARROWS": 0,
-    "KILL_LAVA_DRAGON": 0,
-    "KRAKENASS": 0,
-    "VORKATH": 0,
-    "BALLISTA_MAX": 0,
-    "STEELDRAGASS": 0,
-    "DAGSASS": 0,
-    "BURN100ANY": 0,
+    "STEAL_FROM_STALL": 0,
     "HALL_OF_FAME": 0,
-    "TRIVIABOT": 0,
-    "KILL_KRAKEN": 0,
-    "CUT_MAGICTREE": 0,
-    "MINE_100_ORE": 0,
-    "ZULRAHASS": 0,
-    "CRAFT_DEATHRUNE": 0,
-    "BURN_AN_OAK_LOG": 0,
-    "CRAFT_BLOODRUNE": 0,
-    "KILL_GANO": 0,
-    "KILL_GALVEK": 0,
+    "WYVASS": 0,
+    "CARCHASS": 0,
     "VOTE": 0,
+    "AGS_MAX": 0,
+    "KILL_GANO": 0,
+    "ZULRAHASS": 0,
+    "BURN_AN_OAK_LOG": 0,
+    "GRIZZLY_BEAR": 0,
+    "HIGH_ALCHEMY": 0,
+    "BURN100ANY": 0,
+    "KBDASS": 0,
+    "CUT_A_OAK_TREE": 0,
+    "MINE_A_IRON_ORE": 0,
+    "SKILL_MASTERY": 0,
+    "CUT_MAGICTREE": 0,
+    "CRAFT_DEATHRUNE": 0,
+    "FLETCH250ADAMANET": 0,
+    "COOK_A_SALMON": 0,
+    "CATCH_A_SALMON": 0,
+    "KILL_GLOD": 0,
+    "CRYSTAL_CHEST": 0,
+    "BOSS_DESTROYER": 0,
+    "BOSSPOINT": 0,
+    "VORKATH": 0,
+    "EXPERIENCE_MASTERY": 0,
     "COMPLETE_TUTORIAL": 0,
-    "SKELEWYVERN": 0
+    "MAULED": 0,
+    "MITHDRAGASS": 0,
+    "WOODCUTTING": 0,
+    "MINE_100_RUNITE_ORE": 0,
+    "POTION_MAKING": 0,
+    "CHANGE_APPEARANCE": 0,
+    "JADASS": 0,
+    "BARROWS": 0,
+    "KILL_GALVEK": 0,
+    "KRAKENASS": 0,
+    "DAGSASS": 0,
+    "SETUP_PRELOADING_GEAR": 0,
+    "KILLER": 0,
+    "BURN100YEW": 0,
+    "KILL_LAVA_DRAGON": 0,
+    "BALLISTA_MAX": 0,
+    "DAGGER": 0,
+    "BURY_BONES": 0,
+    "SKELEWYVERN": 0,
+    "TRIVIABOT": 0,
+    "SHEAR_SHEEPS": 0,
+    "BILLIONS": 0,
+    "CUT100TREES": 0,
+    "STEELDRAGASS": 0,
+    "TRIVIABOT_II": 0,
+    "KILL_KRAKEN": 0,
+    "ADEMONASS": 0,
+    "MINER": 0,
+    "MINE_100_ORE": 0,
+    "CRAFT_BLOODRUNE": 0,
+    "COMPLETE_RFD": 0,
+    "KILL_A_MAN": 0,
+    "CUT_YEWTREE": 0,
+    "KILL_SKOTIZO": 0
   },
   "last-killed": [],
   "favorite-teleport": [],
@@ -287,16 +287,16 @@
   "ignore-list": [],
   "appearance": {
     "gender": "MALE",
-    "head": 0,
-    "beard": 10,
+    "head": 3,
+    "beard": 14,
     "torso": 18,
     "arms": 26,
     "hands": 33,
-    "legs": 36,
+    "legs": 38,
     "feet": 42,
     "hairColor": 0,
-    "torsoColor": 0,
-    "legsColor": 0,
+    "torsoColor": 1,
+    "legsColor": 2,
     "feetColor": 0,
     "skinColor": 0
   },
@@ -313,46 +313,46 @@
     null
   ],
   "activity-logger": {
-    "GANO": 0,
     "ABYSSAL_DEMON": 0,
-    "CORPOREAL_BEAST": 0,
-    "KOLODIONS_MINIGAME": 0,
-    "VENANTIS": 0,
-    "VORKATH": 0,
-    "BARROWS": 0,
-    "EASY_CLUE": 0,
-    "MEDIUM_CLUE": 0,
-    "KRAKEN": 0,
-    "JUSTICAR": 0,
-    "GLOD": 0,
-    "KRIL_TSUTSAROTH": 0,
-    "MAN": 0,
-    "HARD_CLUE": 0,
-    "SKOTIZO": 0,
-    "GALVEK": 0,
-    "CALLISTO": 0,
-    "DARK_BEAST": 0,
-    "LAVA_DRAGON": 0,
-    "GENERAL_GRAARDOR": 0,
-    "ELITE_CLUE": 0,
-    "FIGHT_CAVES": 0,
-    "VETION": 0,
-    "KREE_ARRA": 0,
-    "CHAOS_ELEMENTAL": 0,
-    "LIZARD_SHAMAN": 0,
-    "GIANT_ROC": 0,
     "MITHRIL_DRAGON": 0,
-    "PEST_CONTROL": 0,
-    "ZULRAH": 0,
-    "SCORPIA": 0,
-    "PORAZDIR": 0,
+    "MAN": 0,
+    "CORPOREAL_BEAST": 0,
+    "GALVEK": 0,
+    "MEDIUM_CLUE": 0,
+    "CALLISTO": 0,
+    "VENANTIS": 0,
+    "LAVA_DRAGON": 0,
     "KING_BLACK_DRAGON": 0,
     "CERBERUS": 0,
+    "CHAOS_ELEMENTAL": 0,
+    "KRAKEN": 0,
+    "GIANT_ROC": 0,
+    "GANO": 0,
+    "HARD_CLUE": 0,
+    "EASY_CLUE": 0,
+    "BARROWS": 0,
+    "VETION": 0,
     "CRYSTAL_CHEST": 0,
+    "FIGHT_CAVES": 0,
     "COMMANDER_ZILYANA": 0,
+    "SCORPIA": 0,
+    "GENERAL_GRAARDOR": 0,
+    "ZULRAH": 0,
+    "GLOD": 0,
+    "VORKATH": 0,
+    "KREE_ARRA": 0,
     "CHAOS_FANATIC": 0,
+    "DARK_BEAST": 0,
+    "ELITE_CLUE": 0,
     "SKELETAL_WYVERN": 0,
-    "CRAZY_ARCHAEOLOGIST": 0
+    "KOLODIONS_MINIGAME": 0,
+    "JUSTICAR": 0,
+    "PEST_CONTROL": 0,
+    "PORAZDIR": 0,
+    "CRAZY_ARCHAEOLOGIST": 0,
+    "KRIL_TSUTSAROTH": 0,
+    "SKOTIZO": 0,
+    "LIZARD_SHAMAN": 0
   },
   "quick-prayers": {
     "active": [],
@@ -552,60 +552,117 @@
   ],
   "inventory": [
     {
-      "id": 4587,
+      "id": 4726,
       "amount": 1
     },
     {
-      "id": 1127,
+      "id": 11840,
       "amount": 1
     },
     {
-      "id": 1079,
+      "id": 4708,
       "amount": 1
     },
     {
-      "id": 7478,
+      "id": 6731,
       "amount": 1
     },
     {
-      "id": 560,
-      "amount": 175
-    },
-    {
-      "id": 7158,
+      "id": 4728,
       "amount": 1
     },
     {
-      "id": 4588,
-      "amount": 3
+      "id": 11826,
+      "amount": 1
     },
     {
-      "id": 537,
-      "amount": 100
+      "id": 11739,
+      "amount": 1
     },
     {
-      "id": 12934,
-      "amount": 300
+      "id": 11739,
+      "amount": 1
     },
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 11739,
+      "amount": 1
+    },
+    {
+      "id": 1201,
+      "amount": 1
+    },
+    {
+      "id": 3122,
+      "amount": 1
+    },
+    {
+      "id": 380,
+      "amount": 200
+    }
   ],
   "equipment": [
     null,
@@ -624,7 +681,7 @@
     null
   ],
   "tab-amounts": [
-    7,
+    12,
     46,
     19,
     42,
@@ -638,7 +695,7 @@
   "bank": [
     {
       "id": 995,
-      "amount": 10000
+      "amount": 510000
     },
     {
       "id": 11665,
@@ -663,6 +720,26 @@
     {
       "id": 8842,
       "amount": 10000
+    },
+    {
+      "id": 7478,
+      "amount": 1
+    },
+    {
+      "id": 536,
+      "amount": 100
+    },
+    {
+      "id": 12934,
+      "amount": 300
+    },
+    {
+      "id": 7462,
+      "amount": 1
+    },
+    {
+      "id": 11920,
+      "amount": 1
     },
     {
       "id": 4151,
@@ -694,7 +771,7 @@
     },
     {
       "id": 4587,
-      "amount": 10000
+      "amount": 10004
     },
     {
       "id": 1305,
@@ -702,7 +779,7 @@
     },
     {
       "id": 7158,
-      "amount": 10000
+      "amount": 10001
     },
     {
       "id": 1434,
@@ -722,7 +799,7 @@
     },
     {
       "id": 6585,
-      "amount": 10000
+      "amount": 10001
     },
     {
       "id": 12954,
@@ -734,7 +811,7 @@
     },
     {
       "id": 10551,
-      "amount": 10000
+      "amount": 10001
     },
     {
       "id": 4153,
@@ -774,11 +851,11 @@
     },
     {
       "id": 1127,
-      "amount": 10000
+      "amount": 10001
     },
     {
       "id": 1079,
-      "amount": 10000
+      "amount": 10001
     },
     {
       "id": 1201,
@@ -934,7 +1011,7 @@
     },
     {
       "id": 11791,
-      "amount": 10000
+      "amount": 10001
     },
     {
       "id": 11770,
@@ -1066,7 +1143,7 @@
     },
     {
       "id": 560,
-      "amount": 10000
+      "amount": 10175
     },
     {
       "id": 561,
@@ -1326,7 +1403,7 @@
     },
     {
       "id": 4720,
-      "amount": 10000
+      "amount": 10001
     },
     {
       "id": 4722,
@@ -1420,11 +1497,6 @@
       "id": 21225,
       "amount": 10000
     },
-    null,
-    null,
-    null,
-    null,
-    null,
     null,
     null,
     null,

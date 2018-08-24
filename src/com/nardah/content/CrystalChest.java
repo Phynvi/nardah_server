@@ -45,7 +45,7 @@ public class CrystalChest {
 	/**
 	 * Holds all the crystal chest rewards.
 	 */
-	private static final Chance<Item> ITEMS = new Chance<>(Arrays.asList(new WeightedChance<>(8, new Item(1163, 1)), // RUNE_FULL_HELM
+	public static final Chance<Item> ITEMS = new Chance<>(Arrays.asList(new WeightedChance<>(8, new Item(1163, 1)), // RUNE_FULL_HELM
 			new WeightedChance<>(6, new Item(1147, 1)), // RUNE_MED_HELM
 			new WeightedChance<>(6, new Item(1127, 1)), // RUNE_PLATEBODY
 			new WeightedChance<>(6, new Item(1093, 1)), // RUNE_PLATESKIRT

@@ -75,7 +75,7 @@ public final class Nardah {
 		try {
 			logger.info("Preparing Object/Region Decoding...");
 			new ObjectRemovalParser().run();
-			FileSystem fs = FileSystem.create(System.getProperty("user.home") + "/NR/");
+			FileSystem fs = FileSystem.create(System.getProperty("user.home") + "/nardah/");
 			new ObjectDefinitionDecoder(fs).run();
 			new MapDefinitionDecoder(fs).run();
 			new RegionDecoder(fs).run();

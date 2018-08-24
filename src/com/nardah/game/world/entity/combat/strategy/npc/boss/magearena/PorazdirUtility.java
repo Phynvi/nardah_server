@@ -17,9 +17,9 @@ public class PorazdirUtility {
 		Mob Porazdir = new Mob(7860, spawn.position, 10, Direction.NORTH);
 		World.sendMessage("<col=8714E6> Porazdir has just spawned! He is located at " + spawn.location + "!");
 		World.sendBroadcast(1, "The Porazdir boss has spawned!" + spawn.location + "!", true);
-		for(int x = 0; x < 500; x++) {
-			System.out.println("Porazdir Spawned!");
-		}
+//		for(int x = 0; x < 500; x++) {
+//			System.out.println("Porazdir Spawned!");
+//		}
 		Porazdir.register();
 		Porazdir.definition.setRespawnTime(-1);
 		Porazdir.definition.setAggressive(true);

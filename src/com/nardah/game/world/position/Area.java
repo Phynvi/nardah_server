@@ -93,7 +93,7 @@ public abstract class Area {
 	/**
 	 * The collection of areas that resemble the wilderness area.
 	 */
-	private static final ImmutableList<Area> WILDERNESS = ImmutableList.of(new SquareArea("Wilderness 1", 2941, 3525, 3392, 3966), new SquareArea("Wilderness 2", 2941, 9920, 3392, 10366), new SquareArea("Wilderness 3", 2250, 4672, 2296, 4721));
+	private static final ImmutableList<Area> WILDERNESS = ImmutableList.of(new SquareArea("Wilderness 1", 2941, 3525, 3392, 3966), new SquareArea("Wilderness 2", 2941, 9920, 3392, 10366), new SquareArea("Wilderness 3", 2250, 4672, 2296, 4721), new SquareArea("Wilderness 4", 3392, 2944, 3480, 3136));
 	
 	public static boolean inMulti(Entity entity) {
 		for(Area zone : MULTI_COMBAT_ZONES) {

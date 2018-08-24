@@ -1,6 +1,7 @@
 package com.nardah.util;
 
 import com.nardah.Nardah;
+import com.nardah.content.CrystalChest;
 import com.nardah.game.world.Interactable;
 import com.nardah.game.world.entity.actor.Direction;
 import com.nardah.game.world.entity.actor.Actor;
@@ -10,6 +11,7 @@ import com.nardah.game.world.pathfinding.TraversalMap;
 import com.nardah.game.world.pathfinding.path.Path;
 import com.nardah.game.world.position.Position;
 import com.nardah.net.packet.out.SendMessage;
+import plugin.click.item.ClueScrollPlugin;
 
 import java.io.*;
 import java.sql.ResultSet;
@@ -28,6 +30,10 @@ import java.util.stream.Stream;
  * @edited Adam_#6723
  */
 public class Utility {
+
+	public static void main(String[] args) {
+//			ClueScrollPlugin.declare();
+	}
 	
 	/**
 	 * Random instance, used to generate pseudo-random primitive types.
