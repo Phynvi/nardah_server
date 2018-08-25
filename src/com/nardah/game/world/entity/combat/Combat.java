@@ -184,13 +184,14 @@ public class Combat<T extends Actor> {
 	
 	private void submitHits(Actor defender, CombatStrategy<? super T> strategy, CombatHit... hits) {
 		start(defender, strategy, hits);
-		for(int index = 0; index < hits.length; index++) {
-			boolean last = index == hits.length - 1;
-			CombatHit hit = hits[index];
-			CombatData<T> data = new CombatData<>(attacker, defender, hit, strategy, last);
-			attack(defender, hit, strategy);
-			combatQueue.add(data);
-		}
+		if (hits != null)
+			for(int index = 0; index < hits.length; index++) {
+				boolean last = index == hits.length - 1;
+				CombatHit hit = hits[index];
+				CombatData<T> data = new CombatData<>(attacker, defender, hit, strategy, last);
+				attack(defender, hit, strategy);
+				combatQueue.add(data);
+			}
 	}
 	
 	public void queueDamage(Hit hit) {

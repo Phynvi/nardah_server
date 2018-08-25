@@ -245,13 +245,13 @@ public class AdminCommandPlugin extends CommandExtension {
 
                     final ItemDefinition def = ItemDefinition.get(id);
 
-                    if (def == null || def.getName() == null) {
+                   /* if (def == null || def.getName() == null) {
                         return;
                     }
 
                     if (def.getName().equalsIgnoreCase("null")) {
                         return;
-                    }
+                    }*/
 
                     player.inventory.add(id, amount);
                 }

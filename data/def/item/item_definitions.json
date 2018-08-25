@@ -35606,6 +35606,7 @@
     "unnoted-id": 4153,
     "low-alch": 20000,
     "high-alch": 30000,
+
     "base-value": 50000,
     "street-value": 33510,
     "weight": 4.5
@@ -121848,5 +121849,29 @@
     "high-alch": 258,
     "base-value": 430,
     "weight": 4.5
+  },
+
+  {
+    "id": 22325,
+    "name": "Scythe of Vitur",
+    "high-alch": 100000000,
+    "base-value": 150000000,
+    "weapon-interface": "SCYTHE",
+    "equipment-slot": "WEAPON",
+    "two-handed": true,
+    "block-animation": 424,
+    "stand-animation": 809,
+    "walk-animation": 1146,
+    "run-animation": 1210,
+    "turn180-animation": 820,
+    "turn90CW-animation": 821,
+    "turn90CCW-animation": 821,
+    "weight": 3.0,
+    "attack-stab": 100,
+    "attack-slash": 200,
+    "attack-crush": 100,
+    "attack-magic": 1,
+    "defence-magic": 1,
+    "bonus-strength": 120
   }
 ]

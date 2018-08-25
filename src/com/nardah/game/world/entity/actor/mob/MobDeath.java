@@ -76,6 +76,8 @@ public final class MobDeath extends ActorDeath<Mob> {
 	public void postDeath(Actor killer) {
 		if(killer == null)
 			return;
+
+		System.out.println("Killer " + killer.getType());
 		
 		/* Mob name. */
 		String name = mob.getName().toUpperCase().replace(" ", "_");
@@ -773,6 +775,26 @@ public final class MobDeath extends ActorDeath<Mob> {
 				break;
 			case NPC:
 				//      Mob npcKiller = killer.getMob();
+				break;
+			case DWARF_CANNON:
+				System.out.println("I died by a cannon.");
+				playerKiller = killer.getPlayer();
+				/* Mob drop. */
+				MobDropManager.drop(playerKiller, mob);
+
+				/* The slayer kill activator. */
+				playerKiller.slayer.activate(mob, 1, false);
+
+				/* The followers. */
+				if(playerKiller.followers.contains(mob.getNpc())) {
+					playerKiller.followers.remove(mob);
+				}
+
+				if(playerKiller.getBossPoints() == 5000) {
+					AchievementHandler.activate(playerKiller, AchievementKey.BOSSPOINT, 1);
+				}
+				/* Activity. */
+				EventDispatcher.execute(playerKiller, new OnKillEvent(mob));
 				break;
 		}
 	}

@@ -42,6 +42,25 @@ public final class CombatListenerManager {
 		logger.info(String.format("Loaded: %d item set combat listeners.", ITEM_LISTENERS.size()));
 	}
 
+	public static void equipmenteffectsonlogin(Player player) {
+		for (Set<CombatListenerSet> i : ITEM_LISTENERS.values()) {
+			if (i == null) {
+				return;
+			}
+			for (CombatListenerSet set : i) {
+				if (set.requireAll && player.equipment.containsAll(set.set) || !set.requireAll && player.equipment.containsAny(set.set)) {
+					player.getCombat().addListener(set.listener);
+				}
+				if(set.set == null) {
+					System.out.println("Listener is null.");
+					return;
+				}
+				//    System.out.println("(Adding equipmenteffectsonlogin) listener " +
+				//         set.listener.getClass().getSimpleName() + " from " + player.getName());
+			}
+		}
+	}
+
 	private static void loadNpcs() {
 		new FastClasspathScanner().matchClassesWithAnnotation(NpcCombatListenerSignature.class, clazz -> {
 			try {

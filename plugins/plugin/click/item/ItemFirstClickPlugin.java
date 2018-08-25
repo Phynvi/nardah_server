@@ -2,6 +2,8 @@ package plugin.click.item;
 
 import com.nardah.content.DiceBag;
 import com.nardah.content.activity.impl.zulrah.ZulrahActivity;
+import com.nardah.content.combat.cannon.Cannon;
+import com.nardah.content.combat.cannon.CannonManager;
 import com.nardah.content.consume.Anglerfish;
 import com.nardah.content.skill.impl.slayer.Slayer;
 import com.nardah.content.skill.impl.slayer.SlayerTask;
@@ -24,6 +26,9 @@ public class ItemFirstClickPlugin extends PluginContext { // etest
 	@Override
 	protected boolean firstClickItem(Player player, ItemClickEvent event) {
 		switch (event.getItem().getId()) {
+			case 6:
+				CannonManager.drop(player, new Cannon(player.getName(), player.getPosition()));
+				break;
 		case 12746:
 			player.pkPoints += 3;
 			player.message("<img=14>You now have @red@" + player.getpkPoints() + " PVP Points!");

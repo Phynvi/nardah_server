@@ -116,6 +116,7 @@ public final class Equipment extends ItemContainer {
 		WeaponInterface.execute(player, getWeapon());
 		updateBonus();
 		updateWeight();
+		CombatListenerManager.equipmenteffectsonlogin(player);
 		refresh();
 	}
 	
@@ -172,6 +173,7 @@ public final class Equipment extends ItemContainer {
 				continue;
 			weight += item.getWeight();
 		}
+
 		return weight;
 	}
 	

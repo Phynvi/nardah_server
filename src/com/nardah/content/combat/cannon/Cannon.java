@@ -1,5 +1,6 @@
 package com.nardah.content.combat.cannon;
 
+
 import com.nardah.game.world.entity.Entity;
 import com.nardah.game.world.entity.EntityType;
 import com.nardah.game.world.entity.actor.player.Player;
@@ -11,7 +12,8 @@ import com.nardah.net.packet.out.SendRemoveObject;
 
 /**
  * Handles the dwarf cannon.
- * @author Daniel
+ * 
+ * @Adam_#6723
  */
 public class Cannon extends Entity {
 	
@@ -25,11 +27,11 @@ public class Cannon extends Entity {
 	
 	private boolean firing;
 	
-	private CannonManager.Setup stage;
+    private CannonManager.Setup stage;
+    
+    private CannonManager.Rotation rotation;
 	
-	private CannonManager.Rotation rotation;
-	
-	Cannon(String owner, Position position) {
+	public Cannon(String owner, Position position) {
 		super(position);
 		this.owner = owner;
 		this.position = position;
@@ -87,53 +89,55 @@ public class Cannon extends Entity {
 	public void setRotation(CannonManager.Rotation rotation) {
 		this.rotation = rotation;
 	}
-	
+
 	@Override
 	public void register() {
-		if(!isRegistered()) {
+		if (!isRegistered()) {
 			Region region = getRegion();
 			setRegistered(true);
 			
-			if(region == null) {
+			if (region == null) {
 				setPosition(getPosition());
-			} else if(!region.containsObject(getHeight(), object)) {
+			} else if (!region.containsObject(getHeight(), object)) {
 				addToRegion(region);
 			}
 		}
 	}
-	
+
 	@Override
 	public void unregister() {
-		if(isRegistered()) {
+		if (isRegistered()) {
 			destroy();
 		}
 	}
-	
+
 	@Override
 	public void addToRegion(Region region) {
 		region.getPlayers(getHeight()).stream().filter(Player::isValid).forEach(player -> player.send(new SendAddObject(object)));
+		region.addObject(object);
 	}
-	
+
 	@Override
 	public void removeFromRegion(Region region) {
 		region.getPlayers(getHeight()).stream().filter(Player::isValid).forEach(player -> player.send(new SendRemoveObject(object)));
+		region.removeObject(object);
 	}
 	
 	@Override
 	public String getName() {
 		return "Dwarf cannon";
 	}
-	
+
 	@Override
 	public EntityType getType() {
 		return EntityType.DWARF_CANNON;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		return false;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return 0;

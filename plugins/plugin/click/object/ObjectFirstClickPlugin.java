@@ -61,6 +61,7 @@ public class ObjectFirstClickPlugin extends PluginContext {
 		final int id = object.getId();
 
 		switch (id) {
+
 			case 11834:
 				if (!Activity.search(player, FightCaves.class).isPresent()) {
 					return false;

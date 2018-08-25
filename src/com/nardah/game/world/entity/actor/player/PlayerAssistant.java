@@ -226,6 +226,10 @@ public class PlayerAssistant {
 			if(item.getId() == 4747) {
 				return ToragHammers.get();
 			}
+
+			if (item.getId() == 22325) {
+				return ScytheOfVitur.get();
+			}
 			
 			switch(item.getId()) {
 				case 839:
