@@ -18,7 +18,7 @@ public final class Smelting extends Action<Player> {
 	 * The array which holds all the possible furnace ids a player can smelt his
 	 * bars in.
 	 */
-	private static final int[] FURNACE_IDS = {16469, 3994};
+	private static final int[] FURNACE_IDS = {16469, 3994, 10082};
 
 	/**
 	 * The array which holds all the frames you can draw an item on.
