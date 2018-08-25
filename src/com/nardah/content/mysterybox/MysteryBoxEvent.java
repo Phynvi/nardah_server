@@ -68,7 +68,7 @@ public class MysteryBoxEvent extends TickableTask {
 
 		byte type = getType(reward);
 		if (type != 1) {
-			World.sendMessage("<icon=17><col=5739B3> OSR: <col=" + player.right.getColor() + ">" + player.getName() + " </col>has won " + Utility.getAOrAn(reward.getName()) + " <col=5739B3>" + reward.getName() + " </col>from the <col=5739B3>" + boxName + "</col>.");
+			World.sendMessage("<icon=17><col=5739B3> Nardah: <col=" + player.right.getColor() + ">" + player.getName() + " </col>has won " + Utility.getAOrAn(reward.getName()) + " <col=5739B3>" + reward.getName() + " </col>from the <col=5739B3>" + boxName + "</col>.");
 		}
 
 		player.locking.unlock();

@@ -150,7 +150,7 @@ public class TutorialActivity extends Activity {
 				break;
 			case 6:
 				factory.sendNpcChat(315, "QUEST TAB: Inside contains information about the world", "and your character. On the top right corner of the", "tab you will see a selection of different buttons.");
-				factory.sendNpcChat(315, "The blue button will show you the quest tab", "and the green button will show you the achievement tab.");
+				factory.sendNpcChat(315, "The blue button will show you the quest tab", "and the purple button will show you the achievement tab.");
 				factory.sendNpcChat(315, "The purple button will provide you with various options.", "Some of these options include - mob drop viewer,", "log drop simulator, log kill logs, title manager and more!").onAction(() -> {
 					player.interfaceManager.setSidebar(Config.QUEST_TAB, 51200);
 					next();
@@ -339,7 +339,7 @@ public class TutorialActivity extends Activity {
 		if(player.needsStarter) {
 			StarterKit.open(player);
 		}
-		EmailInputListener.input(player);
+		//EmailInputListener.input(player);
 	}
 
 	@Override

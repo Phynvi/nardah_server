@@ -11,8 +11,8 @@ parallel_game_engine = false
 highscores_enabled = true
 
 [client]
-client_version = 7
-cache_version = 5
+client_version = 8
+cache_version = 6
 
 [game]
 skull_time = 720
@@ -58,7 +58,7 @@ rsa_exponent = "7264025230358827864446787683450665451169288273687814267447370567
 
 [website]
 website_url = "http://nardah.com"
-website_integration = false
+website_integration = true
 forum_db_url = "jdbc:mysql://nardah.com:3306/runity_global"
 forum_db_user = "runity_root"
 forum_db_pass = "JNfIn3IvH5$V"
