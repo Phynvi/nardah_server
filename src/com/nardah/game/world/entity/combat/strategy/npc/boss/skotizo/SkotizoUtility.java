@@ -39,7 +39,12 @@ public class SkotizoUtility {
 	}
 	
 	public enum SpawnData {
-		LEVEL_18("lvl 18 wild near east dragons", new Position(3307, 3668, 0)), LEVEL_19("lvl 19 wild near obelisk", new Position(3222, 3658, 0)), LEVEL_28("lvl 28 wild near venenatis", new Position(3308, 3737, 0)), LEVEL_41("lvl 41 wild near callisto", new Position(3270, 3843, 0)), LEVEL_52("lvl 52 wild near obelisk", new Position(3304, 3929, 0)), LEVEL_53("lvl 53 wild near scorpia's cave entrance", new Position(3211, 3944, 0));
+		LEVEL_18("lvl 18 wild near east dragons", new Position(3307, 3668, 0)),
+		LEVEL_19("lvl 19 wild near obelisk", new Position(3222, 3658, 0)),
+		LEVEL_28("lvl 28 wild near venenatis", new Position(3308, 3737, 0)),
+		LEVEL_41("lvl 41 wild near callisto", new Position(3270, 3843, 0)),
+		LEVEL_52("lvl 52 wild near obelisk", new Position(3304, 3929, 0)),
+		LEVEL_53("lvl 53 wild near scorpia's cave entrance", new Position(3211, 3944, 0));
 		
 		public final String location;
 		public final Position position;

