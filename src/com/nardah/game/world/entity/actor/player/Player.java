@@ -631,8 +631,19 @@ public class Player extends Actor {
 		if(Area.inBattleRealm(this)) {
 			send(new SendPlayerOption(PlayerOption.ATTACK, true));
 			send(new SendPlayerOption(PlayerOption.DUEL_REQUEST, false, true));
-		} // wilderness
-		else if(Area.inWilderness(this)) {
+		} else if(Area.inNewWilderness(this)) {//NEW WILDY
+			int modY = getPosition().getY() > 6400 ? getPosition().getY() - 6400 : getPosition().getY();
+			wilderness = (((modY - 2944) / 4) + 1);
+			send(new SendString("Level " + wilderness, 23327));
+			if (interfaceManager.getWalkable() != 23400) {
+				interfaceManager.openWalkable(23400);
+			}
+			if (!this.brutalMode) {
+				send(new SendPlayerOption(PlayerOption.ATTACK, true));
+				send(new SendPlayerOption(PlayerOption.DUEL_REQUEST, false, true));
+			}
+			// wilderness
+		} else if(Area.inWilderness(this)) {
 			int modY = getPosition().getY() > 6400 ? getPosition().getY() - 6400 : getPosition().getY();
 			wilderness = (((modY - 3521) / 8) + 1);
 			send(new SendString("Level " + wilderness, 23327));
@@ -649,7 +660,7 @@ public class Player extends Actor {
 		} else if(Area.inDuelArenaLobby(this)) {
 			send(new SendPlayerOption(PlayerOption.DUEL_REQUEST, false));
 			send(new SendPlayerOption(PlayerOption.ATTACK, false, true));
-			
+
 			// duel arena
 		} else if(Area.inDuelArena(this) || Area.inDuelObsticleArena(this)) {
 			send(new SendPlayerOption(PlayerOption.ATTACK, true));

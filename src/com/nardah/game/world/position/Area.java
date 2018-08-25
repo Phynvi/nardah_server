@@ -93,8 +93,9 @@ public abstract class Area {
 	/**
 	 * The collection of areas that resemble the wilderness area.
 	 */
-	private static final ImmutableList<Area> WILDERNESS = ImmutableList.of(new SquareArea("Wilderness 1", 2941, 3525, 3392, 3966), new SquareArea("Wilderness 2", 2941, 9920, 3392, 10366), new SquareArea("Wilderness 3", 2250, 4672, 2296, 4721), new SquareArea("Wilderness 4", 3392, 2944, 3480, 3136));
-	
+	private static final ImmutableList<Area> WILDERNESS = ImmutableList.of(new SquareArea("Wilderness 1", 2941, 3525, 3392, 3966), new SquareArea("Wilderness 2", 2941, 9920, 3392, 10366), new SquareArea("Wilderness 3", 2250, 4672, 2296, 4721));
+	private static final ImmutableList<Area> NEW_WILDERNESS = ImmutableList.of(new SquareArea("Wilderness 4", 3392, 2944, 3480, 3136), new SquareArea("Wilderness 5", 3392, 3136, 3435, 3163) , new SquareArea("Wilderness 6", 3414, 3159, 3434, 3170) , new SquareArea("Wilderness 7", 3435, 3136, 3491, 3155));
+
 	public static boolean inMulti(Entity entity) {
 		for(Area zone : MULTI_COMBAT_ZONES) {
 			if(zone.inArea(entity.getPosition())) {
@@ -123,9 +124,24 @@ public abstract class Area {
 				return true;
 			}
 		}
+		for(Area wild : NEW_WILDERNESS) {
+			if(wild.inArea(entity.getPosition())) {
+				return true;
+			}
+		}
 		return false;
 	}
-	
+	public static boolean inNewWilderness(Interactable entity) {
+		if(entity == null)
+			return false;
+		for(Area wild : NEW_WILDERNESS) {
+			if(wild.inArea(entity.getPosition())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public static boolean inDuelArenaLobby(Entity entity) {
 		for(Area zone : DUEL_ARENA_LOBBY) {
 			if(zone.inArea(entity.getPosition())) {
