@@ -3,6 +3,7 @@ package plugin.click.button;
 import com.nardah.Config;
 import com.nardah.content.DropDisplay;
 import com.nardah.content.DropSimulator;
+import com.nardah.content.RoyaltyProgram;
 import com.nardah.content.achievement.AchievementInterface;
 import com.nardah.content.activity.ActivityType;
 import com.nardah.content.skill.impl.slayer.SlayerTab;
@@ -49,6 +50,8 @@ public class InformationTabButtonPlugin extends PluginContext {
                     player.dialogueFactory.onAction(player.activityLogger::open);
                 }, "Title Manager", () -> {
                     player.dialogueFactory.onAction(() -> TitleManager.open(player));
+                }, "Royalty Program", () -> {
+                    player.dialogueFactory.onAction(() -> RoyaltyProgram.open(player));
                 }).execute();
                 break;
             case 29429:

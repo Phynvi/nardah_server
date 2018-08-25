@@ -342,7 +342,7 @@ public final class Config {
 	/**
 	 * BOTSPAWN (DO NOT TOUCH
 	 **/
-	public static final Position BOTSPAWN = new Position(3086, 3489, 0);
+	public static final Position BOTSPAWN = new Position(3428, 2902, 0);
 	
 	/**
 	 * Edgeville PK.

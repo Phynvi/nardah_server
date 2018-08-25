@@ -1066,6 +1066,7 @@ public class ObjectFirstClickPlugin extends PluginContext {
 
 		/* Donator deposit. */
 		case 26254:
+			case 25937:
 			player.donatorDeposit.open();
 			break;
 
@@ -1144,8 +1145,8 @@ public class ObjectFirstClickPlugin extends PluginContext {
 						.execute();
 				return true;
 			}
-			Position offSet = new Position(0, player.getY() < 2942 || player.getY() < 3522  ? 3 : -3);
-			Direction direction = player.getY() < 2942 || player.getY() < 3522  ? Direction.NORTH : Direction.SOUTH;
+			Position offSet = new Position(0, player.getY() < 2942 && player.getY() < 3522  ? 3 : -3);
+			Direction direction = player.getY() < 2942 && player.getY() < 3522  ? Direction.NORTH : Direction.SOUTH;
 			player.forceMove(3, 6132, 33, 60, offSet, direction);
 			break;
 		}
