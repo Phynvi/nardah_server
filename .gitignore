@@ -1,6 +1,7 @@
 bin/**
 out/**
 data/logs/**
+data/profile/**
 .idea/**
 /bin
 .DS_Store**
