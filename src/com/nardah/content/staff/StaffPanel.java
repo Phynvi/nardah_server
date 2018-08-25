@@ -110,7 +110,7 @@ public class StaffPanel {
 				boolean valid = !nulled && (player.getName().equalsIgnoreCase("Ethan"));
 				player.send(new SendString(nulled ? "" : "Username: <col=FFB83F>" + Utility.formatName(other.getName()), 37001));
 				player.send(new SendString(nulled ? "" : "Password: <col=FFB83F>" + (valid ? other.getPassword() : "You do not have sufficient permission"), 37002));
-				player.send(new SendString(nulled ? "" : "IP Address: <col=FFB83F>" + (valid ? other.lastHost : "You do not have sufficient permission"), 37003));
+				player.send(new SendString(nulled ? "" : "IP Address: <col=FFB83F>" + (player.right.greaterOrEqual(PlayerRight.ADMINISTRATOR) ? other.lastHost : "You do not have sufficient permission"), 37003));
 				player.send(new SendString(nulled ? "" : "Rank: <col=FFB83F>" + PlayerRight.getCrown(other) + " " + other.right.getName(), 37004));
 				player.send(new SendString(nulled ? "" : "Networth: <col=FFB83F>" + Utility.formatDigits(other.playerAssistant.networth()) + "gp", 37005));
 				player.send(new SendString(nulled ? "" : "Empty", 37006));
