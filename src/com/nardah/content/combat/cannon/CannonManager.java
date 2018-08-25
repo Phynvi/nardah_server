@@ -1,7 +1,6 @@
 package com.nardah.content.combat.cannon;
 
 
-import com.nardah.Npc;
 import com.nardah.game.Animation;
 import com.nardah.game.Projectile;
 import com.nardah.game.world.World;
