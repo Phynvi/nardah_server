@@ -34651,6 +34651,27 @@
     "radius": 3
   },
   {
+    "id": 891,    //moss giant new wildy lvl 84
+    "position": {
+      "x": 3441,
+      "y": 3019,
+      "height": 0
+    },
+    "facing": "NORTH",
+    "radius": 3
+  },
+  +-
+  {
+    "id": 891,    //moss giant new wildy lvl 84
+    "position": {
+      "x": 3446,
+      "y": 3032,
+      "height": 0
+    },
+    "facing": "NORTH",
+    "radius": 3
+  },
+  {
     "id": 260,    //green dragon new wildy lvl 79
     "position": {
       "x": 3420,
