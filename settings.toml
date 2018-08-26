@@ -11,8 +11,8 @@ parallel_game_engine = false
 highscores_enabled = true
 
 [client]
-client_version = 8
-cache_version = 6
+client_version = 9
+cache_version = 7
 
 [game]
 skull_time = 720
