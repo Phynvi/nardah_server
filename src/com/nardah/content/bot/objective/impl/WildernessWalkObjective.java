@@ -4,6 +4,7 @@ import com.nardah.content.bot.PlayerBot;
 import com.nardah.content.bot.objective.BotObjectiveListener;
 import com.nardah.game.world.position.Position;
 import com.nardah.util.RandomUtils;
+import javafx.geometry.Pos;
 
 public class WildernessWalkObjective implements BotObjectiveListener {
 
@@ -25,7 +26,8 @@ public class WildernessWalkObjective implements BotObjectiveListener {
 			if(y > 3547)
 				y = 3547;
 
-			bot.walkExactlyTo(Position.create(x, y));
+			Position pos = new Position(3429, 2940);
+			bot.walkExactlyTo(Position.create(pos.getX(), pos.getY()));
 			bot.pause(RandomUtils.inclusive(4, 15));
 		});
 	}

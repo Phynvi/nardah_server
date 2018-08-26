@@ -11,8 +11,8 @@ public class WildernessDitchObjective implements BotObjectiveListener {
 
 	@Override
 	public void init(PlayerBot bot) {
-		int x = RandomUtils.inclusive(3083, 3108);
-		Position position = Position.create(x, 3520);
+		int x = RandomUtils.inclusive(3428, 3436);
+		Position position = Position.create(x, 2943);
 		bot.walkTo(position, () -> finish(bot));
 	}
 

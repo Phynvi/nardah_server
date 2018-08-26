@@ -20,6 +20,10 @@ public class ItemStatsDumper {
 
 	private static List<String> list = new ArrayList<>();
 
+	public static void main(String[] args) {
+		printStats();
+	}
+
 	public static void printStats() {
 		for (int i = 0; i < 22538; ++i) {
 			ItemDefinition item = ItemDefinition.get(i);
