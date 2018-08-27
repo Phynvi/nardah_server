@@ -4,7 +4,6 @@ import com.nardah.game.task.Task;
 import com.nardah.game.world.World;
 import com.nardah.game.world.entity.actor.player.Player;
 import com.nardah.game.world.region.Region;
-import com.nardah.net.packet.out.SendGroundItem;
 
 /**
  * @author <a href="http://www.rune-server.org/members/stand+up/">Stand Up</a>
@@ -18,7 +17,7 @@ public final class GroundItemEvent extends Task {
 	private static final int MINUTE = 100;
 
 	/**
-	 * The ground item this randomevent is running for.
+	 * The ground item this random event is running for.
 	 */
 	private final GroundItem groundItem;
 
@@ -39,7 +38,7 @@ public final class GroundItemEvent extends Task {
 	public void execute() {
 		switch(groundItem.policy) {
 			case GLOBAL:
-				if(++minutes < 5) {
+				if(++minutes < 2) {
 					return;
 				}
 
@@ -50,7 +49,7 @@ public final class GroundItemEvent extends Task {
 				cancel();
 				break;
 			case ONLY_OWNER:
-				if(++minutes < 2) {
+				if(++minutes < 1) {
 					return;
 				}
 
@@ -68,10 +67,14 @@ public final class GroundItemEvent extends Task {
 						if(!groundItem.canSee(player))
 							continue;
 
-						if(groundItem.player.usernameLong != player.usernameLong)
-							player.send(new SendGroundItem(groundItem));
+						if(!groundItem.player.getName().equals(player.getName())) {
+//							System.out.println(groundItem.player.getName() + "'s ground item should now be seen by " + player.getName());
+							groundItem.unregister();
+							GroundItem.createGlobal(groundItem.player, groundItem.item, groundItem.getPosition());
+						}
 					}
 				}
+				cancel();
 				break;
 		}
 	}

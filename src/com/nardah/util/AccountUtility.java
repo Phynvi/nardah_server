@@ -86,12 +86,10 @@ public class AccountUtility {
 		try {
 
 			if (name.isEmpty() || name.length() > 12 || name.length() < 3 || password.isEmpty()) {
-				System.out.println("issue here 4");
 				return false;
 			} else {
 
 				if (exists(name)) {
-					System.out.println("issue here 3");
 					return false;
 				}
 

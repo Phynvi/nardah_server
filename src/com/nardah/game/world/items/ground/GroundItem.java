@@ -102,6 +102,8 @@ public final class GroundItem extends Entity {
 		this.player = player;
 		this.instance = player.instance;
 	}
+
+
 	
 	public boolean canSee(Player other) {
 		if(item.isTradeable() && policy.equals(GroundItemPolicy.GLOBAL)) {

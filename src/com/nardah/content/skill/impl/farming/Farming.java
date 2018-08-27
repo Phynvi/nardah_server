@@ -15,37 +15,18 @@ import com.nardah.util.Utility;
 
 import java.io.*;
 
-public class Farming extends Skill {
+public class Farming {
 	private final Player player;
 	private Plant[] plants = new Plant[4];
 	private GrassyPatch[] patches = new GrassyPatch[4];
 	//	private Map<Integer, BitConfigBuilder> configMap = new HashMap<>();
 	
 	public Farming(Player player) {
-		super(Skill.FARMING, 1, 0);
 		this.player = player;
 		
 		for(int i = 0; i < patches.length; i++)
 			if(patches[i] == null)
 				patches[i] = new GrassyPatch();
-	}
-	
-	@Override
-	protected boolean useItem(Player player, ItemOnObjectInteractionEvent event) {
-		switch(event.getType()) {
-			case ITEM_ON_OBJECT:
-				Item item = event.getItem();
-				GameObject object = event.getObject();
-				System.out.println("amberrrr");
-				if(player.getFarming().fillWateringCans(item.getId(), object))
-					return true;
-				if(player.getFarming().plant(item.getId(), object.getX(), object.getY()))
-					return true;
-				if(player.getFarming().useItemOnPlant(item.getId(), object.getX(), object.getY()))
-					return true;
-				break;
-		}
-		return false;
 	}
 	
 	public void sequence() {
@@ -306,7 +287,6 @@ public class Farming extends Skill {
 	}
 	
 	public boolean plant(int seed, int x, int y) {
-		System.out.println("amber");
 		if(!Plants.isSeed(seed)) {
 			return false;
 		}

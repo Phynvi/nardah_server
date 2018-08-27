@@ -124,7 +124,6 @@ public final class PlayerPersistFile implements PlayerPersistable {
 				if (Config.FORUM_INTEGRATION) {
 					LoginResponse response = LoginResponse.NORMAL;
 					if (!AccountUtility.verify(player.getName(), expectedPassword)) {
-						System.out.println("issue here");
 						response = LoginResponse.INVALID_CREDENTIALS;
 					}
 					return response;

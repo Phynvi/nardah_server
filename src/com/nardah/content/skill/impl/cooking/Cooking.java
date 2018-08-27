@@ -12,6 +12,7 @@ import com.nardah.game.world.entity.skill.Skill;
 import com.nardah.game.world.items.Item;
 import com.nardah.game.world.items.ItemDefinition;
 import com.nardah.game.world.object.GameObject;
+import com.nardah.game.world.object.ObjectDefinition;
 import com.nardah.net.packet.out.SendInputAmount;
 import com.nardah.net.packet.out.SendMessage;
 import com.nardah.util.Utility;
@@ -24,14 +25,20 @@ import java.util.Arrays;
  */
 public class Cooking extends Skill {
 
-	private transient final String[] objects = {"range", "fire", "oven", "stove", "cooking range", "fireplace"};
+	private transient final String[] objects = {"range", "fire", "oven", "stove", "cooking range"};
 
 	public Cooking(int level, double experience) {
 		super(Skill.COOKING, level, experience);
 	}
 
 	private boolean cookableObject(GameObject object) {
-		String name = object.getDefinition().name.toLowerCase();
+		final ObjectDefinition def = object.getDefinition();
+
+		if (def == null || def.name == null) {
+			return false;
+		}
+
+		final String name = def.name.toLowerCase();
 		return Arrays.stream(objects).anyMatch(name::contains);
 	}
 

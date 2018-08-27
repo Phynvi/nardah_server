@@ -130,6 +130,7 @@ public final class MobDropManager {
 					GroundItem.create(killer, single, dropPosition);
 			} else {
 				GroundItem.create(killer, item, dropPosition);
+
 			}
 		}
 	}

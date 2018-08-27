@@ -43,7 +43,6 @@ public class Chance<T> {
 		this.objects = objects;
 		sum = objects.stream().mapToDouble(WeightedObject::getWeight).sum();
 		objects.sort((first, second) -> (int) Math.signum(second.getWeight() - first.getWeight()));
-		System.out.println(sum);
 	}
 	
 	/**

@@ -11,6 +11,8 @@ import com.nardah.content.event.EventDispatcher;
 import com.nardah.content.event.impl.OnKillEvent;
 import com.nardah.game.world.entity.actor.mob.drop.MobDropManager;
 import com.nardah.game.world.entity.actor.player.PlayerRight;
+import com.nardah.game.world.entity.combat.CombatUtil;
+import com.nardah.game.world.entity.combat.effect.CombatEffectType;
 import com.nardah.game.world.entity.combat.strategy.npc.boss.arena.ArenaUtility;
 import com.nardah.game.world.entity.combat.strategy.npc.boss.galvek.GalvekUtility;
 import com.nardah.game.world.entity.combat.strategy.npc.boss.skotizo.SkotizoUtility;
@@ -77,12 +79,14 @@ public final class MobDeath extends ActorDeath<Mob> {
 		if(killer == null)
 			return;
 
-		System.out.println("Killer " + killer.getType());
-		
 		/* Mob name. */
 		String name = mob.getName().toUpperCase().replace(" ", "_");
 		
 		runnable.run();
+		mob.unpoison();
+		mob.unvenom();
+		CombatUtil.cancelEffect(mob, CombatEffectType.POISON);
+		CombatUtil.cancelEffect(mob, CombatEffectType.VENOM);
 		
 		switch(killer.getType()) {
 			case PLAYER:
@@ -775,26 +779,6 @@ public final class MobDeath extends ActorDeath<Mob> {
 				break;
 			case NPC:
 				//      Mob npcKiller = killer.getMob();
-				break;
-			case DWARF_CANNON:
-				System.out.println("I died by a cannon.");
-				playerKiller = killer.getPlayer();
-				/* Mob drop. */
-				MobDropManager.drop(playerKiller, mob);
-
-				/* The slayer kill activator. */
-				playerKiller.slayer.activate(mob, 1, false);
-
-				/* The followers. */
-				if(playerKiller.followers.contains(mob.getNpc())) {
-					playerKiller.followers.remove(mob);
-				}
-
-				if(playerKiller.getBossPoints() == 5000) {
-					AchievementHandler.activate(playerKiller, AchievementKey.BOSSPOINT, 1);
-				}
-				/* Activity. */
-				EventDispatcher.execute(playerKiller, new OnKillEvent(mob));
 				break;
 		}
 	}

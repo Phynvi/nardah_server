@@ -157,6 +157,7 @@ public final class PlayerDeath extends ActorDeath<Player> {
 		}
 		
 		mob.unpoison();
+		mob.unvenom();
 		CombatUtil.cancelEffect(mob, CombatEffectType.POISON);
 		CombatUtil.cancelEffect(mob, CombatEffectType.VENOM);
 		
