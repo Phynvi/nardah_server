@@ -62,6 +62,7 @@ public final class TaskManager {
 			pending.add(task);
 		} catch(Exception ex) {
 			logger.error(String.format("error scheduling task: %s", task.getClass().getSimpleName()));
+			ex.printStackTrace();
 		}
 	}
 	

@@ -3,9 +3,7 @@ package com.nardah.util.chance;
 import com.nardah.game.world.items.Item;
 import com.nardah.util.RandomUtils;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Handles a random chance.
@@ -145,8 +143,9 @@ public class Chance<T> {
 		return array;
 	}
 	
-	public WeightedObject<T> random() {
-		return objects.get(RandomUtils.inclusive(0, objects.size() - 1));
+	public WeightedObject<T> get(int index) {
+
+		return objects.get(/*RandomUtils.inclusive(0, objects.size() - 1)*/index);
 	}
 	
 	public int size() {

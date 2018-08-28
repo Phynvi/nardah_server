@@ -32,7 +32,13 @@ import java.util.stream.Stream;
 public class Utility {
 
 	public static void main(String[] args) {
-//			ClueScrollPlugin.declare();
+		StringBuilder sb = new StringBuilder();
+		int[] xs = {31, 72, 113, 154, 195, 236, 277, 318, 359, 400, 441};
+		int index_xs = 0;
+		for (int i = 1; i <= 55; i++) {
+			System.out.println("rsinterface.child(" + (i + 11) + ", 595" + (i + 14) + ", " + (i % 5 == 0 ? xs[index_xs++] : xs[index_xs])  + ", 275);");
+		}
+//		System.out.println(sb.toString());
 	}
 	
 	/**

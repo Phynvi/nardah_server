@@ -11,6 +11,7 @@ import com.nardah.util.log.LoggerType;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 
+import java.util.ArrayList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -24,7 +25,7 @@ public final class GameSession extends Session {
 	private static final Logger logger = LogManager.getLogger(LoggerType.NETWORKING);
 	private final Queue<GamePacket> queuedPackets = new ConcurrentLinkedQueue<>();
 	private final Queue<GamePacket> outgoingPackets = new ConcurrentLinkedQueue<>();
-	
+
 	private final Player player;
 	
 	GameSession(Channel channel, Player player) {

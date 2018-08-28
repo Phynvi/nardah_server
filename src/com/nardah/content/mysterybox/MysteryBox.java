@@ -26,6 +26,10 @@ public abstract class MysteryBox {
 	public static void load() {
 		MysteryBox BRONZE_BOX = new BronzeMysteryBox();
 		MYSTERY_BOXES.put(BRONZE_BOX.item(), BRONZE_BOX);
+		MysteryBox SILVER_BOX = new SilverMysteryBox();
+		MYSTERY_BOXES.put(SILVER_BOX.item(), SILVER_BOX);
+		MysteryBox GOLD_BOX = new GoldMysteryBox();
+		MYSTERY_BOXES.put(GOLD_BOX.item(), GOLD_BOX);
 		/*MysteryBox SILVER_BOX = new SilverMysteryBox();
 		MysteryBox GOLD_BOX = new GoldMysteryBox();
 		MysteryBox GOD_SWORD_BOX = new GodswordMysteryBox();
