@@ -45,8 +45,8 @@ public class MysteryBoxManager {
 		
 		box = mBox.get();
 		count = player.inventory.computeAmountForId(item.getId());
-		player.send(new SendItemOnInterface(59581, mBox.get().rewards()));
-		player.send(new SendScrollbar(59580, mBox.get().rewards().length * 5));
+		player.send(new SendItemOnInterface(59581, mBox.get().rewards().toItemArray()));
+		player.send(new SendScrollbar(59580, mBox.get().rewards().size() * 5));
 		player.send(new SendItemOnInterface(59512));
 		player.send(new SendColor(59508, 0x37991C));
 		player.send(new SendString(mBox.get().name(), 59503));

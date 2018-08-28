@@ -3,6 +3,7 @@ package com.nardah.content.mysterybox;
 import com.nardah.content.mysterybox.impl.*;
 import com.nardah.game.world.items.Item;
 import com.nardah.util.chance.Chance;
+import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +18,7 @@ public abstract class MysteryBox {
 	/**
 	 * The map containing all the mystery boxes.
 	 */
-	private static Map<Integer, MysteryBox> MYSTERY_BOXES = new HashMap<>();
+	private static Int2ObjectArrayMap<MysteryBox> MYSTERY_BOXES = new Int2ObjectArrayMap<>();
 	
 	/**
 	 * Handles loading the mystery boxes.

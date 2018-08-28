@@ -16,4 +16,3 @@ data/cache/
 *.userlibraries
 *.class
 data/players/**
-data/profile/save/Ethan.json

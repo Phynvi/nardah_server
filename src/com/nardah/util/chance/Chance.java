@@ -1,7 +1,9 @@
 package com.nardah.util.chance;
 
 import com.nardah.game.world.items.Item;
+import com.nardah.util.RandomUtils;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -96,6 +98,24 @@ public class Chance<T> {
 	/**
 	 * Generates a {@code WeightedObject}.
 	 */
+	public WeightedObject<T> nextObject() {
+		double rnd = Math.random() * sum;
+		double hit = 0;
+		
+		for(WeightedObject<T> obj : objects) {
+			hit += obj.getWeight();
+			
+			if(hit >= rnd) {
+				return obj;
+			}
+		}
+		
+		throw new AssertionError("The random number [" + rnd + "] is too large!");
+	}
+	
+	/**
+	 * Generates a {@code WeightedObject}.
+	 */
 	public WeightedObject<T> next(double boost) {
 		if(boost <= 0 || boost > 1) {
 			throw new IllegalArgumentException("Boost is outside of the domain: (0, 1]");
@@ -123,6 +143,14 @@ public class Chance<T> {
 			count++;
 		}
 		return array;
+	}
+	
+	public WeightedObject<T> random() {
+		return objects.get(RandomUtils.inclusive(0, objects.size() - 1));
+	}
+	
+	public int size() {
+		return objects.size();
 	}
 
 	public ChanceType getType() {

@@ -58,7 +58,7 @@ rsa_exponent = "7264025230358827864446787683450665451169288273687814267447370567
 
 [website]
 website_url = "http://nardah.com"
-website_integration = true
+website_integration = false
 forum_db_url = "jdbc:mysql://nardah.com:3306/runity_global"
 forum_db_user = "runity_root"
 forum_db_pass = "JNfIn3IvH5$V"

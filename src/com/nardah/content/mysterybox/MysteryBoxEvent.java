@@ -1,74 +1,49 @@
 package com.nardah.content.mysterybox;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import com.nardah.game.task.TickableTask;
 import com.nardah.game.world.World;
 import com.nardah.game.world.entity.actor.player.Player;
 import com.nardah.game.world.items.Item;
-import com.nardah.net.packet.out.SendColor;
-import com.nardah.net.packet.out.SendConfig;
-import com.nardah.net.packet.out.SendItemOnInterfaceSlot;
-import com.nardah.net.packet.out.SendString;
+import com.nardah.net.packet.out.*;
 import com.nardah.util.RandomUtils;
 import com.nardah.util.Utility;
-
+import com.nardah.util.chance.WeightedChance;
+import com.nardah.util.chance.WeightedObject;
 
 public class MysteryBoxEvent extends TickableTask {
+	
 	private final Player player;
-	private List<Item> items;
-	private List<Item> allItems;
-	private int speed;
 	private final MysteryBoxManager mysteryBox;
+	private final List<WeightedObject<Item>> items = new ArrayList<>(11);
+	
+	
+	private int result;
 
 
 	MysteryBoxEvent(Player player) {
 		super(false, 1);
 		this.player = player;
-		this.items = new ArrayList<>();
-		this.allItems = new ArrayList<>();
-		this.speed = Utility.random(8, 12);
 		this.mysteryBox = player.mysteryBox;
 	}
 
-	private void move() {
-		allItems.add(items.get(0));
-		items.remove(0);
-		Item next = getNextItem();
-		allItems.remove(next);
-		items.add(next);
-	}
-
-	private Item getNextItem() {
-		Item next = null;
-		for (Item item : allItems) {
-			if (!items.contains(item)) {
-				next = item;
-				break;
-			}
-		}
-		return next;
-	}
-
 	private void reward() {
-		Item reward = items.get(5);
+		WeightedObject<Item> reward = items.get(result);
 		String boxName = mysteryBox.box.name();
-
-		Item newItem = reward;
-		if (reward.getAmount() > 1 && reward.isNoteable()) {
-			newItem = new Item(reward.getNotedId(), reward.getAmount());
+		
+		WeightedObject<Item> newItem = reward;
+		if (reward.get().getAmount() > 1 && reward.get().isNoteable()) {
+			newItem = new WeightedChance<>(reward.getWeight(), new Item(reward.get().getNotedId(), reward.get().getAmount()));
 		}
 
-		player.inventory.add(newItem);
-		player.dialogueFactory.sendItem(boxName, "Congratulations, you have won " + Utility.getAOrAn(reward.getName()) + " " + reward.getName() + "!", reward.getId()).execute();
+		player.inventory.add(newItem.get());
+		player.dialogueFactory.sendItem(boxName, "Congratulations, you have won " + Utility.getAOrAn(reward.get().getName()) + " " + reward.get().getName() + "!", reward.get().getId()).execute();
 		player.send(new SendColor(59508, 0x37991C));
 
 		byte type = getType(reward);
 		if (type != 1) {
-			World.sendMessage("<icon=17><col=5739B3> Nardah: <col=" + player.right.getColor() + ">" + player.getName() + " </col>has won " + Utility.getAOrAn(reward.getName()) + " <col=5739B3>" + reward.getName() + " </col>from the <col=5739B3>" + boxName + "</col>.");
+			World.sendMessage("<icon=17><col=5739B3> Nardah: <col=" + player.right.getColor() + ">" + player.getName() + " </col>has won " + Utility.getAOrAn(reward.get().getName()) + " <col=5739B3>" + reward.get().getName() + " </col>from the <col=5739B3>" + boxName + "</col>.");
 		}
 
 		player.locking.unlock();
@@ -83,32 +58,29 @@ public class MysteryBoxEvent extends TickableTask {
 	protected void onSchedule() {
 		player.dialogueFactory.clear();
 		player.locking.lock();
-
-		allItems.addAll(Arrays.asList(mysteryBox.box.rewards().toItemArray()));
+		
 		player.inventory.remove(mysteryBox.box.item(), 1);
 		mysteryBox.count = player.inventory.computeAmountForId(mysteryBox.box.item());
-		Collections.shuffle(allItems);
-		Collections.shuffle(allItems);
-
 
 		for (int index = 0; index < 11; index++) {
-			if (index >= allItems.size())
-				continue;
-			Item item = allItems.get(index);
-			items.add(item);
-			allItems.remove(index);
+			items.add(mysteryBox.box.rewards().random());
 		}
+		
+		//getting reward.
+		WeightedObject<Item> res = mysteryBox.box.rewards().nextObject();
+		result = RandomUtils.inclusive(0, 11);
+		items.set(result, res);
 
 		player.send(new SendColor(59508, 0xF01616));
 		player.send(new SendString("You have " + mysteryBox.count + " mystery box available!", 59507));
 
 	}
 
-	private byte getType(Item item) {
+	private byte getType(WeightedObject<Item> item) {
 		byte type = 1;
-		if (item.getValue() * item.getAmount() >= mysteryBox.box.rareValue()) {
+		if (item.get().getValue() * item.get().getAmount() >= mysteryBox.box.rareValue()) {
 			type = 2;
-		} else if (!item.isTradeable()) {
+		} else if (!item.get().isTradeable()) {
 			type = 0;
 		}
 		return type;
@@ -116,28 +88,21 @@ public class MysteryBoxEvent extends TickableTask {
 
 	@Override
 	protected void tick() {
-		move();
-
-		for (int index = 0; index < 11; index++) {
-			if (index >= items.size())
-				continue;
-			Item item = items.get(index);
-
-			player.send(new SendConfig((430 + index), getType(item)));
-			player.send(new SendItemOnInterfaceSlot(59512, item, index));
-		}
-
-		if (tick == speed) {
-			Item reward = items.get(6);
-			if (getType(reward) == 2 && RandomUtils.success(.50)) {
-				speed++;
-			} else if (getType(reward) == 1 && RandomUtils.success(.55)) {
-				speed++;
-			} else {
-				setDelay(1);
+	
+		if(tick == 0) {
+			for(int index = 0; index < 11; index++) {
+				if(index >= items.size())
+					continue;
+				WeightedObject<Item> item = items.get(index);
+				player.send(new SendConfig((430 + index), getType(item)));
+				player.send(new SendItemOnInterfaceSlot(59512, item.get(), index));
 			}
+			System.out.println("send: " + result);
+			player.send(new SendMysteryBoxResult(result));
 		}
-		if (tick > speed)
+		
+		
+		if(tick == 13)
 			cancel();
 	}
 
