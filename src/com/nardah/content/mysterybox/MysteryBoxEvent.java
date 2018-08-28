@@ -84,7 +84,7 @@ public class MysteryBoxEvent extends TickableTask {
 		player.dialogueFactory.clear();
 		player.locking.lock();
 
-		allItems.addAll(Arrays.asList(mysteryBox.box.rewards()));
+		allItems.addAll(Arrays.asList(mysteryBox.box.rewards().toItemArray()));
 		player.inventory.remove(mysteryBox.box.item(), 1);
 		mysteryBox.count = player.inventory.computeAmountForId(mysteryBox.box.item());
 		Collections.shuffle(allItems);

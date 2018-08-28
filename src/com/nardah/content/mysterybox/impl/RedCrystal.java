@@ -7,8 +7,8 @@ import com.nardah.game.world.items.Item;
  * The silver (tier 2) mystery box.
  * @author Daniel
  */
-public class RedCrystal extends MysteryBox {
-	@Override
+public class RedCrystal /*extends MysteryBox*/ {
+	/*@Override
 	protected String name() {
 		return "Red crystal";
 	}
@@ -69,5 +69,5 @@ public class RedCrystal extends MysteryBox {
 				new Item(2579, 1), // WIZARD_BOOTS
 				new Item(2581, 1) // ROBIN_HOOD_HAT
 		};
-	}
+	}*/
 }

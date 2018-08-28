@@ -20,16 +20,6 @@
     }
   },
   {
-    "id": 15,
-    "radius": "0",
-    "facing": "NORTH",
-    "position": {
-      "x": 3430,
-      "y": 2913,
-      "height": 0
-    }
-  },
-  {
     "id": 5441,
     "radius": "0",
     "facing": "SOUTH",
@@ -34545,26 +34535,6 @@
     "position": {
       "x": 3414,
       "y": 2909,
-      "height": 0
-    },
-    "facing": "NORTH",
-    "radius": 3
-  },
-  {
-    "id": 3104,	//Paladin
-    "position": {
-      "x": 3415,
-      "y": 2914,
-      "height": 0
-    },
-    "facing": "NORTH",
-    "radius": 3
-  },
-  {
-    "id": 3104,	//Paladin
-    "position": {
-      "x": 3419,
-      "y": 2908,
       "height": 0
     },
     "facing": "NORTH",

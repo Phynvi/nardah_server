@@ -16,7 +16,7 @@ public class CombatTarget {
 	/**
 	 * The aggression timeout in minutes.
 	 */
-	private static final int AGGRESSION_TIMEOUT = 20;
+	private static final int AGGRESSION_TIMEOUT = 5;
 	private final Actor actor;
 	private Actor target;
 	private int distance;
@@ -45,7 +45,7 @@ public class CombatTarget {
 			actor.getCombat().reset();
 			if(actor.isNpc() && actor.getNpc().boundaries.length > 0) {
 				Position pos = Utility.randomElement(actor.getNpc().boundaries);
-				actor.interact(trgt);
+//				actor.interact(trgt);
 				actor.walkExactlyTo(pos, () -> {
 					actor.resetFace();
 					resetTarget();
@@ -65,12 +65,18 @@ public class CombatTarget {
 		}
 		
 		/* The actor is too far from target */
-		if(dist > aggressionRadius)
+		if(dist > aggressionRadius) {
+			System.out.println("The actor is too far from target");
+			resetTarget();
+			actor.resetFace();
 			return;
+		}
 		
 		/* The actor is already in combat with the target */
-		if(actor.getCombat().isAttacking(target))
+		if(actor.getCombat().isAttacking(target)) {
+			System.out.println("I am attempting to attack " + target.getPlayer().getName());
 			return;
+		}
 		
 		if(!actor.getCombat().attack(target)) {
 			actor.getCombat().reset();
@@ -86,8 +92,9 @@ public class CombatTarget {
 		int dist = Utility.getDistance(actor, other);
 		
 		/* The mob is too far from target */
-		if(dist > Region.VIEW_DISTANCE || dist >= distance)
+		if(dist > Region.VIEW_DISTANCE || dist >= distance) {
 			return;
+		}
 		
 		/* Found a closer target */
 		if(!isTarget(other) && SimplePathChecker.checkProjectile(actor, other)) {
@@ -109,7 +116,10 @@ public class CombatTarget {
 		for(Mob mob : player.viewport.getNpcsInViewport()) {
 			if(mob == null || !mob.isValid())
 				continue;
-			
+
+			if (mob.definition == null)
+				continue;
+
 			if(!mob.definition.isAttackable() || !mob.definition.isAggressive())
 				continue;
 			

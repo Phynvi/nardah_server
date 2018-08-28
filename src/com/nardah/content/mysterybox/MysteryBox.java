@@ -2,6 +2,7 @@ package com.nardah.content.mysterybox;
 
 import com.nardah.content.mysterybox.impl.*;
 import com.nardah.game.world.items.Item;
+import com.nardah.util.chance.Chance;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,8 +24,10 @@ public abstract class MysteryBox {
 	 */
 	public static void load() {
 		MysteryBox BRONZE_BOX = new BronzeMysteryBox();
-		MysteryBox SILVER_BOX = new SilverMysteryBox();
+		MYSTERY_BOXES.put(BRONZE_BOX.item(), BRONZE_BOX);
+		/*MysteryBox SILVER_BOX = new SilverMysteryBox();
 		MysteryBox GOLD_BOX = new GoldMysteryBox();
+		MysteryBox GOD_SWORD_BOX = new GodswordMysteryBox();
 		MysteryBox PET_BOX = new PetMysteryBox();
 		MysteryBox RED_CRYSTAL = new RedCrystal();
 		
@@ -32,7 +35,8 @@ public abstract class MysteryBox {
 		MYSTERY_BOXES.put(SILVER_BOX.item(), SILVER_BOX);
 		MYSTERY_BOXES.put(RED_CRYSTAL.item(), RED_CRYSTAL);
 		MYSTERY_BOXES.put(GOLD_BOX.item(), GOLD_BOX);
-		MYSTERY_BOXES.put(PET_BOX.item(), PET_BOX);
+		MYSTERY_BOXES.put(GOD_SWORD_BOX.item(), GOD_SWORD_BOX);
+		MYSTERY_BOXES.put(PET_BOX.item(), PET_BOX);*/
 	}
 	
 	/**
@@ -60,5 +64,5 @@ public abstract class MysteryBox {
 	/**
 	 * The rewards for the mystery box.
 	 */
-	protected abstract Item[] rewards();
+	protected abstract Chance<Item> rewards();
 }

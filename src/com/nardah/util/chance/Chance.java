@@ -11,7 +11,8 @@ import java.util.List;
  * @author Michael | Chex
  */
 public class Chance<T> {
-	
+
+
 	public enum ChanceType {
 		ALWAYS(100), COMMON(100), UNCOMMON(75), RARE(.6), VERY_RARE(.2);
 		
@@ -35,7 +36,11 @@ public class Chance<T> {
 	 * The sum of the weights.
 	 */
 	private double sum;
-	
+
+	/**
+	 * The chance type
+	 */
+	private ChanceType type;
 	/**
 	 * Creates a new instance of the class.
 	 */
@@ -66,6 +71,7 @@ public class Chance<T> {
 	 * Adds a new {@code WeightedObject} to the {@code #object} list.
 	 */
 	public final void add(ChanceType type, T t) {
+		this.type = type;
 		add(type.getWeight(), t);
 	}
 	
@@ -118,7 +124,11 @@ public class Chance<T> {
 		}
 		return array;
 	}
-	
+
+	public ChanceType getType() {
+		return type;
+	}
+
 	@Override
 	public String toString() {
 		return objects.toString();

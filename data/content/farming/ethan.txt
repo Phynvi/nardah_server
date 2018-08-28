@@ -12,13 +12,31 @@ END PATCH
 
 [PATCH]
 patch: 2
-stage: 0
-time: 1534541986484
+stage: 3
+time: 1535333594780
 END PATCH
 
 [PATCH]
 patch: 3
-stage: 0
-time: 1534541986484
+stage: 3
+time: 1535333567780
 END PATCH
+
+[PLANT]
+patch: 2
+plant: 18
+stage: 6
+watered: -1
+harvested: 0
+time: 1535333847407
+END PLANT
+
+[PLANT]
+patch: 3
+plant: 18
+stage: 6
+watered: -1
+harvested: 0
+time: 1535333851580
+END PLANT
 
