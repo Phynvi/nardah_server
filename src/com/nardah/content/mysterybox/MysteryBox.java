@@ -62,11 +62,6 @@ public abstract class MysteryBox {
 	protected abstract int item();
 	
 	/**
-	 * The amount considered for the item to be a rare item.
-	 */
-	protected abstract int rareValue();
-	
-	/**
 	 * The rewards for the mystery box.
 	 */
 	protected abstract Chance<Item> rewards();

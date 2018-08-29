@@ -7,13 +7,20 @@ import sx.blah.discord.handle.obj.IMessage;
 import sx.blah.discord.util.DiscordException;
 import sx.blah.discord.util.MissingPermissionsException;*/
 
+import com.nardah.game.world.World;
+import sx.blah.discord.api.events.EventSubscriber;
+import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedEvent;
+import sx.blah.discord.handle.obj.IMessage;
+import sx.blah.discord.util.DiscordException;
+import sx.blah.discord.util.MissingPermissionsException;
+
 /**
  * The discord dispatcher.
  * @author Daniel
  */
 public class DiscordDispatcher {
 
-	/*@EventSubscriber
+	@EventSubscriber
 	public void OnMesageEvent(MessageReceivedEvent event) throws DiscordException, MissingPermissionsException {
 		IMessage message = event.getMessage();
 		long channel = event.getChannel().getLongID();
@@ -30,6 +37,6 @@ public class DiscordDispatcher {
 			Discord.communityMessage("There are currently " + World.getStaffCount() + " staff online!");
 
 		}
-	}*/
+	}
 	
 }

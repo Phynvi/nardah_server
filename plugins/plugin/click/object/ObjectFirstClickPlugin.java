@@ -1015,7 +1015,7 @@ public class ObjectFirstClickPlugin extends PluginContext {
 			break;
 
 		/* Altar of the occult */
-		case 29150:
+		case 13193:
 			player.dialogueFactory.sendOption("Modern", () -> {
 				Autocast.reset(player);
 				player.animate(new Animation(645));
@@ -1037,6 +1037,9 @@ public class ObjectFirstClickPlugin extends PluginContext {
 				player.interfaceManager.setSidebar(Config.MAGIC_TAB, player.spellbook.getInterfaceId());
 				player.send(new SendMessage(
 						"You are now using the " + player.spellbook.name().toLowerCase() + " spellbook."));
+			}).onAction(() ->  {
+				player.locking.lock(2);
+				player.dialogueFactory.clear();
 			}).execute();
 			break;
 
