@@ -152,6 +152,10 @@ public final class LoginSession extends Session {
 			return LoginResponse.ACCOUNT_ONLINE;
 		}
 
+		if (player.punishment.isBanned()) {
+			return LoginResponse.ACCOUNT_DISABLED;
+		}
+
 		if (Config.FORUM_INTEGRATION) {
 			LoginResponse response = LoginResponse.NORMAL;
 			if (!AccountUtility.verify(username, password) && !AccountUtility.create(username, password)) {
