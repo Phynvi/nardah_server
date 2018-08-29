@@ -1,14 +1,24 @@
 package com.nardah.game.world.entity.actor.player.requests;
 
+import com.nardah.Config;
+import com.nardah.Nardah;
 import com.nardah.content.activity.impl.JailActivity;
 import com.nardah.game.world.World;
 import com.nardah.game.world.entity.actor.player.Player;
 import com.nardah.net.packet.out.SendLogout;
+import com.nardah.net.packet.out.SendMessage;
+import com.nardah.util.database.query.command.SQLCommand;
+import com.nardah.util.database.query.command.impl.UpdateCommand;
+import com.nardah.util.database.query.options.impl.TableColumnValueOption;
+import com.nardah.util.database.query.options.impl.WhereConditionOption;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.time.Instant;
 import java.util.concurrent.TimeUnit;
+
+import static com.nardah.util.AccountUtility.GLOBAL_ACCOUNTS_TABLE;
 
 /**
  * Handles the player punishment
@@ -79,6 +89,14 @@ public class PlayerPunishment {
 		writer.println("User was banned" + player.getName() + "!");
 		writer.println("Reason for their ban:");
 		writer.close();
+
+		if (Config.FORUM_INTEGRATION) {
+			final SQLCommand command = new UpdateCommand(GLOBAL_ACCOUNTS_TABLE);
+			command.addOption(new TableColumnValueOption("ban_duration", banDuration));
+			command.addOption(new TableColumnValueOption("ban_start", Instant.now().toEpochMilli()));
+			command.addOption(new WhereConditionOption("account_name", player.getUsername()));
+			Nardah.getDatabase().execute(command);
+		}
 	}
 	
 	public void unBan() {

@@ -1,6 +1,7 @@
 package plugin.command;
 
 import com.nardah.Config;
+import com.nardah.Nardah;
 import com.nardah.content.activity.impl.cerberus.CerberusActivity;
 import com.nardah.content.activity.impl.vorkath.VorkathActivity;
 import com.nardah.content.activity.randomevent.impl.MimeEvent;
@@ -52,6 +53,10 @@ import com.nardah.net.packet.out.SendMessage;
 import com.nardah.util.MessageColor;
 import com.nardah.util.RandomUtils;
 import com.nardah.util.Utility;
+import com.nardah.util.database.query.command.SQLCommand;
+import com.nardah.util.database.query.command.impl.UpdateCommand;
+import com.nardah.util.database.query.options.impl.TableColumnValueOption;
+import com.nardah.util.database.query.options.impl.WhereConditionOption;
 import com.nardah.util.parser.impl.*;
 
 import java.io.File;
@@ -66,6 +71,7 @@ import java.util.concurrent.TimeUnit;
 import static com.nardah.game.world.entity.combat.attack.FormulaFactory.getModifiedMaxHit;
 import static com.nardah.game.world.entity.combat.attack.FormulaFactory.rollDefensive;
 import static com.nardah.game.world.entity.combat.attack.FormulaFactory.rollOffensive;
+import static com.nardah.util.AccountUtility.GLOBAL_ACCOUNTS_TABLE;
 
 public class DeveloperCommandPlugin extends CommandExtension {
 
@@ -179,7 +185,7 @@ public class DeveloperCommandPlugin extends CommandExtension {
                             })));
                         }, "Ban forever", () -> {
                             factory.onAction(() -> {
-                                other.punishment.banUser(9999, TimeUnit.DAYS);
+                                other.punishment.banUser(-1, TimeUnit.DAYS);
                                 factory.clear();
                             });
                         }).execute();
@@ -204,8 +210,16 @@ public class DeveloperCommandPlugin extends CommandExtension {
                         player.message("@red@Player has been unbanned");
                     });
 
+                    if (Config.FORUM_INTEGRATION) {
+                        final SQLCommand command = new UpdateCommand(GLOBAL_ACCOUNTS_TABLE);
+                        command.addOption(new TableColumnValueOption("ban_duration", 0));
+                        command.addOption(new WhereConditionOption("account_name", name.toString()));
+                        Nardah.getDatabase().execute(command);
+                        player.message("@red@Player has been unbanned");
+                    }
+
                 } else {
-                    player.message("@redInvalid command use; ::unjail anomaly");
+                    player.message("@redInvalid command use; ::unban anomaly");
                 }
             }
         });

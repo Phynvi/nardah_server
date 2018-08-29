@@ -12,6 +12,9 @@ import com.nardah.util.database.query.options.impl.SelectionRangeOption;
 import com.nardah.util.database.query.options.impl.TableColumnValueOption;
 import com.nardah.util.database.query.options.impl.WhereConditionOption;
 
+import java.sql.ResultSet;
+import java.time.Instant;
+import java.util.Date;
 import java.util.logging.Logger;
 
 /**
@@ -49,7 +52,6 @@ public class AccountUtility {
 	public static boolean verify(String name, String password) {
 
 		try {
-
 			if (name.isEmpty() || name.length() > 12 || name.length() < 3) {
 				return false;
 			} else {
@@ -101,6 +103,8 @@ public class AccountUtility {
 				command.addOption(new TableColumnValueOption("password_salt", "default_salt"));
 				command.addOption(new TableColumnValueOption("password", password));
 				command.addOption(new TableColumnValueOption("signup_address", "0.0.0.0"));
+				command.addOption(new TableColumnValueOption("ban_duration", "0"));
+				command.addOption(new TableColumnValueOption("ban_start", "0"));
 				return Nardah.getDatabase().execute(command) > 0;
 			}
 
@@ -180,6 +184,7 @@ public class AccountUtility {
 
 	}
 
+
 	/**
 	 * Stores details of {@link Player} into the MySQL database
 	 * 
@@ -239,6 +244,26 @@ public class AccountUtility {
 
 		return null;
 
+	}
+
+	public static boolean isBanned(String name) {
+
+			SQLCommand command = new SelectCommand(GLOBAL_ACCOUNTS_TABLE);
+			command.addOption(new WhereConditionOption("account_name", name));
+
+		return Nardah.getDatabase().execute(command, rs -> {
+			if (rs.next()) {
+				long duration = rs.getLong("ban_duration");
+				long start = rs.getLong("ban_start");
+				if(duration < 0) { // perm ban
+					return true;
+				} else if (start > 0 && System.currentTimeMillis() - start < duration) {
+					return true;
+				}
+				return false;
+			}
+			return null;
+		});
 	}
 
 }

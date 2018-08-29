@@ -120,10 +120,6 @@ public final class LoginSession extends Session {
 		if(World.update.get()) {
 			return LoginResponse.SERVER_BEING_UPDATED;
 		}
-		if (player.punishment.isBanned()) {
-			return LoginResponse.ACCOUNT_DISABLED;
-		}
-		
 		if(isEmail) {
 			if(!Config.FORUM_INTEGRATION) {
 				return LoginResponse.BAD_USERNAME;
@@ -174,21 +170,6 @@ public final class LoginSession extends Session {
 		}
 		
 		return response;
-	}
-	
-	private boolean isBanned(long unixTime) {
-		// not banned
-		if(unixTime == 0) {
-			return false;
-		} else if(unixTime == -1) { // perm ban
-			return true;
-		}
-		
-		final Date date = Date.from(Instant.ofEpochSecond(unixTime));
-		
-		final Date currentDate = Date.from(Instant.now());
-		
-		return date.after(currentDate);
 	}
 	
 	/**

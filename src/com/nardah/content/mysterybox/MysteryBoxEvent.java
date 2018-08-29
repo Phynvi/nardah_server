@@ -110,7 +110,6 @@ public class MysteryBoxEvent extends TickableTask {
 					continue;
 				WeightedObject<Item> item = items.get(index);
 				player.send(new SendConfig((430 + index), getType(item)));
-				System.out.println(getType(item));
 				player.send(new SendItemOnInterfaceSlot(59512, item.get(), index));
 			}
 		}

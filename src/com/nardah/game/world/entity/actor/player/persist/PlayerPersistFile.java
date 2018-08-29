@@ -126,6 +126,9 @@ public final class PlayerPersistFile implements PlayerPersistable {
 					if (!AccountUtility.verify(player.getName(), expectedPassword)) {
 						response = LoginResponse.INVALID_CREDENTIALS;
 					}
+					if (AccountUtility.isBanned(player.getName())) {
+						response = LoginResponse.ACCOUNT_DISABLED;
+					}
 					return response;
 				} else {
 
