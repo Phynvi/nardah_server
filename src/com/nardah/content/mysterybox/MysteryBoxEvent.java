@@ -89,11 +89,11 @@ public class MysteryBoxEvent extends TickableTask {
 
 	private byte getType(WeightedObject<Item> item) {
 		byte type = 1;
-		if (item.getWeight() == Chance.ChanceType.UNCOMMON.getWeight()) {
+		if (item.getChanceType() == Chance.ChanceType.UNCOMMON) {
 			type = 2;
-		} else if (item.getWeight() == Chance.ChanceType.RARE.getWeight()) {
+		} else if (item.getChanceType()== Chance.ChanceType.RARE) {
 			type = 3;
-		} else if (item.getWeight() == Chance.ChanceType.VERY_RARE.getWeight()) {
+		} else if (item.getChanceType() == Chance.ChanceType.VERY_RARE) {
 			type = 4;
 		} else if (!item.get().isTradeable()) {
 			type = 0;
@@ -110,6 +110,7 @@ public class MysteryBoxEvent extends TickableTask {
 					continue;
 				WeightedObject<Item> item = items.get(index);
 				player.send(new SendConfig((430 + index), getType(item)));
+				System.out.println(getType(item));
 				player.send(new SendItemOnInterfaceSlot(59512, item.get(), index));
 			}
 		}

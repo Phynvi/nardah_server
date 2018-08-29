@@ -17,6 +17,8 @@ public class WeightedChance<T> implements WeightedObject<T> {
 	 * The weight type.
 	 */
 	private double weight;
+
+	private Chance.ChanceType type;
 	
 	public WeightedChance(double weight, T representation) {
 		if(weight <= 0) {
@@ -25,7 +27,16 @@ public class WeightedChance<T> implements WeightedObject<T> {
 		this.representation = Objects.requireNonNull(representation);
 		this.weight = weight;
 	}
-	
+
+	public WeightedChance(double weight, Chance.ChanceType type, T representation) {
+		if(weight <= 0) {
+			throw new IllegalArgumentException("The weight of an item must be larger than zero!");
+		}
+		this.representation = Objects.requireNonNull(representation);
+		this.weight = weight;
+		this.type = type;
+	}
+
 	@Override
 	public double getWeight() {
 		return weight;
@@ -35,7 +46,12 @@ public class WeightedChance<T> implements WeightedObject<T> {
 	public T get() {
 		return representation;
 	}
-	
+
+	@Override
+	public Chance.ChanceType getChanceType() {
+		return type;
+	}
+
 	@Override
 	public int compareTo(WeightedObject<T> o) {
 		return (int) (getWeight() - o.getWeight());

@@ -66,7 +66,16 @@ public class Chance<T> {
 		sum += weight;
 		objects.sort((first, second) -> (int) Math.signum(second.getWeight() - first.getWeight()));
 	}
-	
+	/**
+	 * Adds a new {@code WeightedObject} to the {@code #object} list.
+	 */
+	public final void add(double weight, ChanceType type, T t) {
+		this.type = type;
+		objects.add(new WeightedChance<>(weight, type, t));
+		sum += weight;
+		objects.sort((first, second) -> (int) Math.signum(second.getWeight() - first.getWeight()));
+	}
+
 	/**
 	 * Adds a new {@code WeightedObject} to the {@code #object} list.
 	 */

@@ -15,6 +15,10 @@ public interface WeightedObject<T> extends Comparable<WeightedObject<T>> {
 	 * Gets the representation of the weighted chance.
 	 */
 	T get();
+
+	default Chance.ChanceType getChanceType() {
+		return Chance.ChanceType.ALWAYS;
+	}
 	
 	@Override
 	String toString();
