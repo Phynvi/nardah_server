@@ -120,6 +120,9 @@ public final class LoginSession extends Session {
 		if(World.update.get()) {
 			return LoginResponse.SERVER_BEING_UPDATED;
 		}
+		if (player.punishment.isBanned()) {
+			return LoginResponse.ACCOUNT_DISABLED;
+		}
 		
 		if(isEmail) {
 			if(!Config.FORUM_INTEGRATION) {
@@ -152,9 +155,6 @@ public final class LoginSession extends Session {
 			return LoginResponse.ACCOUNT_ONLINE;
 		}
 
-		if (player.punishment.isBanned()) {
-			return LoginResponse.ACCOUNT_DISABLED;
-		}
 
 		if (Config.FORUM_INTEGRATION) {
 			LoginResponse response = LoginResponse.NORMAL;
