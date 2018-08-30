@@ -123,10 +123,10 @@ public class ClanChannelHandler {
 				player.send(new SendMessage("You do not have sufficient privileges to manage this clan!"));
 				return;
 			}
-			player.send(new SendString("1" + channel.getName(), 42102));
-			player.send(new SendString("11" + channel.getTag(), 42104));
-			player.send(new SendString("12" + channel.getSlogan(), 42106));
-			player.send(new SendString("13" + channel.getPassword(), 42108));
+			player.send(new SendString(channel.getName(), 42102));
+			player.send(new SendString(channel.getTag(), 42104));
+			player.send(new SendString(channel.getSlogan(), 42106));
+			player.send(new SendString(channel.getPassword(), 42108));
 			player.send(new SendString(channel.getDetails().type.getIcon() + "" + channel.getDetails().type.getName(), 42110));
 			player.send(new SendString(channel.getManagement().getRank(ENTER_RANK_INDEX) + " " + channel.getManagement().getEnter(), 42112));
 			player.send(new SendString(channel.getManagement().getRank(TALK_RANK_INDEX) + " " + channel.getManagement().getTalk(), 42114));

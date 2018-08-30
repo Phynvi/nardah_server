@@ -66,7 +66,6 @@ public class CombatTarget {
 		
 		/* The actor is too far from target */
 		if(dist > aggressionRadius) {
-			System.out.println("The actor is too far from target");
 			resetTarget();
 			actor.resetFace();
 			return;

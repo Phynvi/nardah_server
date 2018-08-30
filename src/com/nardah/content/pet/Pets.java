@@ -163,6 +163,8 @@ public class Pets {
 		if(message == 0) {
 			player.send(new SendMessage("You have lost your pet, luckily you insured it! Speak to the insurance agent to claim."));
 		}
+		player.pet.unregister();
+		player.pet = null;
 	}
 	
 	/**

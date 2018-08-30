@@ -1,5 +1,6 @@
 package com.nardah.game.world.entity.combat.strategy.player.special.melee;
 
+import com.nardah.Utility;
 import com.nardah.game.Animation;
 import com.nardah.game.Graphic;
 import com.nardah.game.UpdatePriority;
@@ -8,6 +9,7 @@ import com.nardah.game.world.entity.combat.hit.Hit;
 import com.nardah.game.world.entity.combat.strategy.player.PlayerMeleeStrategy;
 import com.nardah.game.world.entity.actor.Actor;
 import com.nardah.game.world.entity.actor.player.Player;
+import com.nardah.util.RandomUtils;
 
 /**
  * @author Michael | Chex
@@ -26,6 +28,11 @@ public class DragonDagger extends PlayerMeleeStrategy {
 	@Override
 	public void attack(Player attacker, Actor defender, Hit hit) {
 		super.attack(attacker, defender, hit);
+		if(Utility.random(1, 3) == 1) {
+			if (hit.getDamage() == 0) {
+				hit.setDamage(RandomUtils.inclusive(0, 20));
+			}
+		}
 		attacker.graphic(GRAPHIC);
 	}
 

@@ -7,6 +7,7 @@ import com.nardah.content.activity.Activity;
 import com.nardah.content.activity.impl.fightcaves.FightCaves;
 import com.nardah.content.activity.impl.pestcontrol.PestControl;
 import com.nardah.content.activity.impl.warriorguild.WarriorGuild;
+import com.nardah.content.activity.impl.zulrah.ZulrahActivity;
 import com.nardah.content.combat.cannon.CannonManager;
 import com.nardah.content.dialogue.impl.WellOfGoodwillDialogue;
 import com.nardah.content.masterminer.Util;
@@ -302,27 +303,38 @@ public class ObjectFirstClickPlugin extends PluginContext {
 			break;
 
 		case 32293:
-			if (player.inventory.getFreeSlots() <= 2) {
-				player.dialogueFactory.sendNpcChat(7481, "You need atleast 2 free slots to take the free supplies.")
+			if (!player.inventory.hasCapacityFor(new Item(2347))) {
+				player.dialogueFactory.sendStatement("You need atleast 1 free slot to take the free supplies.")
 						.execute();
 
 				return true;
 			}
-			if (!player.takeHammersDelay.elapsed(2, TimeUnit.MINUTES)) {
-				player.dialogueFactory.sendNpcChat(7481, "You can only do this once every " + 2 + " minutes!",
-						"Time Passed: " + Utility.getTime(player.takeHammersDelay.elapsedTime())).execute();
-
-				return true;
-			}
-			player.dialogueFactory.sendNpcChat(7481, "You've stolen the hammers before anyone could see you!")
+			player.dialogueFactory.sendItem("Crate", "You take a hammer from the crate.", new Item(2347))
 					.execute();
-			player.takeHammersDelay.reset();
 			player.animate(881);
 			player.inventory.add(2347, 1);
-
-			World.schedule(new ObjectReplacementEvent(object, 40));
+			player.locking.lock(1);
 
 			break;
+
+            case 30842:
+                player.locking.lock();
+                player.send(new SendFadeScreen("You climb down into the Catacombs... ", 1, 3));
+                World.schedule(5, () -> {
+                    player.move(new Position(1666, 10050, 0));
+                    player.locking.unlock();
+                });
+                break;
+            case 28894:
+                if (object.getPosition().matches(1666, 10051)) {
+                    player.locking.lock();
+                    player.send(new SendFadeScreen("You climb up into the home of Nardah... ", 1, 3));
+                    World.schedule(5, () -> {
+                        player.move(new Position(3405, 2913, 0));
+                        player.locking.unlock();
+                    });
+                }
+                break;
 
 		case 15931:
 			if (player.inventory.getFreeSlots() <= 2) {

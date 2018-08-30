@@ -115,7 +115,7 @@ public class Slayer {
 		
 		int assignment = 0;
 		if(toAssign.getDifficulty() == TaskDifficulty.EASY) {
-			assignment = Utility.random(35, 75);
+			assignment = Utility.random(1, 2);
 		} else if(toAssign.getDifficulty() == TaskDifficulty.MEDIUM) {
 			assignment = Utility.random(45, 80);
 		} else if(toAssign.getDifficulty() == TaskDifficulty.HARD) {
@@ -218,6 +218,7 @@ public class Slayer {
 			if(task.valid(mob.id)) {
 				amount -= killAmount;
 				int rewardPts = SlayerTask.getPoints(task.getDifficulty());
+				System.out.println(rewardPts);
 				if(amount <= 0) {
 					task = null;
 					amount = 0;
@@ -240,7 +241,7 @@ public class Slayer {
 						rewardPts *= 2;
 						player.message("Congratulations, you have completed 5 tasks in a row! You have earned " + rewardPts + " slayer points!");
 					} else {
-						if(PlayerRight.isDonator(player)) {
+						/*if(PlayerRight.isDonator(player)) {
 							rewardPts *= 2;
 						}
 						if(PlayerRight.isSuper(player)) {
@@ -258,7 +259,7 @@ public class Slayer {
 						if(PlayerRight.isSupreme(player)) {
 							rewardPts *= 4;
 						}
-						
+						*/
 						player.message("Congratulations, you have completed your assigned task! You have earned " + rewardPts + " slayer points!");
 					}
 					points += rewardPts;
