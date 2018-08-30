@@ -78,8 +78,6 @@ public class MysteryBoxEvent extends TickableTask {
 		WeightedObject<Item> res = mysteryBox.box.rewards().nextObject();
 		result = RandomUtils.inclusive(0, 10);
 		items.set(result, res);
-
-		player.send(new SendMysteryBoxResult(result));
 		System.out.println("send: " + result);
 
 		player.send(new SendColor(59508, 0xF01616));
@@ -112,6 +110,7 @@ public class MysteryBoxEvent extends TickableTask {
 				player.send(new SendConfig((430 + index), getType(item)));
 				player.send(new SendItemOnInterfaceSlot(59512, item.get(), index));
 			}
+			player.send(new SendMysteryBoxResult(result));
 		}
 		
 		
