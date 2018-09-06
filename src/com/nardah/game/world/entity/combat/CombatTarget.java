@@ -73,7 +73,7 @@ public class CombatTarget {
 		
 		/* The actor is already in combat with the target */
 		if(actor.getCombat().isAttacking(target)) {
-			System.out.println("I am attempting to attack " + target.getPlayer().getName());
+//			System.out.println("I am attempting to attack " + target.getPlayer().getName());
 			return;
 		}
 		

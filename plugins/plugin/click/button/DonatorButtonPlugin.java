@@ -58,7 +58,8 @@ public class DonatorButtonPlugin extends PluginContext {
 
 		if (button == -15103) {
 
-			player.message("This feature has been disabled, alternatively you can Sarah the nurse located at home.");
+			player.message("This feature has been disabled, alternatively you can drink from");
+			player.message("the Ornate Rejuvenation Pool at home. ");
 
 			/*
 			 * if (!player.restoreDelay.elapsed(15, TimeUnit.MINUTES) &&

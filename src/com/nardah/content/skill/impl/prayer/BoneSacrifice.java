@@ -52,7 +52,7 @@ public class BoneSacrifice extends Skill {
 	protected boolean useItem(Player player, ItemOnObjectInteractionEvent event) {
 		Item item = event.getItem();
 		GameObject object = event.getObject();
-		if(object.getId() != 409)
+		if(object.getId() != 409 && object.getId() != 13193)
 			return false;
 		if(!BoneData.forId(item.getId()).isPresent())
 			return false;
