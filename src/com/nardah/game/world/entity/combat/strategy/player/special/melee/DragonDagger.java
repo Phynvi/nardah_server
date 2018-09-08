@@ -1,6 +1,5 @@
 package com.nardah.game.world.entity.combat.strategy.player.special.melee;
 
-import com.nardah.Utility;
 import com.nardah.game.Animation;
 import com.nardah.game.Graphic;
 import com.nardah.game.UpdatePriority;
@@ -10,6 +9,7 @@ import com.nardah.game.world.entity.combat.strategy.player.PlayerMeleeStrategy;
 import com.nardah.game.world.entity.actor.Actor;
 import com.nardah.game.world.entity.actor.player.Player;
 import com.nardah.util.RandomUtils;
+import com.nardah.util.Utility;
 
 /**
  * @author Michael | Chex

@@ -39,10 +39,11 @@ public class InformationTabButtonPlugin extends PluginContext {
             case 29440:
                 InterfaceWriter.write(new InformationWriter(player));
                 return true;
-		/*case 29420:
-           PlayerGuideHandler guide = new PlayerGuideHandler();
-           guide.open(player);
-			break;*/
+            case 29420:
+               // PlayerGuideHandler guide = new PlayerGuideHandler();
+               // guide.open(player);
+                player.dialogueFactory.onAction(() -> RoyaltyProgram.open(player));
+                break;
             case 29421:
             case 29419:
             case 29423:
@@ -50,8 +51,6 @@ public class InformationTabButtonPlugin extends PluginContext {
                     player.dialogueFactory.onAction(player.activityLogger::open);
                 }, "Title Manager", () -> {
                     player.dialogueFactory.onAction(() -> TitleManager.open(player));
-                }, "Royalty Program", () -> {
-                    player.dialogueFactory.onAction(() -> RoyaltyProgram.open(player));
                 }).execute();
                 break;
             case 29429:

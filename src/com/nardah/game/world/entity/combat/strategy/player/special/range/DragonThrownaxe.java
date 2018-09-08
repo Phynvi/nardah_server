@@ -1,6 +1,5 @@
 package com.nardah.game.world.entity.combat.strategy.player.special.range;
 
-import com.nardah.Utility;
 import com.nardah.game.world.entity.combat.hit.Hit;
 import com.nardah.game.world.entity.combat.projectile.CombatProjectile;
 import com.nardah.game.Animation;
@@ -11,6 +10,7 @@ import com.nardah.game.world.entity.combat.strategy.player.PlayerRangedStrategy;
 import com.nardah.game.world.entity.actor.Actor;
 import com.nardah.game.world.entity.actor.player.Player;
 import com.nardah.util.RandomUtils;
+import com.nardah.util.Utility;
 
 /**
  * Handles the magic shortbow weapon special attack.

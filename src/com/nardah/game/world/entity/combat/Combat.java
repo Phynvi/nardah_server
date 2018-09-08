@@ -60,7 +60,8 @@ public class Combat<T extends Actor> {
 			Player player = attacker.getPlayer();
 			if(!player.interfaceManager.isMainClear() || !player.interfaceManager.isDialogueClear()) {
 				player.interfaceManager.close();
-				defender.getPlayer().interfaceManager.close();
+				if (defender instanceof  Player)
+					defender.getPlayer().interfaceManager.close();
 			}
 		}
 		
